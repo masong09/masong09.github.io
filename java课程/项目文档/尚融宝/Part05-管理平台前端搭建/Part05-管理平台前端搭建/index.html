@@ -1,0 +1,3917 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.6">
+    
+    
+      
+        <title>管理平台前端搭建 - 我的文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.cd566b2a.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#part05-" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="我的文档" class="md-header__button md-logo" aria-label="我的文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            我的文档
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              管理平台前端搭建
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/01%20Java%E6%A6%82%E8%BF%B0/01%20-%20Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0/" class="md-tabs__link md-tabs__link--active">
+        Java课程
+      </a>
+    </li>
+  
+
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC1%E7%AB%A0%20%E9%9D%A2%E8%AF%95%E8%AF%B4%E6%98%8E/" class="md-tabs__link">
+        Java就业面试
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../../.." class="md-tabs__link">
+      学习文档
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="我的文档" class="md-nav__button md-logo" aria-label="我的文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    我的文档
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Java课程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Java课程" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Java课程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1" type="checkbox" id="__nav_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1">
+          Java基础
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Java基础" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Java基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1_1" type="checkbox" id="__nav_1_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1_1">
+          基础部分
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="基础部分" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          基础部分
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/01%20Java%E6%A6%82%E8%BF%B0/01%20-%20Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0/" class="md-nav__link">
+        Java概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/02%20%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/02%20%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" class="md-nav__link">
+        基本语法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/03%20%E6%95%B0%E7%BB%84/03%20%E6%95%B0%E7%BB%84/" class="md-nav__link">
+        数组
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/04%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/04%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="md-nav__link">
+        面向对象
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/05%20%E5%BC%82%E5%B8%B8/05%20%E5%BC%82%E5%B8%B8/" class="md-nav__link">
+        异常
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1_2" type="checkbox" id="__nav_1_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1_2">
+          高级部分
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="高级部分" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          高级部分
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/06%20%E5%B8%B8%E7%94%A8%E7%B1%BBAPI/06%20%E5%B8%B8%E7%94%A8%E7%B1%BBAPI/" class="md-nav__link">
+        常用类API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/07%20%E9%9B%86%E5%90%88/07%20%E9%9B%86%E5%90%88/" class="md-nav__link">
+        集合
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/08%20%E6%B3%9B%E5%9E%8B/08%20%E6%B3%9B%E5%9E%8B/" class="md-nav__link">
+        泛型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/09%20File%E7%B1%BB%E4%B8%8EIO%E6%B5%81/09%20File%E7%B1%BB%E4%B8%8EIO%E6%B5%81/" class="md-nav__link">
+        File类与IO流
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/10%20%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/10%20%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" class="md-nav__link">
+        网络编程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/11%20%E5%A4%9A%E7%BA%BF%E7%A8%8B/11%20%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="md-nav__link">
+        多线程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/12%20%E5%8F%8D%E5%B0%84/12%20%E5%8F%8D%E5%B0%84/" class="md-nav__link">
+        反射
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/13%20Java8%E6%96%B0%E7%89%B9%E6%80%A7/Java8%E6%96%B0%E7%89%B9%E6%80%A7/" class="md-nav__link">
+        Java8新特性
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2" type="checkbox" id="__nav_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_2">
+          MySQL数据库
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="MySQL数据库" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          MySQL数据库
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/14%20MySQL/MySQL5.7%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/" class="md-nav__link">
+        MySQL5.7安装文档
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/14%20MySQL/MySQL%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        MySQL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/14%20MySQL/JDBC%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        JDBC
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_3" type="checkbox" id="__nav_1_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_3">
+          JavaWeb阶段
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="JavaWeb阶段" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          JavaWeb阶段
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day01/day01_HTML%26CSS/" class="md-nav__link">
+        HTML&CSS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day02/day02_JS%26%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="md-nav__link">
+        JS&正则表达式
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day03/day03_VUE%26%E4%B9%A6%E5%9F%8E%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        VUE&书城第一阶段
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day04/day04_XML%26Tomcat%26Http%E5%8D%8F%E8%AE%AE/" class="md-nav__link">
+        XML&Tomcat&Http协议
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day05/day05_Servlet/" class="md-nav__link">
+        Servlet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day06/day06_Request%26Response/" class="md-nav__link">
+        Request&Response
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day07/day07_%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        书城项目第二阶
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day08/day08_Thymeleaf/" class="md-nav__link">
+        Thymeleaf
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day09/day09_%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        书城项目第三阶段
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day10/day10_%E4%BC%9A%E8%AF%9D%26%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5%281%29/" class="md-nav__link">
+        会话&书城项目第四阶段1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day11/day11_%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        书城项目第四阶段2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day12/day12_Filter%26Listener%26%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%BA%94%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        Filter&Listener&书城项目第五阶段1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day13/day13_%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%BA%94%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        书城项目第五阶段2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day14/day14_Ajax%26Axios%26%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E5%85%AD%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        Ajax&Axios&书城项目第六阶段
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4" type="checkbox" id="__nav_1_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4">
+          经典框架
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="经典框架" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          经典框架
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/Spring%20%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        Spring
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/SpringMVC%20%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        SpringMVC
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/MyBatis%20%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        MyBatis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/SSM%20%E6%95%B4%E5%90%88%E9%85%8D%E7%BD%AE/" class="md-nav__link">
+        SSM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/Maven%20%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        Maven
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/%E6%A1%86%E6%9E%B6%E9%AB%98%E7%BA%A7%E8%AF%BE%E7%A8%8B%E7%B3%BB%E5%88%97%E4%B9%8BLinuxCentOS7/" class="md-nav__link">
+        Linux
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/Redis/" class="md-nav__link">
+        Redis
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_5" type="checkbox" id="__nav_1_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_5">
+          微服务相关
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="微服务相关" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_5">
+          <span class="md-nav__icon md-icon"></span>
+          微服务相关
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/Docker/Docker/" class="md-nav__link">
+        Docker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/ElasticSearch/ElasticSearch/" class="md-nav__link">
+        ElasticSearch
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/RabbitMQ/RabbitMQ/" class="md-nav__link">
+        RabbitMQ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/SpringBoot/SpringBoot/" class="md-nav__link">
+        SpringBoot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/SpringCloud/SpringCloud/" class="md-nav__link">
+        SpringCloud
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_6" type="checkbox" id="__nav_1_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_6">
+          高级技术
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="高级技术" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_6">
+          <span class="md-nav__icon md-icon"></span>
+          高级技术
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/git/Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        git
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/juc/JUC/" class="md-nav__link">
+        JUC
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/jvm/jvm/" class="md-nav__link">
+        jvm
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/mysql%E9%AB%98%E7%BA%A7/MySQL%E9%AB%98%E7%BA%A7/" class="md-nav__link">
+        mysql高级
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/mysql%E9%AB%98%E7%BA%A7/MySQL%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/" class="md-nav__link">
+        MySQL主从复制
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/MyCat/Mycat/" class="md-nav__link">
+        MyCat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/nginx/Nginx/" class="md-nav__link">
+        Nginx
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7" type="checkbox" id="__nav_1_7" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7">
+          项目文档
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="项目文档" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_7">
+          <span class="md-nav__icon md-icon"></span>
+          项目文档
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_1" type="checkbox" id="__nav_1_7_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7_1">
+          美年旅游
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="美年旅游" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_7_1">
+          <span class="md-nav__icon md-icon"></span>
+          美年旅游
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BE%8E%E5%B9%B4/day01/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC1%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游01
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BE%8E%E5%B9%B4/day02/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC2%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游02
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BE%8E%E5%B9%B4/day03/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC3%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游03
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BE%8E%E5%B9%B4/day04/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC4%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游04
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BE%8E%E5%B9%B4/day05/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC5%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游05
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BE%8E%E5%B9%B4/day06/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC6%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游06
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BE%8E%E5%B9%B4/day07/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC7%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游07
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BE%8E%E5%B9%B4/day08/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC8%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游08
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BE%8E%E5%B9%B4/day09/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC9%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游09
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BE%8E%E5%B9%B4/day10/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC10%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游10
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BE%8E%E5%B9%B4/day11/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC11%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游11
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_2" type="checkbox" id="__nav_1_7_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7_2">
+          尚邻网
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="尚邻网" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_7_2">
+          <span class="md-nav__icon md-icon"></span>
+          尚邻网
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E9%82%BB%E7%BD%91/1.%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83/" class="md-nav__link">
+        搭建环境
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E9%82%BB%E7%BD%91/2.%E7%94%A8%E6%88%B7%E8%A7%92%E8%89%B2%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        用户角色管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E9%82%BB%E7%BD%91/3.Apache%20Dubbo/" class="md-nav__link">
+        Apache Dubbo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E9%82%BB%E7%BD%91/4.%E6%9C%8D%E5%8A%A1%E6%8B%86%E5%88%86/" class="md-nav__link">
+        服务拆分
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E9%82%BB%E7%BD%91/5.%E4%BA%8C%E6%89%8B%E6%88%BF%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        二手房管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E9%82%BB%E7%BD%91/6.%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/" class="md-nav__link">
+        图片上传
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E9%82%BB%E7%BD%91/7.%E5%89%8D%E7%AB%AF%E6%88%BF%E6%BA%90%E5%B1%95%E7%A4%BA/" class="md-nav__link">
+        前端房源展示
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E9%82%BB%E7%BD%91/8.%E5%89%8D%E7%AB%AF%E7%99%BB%E5%BD%95%E4%B8%8E%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%85%B3%E6%B3%A8/" class="md-nav__link">
+        前端登录与注册与关注
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E9%82%BB%E7%BD%91/9.%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        权限管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E9%82%BB%E7%BD%91/10.spring%20security/" class="md-nav__link">
+        spring security
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E9%82%BB%E7%BD%91/11.session%E5%85%B1%E4%BA%AB/" class="md-nav__link">
+        session共享
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_3" type="checkbox" id="__nav_1_7_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7_3">
+          谷粒商城
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="谷粒商城" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_7_3">
+          <span class="md-nav__icon md-icon"></span>
+          谷粒商城
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/1.%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%EF%BC%88nginx%E3%80%81cors%E3%80%81oss%EF%BC%89/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        谷粒商城01
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/2.%E5%88%86%E7%B1%BB%E3%80%81%E8%A7%84%E6%A0%BC%E3%80%81%E5%95%86%E5%93%81%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/%E8%A7%84%E6%A0%BC%E5%8F%82%E6%95%B0%E5%8F%8A%E5%95%86%E5%93%81%E6%96%B0%E5%A2%9E/" class="md-nav__link">
+        谷粒商城02
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/3.%E6%9C%AC%E5%9C%B0%E4%BA%8B%E5%8A%A1%E3%80%81%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E5%8F%8Aseata/%E6%9C%AC%E5%9C%B0%E4%BA%8B%E5%8A%A1%E3%80%81%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E5%8F%8Aseata/" class="md-nav__link">
+        谷粒商城03
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/4.elasticsearch%28DSL%E5%8F%8ASpringData-Elasticsearch%29/elasticsearch/" class="md-nav__link">
+        谷粒商城04
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/5.%E5%95%86%E5%93%81%E6%90%9C%E7%B4%A2/%E5%95%86%E5%93%81%E6%90%9C%E7%B4%A2/" class="md-nav__link">
+        谷粒商城05
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/6.%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%EF%BC%88Thymeleaf%EF%BC%89%E5%8F%8A%E6%90%9C%E7%B4%A2%E9%A1%B5%E6%B8%B2%E6%9F%93/%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E-Thymeleaf/" class="md-nav__link">
+        谷粒商城06
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/7.%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%EF%BC%88RabbitMQ%EF%BC%89/%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5/" class="md-nav__link">
+        谷粒商城07
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/8.%E5%95%86%E5%93%81%E5%88%86%E7%B1%BB%28%E7%BC%93%E5%AD%98%E3%80%81%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E3%80%81Redisson%E3%80%81%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8%29/%E9%A6%96%E9%A1%B5%E5%95%86%E5%93%81%E5%88%86%E7%B1%BB/" class="md-nav__link">
+        谷粒商城08
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/9.%E5%95%86%E5%93%81%E8%AF%A6%E6%83%85%E9%A1%B5%E5%8F%8A%E5%BC%82%E6%AD%A5%E7%BC%96%E6%8E%92%EF%BC%88CompletableFuture%EF%BC%89/%E5%95%86%E5%93%81%E8%AF%A6%E6%83%85%E9%A1%B5/" class="md-nav__link">
+        谷粒商城09
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/10.%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%EF%BC%88jwt%EF%BC%89/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%EF%BC%88jwt%EF%BC%89/" class="md-nav__link">
+        谷粒商城10
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/11.%E8%B4%AD%E7%89%A9%E8%BD%A6%EF%BC%88SpringTask%EF%BC%89/%E8%B4%AD%E7%89%A9%E8%BD%A6/" class="md-nav__link">
+        谷粒商城11
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/12.%E5%88%86%E5%B8%83%E5%BC%8F%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%EF%BC%88xxl-job%EF%BC%89/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%EF%BC%88xxl-job%EF%BC%89/" class="md-nav__link">
+        谷粒商城12
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/13.%E8%AE%A2%E5%8D%95%E3%80%81%E5%BA%93%E5%AD%98/%E8%AE%A2%E5%8D%95%E3%80%81%E5%BA%93%E5%AD%98/" class="md-nav__link">
+        谷粒商城13
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/14.%E6%94%AF%E4%BB%98%E3%80%81%E7%A7%92%E6%9D%80/%E6%94%AF%E4%BB%98%E3%80%81%E7%A7%92%E6%9D%80/" class="md-nav__link">
+        谷粒商城14
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_4" type="checkbox" id="__nav_1_7_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7_4">
+          尚融宝
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="尚融宝" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_7_4">
+          <span class="md-nav__icon md-icon"></span>
+          尚融宝
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part01-%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D/Part01-%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
+        项目介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part02-MyBatis-Plus/Part02-MyBatis-Plus/" class="md-nav__link">
+        MyBatis-Plus
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part03-%E5%90%8E%E7%AB%AF%E6%8E%A5%E5%8F%A3%E5%B7%A5%E7%A8%8B%E6%90%AD%E5%BB%BA/Part03-%E5%90%8E%E7%AB%AF%E6%8E%A5%E5%8F%A3%E5%B7%A5%E7%A8%8B%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        后端接口工程搭建
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part04-%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/Part04-%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/" class="md-nav__link">
+        前端知识
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          管理平台前端搭建
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        管理平台前端搭建
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#01-" class="md-nav__link">
+    01-搭建管理平台前端程序
+  </a>
+  
+    <nav class="md-nav" aria-label="01-搭建管理平台前端程序">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vue-element-admin" class="md-nav__link">
+    一、vue-element-admin
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part06-Alibaba%20EasyExcel/Part06-Alibaba%20EasyExcel/" class="md-nav__link">
+        Alibaba EasyExcel
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part07-%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8/Part07-%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8/" class="md-nav__link">
+        数据字典
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part08-Redis%E7%BC%93%E5%AD%98/Part08-Redis%E7%BC%93%E5%AD%98/" class="md-nav__link">
+        Redis缓存
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part09-NuxtJS%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E6%B8%B2%E6%9F%93/Part09-NuxtJS%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E6%B8%B2%E6%9F%93/" class="md-nav__link">
+        NuxtJS服务器端渲染
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part10-%E9%98%BF%E9%87%8C%E4%BA%91%E7%9F%AD%E4%BF%A1/Part10-%E9%98%BF%E9%87%8C%E4%BA%91%E7%9F%AD%E4%BF%A1/" class="md-nav__link">
+        阿里云短信
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java课程/项目文档/尚融宝/Part11-分布式文件系统-阿里云OSS/分布式文件系统-阿里云OSS" class="md-nav__link">
+        阿里云OSS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part12-%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C/Part12-%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C/" class="md-nav__link">
+        用户注册
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part13-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%89%E5%85%A8-%E8%AE%BF%E9%97%AE%E4%BB%A4%E7%89%8C/Part13-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%89%E5%85%A8-%E8%AE%BF%E9%97%AE%E4%BB%A4%E7%89%8C/" class="md-nav__link">
+        访问令牌
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part14-%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81/Part14-%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81/" class="md-nav__link">
+        用户认证
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part15-%E4%BC%9A%E5%91%98%E7%AE%A1%E7%90%86/Part15-%E4%BC%9A%E5%91%98%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        会员管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part16-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%89%E5%85%A8-OAuth2/Part16-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%89%E5%85%A8-OAuth2/" class="md-nav__link">
+        OAuth2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part17-%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/Part17-%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" class="md-nav__link">
+        内网穿透
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part18-%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95/Part18-%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95/" class="md-nav__link">
+        微信登录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part19-%20SpringCloud/Part19-%20SpringCloud/" class="md-nav__link">
+        SpringCloud
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part20-%E8%B4%A6%E6%88%B7%E7%BB%91%E5%AE%9A/Part20-%E8%B4%A6%E6%88%B7%E7%BB%91%E5%AE%9A/" class="md-nav__link">
+        账户绑定
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part21-%E7%94%B3%E8%AF%B7%E5%80%9F%E6%AC%BE%E9%A2%9D%E5%BA%A6/Part21-%E7%94%B3%E8%AF%B7%E5%80%9F%E6%AC%BE%E9%A2%9D%E5%BA%A6/" class="md-nav__link">
+        申请借款额度
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part22-%E5%80%9F%E6%AC%BE%E9%A2%9D%E5%BA%A6%E5%AE%A1%E6%A0%B8/Part22-%E5%80%9F%E6%AC%BE%E9%A2%9D%E5%BA%A6%E5%AE%A1%E6%A0%B8/" class="md-nav__link">
+        借款额度审核
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part23-%E5%80%9F%E6%AC%BE%E7%94%B3%E8%AF%B7/Part23-%E5%80%9F%E6%AC%BE%E7%94%B3%E8%AF%B7/" class="md-nav__link">
+        借款申请
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part24-%E5%80%9F%E6%AC%BE%E5%AE%A1%E6%A0%B8/Part24-%E5%80%9F%E6%AC%BE%E5%AE%A1%E6%A0%B8/" class="md-nav__link">
+        借款审核
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part25-%E6%A0%87%E7%9A%84%E7%AE%A1%E7%90%86/Part25-%E6%A0%87%E7%9A%84%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        标的管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part26-%E6%88%91%E8%A6%81%E6%8A%95%E8%B5%84/Part26-%E6%88%91%E8%A6%81%E6%8A%95%E8%B5%84/" class="md-nav__link">
+        我要投资
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part27-%E5%85%85%E5%80%BC/Part27-%E5%85%85%E5%80%BC/" class="md-nav__link">
+        充值
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part28-%E6%8A%95%E6%A0%87/Part28-%E6%8A%95%E6%A0%87/" class="md-nav__link">
+        投标
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part29-%E6%94%BE%E6%AC%BE/Part29-%E6%94%BE%E6%AC%BE/" class="md-nav__link">
+        放款
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part30-%E6%8A%95%E8%B5%84%E5%88%97%E8%A1%A8%E5%B1%95%E7%A4%BA/Part30-%E6%8A%95%E8%B5%84%E5%88%97%E8%A1%A8%E5%B1%95%E7%A4%BA/" class="md-nav__link">
+        投资列表展示
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part31-%E6%8F%90%E7%8E%B0%E5%92%8C%E8%BF%98%E6%AC%BE/Part31-%E6%8F%90%E7%8E%B0%E5%92%8C%E8%BF%98%E6%AC%BE/" class="md-nav__link">
+        提现和还款
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part32-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83/Part32-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83/" class="md-nav__link">
+        个人中心
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part33-%E7%BD%91%E5%85%B3/Part33-%E7%BD%91%E5%85%B3/" class="md-nav__link">
+        网关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part34-%E8%A1%A5%E5%85%85/Part34-%E8%A1%A5%E5%85%85/" class="md-nav__link">
+        补充
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part35-%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/Part35-%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/" class="md-nav__link">
+        微信支付
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_5" type="checkbox" id="__nav_1_7_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7_5">
+          尚医通
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="尚医通" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_7_5">
+          <span class="md-nav__icon md-icon"></span>
+          尚医通
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day01%20%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%E4%B8%8EMyBatis%20Plus/day01%20%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%E4%B8%8E%20Mybatis%20Plus/" class="md-nav__link">
+        项目介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day02%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E5%92%8C%E5%8C%BB%E9%99%A2%E8%AE%BE%E7%BD%AE/day02%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E5%92%8C%E5%8C%BB%E9%99%A2%E8%AE%BE%E7%BD%AE/" class="md-nav__link">
+        搭建环境和医院设置
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day03%20%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89/day03%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89/" class="md-nav__link">
+        前端基础知识（一）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day04%20%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%BA%8C%EF%BC%89/day04%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="md-nav__link">
+        前端基础知识（二）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day05%E5%B9%B3%E5%8F%B0%E7%AE%A1%E7%90%86%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA/day05%E5%B9%B3%E5%8F%B0%E7%AE%A1%E7%90%86%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        平台管理前端搭建
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day06%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8/day06%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8/" class="md-nav__link">
+        数据字典
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day07mongodb/day07mongodb/" class="md-nav__link">
+        mongodb
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day08%E5%8C%BB%E9%99%A2%E4%B8%8A%E4%BC%A0%E6%8E%A5%E5%8F%A3/day08%E5%8C%BB%E9%99%A2%E4%B8%8A%E4%BC%A0%E6%8E%A5%E5%8F%A3/" class="md-nav__link">
+        医院上传接口
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day09%E5%8C%BB%E9%99%A2%E7%AE%A1%E7%90%86/day09%E5%8C%BB%E9%99%A2%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        医院管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day10%E6%8E%92%E7%8F%AD%E7%AE%A1%E7%90%86%E5%92%8C%E7%BD%91%E5%85%B3/day10%E6%8E%92%E7%8F%AD%E7%AE%A1%E7%90%86%E5%92%8C%E7%BD%91%E5%85%B3/" class="md-nav__link">
+        排班管理和网关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day11%E5%B9%B3%E5%8F%B0%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA%E4%B8%8E%E9%A6%96%E9%A1%B5/day11%E5%B9%B3%E5%8F%B0%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA%E4%B8%8E%E9%A6%96%E9%A1%B5/" class="md-nav__link">
+        平台前端搭建与首页
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day12%E6%89%8B%E6%9C%BA%E7%99%BB%E5%BD%95/day12%E6%89%8B%E6%9C%BA%E7%99%BB%E5%BD%95/" class="md-nav__link">
+        手机登录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day13%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95/day13%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95/" class="md-nav__link">
+        微信登录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day14%E9%98%BF%E9%87%8C%E4%BA%91OSS%E3%80%81%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81%E4%B8%8E%E5%B0%B1%E8%AF%8A%E4%BA%BA/day14%E9%98%BF%E9%87%8C%E4%BA%91OSS%E3%80%81%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81%E4%B8%8E%E5%B0%B1%E8%AF%8A%E4%BA%BA/" class="md-nav__link">
+        阿里云OSS、用户认证与就诊人
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day15%E9%A2%84%E7%BA%A6%E6%8C%82%E5%8F%B7/day15%E9%A2%84%E7%BA%A6%E6%8C%82%E5%8F%B7/" class="md-nav__link">
+        预约挂号
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day16%E9%A2%84%E7%BA%A6%E4%B8%8B%E5%8D%95/day16%E9%A2%84%E7%BA%A6%E4%B8%8B%E5%8D%95/" class="md-nav__link">
+        预约下单
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day17%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/day17%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/" class="md-nav__link">
+        微信支付
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day18%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E4%B8%8E%E7%BB%9F%E8%AE%A1/day18%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E4%B8%8E%E7%BB%9F%E8%AE%A1/" class="md-nav__link">
+        定时任务与统计
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Java就业面试
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Java就业面试" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Java就业面试
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC1%E7%AB%A0%20%E9%9D%A2%E8%AF%95%E8%AF%B4%E6%98%8E/" class="md-nav__link">
+        第1章 面试说明
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC2%E7%AB%A0%20%E6%89%8B%E5%86%99%E4%BB%A3%E7%A0%81/" class="md-nav__link">
+        第2章 手写代码
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC3%E7%AB%A0%20JavaSE/" class="md-nav__link">
+        第3章 JavaSE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC4%E7%AB%A0%20JVM/" class="md-nav__link">
+        第4章 JVM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC5%E7%AB%A0%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="md-nav__link">
+        第5章 设计模式
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC6%E7%AB%A0%20MySql/" class="md-nav__link">
+        第6章 MySql
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC7%E7%AB%A0%20Java%20Web/" class="md-nav__link">
+        第7章 Java Web
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC8%E7%AB%A0%20SSM%E6%A1%86%E6%9E%B6/" class="md-nav__link">
+        第8章 SSM框架
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC9%E7%AB%A0%20SpringBoot/" class="md-nav__link">
+        第9章 SpringBoot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC10%E7%AB%A0%20SpringCloud/" class="md-nav__link">
+        第10章 SpringCloud
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC11%E7%AB%A0%20Redis/" class="md-nav__link">
+        第11章 Redis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC12%E7%AB%A0%20MQ/" class="md-nav__link">
+        第12章 MQ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC13%E7%AB%A0%20ElasticSearch/" class="md-nav__link">
+        第13章 ElasticSearch
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC14%E7%AB%A0%20Dubbo/" class="md-nav__link">
+        第14章 Dubbo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC15%E7%AB%A0%20Zookeeper/" class="md-nav__link">
+        第15章 Zookeeper
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC16%E7%AB%A0%20Git/" class="md-nav__link">
+        第16章 Git
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC17%E7%AB%A0%20Linux/" class="md-nav__link">
+        第17章 Linux
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        学习文档
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#01-" class="md-nav__link">
+    01-搭建管理平台前端程序
+  </a>
+  
+    <nav class="md-nav" aria-label="01-搭建管理平台前端程序">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vue-element-admin" class="md-nav__link">
+    一、vue-element-admin
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+<h1 id="part05-">Part05-管理平台前端搭建<a class="headerlink" href="#part05-" title="Permanent link">&para;</a></h1>
+<h2 id="01-">01-搭建管理平台前端程序<a class="headerlink" href="#01-" title="Permanent link">&para;</a></h2>
+<h3 id="vue-element-admin"><strong>一、vue-element-admin</strong><a class="headerlink" href="#vue-element-admin" title="Permanent link">&para;</a></h3>
+<h1 id="_1"><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>vue-element-admin是基于element-ui 的一套后台管理系统集成方案。</p>
+<p><strong>GitHub地址：</strong><a href="https://github.com/PanJiaChen/vue-element-admin">https://github.com/PanJiaChen/vue-element-admin</a></p>
+<p><strong>项目在线预览：</strong><a href="https://panjiachen.gitee.io/vue-element-admin/#/login?redirect=%2Fdashboard">https://panjiachen.gitee.io/vue-element-admin</a></p>
+<p><img alt="1645445477907" src="../imgs/1645445477907.png" /></p>
+<h3 id="vue-admin-template"><strong>二、vue-admin-template</strong><a class="headerlink" href="#vue-admin-template" title="Permanent link">&para;</a></h3>
+<h4 id="1">1、简介<a class="headerlink" href="#1" title="Permanent link">&para;</a></h4>
+<p>vueAdmin-template是基于vue-element-admin的一套后台管理系统基础模板（最少精简版），可作为模板进行二次开发。</p>
+<p><strong>GitHub地址：</strong><a href="https://github.com/PanJiaChen/vue-admin-template">https://github.com/PanJiaChen/vue-admin-template</a></p>
+<p><strong>根据用户角色来动态生成侧边栏的分支：</strong><a href="https://github.com/PanJiaChen/vue-admin-template/tree/permission-control">https://github.com/PanJiaChen/vue-admin-template/tree/permission-control</a></p>
+<h4 id="2">2、安装和运行<a class="headerlink" href="#2" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="err">#</span> <span class="nx">解压压缩包vue</span><span class="o">-</span><span class="nx">admin</span><span class="o">-</span><span class="nx">template</span><span class="o">-</span><span class="nx">permission</span><span class="o">-</span><span class="nx">control</span><span class="p">.</span><span class="nx">zip</span>
+<span class="err">#</span> <span class="nx">重命名为srb</span><span class="o">-</span><span class="nx">admin</span>
+<span class="err">#</span> <span class="nx">进入目录</span>
+<span class="nx">cd</span> <span class="nx">srb</span><span class="o">-</span><span class="nx">admin</span>
+
+<span class="err">#</span> <span class="nx">安装依赖</span>
+<span class="nx">npm</span> <span class="nx">install</span>
+
+<span class="err">#</span> <span class="nx">启动</span><span class="err">。</span><span class="nx">执行后</span><span class="err">，</span><span class="nx">浏览器自动弹出并访问http</span><span class="o">:</span><span class="c1">//localhost:9528/</span>
+<span class="nx">npm</span> <span class="nx">run</span> <span class="nx">dev</span>
+</code></pre></div>
+<h3 id="_2">三、前端配置<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h4 id="1eslint">1、禁用ESLint语法检查<a class="headerlink" href="#1eslint" title="Permanent link">&para;</a></h4>
+<p>vue.config.js 第30行处禁用ESLint语法检查</p>
+<div class="highlight"><pre><span></span><code><span class="nx">lintOnSave</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span> 
+</code></pre></div>
+<h4 id="2prettier">2、添加prettier格式化配置<a class="headerlink" href="#2prettier" title="Permanent link">&para;</a></h4>
+<p>在vue项目根目录下新建一个文件.prettierrc</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="s2">&quot;semi&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="s2">&quot;singleQuote&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">&quot;htmlWhitespaceSensitivity&quot;</span><span class="o">:</span> <span class="s2">&quot;ignore&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="3">3、修改端口号<a class="headerlink" href="#3" title="Permanent link">&para;</a></h4>
+<p>vue.config.js 第16行处可以修改端口号</p>
+<p><img alt="1645445594912" src="../imgs/1645445594912.png" /></p>
+<p>或使用 npm run dev --port 指定端口号启动</p>
+<h4 id="4">4、修改页面标题<a class="headerlink" href="#4" title="Permanent link">&para;</a></h4>
+<p>src/settings.js 第3行处修改页面标题</p>
+<p><img alt="1645445608634" src="../imgs/1645445608634.png" /></p>
+<h4 id="5">5、国际化设置<a class="headerlink" href="#5" title="Permanent link">&para;</a></h4>
+<p>src/main.js 第7行处修改语言</p>
+<p><img alt="1645445624518" src="../imgs/1645445624518.png" /></p>
+<p>测试平台语言的修改</p>
+<p><img alt="1645445635265" src="../imgs/1645445635265.png" /></p>
+<h4 id="6">6、下拉菜单修改<a class="headerlink" href="#6" title="Permanent link">&para;</a></h4>
+<p><img alt="1645445650947" src="../imgs/1645445650947.png" /></p>
+<h4 id="7">7、登录页修改<a class="headerlink" href="#7" title="Permanent link">&para;</a></h4>
+<p>src/views/login/index.vue</p>
+<p>修改页面标题、登录按钮等</p>
+<h3 id="service-acl">四、创建service-acl后端服务<a class="headerlink" href="#service-acl" title="Permanent link">&para;</a></h3>
+<h4 id="1maven">1、创建Maven模块<a class="headerlink" href="#1maven" title="Permanent link">&para;</a></h4>
+<p>在srb下创建普通maven模块</p>
+<p>Group：com.atguigu</p>
+<p>Artifact：service-acl</p>
+<h4 id="2pom">2、配置pom<a class="headerlink" href="#2pom" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="n">dependencies</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">com</span><span class="p">.</span><span class="na">atguigu</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">service</span><span class="o">-</span><span class="n">base</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="mf">0.0.1</span><span class="o">-</span><span class="n">SNAPSHOT</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="p">.</span><span class="na">springframework</span><span class="p">.</span><span class="na">boot</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">spring</span><span class="o">-</span><span class="n">boot</span><span class="o">-</span><span class="n">starter</span><span class="o">-</span><span class="n">web</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;!--</span><span class="n">lombok用来简化实体类</span><span class="err">：</span><span class="n">需要安装lombok插件</span><span class="o">--&gt;</span>
+    <span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="p">.</span><span class="na">projectlombok</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">lombok</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">dependencies</span><span class="o">&gt;</span>
+</code></pre></div>
+<h4 id="3applicationyml">3、创建application.yml文件<a class="headerlink" href="#3applicationyml" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nt">server</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8120</span><span class="w"> </span><span class="c1"># 服务端口</span><span class="w"></span>
+
+<span class="nt">spring</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">profiles</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">active</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dev</span><span class="w"> </span><span class="c1"># 环境设置</span><span class="w"></span>
+<span class="w">  </span><span class="nt">application</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">service-acl</span><span class="w"> </span><span class="c1"># 服务名</span><span class="w"></span>
+</code></pre></div>
+<h4 id="4springboot">4、创建SpringBoot启动类<a class="headerlink" href="#4springboot" title="Permanent link">&para;</a></h4>
+<p>注意：扫描com.atguigu.srb</p>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">com.atguigu.srb.acl</span><span class="p">;</span>
+
+<span class="nd">@SpringBootApplication</span>
+<span class="nd">@ComponentScan</span><span class="p">({</span><span class="s">&quot;com.atguigu.srb&quot;</span><span class="p">})</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ServiceAclApplication</span> <span class="p">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">SpringApplication</span><span class="p">.</span><span class="na">run</span><span class="p">(</span><span class="n">ServiceAclApplication</span><span class="p">.</span><span class="na">class</span><span class="p">,</span> <span class="n">args</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="5_1">5、创建后端临时登录接口<a class="headerlink" href="#5_1" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">com.atguigu.srb.acl.controller.admin</span><span class="p">;</span>
+
+<span class="nd">@Api</span><span class="p">(</span><span class="n">tags</span> <span class="o">=</span> <span class="s">&quot;用户认证&quot;</span><span class="p">)</span>
+<span class="nd">@RestController</span>
+<span class="nd">@RequestMapping</span><span class="p">(</span><span class="s">&quot;/admin/acl/user&quot;</span><span class="p">)</span>
+<span class="nd">@Slf4j</span>
+<span class="nd">@CrossOrigin</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">AdminLoginController</span> <span class="p">{</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * 登录</span>
+<span class="cm">     * @return</span>
+<span class="cm">     */</span>
+    <span class="nd">@PostMapping</span><span class="p">(</span><span class="s">&quot;/login&quot;</span><span class="p">)</span>
+    <span class="kd">public</span> <span class="n">R</span> <span class="nf">login</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;login&quot;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">R</span><span class="p">.</span><span class="na">ok</span><span class="p">().</span><span class="na">data</span><span class="p">(</span><span class="s">&quot;token&quot;</span><span class="p">,</span><span class="s">&quot;testToken&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * 登录后获取用户信息</span>
+<span class="cm">     * @return</span>
+<span class="cm">     */</span>
+    <span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/info&quot;</span><span class="p">)</span>
+    <span class="kd">public</span> <span class="n">R</span> <span class="nf">info</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;info&quot;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">R</span><span class="p">.</span><span class="na">ok</span><span class="p">()</span>
+                <span class="p">.</span><span class="na">data</span><span class="p">(</span><span class="s">&quot;roles&quot;</span><span class="p">,</span><span class="s">&quot;[admin]&quot;</span><span class="p">)</span>
+                <span class="p">.</span><span class="na">data</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">,</span><span class="s">&quot;admin&quot;</span><span class="p">)</span>
+                <span class="p">.</span><span class="na">data</span><span class="p">(</span><span class="s">&quot;avatar&quot;</span><span class="p">,</span><span class="s">&quot;https://oss.aliyuncs.com/aliyun_id_photo_bucket/default_handsome.jpg&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+
+    <span class="cm">/**</span>
+<span class="cm">     * 退出</span>
+<span class="cm">     * @return</span>
+<span class="cm">     */</span>
+    <span class="nd">@PostMapping</span><span class="p">(</span><span class="s">&quot;/logout&quot;</span><span class="p">)</span>
+    <span class="kd">public</span> <span class="n">R</span> <span class="nf">logout</span><span class="p">(){</span>
+        <span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;logout&quot;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">R</span><span class="p">.</span><span class="na">ok</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="6_1">6、运行启动类<a class="headerlink" href="#6_1" title="Permanent link">&para;</a></h4>
+<p>查看控制台8120端口是否成功启动</p>
+<h3 id="_3">五、前后端对接<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h4 id="1_1">1、接口服务器配置<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h4>
+<p>打开前端程序根目录下的文件 .env.development：修改VUE_APP_BASE_API，使其连接到后端接口地址，修改后重启前端服务</p>
+<div class="highlight"><pre><span></span><code><span class="err">#</span> <span class="nx">just</span> <span class="nx">a</span> <span class="nx">flag</span>
+<span class="nx">ENV</span> <span class="o">=</span> <span class="s1">&#39;development&#39;</span>
+
+<span class="err">#</span> <span class="nx">base</span> <span class="nx">api</span>
+<span class="nx">VUE_APP_BASE_API</span> <span class="o">=</span> <span class="s1">&#39;http://localhost:8120&#39;</span>
+</code></pre></div>
+<h4 id="2_1">2、接口调用修改<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h4>
+<p>前端api模块：src/api/user.js</p>
+<div class="highlight"><pre><span></span><code><span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;/vue-admin-template/user/...&#39;</span><span class="p">,</span>
+<span class="c1">// 改成</span>
+<span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;/admin/acl/user/...&#39;</span><span class="p">,</span>
+</code></pre></div>
+<h4 id="3axios">3、axios响应拦截器修改<a class="headerlink" href="#3axios" title="Permanent link">&para;</a></h4>
+<p>src/utils/request.js 中 将第49行的 </p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">code</span> <span class="o">!==</span> <span class="mf">20000</span><span class="p">)</span> <span class="p">{</span>
+</code></pre></div>
+<p>修改成</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">code</span> <span class="o">!==</span> <span class="mf">0</span><span class="p">)</span> <span class="p">{</span>
+</code></pre></div>
+<p>因为我们的后端接口统一结果判断0为成功的响应结果</p>
+<h2 id="02-vue-router">02-Vue Router<a class="headerlink" href="#02-vue-router" title="Permanent link">&para;</a></h2>
+<h3 id="_4">一、认识路由<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<h4 id="1_2">1、锚点的概念<a class="headerlink" href="#1_2" title="Permanent link">&para;</a></h4>
+<p>案例：百度百科</p>
+<p>特点：单页Web应用，预先加载页面内容</p>
+<p>形式：url#锚点</p>
+<h4 id="2_2">2、路由的作用<a class="headerlink" href="#2_2" title="Permanent link">&para;</a></h4>
+<p>Vue.js 路由允许我们通过锚点定义不同的 URL， 达到访问不同的页面的目的，每个页面的内容通过延迟加载渲染出来。</p>
+<p>通过 Vue.js 可以实现多视图的单页Web应用（single page web application，SPA）</p>
+<h4 id="3_1">3、参考<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h4>
+<p><a href="https://router.vuejs.org/zh/">https://router.vuejs.org/zh/</a></p>
+<h3 id="_5">二、路由实例<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<h4 id="1_3">1、创建文件夹和文件<a class="headerlink" href="#1_3" title="Permanent link">&para;</a></h4>
+<p>创建文件夹 08-router，创建index.html</p>
+<h4 id="2js">2、复制js资源<a class="headerlink" href="#2js" title="Permanent link">&para;</a></h4>
+<p>vue.s</p>
+<p>vue-router.js</p>
+<h4 id="3js">3、引入js<a class="headerlink" href="#3js" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&quot;vue.js&quot;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
+<span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&quot;vue-router.js&quot;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
+</code></pre></div>
+<h4 id="4html">4、编写html<a class="headerlink" href="#4html" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="nx">div</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&quot;app&quot;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Hello</span> <span class="nx">App</span><span class="o">!&lt;</span><span class="err">/h1&gt;</span>
+    <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
+        <span class="c">&lt;!--</span> <span class="o">&lt;</span><span class="nx">router</span><span class="o">-</span><span class="nx">link</span><span class="o">&gt;</span> <span class="nx">默认会被渲染成一个</span> <span class="sb">`&lt;a&gt;`</span> <span class="nx">标签</span> <span class="o">--&gt;</span>
+        <span class="c">&lt;!--</span> <span class="nx">通过传入</span> <span class="sb">`to`</span> <span class="nx">属性指定链接</span><span class="p">.</span> <span class="o">--&gt;</span>
+        <span class="o">&lt;</span><span class="nx">router</span><span class="o">-</span><span class="nx">link</span> <span class="nx">to</span><span class="o">=</span><span class="s2">&quot;/&quot;</span><span class="o">&gt;</span><span class="nx">首页</span><span class="o">&lt;</span><span class="err">/router-link&gt;</span>
+        <span class="o">&lt;</span><span class="nx">router</span><span class="o">-</span><span class="nx">link</span> <span class="nx">to</span><span class="o">=</span><span class="s2">&quot;/invest&quot;</span><span class="o">&gt;</span><span class="nx">我要投资</span><span class="o">&lt;</span><span class="err">/router-link&gt;</span>
+        <span class="o">&lt;</span><span class="nx">router</span><span class="o">-</span><span class="nx">link</span> <span class="nx">to</span><span class="o">=</span><span class="s2">&quot;/user&quot;</span><span class="o">&gt;</span><span class="nx">用户中心</span><span class="o">&lt;</span><span class="err">/router-link&gt;</span>
+    <span class="o">&lt;</span><span class="err">/p&gt;</span>
+    <span class="c">&lt;!--</span> <span class="nx">路由出口</span> <span class="o">--&gt;</span>
+    <span class="c">&lt;!--</span> <span class="nx">路由匹配到的组件将渲染在这里</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;</span><span class="nx">router</span><span class="o">-</span><span class="nx">view</span><span class="o">&gt;&lt;</span><span class="err">/router-view&gt;</span>
+<span class="o">&lt;</span><span class="err">/div&gt;</span>
+</code></pre></div>
+<h4 id="5js">5、编写js<a class="headerlink" href="#5js" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+    <span class="c1">// 1. 定义（路由）组件。</span>
+    <span class="c1">// 复杂的组件也可以从独立的vue文件中引入</span>
+    <span class="kd">const</span> <span class="nx">welcome</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;&lt;div&gt;尚融宝主页&lt;/div&gt;&#39;</span> <span class="p">}</span>
+    <span class="kd">const</span> <span class="nx">invest</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;&lt;div&gt;投资产品&lt;/div&gt;&#39;</span> <span class="p">}</span>
+    <span class="kd">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;&lt;div&gt;用户信息&lt;/div&gt;&#39;</span> <span class="p">}</span>
+
+    <span class="c1">// 2. 定义路由</span>
+    <span class="c1">// 每个路由应该映射一个组件。</span>
+    <span class="kd">const</span> <span class="nx">routes</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">{</span> <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="nx">redirect</span><span class="o">:</span> <span class="s1">&#39;/welcome&#39;</span> <span class="p">},</span> <span class="c1">//设置默认指向的路径</span>
+        <span class="p">{</span> <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/welcome&#39;</span><span class="p">,</span> <span class="nx">component</span><span class="o">:</span> <span class="nx">welcome</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/invest&#39;</span><span class="p">,</span> <span class="nx">component</span><span class="o">:</span> <span class="nx">invest</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/user&#39;</span><span class="p">,</span> <span class="nx">component</span><span class="o">:</span> <span class="nx">user</span> <span class="p">},</span>
+    <span class="p">]</span>
+
+    <span class="c1">// 3. 创建 router 实例，然后传 `routes` 配置</span>
+    <span class="kd">const</span> <span class="nx">router</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">VueRouter</span><span class="p">({</span>
+        <span class="nx">routes</span><span class="p">,</span> <span class="c1">// （缩写）相当于 routes: routes</span>
+    <span class="p">})</span>
+
+    <span class="c1">// 4. 创建和挂载根实例。</span>
+    <span class="c1">// 从而让整个应用都有路由功能</span>
+    <span class="ow">new</span> <span class="nx">Vue</span><span class="p">({</span>
+        <span class="nx">el</span><span class="o">:</span> <span class="s1">&#39;#app&#39;</span><span class="p">,</span>
+        <span class="nx">router</span><span class="p">,</span>
+    <span class="p">})</span>
+
+    <span class="c1">// 现在，应用已经启动了！</span>
+<span class="o">&lt;</span><span class="err">/script&gt;</span>
+</code></pre></div>
+<h2 id="03-">03-尚融宝管理系统路由配置<a class="headerlink" href="#03-" title="Permanent link">&para;</a></h2>
+<h3 id="_6"><strong>一、组件定义</strong><a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<h4 id="1vue">1、创建vue组件<a class="headerlink" href="#1vue" title="Permanent link">&para;</a></h4>
+<p>在src/views文件夹下创建以下文件夹和文件</p>
+<p><img alt="1645445969024" src="../imgs/1645445969024.png" /></p>
+<h4 id="2coreintegral-gradelistvue">2、core/integral-grade/list.vue<a class="headerlink" href="#2coreintegral-gradelistvue" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;app-container&quot;</span><span class="p">&gt;</span>
+    积分等级列表
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+</code></pre></div>
+<h4 id="3coreintegral-gradeformvue">3、core/integral-grade/form.vue<a class="headerlink" href="#3coreintegral-gradeformvue" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;app-container&quot;</span><span class="p">&gt;</span>
+    积分等级表单
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+</code></pre></div>
+<h3 id="_7">二、路由定义<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<h4 id="1_4">1、配置路由<a class="headerlink" href="#1_4" title="Permanent link">&para;</a></h4>
+<p>修改 src/router/index.js 文件，重新定义constantRoutes，拷贝到 dashboard路由节点 下面</p>
+<p>**注意：**每个路由的name不能相同</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/core/integral-grade&#39;</span><span class="p">,</span>
+    <span class="nx">component</span><span class="o">:</span> <span class="nx">Layout</span><span class="p">,</span>
+    <span class="nx">redirect</span><span class="o">:</span> <span class="s1">&#39;/core/integral-grade/list&#39;</span><span class="p">,</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;coreIntegralGrade&#39;</span><span class="p">,</span>
+    <span class="nx">meta</span><span class="o">:</span> <span class="p">{</span> <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;积分等级管理&#39;</span><span class="p">,</span> <span class="nx">icon</span><span class="o">:</span> <span class="s1">&#39;el-icon-s-marketing&#39;</span> <span class="p">},</span>
+    <span class="nx">alwaysShow</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nx">children</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;list&#39;</span><span class="p">,</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;coreIntegralGradeList&#39;</span><span class="p">,</span>
+        <span class="nx">component</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="k">import</span><span class="p">(</span><span class="s1">&#39;@/views/core/integral-grade/list&#39;</span><span class="p">),</span>
+        <span class="nx">meta</span><span class="o">:</span> <span class="p">{</span> <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;积分等级列表&#39;</span> <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;create&#39;</span><span class="p">,</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;coreIntegralGradeCreate&#39;</span><span class="p">,</span>
+        <span class="nx">component</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="k">import</span><span class="p">(</span><span class="s1">&#39;@/views/core/integral-grade/form&#39;</span><span class="p">),</span>
+        <span class="nx">meta</span><span class="o">:</span> <span class="p">{</span> <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;新增积分等级&#39;</span> <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;edit/:id&#39;</span><span class="p">,</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;coreIntegralGradeEdit&#39;</span><span class="p">,</span>
+        <span class="nx">component</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="k">import</span><span class="p">(</span><span class="s1">&#39;@/views/core/integral-grade/form&#39;</span><span class="p">),</span>
+        <span class="nx">meta</span><span class="o">:</span> <span class="p">{</span> <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;编辑积分等级&#39;</span> <span class="p">},</span>
+        <span class="nx">hidden</span><span class="o">:</span> <span class="kc">true</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">},</span>
+</code></pre></div>
+<h4 id="2_3">2、导航图标的使用<a class="headerlink" href="#2_3" title="Permanent link">&para;</a></h4>
+<p>element-ui图标的使用：</p>
+<div class="highlight"><pre><span></span><code> <span class="nx">meta</span><span class="o">:</span> <span class="p">{</span> <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;基本配置&#39;</span><span class="p">,</span> <span class="nx">icon</span><span class="o">:</span> <span class="s1">&#39;el-icon-setting&#39;</span> <span class="p">},</span>
+</code></pre></div>
+<p>vue-element-admin扩展图标的使用：src\icons\svg</p>
+<div class="highlight"><pre><span></span><code><span class="nx">meta</span><span class="o">:</span> <span class="p">{</span> <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;会员管理&#39;</span><span class="p">,</span> <span class="nx">icon</span><span class="o">:</span> <span class="s1">&#39;user&#39;</span> <span class="p">},</span>
+</code></pre></div>
+<h2 id="04-">04-前端项目开发流程<a class="headerlink" href="#04-" title="Permanent link">&para;</a></h2>
+<h3 id="_8">一、全栈开发流程<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<h4 id="1_5">1、前端调用流程<a class="headerlink" href="#1_5" title="Permanent link">&para;</a></h4>
+<p>下图是开发过程中涉及到和几个核心的模块，我们已经完成了路由的配置和页面组件的创建，接下来我们需要进一步完善页面组件的模板<template>部分，以及脚本<script>等部分的开发，然后创建前后端对接需要的api模块，最后通过api模块向后端接口发起调用。</p>
+<p><img alt="1645446124830" src="../imgs/1645446124830.png" /></p>
+<h4 id="2nginx">2、nginx反向代理配置<a class="headerlink" href="#2nginx" title="Permanent link">&para;</a></h4>
+<p>目前，应用程序的前后端基本架构如下：srb-admin是前端程序，直接调用后端的srb-acl微服务</p>
+<p><img alt="1645446142787" src="../imgs/1645446142787.png" /></p>
+<p>为了能够让前端程序能够同时对接多个后端服务，我们可以使用多种解决方案，例如nginx反向代理、微服务网关等。这里我们先使用nginx作为前后端中间的反向代理层，架构如下</p>
+<p><img alt="1645446161662" src="../imgs/1645446161662.png" /></p>
+<p>nginx的配置</p>
+<div class="highlight"><pre><span></span><code>server {
+    listen       80;
+    server_name  localhost;
+
+    location ~ /core/ {           
+        proxy_pass http://localhost:8110;
+    }
+    location ~ /acl/ {           
+        proxy_pass http://localhost:8120;
+    }
+}
+</code></pre></div>
+<p>nginx的命令</p>
+<div class="highlight"><pre><span></span><code><span class="nx">start</span> <span class="nx">nginx</span> <span class="err">#</span><span class="nx">启动</span>
+<span class="nx">nginx</span> <span class="o">-</span><span class="nx">s</span> <span class="nx">stop</span> <span class="err">#</span><span class="nx">停止</span>
+<span class="nx">nginx</span> <span class="o">-</span><span class="nx">s</span> <span class="nx">reload</span> <span class="err">#</span><span class="nx">重新加载配置</span>
+</code></pre></div>
+<p>前端的配置： .env.development</p>
+<div class="highlight"><pre><span></span><code><span class="err">#</span> <span class="nx">base</span> <span class="nx">api</span><span class="err">：</span><span class="nx">连接到nginx</span>
+<span class="nx">VUE_APP_BASE_API</span> <span class="o">=</span> <span class="s1">&#39;http://localhost&#39;</span>
+</code></pre></div>
+<h3 id="_9">二、前端组件开发<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<h4 id="1api">1、定义api模块<a class="headerlink" href="#1api" title="Permanent link">&para;</a></h4>
+<p>创建文件 src/api/core/integral-grade.js</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// @ 符号在vue.config.js 中配置， 表示 &#39;src&#39; 路径的别名</span>
+<span class="k">import</span> <span class="nx">request</span> <span class="kr">from</span> <span class="s1">&#39;@/utils/request&#39;</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="nx">list</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">request</span><span class="p">({</span>
+      <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;/admin/core/integralGrade/list&#39;</span><span class="p">,</span>
+      <span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;get&#39;</span>
+    <span class="p">})</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="2_4">2、定义页面组件脚本<a class="headerlink" href="#2_4" title="Permanent link">&para;</a></h4>
+<p>src/views/core/integral-grade/list.vue</p>
+<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<span class="k">import</span> <span class="nx">integralGradeApi</span> <span class="kr">from</span> <span class="s1">&#39;@/api/core/integral-grade&#39;</span>
+<span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="c1">// 定义数据模型</span>
+  <span class="nx">data</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="nx">list</span><span class="o">:</span> <span class="p">[]</span> <span class="c1">// 数据列表</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+
+  <span class="c1">// 页面渲染成功后获取数据</span>
+  <span class="nx">created</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">fetchData</span><span class="p">()</span>
+  <span class="p">},</span>
+
+  <span class="c1">// 定义方法</span>
+  <span class="nx">methods</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">fetchData</span><span class="p">()</span> <span class="p">{</span>
+      <span class="c1">// 调用api</span>
+      <span class="nx">integralGradeApi</span><span class="p">.</span><span class="nx">list</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">list</span> <span class="o">=</span> <span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">list</span>
+      <span class="p">})</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="o">&lt;</span><span class="err">/script&gt;</span>
+</code></pre></div>
+<h4 id="3_2">3、定义页面组件模板<a class="headerlink" href="#3_2" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="nx">template</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="s2">&quot;app-container&quot;</span><span class="o">&gt;</span>
+    <span class="c">&lt;!--</span> <span class="nx">表格</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;</span><span class="nx">el</span><span class="o">-</span><span class="nx">table</span> <span class="o">:</span><span class="nx">data</span><span class="o">=</span><span class="s2">&quot;list&quot;</span> <span class="nx">border</span> <span class="nx">stripe</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">el</span><span class="o">-</span><span class="nx">table</span><span class="o">-</span><span class="nx">column</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;index&quot;</span> <span class="nx">width</span><span class="o">=</span><span class="s2">&quot;50&quot;</span> <span class="o">/&gt;</span>
+      <span class="o">&lt;</span><span class="nx">el</span><span class="o">-</span><span class="nx">table</span><span class="o">-</span><span class="nx">column</span> <span class="nx">prop</span><span class="o">=</span><span class="s2">&quot;borrowAmount&quot;</span> <span class="nx">label</span><span class="o">=</span><span class="s2">&quot;借款额度&quot;</span> <span class="o">/&gt;</span>
+      <span class="o">&lt;</span><span class="nx">el</span><span class="o">-</span><span class="nx">table</span><span class="o">-</span><span class="nx">column</span> <span class="nx">prop</span><span class="o">=</span><span class="s2">&quot;integralStart&quot;</span> <span class="nx">label</span><span class="o">=</span><span class="s2">&quot;积分区间开始&quot;</span> <span class="o">/&gt;</span>
+      <span class="o">&lt;</span><span class="nx">el</span><span class="o">-</span><span class="nx">table</span><span class="o">-</span><span class="nx">column</span> <span class="nx">prop</span><span class="o">=</span><span class="s2">&quot;integralEnd&quot;</span> <span class="nx">label</span><span class="o">=</span><span class="s2">&quot;积分区间结束&quot;</span> <span class="o">/&gt;</span>
+    <span class="o">&lt;</span><span class="err">/el-table&gt;</span>
+  <span class="o">&lt;</span><span class="err">/div&gt;</span>
+<span class="o">&lt;</span><span class="err">/template&gt;</span>
+</code></pre></div>
+<h2 id="05-">05-完善积分等级模块<a class="headerlink" href="#05-" title="Permanent link">&para;</a></h2>
+<h3 id="_10"><strong>一、删除数据</strong><a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<h4 id="1api_1">1、定义api<a class="headerlink" href="#1api_1" title="Permanent link">&para;</a></h4>
+<p>src/api/core/integral-grade.js</p>
+<div class="highlight"><pre><span></span><code><span class="nx">removeById</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">request</span><span class="p">({</span>
+        <span class="nx">url</span><span class="o">:</span> <span class="sb">`/admin/core/integralGrade/remove/</span><span class="si">${</span><span class="nx">id</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span>
+        <span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;delete&#39;</span>
+    <span class="p">})</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="2_5">2、页面组件模板<a class="headerlink" href="#2_5" title="Permanent link">&para;</a></h4>
+<p>src/views/core/integral-grade/list.vue，在table组件中添加删除列</p>
+<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="nx">el</span><span class="o">-</span><span class="nx">table</span><span class="o">-</span><span class="nx">column</span> <span class="nx">label</span><span class="o">=</span><span class="s2">&quot;操作&quot;</span> <span class="nx">width</span><span class="o">=</span><span class="s2">&quot;200&quot;</span> <span class="nx">align</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">template</span> <span class="nx">slot</span><span class="o">-</span><span class="nx">scope</span><span class="o">=</span><span class="s2">&quot;scope&quot;</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">el</span><span class="o">-</span><span class="nx">button</span>
+                   <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;danger&quot;</span>
+                   <span class="nx">size</span><span class="o">=</span><span class="s2">&quot;mini&quot;</span>
+                   <span class="nx">icon</span><span class="o">=</span><span class="s2">&quot;el-icon-delete&quot;</span>
+                   <span class="err">@</span><span class="nx">click</span><span class="o">=</span><span class="s2">&quot;removeById(scope.row.id)&quot;</span>
+                   <span class="o">&gt;</span>
+            <span class="nx">删除</span>
+        <span class="o">&lt;</span><span class="err">/el-button&gt;</span>
+    <span class="o">&lt;</span><span class="err">/template&gt;</span>
+<span class="o">&lt;</span><span class="err">/el-table-column&gt;</span>
+</code></pre></div>
+<h4 id="3_3">3、删除数据脚本<a class="headerlink" href="#3_3" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1">// 根据id删除数据</span>
+<span class="nx">removeById</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">$confirm</span><span class="p">(</span><span class="s1">&#39;此操作将永久删除该记录, 是否继续?&#39;</span><span class="p">,</span> <span class="s1">&#39;提示&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">confirmButtonText</span><span class="o">:</span> <span class="s1">&#39;确定&#39;</span><span class="p">,</span>
+    <span class="nx">cancelButtonText</span><span class="o">:</span> <span class="s1">&#39;取消&#39;</span><span class="p">,</span>
+    <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;warning&#39;</span>
+  <span class="p">})</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">integralGradeApi</span><span class="p">.</span><span class="nx">removeById</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span>
+  <span class="p">})</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">$message</span><span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">message</span><span class="p">)</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">fetchData</span><span class="p">()</span>
+  <span class="p">})</span>
+  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="nx">error</span><span class="p">)</span>
+      <span class="c1">// 当取消时会进入catch语句:error = &#39;cancel&#39;</span>
+      <span class="c1">// 当后端服务抛出异常时：error = &#39;error&#39;</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">error</span> <span class="o">===</span> <span class="s1">&#39;cancel&#39;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">$message</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s1">&#39;取消删除&#39;</span><span class="p">)</span>
+      <span class="p">}</span>
+  <span class="p">})</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="_11">二、新增数据<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<h4 id="1api_2">1、定义api<a class="headerlink" href="#1api_2" title="Permanent link">&para;</a></h4>
+<p>src/api/core/integral-grade.js</p>
+<div class="highlight"><pre><span></span><code><span class="nx">save</span><span class="p">(</span><span class="nx">integralGrade</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">request</span><span class="p">({</span>
+        <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;/admin/core/integralGrade/save&#39;</span><span class="p">,</span>
+        <span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;post&#39;</span><span class="p">,</span>
+        <span class="nx">data</span><span class="o">:</span> <span class="nx">integralGrade</span>
+    <span class="p">})</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="2data">2、定义页面data<a class="headerlink" href="#2data" title="Permanent link">&para;</a></h4>
+<p>src/views/core/integral-grade/form.vue，完善data定义</p>
+<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="nx">data</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="nx">integralGrade</span><span class="o">:</span> <span class="p">{},</span> <span class="c1">// 初始化数据</span>
+      <span class="nx">saveBtnDisabled</span><span class="o">:</span> <span class="kc">false</span> <span class="c1">// 保存按钮是否禁用，防止表单重复提交</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="o">&lt;</span><span class="err">/script&gt;</span>
+</code></pre></div>
+<h4 id="3_4">3、页面组件模板<a class="headerlink" href="#3_4" title="Permanent link">&para;</a></h4>
+<p>src/views/core/integral-grade/form.vue，完善template</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;app-container&quot;</span><span class="p">&gt;</span>
+    <span class="cm">&lt;!-- 输入表单 --&gt;</span>
+    <span class="p">&lt;</span><span class="nt">el-form</span> <span class="na">label-width</span><span class="o">=</span><span class="s">&quot;120px&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">el-form-item</span> <span class="na">label</span><span class="o">=</span><span class="s">&quot;借款额度&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">el-input-number</span> <span class="na">v-model</span><span class="o">=</span><span class="s">&quot;integralGrade.borrowAmount&quot;</span> <span class="na">:min</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="p">/&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">el-form-item</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">el-form-item</span> <span class="na">label</span><span class="o">=</span><span class="s">&quot;积分区间开始&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">el-input-number</span> <span class="na">v-model</span><span class="o">=</span><span class="s">&quot;integralGrade.integralStart&quot;</span> <span class="na">:min</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="p">/&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">el-form-item</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">el-form-item</span> <span class="na">label</span><span class="o">=</span><span class="s">&quot;积分区间结束&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">el-input-number</span> <span class="na">v-model</span><span class="o">=</span><span class="s">&quot;integralGrade.integralEnd&quot;</span> <span class="na">:min</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="p">/&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">el-form-item</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">el-form-item</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">el-button</span>
+          <span class="na">:disabled</span><span class="o">=</span><span class="s">&quot;saveBtnDisabled&quot;</span>
+          <span class="na">type</span><span class="o">=</span><span class="s">&quot;primary&quot;</span>
+          <span class="err">@</span><span class="na">click</span><span class="o">=</span><span class="s">&quot;saveOrUpdate()&quot;</span>
+        <span class="p">&gt;</span>
+          保存
+        <span class="p">&lt;/</span><span class="nt">el-button</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">el-form-item</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">el-form</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+</code></pre></div>
+<h4 id="4_1">4、新增数据脚本<a class="headerlink" href="#4_1" title="Permanent link">&para;</a></h4>
+<p>src/views/core/integral-grade/form.vue，引入api</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="nx">integralGradeApi</span> <span class="kr">from</span> <span class="s1">&#39;@/api/core/integral-grade&#39;</span>
+</code></pre></div>
+<p>定义保存方法</p>
+<div class="highlight"><pre><span></span><code><span class="nx">methods</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">saveOrUpdate</span><span class="p">()</span> <span class="p">{</span>
+      <span class="c1">// 禁用保存按钮</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">saveBtnDisabled</span> <span class="o">=</span> <span class="kc">true</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">saveData</span><span class="p">()</span>
+    <span class="p">},</span>
+
+    <span class="c1">// 新增数据</span>
+    <span class="nx">saveData</span><span class="p">()</span> <span class="p">{</span>
+      <span class="c1">// debugger</span>
+      <span class="nx">integralGradeApi</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">integralGrade</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">$message</span><span class="p">({</span>
+          <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;success&#39;</span><span class="p">,</span>
+          <span class="nx">message</span><span class="o">:</span> <span class="nx">response</span><span class="p">.</span><span class="nx">message</span>
+        <span class="p">})</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">$router</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">&#39;/core/integral-grade/list&#39;</span><span class="p">)</span>
+      <span class="p">})</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="_12">三、回显数据<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<h4 id="1_6">1、列表页编辑按钮<a class="headerlink" href="#1_6" title="Permanent link">&para;</a></h4>
+<p>src/views/core/integral-grade/list.vue，表格“操作”列中增加“修改”按钮</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">router-link</span> <span class="na">:to</span><span class="o">=</span><span class="s">&quot;&#39;/core/integral-grade/edit/&#39; + scope.row.id&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;margin-right:5px;&quot;</span> <span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">el-button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;primary&quot;</span> <span class="na">size</span><span class="o">=</span><span class="s">&quot;mini&quot;</span> <span class="na">icon</span><span class="o">=</span><span class="s">&quot;el-icon-edit&quot;</span><span class="p">&gt;</span>
+        修改
+    <span class="p">&lt;/</span><span class="nt">el-button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">router-link</span><span class="p">&gt;</span>
+</code></pre></div>
+<h4 id="2api">2、定义api<a class="headerlink" href="#2api" title="Permanent link">&para;</a></h4>
+<p>src/api/core/integral-grade.js</p>
+<div class="highlight"><pre><span></span><code><span class="nx">getById</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">request</span><span class="p">({</span>
+        <span class="nx">url</span><span class="o">:</span> <span class="sb">`/admin/core/integralGrade/get/</span><span class="si">${</span><span class="nx">id</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span>
+        <span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;get&#39;</span>
+    <span class="p">})</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="3_5">3、获取数据脚本<a class="headerlink" href="#3_5" title="Permanent link">&para;</a></h4>
+<p>src/views/core/integral-grade/form.vue，methods中定义回显方法</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 根据id查询记录</span>
+<span class="nx">fetchDataById</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">integralGradeApi</span><span class="p">.</span><span class="nx">getById</span><span class="p">(</span><span class="nx">id</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">integralGrade</span> <span class="o">=</span> <span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">record</span>
+    <span class="p">})</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>页面渲染成功后获取数据</p>
+<p>因为已在路由中定义如下内容：path: 'edit/:id'，因此可以使用 this.$route.params.id 获取路由中的id</p>
+<div class="highlight"><pre><span></span><code><span class="c1">//页面渲染成功</span>
+<span class="nx">created</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">$route</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">fetchDataById</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">$route</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">},</span>
+</code></pre></div>
+<h3 id="_13">四、更新数据<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<h4 id="1api_3">1、定义api<a class="headerlink" href="#1api_3" title="Permanent link">&para;</a></h4>
+<p>src/api/core/integral-grade.js</p>
+<div class="highlight"><pre><span></span><code><span class="nx">updateById</span><span class="p">(</span><span class="nx">integralGrade</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">request</span><span class="p">({</span>
+      <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;/admin/core/integralGrade/update&#39;</span><span class="p">,</span>
+      <span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;put&#39;</span><span class="p">,</span>
+      <span class="nx">data</span><span class="o">:</span> <span class="nx">integralGrade</span>
+    <span class="p">})</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="2_6">2、更新数据脚本<a class="headerlink" href="#2_6" title="Permanent link">&para;</a></h4>
+<p>src/views/core/integral-grade/form.vue，methods中定义updateData</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 根据id更新记录</span>
+<span class="nx">updateData</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// 数据的获取</span>
+    <span class="nx">integralGradeApi</span><span class="p">.</span><span class="nx">updateById</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">integralGrade</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">$message</span><span class="p">({</span>
+            <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;success&#39;</span><span class="p">,</span>
+            <span class="nx">message</span><span class="o">:</span> <span class="nx">response</span><span class="p">.</span><span class="nx">message</span>
+        <span class="p">})</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">$router</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">&#39;/core/integral-grade/list&#39;</span><span class="p">)</span>
+    <span class="p">})</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>完善saveOrUpdate方法</p>
+<div class="highlight"><pre><span></span><code><span class="nx">saveOrUpdate</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// 禁用保存按钮</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">saveBtnDisabled</span> <span class="o">=</span> <span class="kc">true</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">integralGrade</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">saveData</span><span class="p">()</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">updateData</span><span class="p">()</span>
+    <span class="p">}</span>
+<span class="p">},</span>
+</code></pre></div>
+<h3 id="_14">五、表单校验<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<h4 id="1_7">1、说明<a class="headerlink" href="#1_7" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Form 组件提供了表单验证的功能，需要通过 rules 属性传入约定的验证规则，通过model属性指定要校验的表单数据，并将 form-Item 的 prop 属性设置为需校验的字段名。</li>
+<li>v-model.number 表示这是一个数值字段</li>
+<li>this.$refs['integralGradeForm'].validate() 提交表单时验证校验是否通过</li>
+</ul>
+<h4 id="2_7">2、完整的表单代码<a class="headerlink" href="#2_7" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;app-container&quot;</span><span class="p">&gt;</span>
+    <span class="cm">&lt;!-- 输入表单 --&gt;</span>
+    <span class="p">&lt;</span><span class="nt">el-form</span>
+      <span class="na">label-width</span><span class="o">=</span><span class="s">&quot;120px&quot;</span>
+      <span class="na">:rules</span><span class="o">=</span><span class="s">&quot;rules&quot;</span>
+      <span class="na">:model</span><span class="o">=</span><span class="s">&quot;integralGrade&quot;</span>
+      <span class="na">ref</span><span class="o">=</span><span class="s">&quot;integralGradeForm&quot;</span>
+    <span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">el-form-item</span> <span class="na">label</span><span class="o">=</span><span class="s">&quot;借款额度&quot;</span> <span class="na">prop</span><span class="o">=</span><span class="s">&quot;borrowAmount&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">el-col</span> <span class="na">:span</span><span class="o">=</span><span class="s">&quot;10&quot;</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">el-input</span> <span class="na">v-model</span><span class="err">.</span><span class="na">number</span><span class="o">=</span><span class="s">&quot;integralGrade.borrowAmount&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">template</span> <span class="na">slot</span><span class="o">=</span><span class="s">&quot;append&quot;</span><span class="p">&gt;</span>元<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+          <span class="p">&lt;/</span><span class="nt">el-input</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">el-col</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">el-form-item</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">el-form-item</span> <span class="na">label</span><span class="o">=</span><span class="s">&quot;积分区间&quot;</span> <span class="na">required</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">el-col</span> <span class="na">:span</span><span class="o">=</span><span class="s">&quot;3&quot;</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">el-form-item</span> <span class="na">prop</span><span class="o">=</span><span class="s">&quot;integralStart&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">el-input</span> <span class="na">v-model</span><span class="err">.</span><span class="na">number</span><span class="o">=</span><span class="s">&quot;integralGrade.integralStart&quot;</span> <span class="p">/&gt;</span>
+          <span class="p">&lt;/</span><span class="nt">el-form-item</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">el-col</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">el-col</span> <span class="na">:span</span><span class="o">=</span><span class="s">&quot;1&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;text-align: center;&quot;</span><span class="p">&gt;</span>-<span class="p">&lt;/</span><span class="nt">el-col</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">el-col</span> <span class="na">:span</span><span class="o">=</span><span class="s">&quot;3&quot;</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">el-form-item</span> <span class="na">prop</span><span class="o">=</span><span class="s">&quot;integralEnd&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">el-input</span> <span class="na">v-model</span><span class="err">.</span><span class="na">number</span><span class="o">=</span><span class="s">&quot;integralGrade.integralEnd&quot;</span> <span class="p">/&gt;</span>
+          <span class="p">&lt;/</span><span class="nt">el-form-item</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">el-col</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">el-form-item</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">el-form-item</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">el-button</span>
+          <span class="na">:disabled</span><span class="o">=</span><span class="s">&quot;saveBtnDisabled&quot;</span>
+          <span class="na">type</span><span class="o">=</span><span class="s">&quot;primary&quot;</span>
+          <span class="err">@</span><span class="na">click</span><span class="o">=</span><span class="s">&quot;saveOrUpdate()&quot;</span>
+        <span class="p">&gt;</span>
+          保存
+        <span class="p">&lt;/</span><span class="nt">el-button</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">el-form-item</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">el-form</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="k">import</span> <span class="nx">integralGradeApi</span> <span class="kr">from</span> <span class="s1">&#39;@/api/core/integral-grade&#39;</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="nx">data</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="nx">integralGrade</span><span class="o">:</span> <span class="p">{},</span> <span class="c1">// 初始化数据</span>
+      <span class="nx">saveBtnDisabled</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span> <span class="c1">// 保存按钮是否禁用，防止表单重复提交</span>
+      <span class="nx">rules</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">borrowAmount</span><span class="o">:</span> <span class="p">[</span>
+          <span class="p">{</span> <span class="nx">required</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;请输入借款额度&#39;</span> <span class="p">},</span>
+          <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;number&#39;</span><span class="p">,</span> <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;借款额度必须为数字值&#39;</span> <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="nx">integralStart</span><span class="o">:</span> <span class="p">[</span>
+          <span class="p">{</span> <span class="nx">required</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;请输入积分开始区间&#39;</span> <span class="p">},</span>
+          <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;number&#39;</span><span class="p">,</span> <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;积分区间必须为数字值&#39;</span> <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="nx">integralEnd</span><span class="o">:</span> <span class="p">[</span>
+          <span class="p">{</span> <span class="nx">required</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;请输入积分结束区间&#39;</span> <span class="p">},</span>
+          <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;number&#39;</span><span class="p">,</span> <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;积分区间必须为数字值&#39;</span> <span class="p">}</span>
+        <span class="p">]</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+
+  <span class="c1">//页面渲染成功</span>
+  <span class="nx">created</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">$route</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">fetchDataById</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">$route</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+
+  <span class="nx">methods</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">saveOrUpdate</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">$refs</span><span class="p">[</span><span class="s1">&#39;integralGradeForm&#39;</span><span class="p">].</span><span class="nx">validate</span><span class="p">(</span><span class="nx">valid</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">valid</span><span class="p">)</span> <span class="p">{</span>
+          <span class="c1">// 禁用保存按钮</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">saveBtnDisabled</span> <span class="o">=</span> <span class="kc">true</span>
+          <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">integralGrade</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">saveData</span><span class="p">()</span>
+          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">updateData</span><span class="p">()</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">})</span>
+    <span class="p">},</span>
+
+    <span class="c1">// 新增数据</span>
+    <span class="nx">saveData</span><span class="p">()</span> <span class="p">{</span>
+      <span class="c1">// debugger</span>
+      <span class="nx">integralGradeApi</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">integralGrade</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">$message</span><span class="p">({</span>
+          <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;success&#39;</span><span class="p">,</span>
+          <span class="nx">message</span><span class="o">:</span> <span class="nx">response</span><span class="p">.</span><span class="nx">message</span>
+        <span class="p">})</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">$router</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">&#39;/core/integral-grade/list&#39;</span><span class="p">)</span>
+      <span class="p">})</span>
+    <span class="p">},</span>
+
+    <span class="c1">// 根据id查询记录</span>
+    <span class="nx">fetchDataById</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">integralGradeApi</span><span class="p">.</span><span class="nx">getById</span><span class="p">(</span><span class="nx">id</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">integralGrade</span> <span class="o">=</span> <span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">record</span>
+      <span class="p">})</span>
+    <span class="p">},</span>
+
+    <span class="c1">// 根据id更新记录</span>
+    <span class="nx">updateData</span><span class="p">()</span> <span class="p">{</span>
+      <span class="c1">// 数据的获取</span>
+      <span class="nx">integralGradeApi</span><span class="p">.</span><span class="nx">updateById</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">integralGrade</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">$message</span><span class="p">({</span>
+          <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;success&#39;</span><span class="p">,</span>
+          <span class="nx">message</span><span class="o">:</span> <span class="nx">response</span><span class="p">.</span><span class="nx">message</span>
+        <span class="p">})</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">$router</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">&#39;/core/integral-grade/list&#39;</span><span class="p">)</span>
+      <span class="p">})</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div>
+<h2 id="06-vue">06-关于Vue组件（了解）<a class="headerlink" href="#06-vue" title="Permanent link">&para;</a></h2>
+<h3 id="_15">一、什么是组件<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<p>组件（Component）是 Vue.js 最强大的功能之一。</p>
+<p>组件可以扩展 HTML 元素，封装可重用的代码。</p>
+<p>组件系统让我们可以用独立可复用的小组件来构建大型应用，几乎任意类型的应用界面都可以抽象为一个组件树：</p>
+<p><img alt="1645446779758" src="../imgs/1645446779758.png" /></p>
+<h3 id="_16">二、项目组件分析<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<h4 id="1_8">1、程序入口<a class="headerlink" href="#1_8" title="Permanent link">&para;</a></h4>
+<ul>
+<li>入口html：public/index.html</li>
+<li>入口js脚本：src/main.js</li>
+<li>顶层组件：src/App.vue</li>
+<li>路由：src/router/index.js</li>
+</ul>
+<p>main.js 中引入了App.vue和 router/index.js，根据路由配置，App.vue中的路由出口会显示相应的页面组件的内容</p>
+<h5 id="_17">入口脚本<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h5>
+<p>引入顶层组件模块和路由模块</p>
+<p><img alt="1645446802779" src="../imgs/1645446802779.png" /></p>
+<h5 id="_18">顶层组件<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h5>
+<p>路由出口的位置</p>
+<p><img alt="1645446818436" src="../imgs/1645446818436.png" /></p>
+<h5 id="_19">路由配置<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h5>
+<p>路由出口的位置显示的页面组件</p>
+<p><img alt="1645446839132" src="../imgs/1645446839132.png" /></p>
+<h4 id="2_8">2、登录页组件关系<a class="headerlink" href="#2_8" title="Permanent link">&para;</a></h4>
+<p><img alt="1645446854149" src="../imgs/1645446854149.png" /></p>
+<h3 id="layout">三、Layout<a class="headerlink" href="#layout" title="Permanent link">&para;</a></h3>
+<h4 id="1_9">1、路由<a class="headerlink" href="#1_9" title="Permanent link">&para;</a></h4>
+<p>src/router/index.js：这个组件应用了Layout布局文件</p>
+<p><img alt="1645446869586" src="../imgs/1645446869586.png" /></p>
+<h4 id="2_9">2、布局<a class="headerlink" href="#2_9" title="Permanent link">&para;</a></h4>
+<p>src/layout/index.vue：侧边栏、导航栏、主内容区</p>
+<p><img alt="1645446885475" src="../imgs/1645446885475.png" /></p>
+<h4 id="3_6">3、主内容区<a class="headerlink" href="#3_6" title="Permanent link">&para;</a></h4>
+<p>src/layout/components/AppMain.vue：Layout的路由出口（主内容区）</p>
+<p><img alt="1645446899796" src="../imgs/1645446899796.png" /></p>
+<h4 id="4_2">4、积分区间列表页面组件<a class="headerlink" href="#4_2" title="Permanent link">&para;</a></h4>
+<p><img alt="1645446912899" src="../imgs/1645446912899.png" /></p>
+
+              
+			  <hr><span id="busuanzi_container_page_pv"><font size="3" color="grey">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</font></span><br/>
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../../Part04-%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/Part04-%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 前端知识" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              前端知识
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../Part06-Alibaba%20EasyExcel/Part06-Alibaba%20EasyExcel/" class="md-footer__link md-footer__link--next" aria-label="Next: Alibaba EasyExcel" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Alibaba EasyExcel
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 尚硅谷
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.tabs", "navigation.tabs.sticky"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.1514a9a0.min.js"></script>
+      
+        <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+      
+    
+  </body>
+</html>

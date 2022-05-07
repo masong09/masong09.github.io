@@ -1,0 +1,5339 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.6">
+    
+    
+      
+        <title>平台前端搭建与首页 - 我的文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.cd566b2a.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="我的文档" class="md-header__button md-logo" aria-label="我的文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            我的文档
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              平台前端搭建与首页
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/01%20Java%E6%A6%82%E8%BF%B0/01%20-%20Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0/" class="md-tabs__link md-tabs__link--active">
+        Java课程
+      </a>
+    </li>
+  
+
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC1%E7%AB%A0%20%E9%9D%A2%E8%AF%95%E8%AF%B4%E6%98%8E/" class="md-tabs__link">
+        Java就业面试
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../../.." class="md-tabs__link">
+      学习文档
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="我的文档" class="md-nav__button md-logo" aria-label="我的文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    我的文档
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Java课程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Java课程" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Java课程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1" type="checkbox" id="__nav_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1">
+          Java基础
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Java基础" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Java基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1_1" type="checkbox" id="__nav_1_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1_1">
+          基础部分
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="基础部分" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          基础部分
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/01%20Java%E6%A6%82%E8%BF%B0/01%20-%20Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0/" class="md-nav__link">
+        Java概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/02%20%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/02%20%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" class="md-nav__link">
+        基本语法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/03%20%E6%95%B0%E7%BB%84/03%20%E6%95%B0%E7%BB%84/" class="md-nav__link">
+        数组
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/04%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/04%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="md-nav__link">
+        面向对象
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/05%20%E5%BC%82%E5%B8%B8/05%20%E5%BC%82%E5%B8%B8/" class="md-nav__link">
+        异常
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1_2" type="checkbox" id="__nav_1_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1_2">
+          高级部分
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="高级部分" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          高级部分
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/06%20%E5%B8%B8%E7%94%A8%E7%B1%BBAPI/06%20%E5%B8%B8%E7%94%A8%E7%B1%BBAPI/" class="md-nav__link">
+        常用类API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/07%20%E9%9B%86%E5%90%88/07%20%E9%9B%86%E5%90%88/" class="md-nav__link">
+        集合
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/08%20%E6%B3%9B%E5%9E%8B/08%20%E6%B3%9B%E5%9E%8B/" class="md-nav__link">
+        泛型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/09%20File%E7%B1%BB%E4%B8%8EIO%E6%B5%81/09%20File%E7%B1%BB%E4%B8%8EIO%E6%B5%81/" class="md-nav__link">
+        File类与IO流
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/10%20%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/10%20%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" class="md-nav__link">
+        网络编程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/11%20%E5%A4%9A%E7%BA%BF%E7%A8%8B/11%20%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="md-nav__link">
+        多线程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/12%20%E5%8F%8D%E5%B0%84/12%20%E5%8F%8D%E5%B0%84/" class="md-nav__link">
+        反射
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/13%20Java8%E6%96%B0%E7%89%B9%E6%80%A7/Java8%E6%96%B0%E7%89%B9%E6%80%A7/" class="md-nav__link">
+        Java8新特性
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2" type="checkbox" id="__nav_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_2">
+          MySQL数据库
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="MySQL数据库" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          MySQL数据库
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/14%20MySQL/MySQL5.7%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/" class="md-nav__link">
+        MySQL5.7安装文档
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/14%20MySQL/MySQL%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        MySQL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/14%20MySQL/JDBC%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        JDBC
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_3" type="checkbox" id="__nav_1_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_3">
+          JavaWeb阶段
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="JavaWeb阶段" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          JavaWeb阶段
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day01/day01_HTML%26CSS/" class="md-nav__link">
+        HTML&CSS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day02/day02_JS%26%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="md-nav__link">
+        JS&正则表达式
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day03/day03_VUE%26%E4%B9%A6%E5%9F%8E%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        VUE&书城第一阶段
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day04/day04_XML%26Tomcat%26Http%E5%8D%8F%E8%AE%AE/" class="md-nav__link">
+        XML&Tomcat&Http协议
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day05/day05_Servlet/" class="md-nav__link">
+        Servlet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day06/day06_Request%26Response/" class="md-nav__link">
+        Request&Response
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day07/day07_%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        书城项目第二阶
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day08/day08_Thymeleaf/" class="md-nav__link">
+        Thymeleaf
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day09/day09_%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        书城项目第三阶段
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day10/day10_%E4%BC%9A%E8%AF%9D%26%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5%281%29/" class="md-nav__link">
+        会话&书城项目第四阶段1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day11/day11_%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        书城项目第四阶段2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day12/day12_Filter%26Listener%26%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%BA%94%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        Filter&Listener&书城项目第五阶段1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day13/day13_%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%BA%94%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        书城项目第五阶段2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day14/day14_Ajax%26Axios%26%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E5%85%AD%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        Ajax&Axios&书城项目第六阶段
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4" type="checkbox" id="__nav_1_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4">
+          经典框架
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="经典框架" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          经典框架
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/Spring%20%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        Spring
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/SpringMVC%20%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        SpringMVC
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/MyBatis%20%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        MyBatis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/SSM%20%E6%95%B4%E5%90%88%E9%85%8D%E7%BD%AE/" class="md-nav__link">
+        SSM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/Maven%20%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        Maven
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/%E6%A1%86%E6%9E%B6%E9%AB%98%E7%BA%A7%E8%AF%BE%E7%A8%8B%E7%B3%BB%E5%88%97%E4%B9%8BLinuxCentOS7/" class="md-nav__link">
+        Linux
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/Redis/" class="md-nav__link">
+        Redis
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_5" type="checkbox" id="__nav_1_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_5">
+          微服务相关
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="微服务相关" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_5">
+          <span class="md-nav__icon md-icon"></span>
+          微服务相关
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/Docker/Docker/" class="md-nav__link">
+        Docker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/ElasticSearch/ElasticSearch/" class="md-nav__link">
+        ElasticSearch
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/RabbitMQ/RabbitMQ/" class="md-nav__link">
+        RabbitMQ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/SpringBoot/SpringBoot/" class="md-nav__link">
+        SpringBoot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/SpringCloud/SpringCloud/" class="md-nav__link">
+        SpringCloud
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_6" type="checkbox" id="__nav_1_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_6">
+          高级技术
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="高级技术" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_6">
+          <span class="md-nav__icon md-icon"></span>
+          高级技术
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/git/Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        git
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/juc/JUC/" class="md-nav__link">
+        JUC
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/jvm/jvm/" class="md-nav__link">
+        jvm
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/mysql%E9%AB%98%E7%BA%A7/MySQL%E9%AB%98%E7%BA%A7/" class="md-nav__link">
+        mysql高级
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/mysql%E9%AB%98%E7%BA%A7/MySQL%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/" class="md-nav__link">
+        MySQL主从复制
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/MyCat/Mycat/" class="md-nav__link">
+        MyCat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/nginx/Nginx/" class="md-nav__link">
+        Nginx
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7" type="checkbox" id="__nav_1_7" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7">
+          项目文档
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="项目文档" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_7">
+          <span class="md-nav__icon md-icon"></span>
+          项目文档
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_1" type="checkbox" id="__nav_1_7_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7_1">
+          美年旅游
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="美年旅游" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_7_1">
+          <span class="md-nav__icon md-icon"></span>
+          美年旅游
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BE%8E%E5%B9%B4/day01/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC1%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游01
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BE%8E%E5%B9%B4/day02/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC2%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游02
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BE%8E%E5%B9%B4/day03/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC3%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游03
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BE%8E%E5%B9%B4/day04/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC4%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游04
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BE%8E%E5%B9%B4/day05/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC5%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游05
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BE%8E%E5%B9%B4/day06/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC6%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游06
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BE%8E%E5%B9%B4/day07/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC7%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游07
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BE%8E%E5%B9%B4/day08/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC8%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游08
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BE%8E%E5%B9%B4/day09/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC9%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游09
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BE%8E%E5%B9%B4/day10/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC10%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游10
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BE%8E%E5%B9%B4/day11/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC11%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游11
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_2" type="checkbox" id="__nav_1_7_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7_2">
+          尚邻网
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="尚邻网" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_7_2">
+          <span class="md-nav__icon md-icon"></span>
+          尚邻网
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E9%82%BB%E7%BD%91/1.%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83/" class="md-nav__link">
+        搭建环境
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E9%82%BB%E7%BD%91/2.%E7%94%A8%E6%88%B7%E8%A7%92%E8%89%B2%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        用户角色管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E9%82%BB%E7%BD%91/3.Apache%20Dubbo/" class="md-nav__link">
+        Apache Dubbo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E9%82%BB%E7%BD%91/4.%E6%9C%8D%E5%8A%A1%E6%8B%86%E5%88%86/" class="md-nav__link">
+        服务拆分
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E9%82%BB%E7%BD%91/5.%E4%BA%8C%E6%89%8B%E6%88%BF%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        二手房管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E9%82%BB%E7%BD%91/6.%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/" class="md-nav__link">
+        图片上传
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E9%82%BB%E7%BD%91/7.%E5%89%8D%E7%AB%AF%E6%88%BF%E6%BA%90%E5%B1%95%E7%A4%BA/" class="md-nav__link">
+        前端房源展示
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E9%82%BB%E7%BD%91/8.%E5%89%8D%E7%AB%AF%E7%99%BB%E5%BD%95%E4%B8%8E%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%85%B3%E6%B3%A8/" class="md-nav__link">
+        前端登录与注册与关注
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E9%82%BB%E7%BD%91/9.%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        权限管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E9%82%BB%E7%BD%91/10.spring%20security/" class="md-nav__link">
+        spring security
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E9%82%BB%E7%BD%91/11.session%E5%85%B1%E4%BA%AB/" class="md-nav__link">
+        session共享
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_3" type="checkbox" id="__nav_1_7_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7_3">
+          谷粒商城
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="谷粒商城" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_7_3">
+          <span class="md-nav__icon md-icon"></span>
+          谷粒商城
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/1.%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%EF%BC%88nginx%E3%80%81cors%E3%80%81oss%EF%BC%89/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        谷粒商城01
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/2.%E5%88%86%E7%B1%BB%E3%80%81%E8%A7%84%E6%A0%BC%E3%80%81%E5%95%86%E5%93%81%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/%E8%A7%84%E6%A0%BC%E5%8F%82%E6%95%B0%E5%8F%8A%E5%95%86%E5%93%81%E6%96%B0%E5%A2%9E/" class="md-nav__link">
+        谷粒商城02
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/3.%E6%9C%AC%E5%9C%B0%E4%BA%8B%E5%8A%A1%E3%80%81%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E5%8F%8Aseata/%E6%9C%AC%E5%9C%B0%E4%BA%8B%E5%8A%A1%E3%80%81%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E5%8F%8Aseata/" class="md-nav__link">
+        谷粒商城03
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/4.elasticsearch%28DSL%E5%8F%8ASpringData-Elasticsearch%29/elasticsearch/" class="md-nav__link">
+        谷粒商城04
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/5.%E5%95%86%E5%93%81%E6%90%9C%E7%B4%A2/%E5%95%86%E5%93%81%E6%90%9C%E7%B4%A2/" class="md-nav__link">
+        谷粒商城05
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/6.%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%EF%BC%88Thymeleaf%EF%BC%89%E5%8F%8A%E6%90%9C%E7%B4%A2%E9%A1%B5%E6%B8%B2%E6%9F%93/%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E-Thymeleaf/" class="md-nav__link">
+        谷粒商城06
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/7.%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%EF%BC%88RabbitMQ%EF%BC%89/%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5/" class="md-nav__link">
+        谷粒商城07
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/8.%E5%95%86%E5%93%81%E5%88%86%E7%B1%BB%28%E7%BC%93%E5%AD%98%E3%80%81%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E3%80%81Redisson%E3%80%81%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8%29/%E9%A6%96%E9%A1%B5%E5%95%86%E5%93%81%E5%88%86%E7%B1%BB/" class="md-nav__link">
+        谷粒商城08
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/9.%E5%95%86%E5%93%81%E8%AF%A6%E6%83%85%E9%A1%B5%E5%8F%8A%E5%BC%82%E6%AD%A5%E7%BC%96%E6%8E%92%EF%BC%88CompletableFuture%EF%BC%89/%E5%95%86%E5%93%81%E8%AF%A6%E6%83%85%E9%A1%B5/" class="md-nav__link">
+        谷粒商城09
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/10.%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%EF%BC%88jwt%EF%BC%89/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%EF%BC%88jwt%EF%BC%89/" class="md-nav__link">
+        谷粒商城10
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/11.%E8%B4%AD%E7%89%A9%E8%BD%A6%EF%BC%88SpringTask%EF%BC%89/%E8%B4%AD%E7%89%A9%E8%BD%A6/" class="md-nav__link">
+        谷粒商城11
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/12.%E5%88%86%E5%B8%83%E5%BC%8F%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%EF%BC%88xxl-job%EF%BC%89/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%EF%BC%88xxl-job%EF%BC%89/" class="md-nav__link">
+        谷粒商城12
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/13.%E8%AE%A2%E5%8D%95%E3%80%81%E5%BA%93%E5%AD%98/%E8%AE%A2%E5%8D%95%E3%80%81%E5%BA%93%E5%AD%98/" class="md-nav__link">
+        谷粒商城13
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/14.%E6%94%AF%E4%BB%98%E3%80%81%E7%A7%92%E6%9D%80/%E6%94%AF%E4%BB%98%E3%80%81%E7%A7%92%E6%9D%80/" class="md-nav__link">
+        谷粒商城14
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_4" type="checkbox" id="__nav_1_7_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7_4">
+          尚融宝
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="尚融宝" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_7_4">
+          <span class="md-nav__icon md-icon"></span>
+          尚融宝
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part01-%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D/Part01-%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
+        项目介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part02-MyBatis-Plus/Part02-MyBatis-Plus/" class="md-nav__link">
+        MyBatis-Plus
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part03-%E5%90%8E%E7%AB%AF%E6%8E%A5%E5%8F%A3%E5%B7%A5%E7%A8%8B%E6%90%AD%E5%BB%BA/Part03-%E5%90%8E%E7%AB%AF%E6%8E%A5%E5%8F%A3%E5%B7%A5%E7%A8%8B%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        后端接口工程搭建
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part04-%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/Part04-%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/" class="md-nav__link">
+        前端知识
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part05-%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA/Part05-%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        管理平台前端搭建
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part06-Alibaba%20EasyExcel/Part06-Alibaba%20EasyExcel/" class="md-nav__link">
+        Alibaba EasyExcel
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part07-%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8/Part07-%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8/" class="md-nav__link">
+        数据字典
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part08-Redis%E7%BC%93%E5%AD%98/Part08-Redis%E7%BC%93%E5%AD%98/" class="md-nav__link">
+        Redis缓存
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part09-NuxtJS%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E6%B8%B2%E6%9F%93/Part09-NuxtJS%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E6%B8%B2%E6%9F%93/" class="md-nav__link">
+        NuxtJS服务器端渲染
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part10-%E9%98%BF%E9%87%8C%E4%BA%91%E7%9F%AD%E4%BF%A1/Part10-%E9%98%BF%E9%87%8C%E4%BA%91%E7%9F%AD%E4%BF%A1/" class="md-nav__link">
+        阿里云短信
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java课程/项目文档/尚融宝/Part11-分布式文件系统-阿里云OSS/分布式文件系统-阿里云OSS" class="md-nav__link">
+        阿里云OSS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part12-%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C/Part12-%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C/" class="md-nav__link">
+        用户注册
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part13-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%89%E5%85%A8-%E8%AE%BF%E9%97%AE%E4%BB%A4%E7%89%8C/Part13-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%89%E5%85%A8-%E8%AE%BF%E9%97%AE%E4%BB%A4%E7%89%8C/" class="md-nav__link">
+        访问令牌
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part14-%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81/Part14-%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81/" class="md-nav__link">
+        用户认证
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part15-%E4%BC%9A%E5%91%98%E7%AE%A1%E7%90%86/Part15-%E4%BC%9A%E5%91%98%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        会员管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part16-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%89%E5%85%A8-OAuth2/Part16-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%89%E5%85%A8-OAuth2/" class="md-nav__link">
+        OAuth2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part17-%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/Part17-%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" class="md-nav__link">
+        内网穿透
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part18-%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95/Part18-%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95/" class="md-nav__link">
+        微信登录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part19-%20SpringCloud/Part19-%20SpringCloud/" class="md-nav__link">
+        SpringCloud
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part20-%E8%B4%A6%E6%88%B7%E7%BB%91%E5%AE%9A/Part20-%E8%B4%A6%E6%88%B7%E7%BB%91%E5%AE%9A/" class="md-nav__link">
+        账户绑定
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part21-%E7%94%B3%E8%AF%B7%E5%80%9F%E6%AC%BE%E9%A2%9D%E5%BA%A6/Part21-%E7%94%B3%E8%AF%B7%E5%80%9F%E6%AC%BE%E9%A2%9D%E5%BA%A6/" class="md-nav__link">
+        申请借款额度
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part22-%E5%80%9F%E6%AC%BE%E9%A2%9D%E5%BA%A6%E5%AE%A1%E6%A0%B8/Part22-%E5%80%9F%E6%AC%BE%E9%A2%9D%E5%BA%A6%E5%AE%A1%E6%A0%B8/" class="md-nav__link">
+        借款额度审核
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part23-%E5%80%9F%E6%AC%BE%E7%94%B3%E8%AF%B7/Part23-%E5%80%9F%E6%AC%BE%E7%94%B3%E8%AF%B7/" class="md-nav__link">
+        借款申请
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part24-%E5%80%9F%E6%AC%BE%E5%AE%A1%E6%A0%B8/Part24-%E5%80%9F%E6%AC%BE%E5%AE%A1%E6%A0%B8/" class="md-nav__link">
+        借款审核
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part25-%E6%A0%87%E7%9A%84%E7%AE%A1%E7%90%86/Part25-%E6%A0%87%E7%9A%84%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        标的管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part26-%E6%88%91%E8%A6%81%E6%8A%95%E8%B5%84/Part26-%E6%88%91%E8%A6%81%E6%8A%95%E8%B5%84/" class="md-nav__link">
+        我要投资
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part27-%E5%85%85%E5%80%BC/Part27-%E5%85%85%E5%80%BC/" class="md-nav__link">
+        充值
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part28-%E6%8A%95%E6%A0%87/Part28-%E6%8A%95%E6%A0%87/" class="md-nav__link">
+        投标
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part29-%E6%94%BE%E6%AC%BE/Part29-%E6%94%BE%E6%AC%BE/" class="md-nav__link">
+        放款
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part30-%E6%8A%95%E8%B5%84%E5%88%97%E8%A1%A8%E5%B1%95%E7%A4%BA/Part30-%E6%8A%95%E8%B5%84%E5%88%97%E8%A1%A8%E5%B1%95%E7%A4%BA/" class="md-nav__link">
+        投资列表展示
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part31-%E6%8F%90%E7%8E%B0%E5%92%8C%E8%BF%98%E6%AC%BE/Part31-%E6%8F%90%E7%8E%B0%E5%92%8C%E8%BF%98%E6%AC%BE/" class="md-nav__link">
+        提现和还款
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part32-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83/Part32-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83/" class="md-nav__link">
+        个人中心
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part33-%E7%BD%91%E5%85%B3/Part33-%E7%BD%91%E5%85%B3/" class="md-nav__link">
+        网关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part34-%E8%A1%A5%E5%85%85/Part34-%E8%A1%A5%E5%85%85/" class="md-nav__link">
+        补充
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part35-%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/Part35-%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/" class="md-nav__link">
+        微信支付
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_5" type="checkbox" id="__nav_1_7_5" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7_5">
+          尚医通
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="尚医通" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_7_5">
+          <span class="md-nav__icon md-icon"></span>
+          尚医通
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../day01%20%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%E4%B8%8EMyBatis%20Plus/day01%20%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%E4%B8%8E%20Mybatis%20Plus/" class="md-nav__link">
+        项目介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../day02%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E5%92%8C%E5%8C%BB%E9%99%A2%E8%AE%BE%E7%BD%AE/day02%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E5%92%8C%E5%8C%BB%E9%99%A2%E8%AE%BE%E7%BD%AE/" class="md-nav__link">
+        搭建环境和医院设置
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../day03%20%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89/day03%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89/" class="md-nav__link">
+        前端基础知识（一）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../day04%20%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%BA%8C%EF%BC%89/day04%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="md-nav__link">
+        前端基础知识（二）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../day05%E5%B9%B3%E5%8F%B0%E7%AE%A1%E7%90%86%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA/day05%E5%B9%B3%E5%8F%B0%E7%AE%A1%E7%90%86%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        平台管理前端搭建
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../day06%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8/day06%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8/" class="md-nav__link">
+        数据字典
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../day07mongodb/day07mongodb/" class="md-nav__link">
+        mongodb
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../day08%E5%8C%BB%E9%99%A2%E4%B8%8A%E4%BC%A0%E6%8E%A5%E5%8F%A3/day08%E5%8C%BB%E9%99%A2%E4%B8%8A%E4%BC%A0%E6%8E%A5%E5%8F%A3/" class="md-nav__link">
+        医院上传接口
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../day09%E5%8C%BB%E9%99%A2%E7%AE%A1%E7%90%86/day09%E5%8C%BB%E9%99%A2%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        医院管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../day10%E6%8E%92%E7%8F%AD%E7%AE%A1%E7%90%86%E5%92%8C%E7%BD%91%E5%85%B3/day10%E6%8E%92%E7%8F%AD%E7%AE%A1%E7%90%86%E5%92%8C%E7%BD%91%E5%85%B3/" class="md-nav__link">
+        排班管理和网关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          平台前端搭建与首页
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        平台前端搭建与首页
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    一、尚医通平台前端搭建
+  </a>
+  
+    <nav class="md-nav" aria-label="一、尚医通平台前端搭建">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1nuxt" class="md-nav__link">
+    1、服务端渲染技术NUXT
+  </a>
+  
+    <nav class="md-nav" aria-label="1、服务端渲染技术NUXT">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    1.1 什么是服务端渲染
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-nuxt" class="md-nav__link">
+    1.2 什么是NUXT
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2nuxt" class="md-nav__link">
+    2、NUXT环境初始化
+  </a>
+  
+    <nav class="md-nav" aria-label="2、NUXT环境初始化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 下载压缩包
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2解压
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23packagejson" class="md-nav__link">
+    2.3修改package.json
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24nuxtconfigjs" class="md-nav__link">
+    2.4修改nuxt.config.js
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    2.5终端中进入项目目录安装依赖
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-element-ui" class="md-nav__link">
+    2.6 引入element-ui
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27" class="md-nav__link">
+    2.7 测试运行
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#28-nuxt" class="md-nav__link">
+    2.8 NUXT目录结构
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3axios" class="md-nav__link">
+    3、封装axios
+  </a>
+  
+    <nav class="md-nav" aria-label="3、封装axios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-axios" class="md-nav__link">
+    3.1 安装axios
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-axios" class="md-nav__link">
+    3.2 封装axios
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    二、首页实现
+  </a>
+  
+    <nav class="md-nav" aria-label="二、首页实现">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1、公共处理
+  </a>
+  
+    <nav class="md-nav" aria-label="1、公共处理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11_1" class="md-nav__link">
+    1.1添加静态资源
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    1.2 定义布局
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 定义布局">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#12-1" class="md-nav__link">
+    1.2 .1 修改默认布局
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-2" class="md-nav__link">
+    1.2 .2 提取头文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-3" class="md-nav__link">
+    1.2 .3 提取尾文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-4" class="md-nav__link">
+    1.2 .4 默认布局引入头尾文件
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2、首页引入
+  </a>
+  
+    <nav class="md-nav" aria-label="2、首页引入">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21_1" class="md-nav__link">
+    2.1 引入首页静态页面
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22_1" class="md-nav__link">
+    2.2 首页数据分析
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3api" class="md-nav__link">
+    3、首页数据api接口
+  </a>
+  
+    <nav class="md-nav" aria-label="3、首页数据api接口">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1 医院分页列表
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 医院分页列表">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#311-service" class="md-nav__link">
+    3.1.1 service接口与实现
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#312-controller" class="md-nav__link">
+    3.1.2 添加controller接口
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2 根据医院名称关键字搜索医院列表
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 根据医院名称关键字搜索医院列表">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#311-service_1" class="md-nav__link">
+    3.1.1 service接口与实现
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#312-repository" class="md-nav__link">
+    3.1.2 repository添加接口
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#313-controller" class="md-nav__link">
+    3.1.3 添加controller接口
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4、首页前端实现
+  </a>
+  
+    <nav class="md-nav" aria-label="4、首页前端实现">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-api" class="md-nav__link">
+    4.1 封装api请求
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    4.2 添加组件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    4.3 调用接口
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    三、医院详情
+  </a>
+  
+    <nav class="md-nav" aria-label="三、医院详情">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    1、预约挂号
+  </a>
+  
+    <nav class="md-nav" aria-label="1、预约挂号">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-api" class="md-nav__link">
+    1.1 api接口
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 api接口">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-service" class="md-nav__link">
+    1.1.1 添加service接口与实现
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-controller" class="md-nav__link">
+    1.1.2 添加controller接口
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12_1" class="md-nav__link">
+    1.2 预约挂号前端
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 预约挂号前端">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121api" class="md-nav__link">
+    1.2.1封装api请求
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122" class="md-nav__link">
+    1.2.2 页面布局
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    2、医院详情
+  </a>
+  
+    <nav class="md-nav" aria-label="2、医院详情">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21_2" class="md-nav__link">
+    2.1 页面布局
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3、预约须知
+  </a>
+  
+    <nav class="md-nav" aria-label="3、预约须知">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31_1" class="md-nav__link">
+    3.1 页面布局
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../day12%E6%89%8B%E6%9C%BA%E7%99%BB%E5%BD%95/day12%E6%89%8B%E6%9C%BA%E7%99%BB%E5%BD%95/" class="md-nav__link">
+        手机登录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../day13%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95/day13%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95/" class="md-nav__link">
+        微信登录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../day14%E9%98%BF%E9%87%8C%E4%BA%91OSS%E3%80%81%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81%E4%B8%8E%E5%B0%B1%E8%AF%8A%E4%BA%BA/day14%E9%98%BF%E9%87%8C%E4%BA%91OSS%E3%80%81%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81%E4%B8%8E%E5%B0%B1%E8%AF%8A%E4%BA%BA/" class="md-nav__link">
+        阿里云OSS、用户认证与就诊人
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../day15%E9%A2%84%E7%BA%A6%E6%8C%82%E5%8F%B7/day15%E9%A2%84%E7%BA%A6%E6%8C%82%E5%8F%B7/" class="md-nav__link">
+        预约挂号
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../day16%E9%A2%84%E7%BA%A6%E4%B8%8B%E5%8D%95/day16%E9%A2%84%E7%BA%A6%E4%B8%8B%E5%8D%95/" class="md-nav__link">
+        预约下单
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../day17%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/day17%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/" class="md-nav__link">
+        微信支付
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../day18%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E4%B8%8E%E7%BB%9F%E8%AE%A1/day18%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E4%B8%8E%E7%BB%9F%E8%AE%A1/" class="md-nav__link">
+        定时任务与统计
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Java就业面试
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Java就业面试" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Java就业面试
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC1%E7%AB%A0%20%E9%9D%A2%E8%AF%95%E8%AF%B4%E6%98%8E/" class="md-nav__link">
+        第1章 面试说明
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC2%E7%AB%A0%20%E6%89%8B%E5%86%99%E4%BB%A3%E7%A0%81/" class="md-nav__link">
+        第2章 手写代码
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC3%E7%AB%A0%20JavaSE/" class="md-nav__link">
+        第3章 JavaSE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC4%E7%AB%A0%20JVM/" class="md-nav__link">
+        第4章 JVM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC5%E7%AB%A0%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="md-nav__link">
+        第5章 设计模式
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC6%E7%AB%A0%20MySql/" class="md-nav__link">
+        第6章 MySql
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC7%E7%AB%A0%20Java%20Web/" class="md-nav__link">
+        第7章 Java Web
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC8%E7%AB%A0%20SSM%E6%A1%86%E6%9E%B6/" class="md-nav__link">
+        第8章 SSM框架
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC9%E7%AB%A0%20SpringBoot/" class="md-nav__link">
+        第9章 SpringBoot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC10%E7%AB%A0%20SpringCloud/" class="md-nav__link">
+        第10章 SpringCloud
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC11%E7%AB%A0%20Redis/" class="md-nav__link">
+        第11章 Redis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC12%E7%AB%A0%20MQ/" class="md-nav__link">
+        第12章 MQ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC13%E7%AB%A0%20ElasticSearch/" class="md-nav__link">
+        第13章 ElasticSearch
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC14%E7%AB%A0%20Dubbo/" class="md-nav__link">
+        第14章 Dubbo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC15%E7%AB%A0%20Zookeeper/" class="md-nav__link">
+        第15章 Zookeeper
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC16%E7%AB%A0%20Git/" class="md-nav__link">
+        第16章 Git
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC17%E7%AB%A0%20Linux/" class="md-nav__link">
+        第17章 Linux
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        学习文档
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    一、尚医通平台前端搭建
+  </a>
+  
+    <nav class="md-nav" aria-label="一、尚医通平台前端搭建">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1nuxt" class="md-nav__link">
+    1、服务端渲染技术NUXT
+  </a>
+  
+    <nav class="md-nav" aria-label="1、服务端渲染技术NUXT">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    1.1 什么是服务端渲染
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-nuxt" class="md-nav__link">
+    1.2 什么是NUXT
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2nuxt" class="md-nav__link">
+    2、NUXT环境初始化
+  </a>
+  
+    <nav class="md-nav" aria-label="2、NUXT环境初始化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 下载压缩包
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2解压
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23packagejson" class="md-nav__link">
+    2.3修改package.json
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24nuxtconfigjs" class="md-nav__link">
+    2.4修改nuxt.config.js
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    2.5终端中进入项目目录安装依赖
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-element-ui" class="md-nav__link">
+    2.6 引入element-ui
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27" class="md-nav__link">
+    2.7 测试运行
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#28-nuxt" class="md-nav__link">
+    2.8 NUXT目录结构
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3axios" class="md-nav__link">
+    3、封装axios
+  </a>
+  
+    <nav class="md-nav" aria-label="3、封装axios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-axios" class="md-nav__link">
+    3.1 安装axios
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-axios" class="md-nav__link">
+    3.2 封装axios
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    二、首页实现
+  </a>
+  
+    <nav class="md-nav" aria-label="二、首页实现">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1、公共处理
+  </a>
+  
+    <nav class="md-nav" aria-label="1、公共处理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11_1" class="md-nav__link">
+    1.1添加静态资源
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    1.2 定义布局
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 定义布局">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#12-1" class="md-nav__link">
+    1.2 .1 修改默认布局
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-2" class="md-nav__link">
+    1.2 .2 提取头文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-3" class="md-nav__link">
+    1.2 .3 提取尾文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-4" class="md-nav__link">
+    1.2 .4 默认布局引入头尾文件
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2、首页引入
+  </a>
+  
+    <nav class="md-nav" aria-label="2、首页引入">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21_1" class="md-nav__link">
+    2.1 引入首页静态页面
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22_1" class="md-nav__link">
+    2.2 首页数据分析
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3api" class="md-nav__link">
+    3、首页数据api接口
+  </a>
+  
+    <nav class="md-nav" aria-label="3、首页数据api接口">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1 医院分页列表
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 医院分页列表">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#311-service" class="md-nav__link">
+    3.1.1 service接口与实现
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#312-controller" class="md-nav__link">
+    3.1.2 添加controller接口
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2 根据医院名称关键字搜索医院列表
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 根据医院名称关键字搜索医院列表">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#311-service_1" class="md-nav__link">
+    3.1.1 service接口与实现
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#312-repository" class="md-nav__link">
+    3.1.2 repository添加接口
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#313-controller" class="md-nav__link">
+    3.1.3 添加controller接口
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4、首页前端实现
+  </a>
+  
+    <nav class="md-nav" aria-label="4、首页前端实现">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-api" class="md-nav__link">
+    4.1 封装api请求
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    4.2 添加组件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    4.3 调用接口
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    三、医院详情
+  </a>
+  
+    <nav class="md-nav" aria-label="三、医院详情">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    1、预约挂号
+  </a>
+  
+    <nav class="md-nav" aria-label="1、预约挂号">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-api" class="md-nav__link">
+    1.1 api接口
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 api接口">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-service" class="md-nav__link">
+    1.1.1 添加service接口与实现
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-controller" class="md-nav__link">
+    1.1.2 添加controller接口
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12_1" class="md-nav__link">
+    1.2 预约挂号前端
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 预约挂号前端">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121api" class="md-nav__link">
+    1.2.1封装api请求
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122" class="md-nav__link">
+    1.2.2 页面布局
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    2、医院详情
+  </a>
+  
+    <nav class="md-nav" aria-label="2、医院详情">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21_2" class="md-nav__link">
+    2.1 页面布局
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3、预约须知
+  </a>
+  
+    <nav class="md-nav" aria-label="3、预约须知">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31_1" class="md-nav__link">
+    3.1 页面布局
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+  <h1>平台前端搭建与首页</h1>
+
+<h2 id="_1">一、尚医通平台前端搭建<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="1nuxt">1、服务端渲染技术NUXT<a class="headerlink" href="#1nuxt" title="Permanent link">&para;</a></h3>
+<h4 id="11">1.1 什么是服务端渲染<a class="headerlink" href="#11" title="Permanent link">&para;</a></h4>
+<p>服务端渲染又称SSR (Server Side Render)是在服务端完成页面的内容，而不是在客户端通过AJAX获取数据。</p>
+<p>服务器端渲染(SSR)的优势主要在于：更好的 SEO，由于搜索引擎爬虫抓取工具可以直接查看完全渲染的页面。</p>
+<p>如果你的应用程序初始展示 loading 菊花图，然后通过 Ajax 获取内容，抓取工具并不会等待异步完成后再进行页面内容的抓取。也就是说，如果 SEO 对你的站点至关重要，而你的页面又是异步获取内容，则你可能需要服务器端渲染(SSR)解决此问题。</p>
+<p>另外，使用服务器端渲染，我们可以获得更快的内容到达时间(time-to-content)，无需等待所有的 JavaScript 都完成下载并执行，产生更好的用户体验，对于那些内容到达时间(time-to-content)与转化率直接相关的应用程序而言，服务器端渲染(SSR)至关重要。</p>
+<h4 id="12-nuxt">1.2 什么是NUXT<a class="headerlink" href="#12-nuxt" title="Permanent link">&para;</a></h4>
+<p>Nuxt.js 是一个基于 Vue.js 的轻量级应用框架,可用来创建服务端渲染 (SSR) 应用,也可充当静态站点引擎生成静态站点应用,具有优雅的代码结构分层和热加载等特性。</p>
+<p>官网网站：</p>
+<p><a href="https://zh.nuxtjs.org/">https://zh.nuxtjs.org/</a></p>
+<h3 id="2nuxt">2、NUXT环境初始化<a class="headerlink" href="#2nuxt" title="Permanent link">&para;</a></h3>
+<h4 id="21">2.1 下载压缩包<a class="headerlink" href="#21" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/nuxt-community/starter-template/archive/master.zip">https://github.com/nuxt-community/starter-template/archive/master.zip</a></p>
+<h4 id="22">2.2解压<a class="headerlink" href="#22" title="Permanent link">&para;</a></h4>
+<p>将template中的内容复制到 yygh-site</p>
+<h4 id="23packagejson">2.3修改package.json<a class="headerlink" href="#23packagejson" title="Permanent link">&para;</a></h4>
+<p>name、description、author（必须修改这里，否则项目无法安装）</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;yygh-site&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;version&quot;</span><span class="o">:</span> <span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;尚医通&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;author&quot;</span><span class="o">:</span> <span class="s2">&quot;atguigu&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;private&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">&quot;scripts&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;dev&quot;</span><span class="o">:</span> <span class="s2">&quot;nuxt&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;build&quot;</span><span class="o">:</span> <span class="s2">&quot;nuxt build&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;start&quot;</span><span class="o">:</span> <span class="s2">&quot;nuxt start&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;generate&quot;</span><span class="o">:</span> <span class="s2">&quot;nuxt generate&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;lint&quot;</span><span class="o">:</span> <span class="s2">&quot;eslint --ext .js,.vue --ignore-path .gitignore .&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;precommit&quot;</span><span class="o">:</span> <span class="s2">&quot;npm run lint&quot;</span>
+  <span class="p">},</span>
+<span class="p">...</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="24nuxtconfigjs">2.4修改nuxt.config.js<a class="headerlink" href="#24nuxtconfigjs" title="Permanent link">&para;</a></h4>
+<p>修改title: '{{ name }}'、content: '{{escape description }}'</p>
+<p>这里的设置最后会显示在页面标题栏和meta数据中</p>
+<div class="highlight"><pre><span></span><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="cm">/*</span>
+<span class="cm">  ** Headers of the page</span>
+<span class="cm">  */</span>
+  <span class="nx">head</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;yygh-site&#39;</span><span class="p">,</span>
+    <span class="nx">meta</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span> <span class="nx">charset</span><span class="o">:</span> <span class="s1">&#39;utf-8&#39;</span> <span class="p">},</span>
+      <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;viewport&#39;</span><span class="p">,</span> <span class="nx">content</span><span class="o">:</span> <span class="s1">&#39;width=device-width, initial-scale=1&#39;</span> <span class="p">},</span>
+      <span class="p">{</span> <span class="nx">hid</span><span class="o">:</span> <span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="nx">content</span><span class="o">:</span> <span class="s1">&#39;尚医通&#39;</span> <span class="p">}</span>
+    <span class="p">],</span>
+<span class="err">…</span>
+</code></pre></div>
+<h4 id="25">2.5终端中进入项目目录安装依赖<a class="headerlink" href="#25" title="Permanent link">&para;</a></h4>
+<p>npm install</p>
+<p><img alt="image-20220330132040018" src="../day11%E5%B9%B3%E5%8F%B0%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA%E4%B8%8E%E9%A6%96%E9%A1%B5.assets/image-20220330132040018.png" /></p>
+<h4 id="26-element-ui">2.6 引入element-ui<a class="headerlink" href="#26-element-ui" title="Permanent link">&para;</a></h4>
+<p>1、下载element-ui</p>
+<div class="highlight"><pre><span></span><code>npm  install  element-ui
+</code></pre></div>
+<p>2、在plugins文件夹下创建myPlugin.js文件</p>
+<p><img alt="image-20220330132115646" src="../day11%E5%B9%B3%E5%8F%B0%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA%E4%B8%8E%E9%A6%96%E9%A1%B5.assets/image-20220330132115646.png" /></p>
+<p>3、在myPlugin.js文件引入element-ui</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="nx">Vue</span> <span class="kr">from</span> <span class="s1">&#39;vue&#39;</span>
+<span class="k">import</span> <span class="nx">ElementUI</span> <span class="kr">from</span> <span class="s1">&#39;element-ui&#39;</span> <span class="c1">//element-ui的全部组件</span>
+<span class="k">import</span> <span class="s1">&#39;element-ui/lib/theme-chalk/index.css&#39;</span><span class="c1">//element-ui的css</span>
+<span class="nx">Vue</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">ElementUI</span><span class="p">)</span> <span class="c1">//使用elementUI</span>
+</code></pre></div>
+<p>4、在nuxt.config.js文件中使用myPlugin.js</p>
+<p>在build下面添加内容：</p>
+<div class="highlight"><pre><span></span><code><span class="nx">plugins</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span> <span class="nx">src</span><span class="o">:</span> <span class="s1">&#39;~/plugins/myPlugin.js&#39;</span><span class="p">,</span> <span class="nx">ssr</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
+  <span class="p">]</span>
+</code></pre></div>
+<h4 id="27">2.7 测试运行<a class="headerlink" href="#27" title="Permanent link">&para;</a></h4>
+<p>npm run dev</p>
+<p>访问项目：<a href="http://localhost:3000/">http://localhost:3000/</a></p>
+<h4 id="28-nuxt">2.8 NUXT目录结构<a class="headerlink" href="#28-nuxt" title="Permanent link">&para;</a></h4>
+<p>1、资源目录 assets</p>
+<p>用于组织未编译的静态资源如 LESS、SASS 或 JavaScript。</p>
+<p>2、组件目录 components</p>
+<p>用于组织应用的 Vue.js 组件。Nuxt.js 不会扩展增强该目录下 Vue.js 组件，即这些组件不会像页面组件那样有 asyncData 方法的特性。</p>
+<p>3、布局目录 layouts</p>
+<p>用于组织应用的布局组件。</p>
+<p>4、页面目录 pages</p>
+<p>用于组织应用的路由及视图。Nuxt.js 框架读取该目录下所有的 .vue 文件并自动生成对应的路由配置。</p>
+<p>5、插件目录 plugins</p>
+<p>用于组织那些需要在 根vue.js应用 实例化之前需要运行的 Javascript 插件。</p>
+<p>6、nuxt.config.js 文件</p>
+<p>nuxt.config.js 文件用于组织Nuxt.js 应用的个性化配置，以便覆盖默认配置。</p>
+<h3 id="3axios">3、封装axios<a class="headerlink" href="#3axios" title="Permanent link">&para;</a></h3>
+<h4 id="31-axios">3.1 安装axios<a class="headerlink" href="#31-axios" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># 执行安装命令</span>
+npm install axios
+</code></pre></div>
+<h4 id="32-axios">3.2 封装axios<a class="headerlink" href="#32-axios" title="Permanent link">&para;</a></h4>
+<p>创建utils文件夹，utils下创建request.js</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="nx">axios</span> <span class="kr">from</span> <span class="s1">&#39;axios&#39;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">MessageBox</span><span class="p">,</span> <span class="nx">Message</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;element-ui&#39;</span>
+<span class="c1">// 创建axios实例</span>
+<span class="kd">const</span> <span class="nx">service</span> <span class="o">=</span> <span class="nx">axios</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+    <span class="nx">baseURL</span><span class="o">:</span> <span class="s1">&#39;http://localhost&#39;</span><span class="p">,</span>
+    <span class="nx">timeout</span><span class="o">:</span> <span class="mf">15000</span> <span class="c1">// 请求超时时间</span>
+<span class="p">})</span>
+<span class="c1">// http request 拦截器</span>
+<span class="nx">service</span><span class="p">.</span><span class="nx">interceptors</span><span class="p">.</span><span class="nx">request</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span>
+    <span class="nx">config</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// token 先不处理，后续使用时在完善</span>
+    <span class="k">return</span> <span class="nx">config</span>
+<span class="p">},</span>
+  <span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+<span class="p">})</span>
+<span class="c1">// http response 拦截器</span>
+<span class="nx">service</span><span class="p">.</span><span class="nx">interceptors</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span>
+    <span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">code</span> <span class="o">!==</span> <span class="mf">200</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">Message</span><span class="p">({</span>
+                <span class="nx">message</span><span class="o">:</span> <span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">message</span><span class="p">,</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;error&#39;</span><span class="p">,</span>
+                <span class="nx">duration</span><span class="o">:</span> <span class="mf">5</span> <span class="o">*</span> <span class="mf">1000</span>
+            <span class="p">})</span>
+            <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">)</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">response</span><span class="p">.</span><span class="nx">data</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nx">error</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="nx">error</span><span class="p">.</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="k">default</span> <span class="nx">service</span>
+</code></pre></div>
+<h2 id="_2">二、首页实现<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="1">1、公共处理<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<h4 id="11_1">1.1添加静态资源<a class="headerlink" href="#11_1" title="Permanent link">&para;</a></h4>
+<p>将静态资源下面的css、images文件夹添加到assets目录，如图：</p>
+<p><img src="day11平台前端搭建与首页.assets/image-20220330132309427.png" alt="image-20220330132309427" style="zoom:50%;" align="left" /></p>
+<h4 id="12">1.2 定义布局<a class="headerlink" href="#12" title="Permanent link">&para;</a></h4>
+<h5 id="12-1">1.2 .1 修改默认布局<a class="headerlink" href="#12-1" title="Permanent link">&para;</a></h5>
+<p>参考静态资源文件首页，我们可以把页头和页尾提取出来，形成布局页。</p>
+<p>在layouts目录下修改默认布局文件default.vue，将主内容区域的内容替换成<nuxt /></p>
+<p>修改layouts/default.vue文件</p>
+<div class="highlight"><pre><span></span><code>&lt;template&gt;
+  &lt;div class=&quot;app-container&quot;&gt;
+    &lt;div id=&quot;main&quot;&gt;
+      &lt;!-- 公共头 --&gt;
+      &lt;myheader/&gt;
+      &lt;div class=&quot;main-container&quot;&gt;
+        &lt;el-scrollbar class=&#39;page-component__scroll&#39;&gt;
+        &lt;!-- 内容区域 --&gt;
+        &lt;nuxt/&gt;
+        &lt;/el-scrollbar&gt;
+      &lt;/div&gt;
+        &lt;!-- 公共底 --&gt;
+      &lt;myfooter/&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+import &#39;~/assets/css/app.css&#39;
+import &#39;~/assets/css/chunk.css&#39;
+import &#39;~/assets/css/iconfont.css&#39;
+import &#39;~/assets/css/main.css&#39;
+export default {
+ }
+&lt;/script&gt;
+</code></pre></div>
+<h5 id="12-2">1.2 .2 提取头文件<a class="headerlink" href="#12-2" title="Permanent link">&para;</a></h5>
+<p>创建layouts/myheader.vue文件</p>
+<div class="highlight"><pre><span></span><code>&lt;template&gt;
+    &lt;div class=&quot;header-container&quot;&gt;
+        &lt;div class=&quot;wrapper&quot;&gt;
+        &lt;!-- logo --&gt;
+            &lt;div class=&quot;left-wrapper v-link selected&quot;&gt;
+                &lt;img style=&quot;width: 50px&quot; width=&quot;50&quot; height=&quot;50&quot; src=&quot;~assets/images/logo.png&quot;&gt;
+                &lt;span class=&quot;text&quot;&gt;尚医通 预约挂号统一平台&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;!-- 搜索框 --&gt;
+        &lt;div class=&quot;search-wrapper&quot;&gt;
+            &lt;div class=&quot;hospital-search animation-show&quot;&gt;
+                &lt;el-autocomplete
+                    class=&quot;search-input small&quot;
+                    prefix-icon=&quot;el-icon-search&quot;
+                    v-model=&quot;state&quot;
+                    :fetch-suggestions=&quot;querySearchAsync&quot;
+                    placeholder=&quot;点击输入医院名称&quot;
+                    @select=&quot;handleSelect&quot;
+                    &gt;
+                    &lt;span slot=&quot;suffix&quot; class=&quot;search-btn v-link highlight clickable selected&quot;&gt;搜索 &lt;/span&gt;
+                &lt;/el-autocomplete&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;!-- 右侧 --&gt;
+        &lt;div class=&quot;right-wrapper&quot;&gt;
+        &lt;span class=&quot;v-link clickable&quot;&gt;帮助中心&lt;/span&gt;
+        &lt;!--        &lt;el-dropdown &gt;--&gt;
+        &lt;!--              &lt;span class=&quot;el-dropdown-link&quot;&gt;--&gt;
+        &lt;!--                晴天&lt;i class=&quot;el-icon-arrow-down el-icon&amp;#45;&amp;#45;right&quot;&gt;&lt;/i&gt;--&gt;
+        &lt;!--              &lt;/span&gt;--&gt;
+        &lt;!--            &lt;el-dropdown-menu class=&quot;user-name-wrapper&quot; slot=&quot;dropdown&quot;&gt;--&gt;
+        &lt;!--                &lt;el-dropdown-item&gt;挂号订单&lt;/el-dropdown-item&gt;--&gt;
+        &lt;!--                &lt;el-dropdown-item&gt;就诊人管理&lt;/el-dropdown-item&gt;--&gt;
+        &lt;!--                &lt;el-dropdown-item divided&gt;退出登录&lt;/el-dropdown-item&gt;--&gt;
+        &lt;!--            &lt;/el-dropdown-menu&gt;--&gt;
+        &lt;!--        &lt;/el-dropdown&gt;--&gt;
+        &lt;span class=&quot;v-link clickable&quot; @click=&quot;dialogUserFormVisible = true&quot;&gt;登录/注册&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+export default {
+}
+&lt;/script&gt;
+</code></pre></div>
+<h5 id="12-3">1.2 .3 提取尾文件<a class="headerlink" href="#12-3" title="Permanent link">&para;</a></h5>
+<p>创建layouts/myfooter.vue文件</p>
+<div class="highlight"><pre><span></span><code>&lt;template&gt;
+    &lt;div class=&quot;footer-container&quot;&gt;
+        &lt;div class=&quot;wrapper&quot;&gt;
+            &lt;div&gt;&lt;span class=&quot;record&quot;&gt;京ICP备13018369号&lt;/span&gt;&lt;span
+            class=&quot;phone&quot;&gt;电话挂号010-56253825&lt;/span&gt;&lt;/div&gt;
+            &lt;div class=&quot;right&quot;&gt;&lt;span
+            class=&quot;v-link clickable&quot;&gt; 联系我们 &lt;/span&gt;&lt;span
+            class=&quot;v-link clickable&quot;&gt; 合作伙伴 &lt;/span&gt;&lt;span
+            class=&quot;v-link clickable&quot;&gt; 用户协议 &lt;/span&gt;&lt;span
+            class=&quot;v-link clickable&quot;&gt; 隐私协议 &lt;/span&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+export default {
+}
+&lt;/script&gt;
+</code></pre></div>
+<h5 id="12-4">1.2 .4 默认布局引入头尾文件<a class="headerlink" href="#12-4" title="Permanent link">&para;</a></h5>
+<p>修改layouts/default.vue文件</p>
+<div class="highlight"><pre><span></span><code>&lt;script&gt;
+import &#39;~/assets/css/app.css&#39;
+import &#39;~/assets/css/chunk.css&#39;
+import &#39;~/assets/css/iconfont.css&#39;
+import &#39;~/assets/css/main.css&#39;
+
+import myheader from &#39;./myheader&#39;
+import myfooter from &#39;./myfooter&#39;
+export default {
+  components: {
+      myheader,myfooter
+    }
+  }
+&lt;/script&gt;
+</code></pre></div>
+<p>启动项目：npm run dev</p>
+<p>访问项目：<a href="http://localhost:3000/">http://localhost:3000/</a></p>
+<h3 id="2">2、首页引入<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<h4 id="21_1">2.1 引入首页静态页面<a class="headerlink" href="#21_1" title="Permanent link">&para;</a></h4>
+<p>修改pages/inde.vue文件</p>
+<div class="highlight"><pre><span></span><code>&lt;template&gt;
+  &lt;div class=&quot;home page-component&quot;&gt;
+    &lt;el-carousel indicator-position=&quot;outside&quot;&gt;
+      &lt;el-carousel-item v-for=&quot;item in 2&quot; :key=&quot;item&quot;&gt;
+        &lt;img src=&quot;~assets/images/web-banner1.png&quot; alt=&quot;&quot;&gt;
+      &lt;/el-carousel-item&gt;
+    &lt;/el-carousel&gt;
+    &lt;!-- 搜索 --&gt;
+    &lt;div class=&quot;search-container&quot;&gt;
+    &lt;div class=&quot;search-wrapper&quot;&gt;
+    &lt;div class=&quot;hospital-search&quot;&gt;
+      &lt;el-autocomplete
+      class=&quot;search-input&quot;
+      prefix-icon=&quot;el-icon-search&quot;
+      v-model=&quot;state&quot;
+      :fetch-suggestions=&quot;querySearchAsync&quot;
+      placeholder=&quot;点击输入医院名称&quot;
+      @select=&quot;handleSelect&quot;
+      &gt;
+        &lt;span slot=&quot;suffix&quot; class=&quot;search-btn v-link highlight clickable selected&quot;&gt;搜索 &lt;/span&gt;
+      &lt;/el-autocomplete&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- bottom --&gt;
+    &lt;div class=&quot;bottom&quot;&gt;
+    &lt;div class=&quot;left&quot;&gt;
+    &lt;div class=&quot;home-filter-wrapper&quot;&gt;
+    &lt;div class=&quot;title&quot;&gt; 医院&lt;/div&gt;
+    &lt;div&gt;
+      &lt;div class=&quot;filter-wrapper&quot;&gt;
+        &lt;span
+        class=&quot;label&quot;&gt;等级：&lt;/span&gt;
+        &lt;div class=&quot;condition-wrapper&quot;&gt;&lt;span
+        class=&quot;item v-link highlight clickable selected&quot;&gt;
+                                                    全部 &lt;/span&gt;&lt;span
+        class=&quot;item v-link clickable&quot;&gt;
+                                                    三级医院 &lt;/span&gt;&lt;span
+        class=&quot;item v-link clickable&quot;&gt;
+                                                    二级医院 &lt;/span&gt;&lt;span
+        class=&quot;item v-link clickable&quot;&gt;
+                                                    一级医院 &lt;/span&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;div class=&quot;filter-wrapper&quot;&gt;
+      &lt;span
+      class=&quot;label&quot;&gt;地区：&lt;/span&gt;
+      &lt;div class=&quot;condition-wrapper&quot;&gt;&lt;span
+      class=&quot;item v-link highlight clickable selected&quot;&gt;
+                                                  全部 &lt;/span&gt;&lt;span
+      class=&quot;item v-link clickable&quot;&gt;
+                                                  东城区 &lt;/span&gt;&lt;span
+      class=&quot;item v-link clickable&quot;&gt;
+                                                  西城区 &lt;/span&gt;&lt;span
+      class=&quot;item v-link clickable&quot;&gt;
+                                                  朝阳区 &lt;/span&gt;&lt;span
+      class=&quot;item v-link clickable&quot;&gt;
+                                                  丰台区 &lt;/span&gt;&lt;span
+      class=&quot;item v-link clickable&quot;&gt;
+                                                  石景山区 &lt;/span&gt;&lt;span
+      class=&quot;item v-link clickable&quot;&gt;
+                                                  海淀区 &lt;/span&gt;&lt;span
+      class=&quot;item v-link clickable&quot;&gt;
+                                                  门头沟区 &lt;/span&gt;&lt;span
+      class=&quot;item v-link clickable&quot;&gt;
+                                                  房山区 &lt;/span&gt;&lt;span
+      class=&quot;item v-link clickable&quot;&gt;
+                                                  通州区 &lt;/span&gt;&lt;span
+      class=&quot;item v-link clickable&quot;&gt;
+                                                  顺义区 &lt;/span&gt;&lt;span
+      class=&quot;item v-link clickable&quot;&gt;
+                                                  昌平区 &lt;/span&gt;&lt;span
+      class=&quot;item v-link clickable&quot;&gt;
+                                                  大兴区 &lt;/span&gt;&lt;span
+      class=&quot;item v-link clickable&quot;&gt;
+                                                  怀柔区 &lt;/span&gt;&lt;span
+      class=&quot;item v-link clickable&quot;&gt;
+                                                  平谷区 &lt;/span&gt;&lt;span
+      class=&quot;item v-link clickable&quot;&gt;
+                                                  密云区 &lt;/span&gt;&lt;span
+      class=&quot;item v-link clickable&quot;&gt;
+                                                  延庆区 &lt;/span&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;v-scroll-list hospital-list&quot;&gt;
+    &lt;div class=&quot;v-card clickable list-item&quot;&gt;
+    &lt;div class=&quot;&quot;&gt;
+      &lt;div
+      class=&quot;hospital-list-item hos-item&quot; index=&quot;0&quot;&gt;
+      &lt;div class=&quot;wrapper&quot;&gt;
+      &lt;div class=&quot;hospital-title&quot;&gt; 北京协和医院
+      &lt;/div&gt;
+      &lt;div class=&quot;bottom-container&quot;&gt;
+      &lt;div
+      class=&quot;icon-wrapper&quot;&gt;&lt;span
+      class=&quot;iconfont&quot;&gt;&lt;/span&gt;
+                            三级甲等
+      &lt;/div&gt;
+    &lt;div
+    class=&quot;icon-wrapper&quot;&gt;&lt;span
+    class=&quot;iconfont&quot;&gt;&lt;/span&gt;
+                          每天8:30放号
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;img
+    src=&quot;images/23176337663806575.png&quot;
+    alt=&quot;北京协和医院&quot; class=&quot;hospital-img&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+      &lt;div class=&quot;v-card clickable list-item space&quot;&gt;
+      &lt;div class=&quot;&quot;&gt;
+      &lt;div
+      class=&quot;hospital-list-item hos-item&quot; index=&quot;0&quot;&gt;
+      &lt;div class=&quot;wrapper&quot;&gt;
+      &lt;div class=&quot;hospital-title&quot;&gt; 北京协和医院
+      &lt;/div&gt;
+      &lt;div class=&quot;bottom-container&quot;&gt;
+      &lt;div
+      class=&quot;icon-wrapper&quot;&gt;&lt;span
+      class=&quot;iconfont&quot;&gt;&lt;/span&gt;
+                            三级甲等
+      &lt;/div&gt;
+    &lt;div
+    class=&quot;icon-wrapper&quot;&gt;&lt;span
+    class=&quot;iconfont&quot;&gt;&lt;/span&gt;
+                          每天8:30放号
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;img
+    src=&quot;images/23176337663806575.png&quot;
+    alt=&quot;北京协和医院&quot; class=&quot;hospital-img&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;v-card clickable list-item&quot;&gt;
+    &lt;div class=&quot;&quot;&gt;
+    &lt;div class=&quot;hospital-list-item hos-item&quot; index=&quot;0&quot;&gt;
+      &lt;div class=&quot;wrapper&quot;&gt;
+      &lt;div class=&quot;hospital-title&quot;&gt; 北京协和医院
+      &lt;/div&gt;
+      &lt;div class=&quot;bottom-container&quot;&gt;
+      &lt;div
+      class=&quot;icon-wrapper&quot;&gt;&lt;span
+      class=&quot;iconfont&quot;&gt;&lt;/span&gt;
+                            三级甲等
+      &lt;/div&gt;
+      &lt;div
+      class=&quot;icon-wrapper&quot;&gt;&lt;span
+      class=&quot;iconfont&quot;&gt;&lt;/span&gt;
+                            每天8:30放号
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;img
+    src=&quot;images/23176337663806575.png&quot;
+    alt=&quot;北京协和医院&quot; class=&quot;hospital-img&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;right&quot;&gt;
+      &lt;div class=&quot;common-dept&quot;&gt;
+      &lt;div class=&quot;header-wrapper&quot;&gt;
+      &lt;div class=&quot;title&quot;&gt; 常见科室&lt;/div&gt;
+      &lt;div class=&quot;all-wrapper&quot;&gt;&lt;span&gt;全部&lt;/span&gt;
+      &lt;span class=&quot;iconfont icon&quot;&gt;&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;content-wrapper&quot;&gt;
+      &lt;span class=&quot;item v-link clickable dark&quot;&gt;神经内科 &lt;/span&gt;
+      &lt;span class=&quot;item v-link clickable dark&quot;&gt;消化内科 &lt;/span&gt;
+      &lt;span class=&quot;item v-link clickable dark&quot;&gt;呼吸内科 &lt;/span&gt;
+      &lt;span class=&quot;item v-link clickable dark&quot;&gt;内科 &lt;/span&gt;
+      &lt;span class=&quot;item v-link clickable dark&quot;&gt;神经外科 &lt;/span&gt;
+      &lt;span class=&quot;item v-link clickable dark&quot;&gt;妇科 &lt;/span&gt;
+      &lt;span class=&quot;item v-link clickable dark&quot;&gt; 产科 &lt;/span&gt;
+      &lt;span class=&quot;item v-link clickable dark&quot;&gt;儿科 &lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;space&quot;&gt;
+      &lt;div class=&quot;header-wrapper&quot;&gt;
+      &lt;div class=&quot;title-wrapper&quot;&gt;
+      &lt;div class=&quot;icon-wrapper&quot;&gt;&lt;span
+      class=&quot;iconfont title-icon&quot;&gt;&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;span class=&quot;title&quot;&gt;平台公告&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;all-wrapper&quot;&gt;
+      &lt;span&gt;全部&lt;/span&gt;
+      &lt;span class=&quot;iconfont icon&quot;&gt;&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;content-wrapper&quot;&gt;
+      &lt;div class=&quot;notice-wrapper&quot;&gt;
+      &lt;div class=&quot;point&quot;&gt;&lt;/div&gt;
+      &lt;span class=&quot;notice v-link clickable dark&quot;&gt;关于延长北京大学国际医院放假的通知 &lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;notice-wrapper&quot;&gt;
+      &lt;div class=&quot;point&quot;&gt;&lt;/div&gt;
+      &lt;span class=&quot;notice v-link clickable dark&quot;&gt;北京中医药大学东方医院部分科室医生门诊医 &lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;notice-wrapper&quot;&gt;
+      &lt;div class=&quot;point&quot;&gt;&lt;/div&gt;
+      &lt;span class=&quot;notice v-link clickable dark&quot;&gt; 武警总医院号源暂停更新通知 &lt;/span&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;suspend-notice-list space&quot;&gt;
+    &lt;div class=&quot;header-wrapper&quot;&gt;
+    &lt;div class=&quot;title-wrapper&quot;&gt;
+      &lt;div class=&quot;icon-wrapper&quot;&gt;
+      &lt;span class=&quot;iconfont title-icon&quot;&gt;&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;span class=&quot;title&quot;&gt;停诊公告&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;all-wrapper&quot;&gt;
+      &lt;span&gt;全部&lt;/span&gt;
+      &lt;span class=&quot;iconfont icon&quot;&gt;&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;content-wrapper&quot;&gt;
+      &lt;div class=&quot;notice-wrapper&quot;&gt;
+      &lt;div class=&quot;point&quot;&gt;&lt;/div&gt;
+      &lt;span class=&quot;notice v-link clickable dark&quot;&gt; 中国人民解放军总医院第六医学中心(原海军总医院)呼吸内科门诊停诊公告 &lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;notice-wrapper&quot;&gt;
+      &lt;div class=&quot;point&quot;&gt;&lt;/div&gt;
+    &lt;span class=&quot;notice v-link clickable dark&quot;&gt; 首都医科大学附属北京潞河医院老年医学科门诊停诊公告 &lt;/span&gt;
+    &lt;/div&gt;
+      &lt;div class=&quot;notice-wrapper&quot;&gt;
+        &lt;div class=&quot;point&quot;&gt;&lt;/div&gt;
+        &lt;span class=&quot;notice v-link clickable dark&quot;&gt;中日友好医院中西医结合心内科门诊停诊公告 &lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+export default {
+}
+&lt;/script&gt;
+</code></pre></div>
+<h4 id="22_1">2.2 首页数据分析<a class="headerlink" href="#22_1" title="Permanent link">&para;</a></h4>
+<p>1，获取医院等级（根据数据字典编码获取）</p>
+<p>2，获取地区（根据数据字典编码获取）</p>
+<p>3，医院分页列表</p>
+<p>4，根据医院名称关键字搜索医院列表</p>
+<h3 id="3api">3、首页数据api接口<a class="headerlink" href="#3api" title="Permanent link">&para;</a></h3>
+<h4 id="31">3.1 医院分页列表<a class="headerlink" href="#31" title="Permanent link">&para;</a></h4>
+<h5 id="311-service">3.1.1 service接口与实现<a class="headerlink" href="#311-service" title="Permanent link">&para;</a></h5>
+<p>在管理平台 医院分页列表时已经提供，目前我们可以直接使用</p>
+<h5 id="312-controller">3.1.2 添加controller接口<a class="headerlink" href="#312-controller" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="nd">@Api</span><span class="p">(</span><span class="n">tags</span> <span class="o">=</span> <span class="s">&quot;医院管理接口&quot;</span><span class="p">)</span>
+<span class="nd">@RestController</span>
+<span class="nd">@RequestMapping</span><span class="p">(</span><span class="s">&quot;/api/hosp/hospital&quot;</span><span class="p">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HospitalApiController</span> <span class="p">{</span>
+
+    <span class="nd">@Autowired</span>
+    <span class="kd">private</span> <span class="n">HospitalService</span> <span class="n">hospitalService</span><span class="p">;</span>
+
+    <span class="nd">@ApiOperation</span><span class="p">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&quot;获取分页列表&quot;</span><span class="p">)</span>
+    <span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;{page}/{limit}&quot;</span><span class="p">)</span>
+    <span class="kd">public</span> <span class="n">Result</span> <span class="nf">index</span><span class="p">(</span>
+            <span class="nd">@PathVariable</span> <span class="n">Integer</span> <span class="n">page</span><span class="p">,</span>
+            <span class="nd">@PathVariable</span> <span class="n">Integer</span> <span class="n">limit</span><span class="p">,</span>
+            <span class="n">HospitalQueryVo</span> <span class="n">hospitalQueryVo</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">//显示上线的医院</span>
+        <span class="c1">//hospitalQueryVo.setStatus(1);</span>
+        <span class="n">Page</span><span class="o">&lt;</span><span class="n">Hospital</span><span class="o">&gt;</span> <span class="n">pageModel</span> <span class="o">=</span> <span class="n">hospitalService</span><span class="p">.</span><span class="na">selectHospPage</span><span class="p">(</span><span class="n">page</span><span class="p">,</span> <span class="n">limit</span><span class="p">,</span> <span class="n">hospitalQueryVo</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">Result</span><span class="p">.</span><span class="na">ok</span><span class="p">(</span><span class="n">pageModel</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="32">3.2 根据医院名称关键字搜索医院列表<a class="headerlink" href="#32" title="Permanent link">&para;</a></h4>
+<h5 id="311-service_1">3.1.1 service接口与实现<a class="headerlink" href="#311-service_1" title="Permanent link">&para;</a></h5>
+<p>在HospitalService类添加接口</p>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * 根据医院名称获取医院列表</span>
+<span class="cm">*/</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">Hospital</span><span class="o">&gt;</span> <span class="nf">findByHosname</span><span class="p">(</span><span class="n">String</span> <span class="n">hosname</span><span class="p">);</span>
+</code></pre></div>
+<p>在HospitalService类添加接口实现</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Hospital</span><span class="o">&gt;</span> <span class="nf">findByHosname</span><span class="p">(</span><span class="n">String</span> <span class="n">hosname</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">hospitalRepository</span><span class="p">.</span><span class="na">findHospitalByHosnameLike</span><span class="p">(</span><span class="n">hosname</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h5 id="312-repository">3.1.2 repository添加接口<a class="headerlink" href="#312-repository" title="Permanent link">&para;</a></h5>
+<p>在HospitalRepository类添加接口</p>
+<div class="highlight"><pre><span></span><code><span class="n">List</span><span class="o">&lt;</span><span class="n">Hospital</span><span class="o">&gt;</span> <span class="nf">findHospitalByHosnameLike</span><span class="p">(</span><span class="n">String</span> <span class="n">hosname</span><span class="p">);</span>
+</code></pre></div>
+<h5 id="313-controller">3.1.3 添加controller接口<a class="headerlink" href="#313-controller" title="Permanent link">&para;</a></h5>
+<p>在HospitalApiController 类添加方法</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@ApiOperation</span><span class="p">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&quot;根据医院名称获取医院列表&quot;</span><span class="p">)</span>
+<span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;findByHosname/{hosname}&quot;</span><span class="p">)</span>
+<span class="kd">public</span> <span class="n">Result</span> <span class="nf">findByHosname</span><span class="p">(</span>
+        <span class="nd">@ApiParam</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;hosname&quot;</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="s">&quot;医院名称&quot;</span><span class="p">,</span> <span class="n">required</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span>
+        <span class="nd">@PathVariable</span> <span class="n">String</span> <span class="n">hosname</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">Result</span><span class="p">.</span><span class="na">ok</span><span class="p">(</span><span class="n">hospitalService</span><span class="p">.</span><span class="na">findByHosname</span><span class="p">(</span><span class="n">hosname</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="4">4、首页前端实现<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<h4 id="41-api">4.1 封装api请求<a class="headerlink" href="#41-api" title="Permanent link">&para;</a></h4>
+<p>创建api文件夹，创建/api/hosp/hospital.js</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="nx">request</span> <span class="kr">from</span> <span class="s1">&#39;@/utils/request&#39;</span>
+
+<span class="kd">const</span> <span class="nx">api_name</span> <span class="o">=</span> <span class="sb">`/api/hosp/hospital`</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+ <span class="nx">getPageList</span><span class="p">(</span><span class="nx">page</span><span class="p">,</span> <span class="nx">limit</span><span class="p">,</span> <span class="nx">searchObj</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">request</span><span class="p">({</span>
+        <span class="nx">url</span><span class="o">:</span> <span class="sb">`</span><span class="si">${</span><span class="nx">api_name</span><span class="si">}</span><span class="sb">/</span><span class="si">${</span><span class="nx">page</span><span class="si">}</span><span class="sb">/</span><span class="si">${</span><span class="nx">limit</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span>
+        <span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;get&#39;</span><span class="p">,</span>
+        <span class="nx">params</span><span class="o">:</span> <span class="nx">searchObj</span>
+    <span class="p">})</span>
+  <span class="p">},</span>
+
+ <span class="nx">getByHosname</span><span class="p">(</span><span class="nx">hosname</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">request</span><span class="p">({</span>
+        <span class="nx">url</span><span class="o">:</span> <span class="sb">`</span><span class="si">${</span><span class="nx">api_name</span><span class="si">}</span><span class="sb">/findByHosname/</span><span class="si">${</span><span class="nx">hosname</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span>
+        <span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;get&#39;</span>
+    <span class="p">})</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>创建/api/cmn/dict.js</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="nx">request</span> <span class="kr">from</span> <span class="s1">&#39;@/utils/request&#39;</span>
+
+<span class="kd">const</span> <span class="nx">api_name</span> <span class="o">=</span> <span class="s1">&#39;/admin/cmn/dict&#39;</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+<span class="nx">findByDictCode</span><span class="p">(</span><span class="nx">dictCode</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">request</span><span class="p">({</span>
+        <span class="nx">url</span><span class="o">:</span> <span class="sb">`</span><span class="si">${</span><span class="nx">api_name</span><span class="si">}</span><span class="sb">/findByDictCode/</span><span class="si">${</span><span class="nx">dictCode</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span>
+        <span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;get&#39;</span>
+    <span class="p">})</span>
+  <span class="p">},</span>
+
+<span class="nx">findByParentId</span><span class="p">(</span><span class="nx">parentId</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">request</span><span class="p">({</span>
+        <span class="nx">url</span><span class="o">:</span> <span class="sb">`</span><span class="si">${</span><span class="nx">api_name</span><span class="si">}</span><span class="sb">/findChildData/</span><span class="si">${</span><span class="nx">parentId</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span>
+        <span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;get&#39;</span>
+    <span class="p">})</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="42">4.2 添加组件<a class="headerlink" href="#42" title="Permanent link">&para;</a></h4>
+<p>修改pages/index.vue组件</p>
+<div class="highlight"><pre><span></span><code>&lt;template&gt;
+  &lt;div class=&quot;home page-component&quot;&gt;
+    &lt;el-carousel indicator-position=&quot;outside&quot;&gt;
+      &lt;el-carousel-item v-for=&quot;item in 2&quot; :key=&quot;item&quot;&gt;
+        &lt;img src=&quot;~assets/images/web-banner1.png&quot; alt=&quot;&quot;&gt;
+      &lt;/el-carousel-item&gt;
+    &lt;/el-carousel&gt;
+    &lt;!-- 搜索 --&gt;
+    &lt;div class=&quot;search-container&quot;&gt;
+    &lt;div class=&quot;search-wrapper&quot;&gt;
+    &lt;div class=&quot;hospital-search&quot;&gt;
+      &lt;el-autocomplete
+      class=&quot;search-input&quot;
+      prefix-icon=&quot;el-icon-search&quot;
+      v-model=&quot;state&quot;
+      :fetch-suggestions=&quot;querySearchAsync&quot;
+      placeholder=&quot;点击输入医院名称&quot;
+      @select=&quot;handleSelect&quot;
+      &gt;
+        &lt;span slot=&quot;suffix&quot; class=&quot;search-btn v-link highlight clickable selected&quot;&gt;搜索 &lt;/span&gt;
+      &lt;/el-autocomplete&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- bottom --&gt;
+    &lt;div class=&quot;bottom&quot;&gt;
+    &lt;div class=&quot;left&quot;&gt;
+    &lt;div class=&quot;home-filter-wrapper&quot;&gt;
+    &lt;div class=&quot;title&quot;&gt; 医院&lt;/div&gt;
+    &lt;div&gt;
+      &lt;div class=&quot;filter-wrapper&quot;&gt;
+        &lt;span
+        class=&quot;label&quot;&gt;等级：&lt;/span&gt;
+        &lt;div class=&quot;condition-wrapper&quot;&gt;
+          &lt;span class=&quot;item v-link clickable&quot; 
+            :class=&quot;hostypeActiveIndex == index ? &#39;selected&#39; : &#39;&#39;&quot;
+             v-for=&quot;(item,index) in hostypeList&quot; :key=&quot;item.id&quot; 
+             @click=&quot;hostypeSelect(item.value, index)&quot;&gt;{{ item.name }}&lt;/span&gt;
+       &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;div class=&quot;filter-wrapper&quot;&gt;
+      &lt;span
+      class=&quot;label&quot;&gt;地区：&lt;/span&gt;
+      &lt;div class=&quot;condition-wrapper&quot;&gt;
+        &lt;span class=&quot;item v-link clickable&quot;
+          :class=&quot;provinceActiveIndex == index ? &#39;selected&#39; : &#39;&#39;&quot;
+          v-for=&quot;(item,index) in districtList&quot; :key=&quot;item.id&quot;
+          @click=&quot;districtSelect(item.value, index)&quot;&gt;{{ item.name }}&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;v-scroll-list hospital-list&quot;&gt;
+      &lt;div class=&quot;v-card clickable list-item&quot; v-for=&quot;item in list&quot; :key=&quot;item.id&quot;&gt;
+        &lt;div class=&quot;&quot;&gt;
+          &lt;div class=&quot;hospital-list-item hos-item&quot; index=&quot;0&quot; @click=&quot;show(item.hoscode)&quot;&gt;
+            &lt;div class=&quot;wrapper&quot;&gt;
+            &lt;div class=&quot;hospital-title&quot;&gt; {{ item.hosname }}&lt;/div&gt;
+            &lt;div class=&quot;bottom-container&quot;&gt;
+            &lt;div class=&quot;icon-wrapper&quot;&gt;
+              &lt;span class=&quot;iconfont&quot;&gt;&lt;/span&gt;{{ item.param.hostypeString }}
+            &lt;/div&gt;
+          &lt;div class=&quot;icon-wrapper&quot;&gt;
+          &lt;span class=&quot;iconfont&quot;&gt;&lt;/span&gt;每天{{ item.bookingRule.releaseTime }}放号
+          &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;img :src=&quot;&#39;data:image/jpeg;base64,&#39;+item.logoData&quot;
+           :alt=&quot;item.hosname&quot;
+           class=&quot;hospital-img&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;right&quot;&gt;
+      &lt;div class=&quot;common-dept&quot;&gt;
+      &lt;div class=&quot;header-wrapper&quot;&gt;
+      &lt;div class=&quot;title&quot;&gt; 常见科室&lt;/div&gt;
+      &lt;div class=&quot;all-wrapper&quot;&gt;&lt;span&gt;全部&lt;/span&gt;
+      &lt;span class=&quot;iconfont icon&quot;&gt;&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;content-wrapper&quot;&gt;
+      &lt;span class=&quot;item v-link clickable dark&quot;&gt;神经内科 &lt;/span&gt;
+      &lt;span class=&quot;item v-link clickable dark&quot;&gt;消化内科 &lt;/span&gt;
+      &lt;span class=&quot;item v-link clickable dark&quot;&gt;呼吸内科 &lt;/span&gt;
+      &lt;span class=&quot;item v-link clickable dark&quot;&gt;内科 &lt;/span&gt;
+      &lt;span class=&quot;item v-link clickable dark&quot;&gt;神经外科 &lt;/span&gt;
+      &lt;span class=&quot;item v-link clickable dark&quot;&gt;妇科 &lt;/span&gt;
+      &lt;span class=&quot;item v-link clickable dark&quot;&gt; 产科 &lt;/span&gt;
+      &lt;span class=&quot;item v-link clickable dark&quot;&gt;儿科 &lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;space&quot;&gt;
+      &lt;div class=&quot;header-wrapper&quot;&gt;
+      &lt;div class=&quot;title-wrapper&quot;&gt;
+      &lt;div class=&quot;icon-wrapper&quot;&gt;&lt;span
+      class=&quot;iconfont title-icon&quot;&gt;&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;span class=&quot;title&quot;&gt;平台公告&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;all-wrapper&quot;&gt;
+      &lt;span&gt;全部&lt;/span&gt;
+      &lt;span class=&quot;iconfont icon&quot;&gt;&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;content-wrapper&quot;&gt;
+      &lt;div class=&quot;notice-wrapper&quot;&gt;
+      &lt;div class=&quot;point&quot;&gt;&lt;/div&gt;
+      &lt;span class=&quot;notice v-link clickable dark&quot;&gt;关于延长北京大学国际医院放假的通知 &lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;notice-wrapper&quot;&gt;
+      &lt;div class=&quot;point&quot;&gt;&lt;/div&gt;
+      &lt;span class=&quot;notice v-link clickable dark&quot;&gt;北京中医药大学东方医院部分科室医生门诊医 &lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;notice-wrapper&quot;&gt;
+      &lt;div class=&quot;point&quot;&gt;&lt;/div&gt;
+      &lt;span class=&quot;notice v-link clickable dark&quot;&gt; 武警总医院号源暂停更新通知 &lt;/span&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;suspend-notice-list space&quot;&gt;
+    &lt;div class=&quot;header-wrapper&quot;&gt;
+    &lt;div class=&quot;title-wrapper&quot;&gt;
+      &lt;div class=&quot;icon-wrapper&quot;&gt;
+      &lt;span class=&quot;iconfont title-icon&quot;&gt;&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;span class=&quot;title&quot;&gt;停诊公告&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;all-wrapper&quot;&gt;
+      &lt;span&gt;全部&lt;/span&gt;
+      &lt;span class=&quot;iconfont icon&quot;&gt;&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;content-wrapper&quot;&gt;
+      &lt;div class=&quot;notice-wrapper&quot;&gt;
+      &lt;div class=&quot;point&quot;&gt;&lt;/div&gt;
+      &lt;span class=&quot;notice v-link clickable dark&quot;&gt; 中国人民解放军总医院第六医学中心(原海军总医院)呼吸内科门诊停诊公告 &lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;notice-wrapper&quot;&gt;
+      &lt;div class=&quot;point&quot;&gt;&lt;/div&gt;
+    &lt;span class=&quot;notice v-link clickable dark&quot;&gt; 首都医科大学附属北京潞河医院老年医学科门诊停诊公告 &lt;/span&gt;
+    &lt;/div&gt;
+      &lt;div class=&quot;notice-wrapper&quot;&gt;
+        &lt;div class=&quot;point&quot;&gt;&lt;/div&gt;
+        &lt;span class=&quot;notice v-link clickable dark&quot;&gt;中日友好医院中西医结合心内科门诊停诊公告 &lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre></div>
+<h4 id="43">4.3 调用接口<a class="headerlink" href="#43" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+
+<span class="k">import</span> <span class="nx">hospApi</span> <span class="kr">from</span> <span class="s1">&#39;@/api/hosp&#39;</span>
+<span class="k">import</span> <span class="nx">dictApi</span> <span class="kr">from</span> <span class="s1">&#39;@/api/dict&#39;</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="c1">//服务端渲染异步，显示医院列表</span>
+  <span class="nx">asyncData</span><span class="p">({</span> <span class="nx">params</span><span class="p">,</span> <span class="nx">error</span> <span class="p">})</span> <span class="p">{</span>
+    <span class="c1">//调用</span>
+    <span class="k">return</span> <span class="nx">hospApi</span><span class="p">.</span><span class="nx">getPageList</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="mf">10</span><span class="p">,</span><span class="kc">null</span><span class="p">)</span>
+      <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">{</span>
+          <span class="nx">list</span><span class="o">:</span> <span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">content</span><span class="p">,</span>
+          <span class="nx">pages</span><span class="o">:</span> <span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">totalPages</span>
+        <span class="p">}</span>
+      <span class="p">})</span>
+  <span class="p">},</span>
+  <span class="nx">data</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="nx">searchObj</span><span class="o">:</span> <span class="p">{},</span>
+      <span class="nx">page</span><span class="o">:</span> <span class="mf">1</span><span class="p">,</span>
+      <span class="nx">limit</span><span class="o">:</span> <span class="mf">10</span><span class="p">,</span>
+
+      <span class="nx">hosname</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1">//医院名称</span>
+      <span class="nx">hostypeList</span><span class="o">:</span> <span class="p">[],</span> <span class="c1">//医院等级集合</span>
+      <span class="nx">districtList</span><span class="o">:</span> <span class="p">[],</span> <span class="c1">//地区集合</span>
+
+      <span class="nx">hostypeActiveIndex</span><span class="o">:</span> <span class="mf">0</span><span class="p">,</span>
+      <span class="nx">provinceActiveIndex</span><span class="o">:</span> <span class="mf">0</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="nx">created</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">init</span><span class="p">()</span>
+  <span class="p">},</span>
+  <span class="nx">methods</span><span class="o">:</span><span class="p">{</span>
+    <span class="c1">//查询医院等级列表 和 所有地区列表</span>
+    <span class="nx">init</span><span class="p">()</span> <span class="p">{</span>
+      <span class="c1">//查询医院等级列表</span>
+      <span class="nx">dictApi</span><span class="p">.</span><span class="nx">findByDictCode</span><span class="p">(</span><span class="s1">&#39;Hostype&#39;</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+          <span class="c1">//hostypeList清空</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">hostypeList</span> <span class="o">=</span> <span class="p">[]</span>
+          <span class="c1">//向hostypeList添加全部值</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">hostypeList</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;全部&quot;</span><span class="p">,</span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="s2">&quot;&quot;</span><span class="p">})</span>
+          <span class="c1">//把接口返回数据，添加到hostypeList</span>
+          <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mf">0</span><span class="p">;</span><span class="nx">i</span><span class="o">&lt;</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+              <span class="k">this</span><span class="p">.</span><span class="nx">hostypeList</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
+          <span class="p">}</span>
+      <span class="p">})</span>
+
+      <span class="c1">//查询地区数据</span>
+      <span class="nx">dictApi</span><span class="p">.</span><span class="nx">findByDictCode</span><span class="p">(</span><span class="s1">&#39;Beijing&#39;</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">districtList</span> <span class="o">=</span> <span class="p">[]</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">districtList</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;全部&quot;</span><span class="p">,</span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="s2">&quot;&quot;</span><span class="p">})</span>
+          <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="ow">in</span> <span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">districtList</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
+          <span class="p">}</span>
+        <span class="p">})</span>
+    <span class="p">},</span>
+
+    <span class="c1">//查询医院列表</span>
+    <span class="nx">getList</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">hospApi</span><span class="p">.</span><span class="nx">getPageList</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">page</span><span class="p">,</span><span class="k">this</span><span class="p">.</span><span class="nx">limit</span><span class="p">,</span><span class="k">this</span><span class="p">.</span><span class="nx">searchObj</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+          <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="ow">in</span> <span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">content</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">list</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">content</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
+          <span class="p">}</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">page</span> <span class="o">=</span> <span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">totalPages</span>
+        <span class="p">})</span>
+    <span class="p">},</span>
+
+    <span class="c1">//根据医院等级查询</span>
+    <span class="nx">hostypeSelect</span><span class="p">(</span><span class="nx">hostype</span><span class="p">,</span><span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">//准备数据</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">list</span> <span class="o">=</span> <span class="p">[]</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">page</span> <span class="o">=</span> <span class="mf">1</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">hostypeActiveIndex</span> <span class="o">=</span> <span class="nx">index</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">searchObj</span><span class="p">.</span><span class="nx">hostype</span> <span class="o">=</span> <span class="nx">hostype</span>
+      <span class="c1">//调用查询医院列表方法</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">getList</span><span class="p">()</span>
+<span class="p">},</span>
+
+    <span class="c1">//根据地区查询医院</span>
+    <span class="nx">districtSelect</span><span class="p">(</span><span class="nx">districtCode</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">list</span> <span class="o">=</span> <span class="p">[]</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">page</span> <span class="o">=</span> <span class="mf">1</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">provinceActiveIndex</span> <span class="o">=</span> <span class="nx">index</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">searchObj</span><span class="p">.</span><span class="nx">districtCode</span> <span class="o">=</span> <span class="nx">districtCode</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">getList</span><span class="p">();</span>
+<span class="p">},</span>
+
+    <span class="c1">//在输入框输入值，弹出下拉框，显示相关内容</span>
+    <span class="nx">querySearchAsync</span><span class="p">(</span><span class="nx">queryString</span><span class="p">,</span> <span class="nx">cb</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">searchObj</span> <span class="o">=</span> <span class="p">[]</span>
+      <span class="k">if</span><span class="p">(</span><span class="nx">queryString</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">return</span>
+      <span class="nx">hospApi</span><span class="p">.</span><span class="nx">getByHosname</span><span class="p">(</span><span class="nx">queryString</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mf">0</span><span class="p">,</span> <span class="nx">len</span> <span class="o">=</span> <span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span><span class="nx">len</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">hosname</span>
+        <span class="p">}</span>
+        <span class="nx">cb</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">)</span>
+      <span class="p">})</span>
+<span class="p">},</span>
+
+    <span class="c1">//在下拉框选择某一个内容，执行下面方法，跳转到详情页面中</span>
+    <span class="nx">handleSelect</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="s1">&#39;/hospital/&#39;</span> <span class="o">+</span> <span class="nx">item</span><span class="p">.</span><span class="nx">hoscode</span>
+<span class="p">},</span>
+
+    <span class="c1">//点击某个医院名称，跳转到详情页面中</span>
+    <span class="nx">show</span><span class="p">(</span><span class="nx">hoscode</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="s1">&#39;/hospital/&#39;</span> <span class="o">+</span> <span class="nx">hoscode</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="o">&lt;</span><span class="err">/script&gt;</span>
+</code></pre></div>
+<h2 id="_3">三、医院详情<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="1_1">1、预约挂号<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20220330132837994" src="../day11%E5%B9%B3%E5%8F%B0%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA%E4%B8%8E%E9%A6%96%E9%A1%B5.assets/image-20220330132837994.png" /></p>
+<p>说明：需要获取医院信息（医院基本信息、预约信息）和科室信息</p>
+<h4 id="11-api">1.1 api接口<a class="headerlink" href="#11-api" title="Permanent link">&para;</a></h4>
+<h5 id="111-service">1.1.1 添加service接口与实现<a class="headerlink" href="#111-service" title="Permanent link">&para;</a></h5>
+<p>1，在HospitalService类添加接口</p>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * 医院预约挂号详情</span>
+<span class="cm">*/</span>
+<span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="nf">item</span><span class="p">(</span><span class="n">String</span> <span class="n">hoscode</span><span class="p">);</span>
+</code></pre></div>
+<p>2，在HospitalServiceImpl类实现接口</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@Autowired</span>
+<span class="kd">private</span> <span class="n">DepartmentService</span> <span class="n">departmentService</span><span class="p">;</span>
+<span class="nd">@Override</span>
+<span class="kd">public</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="nf">item</span><span class="p">(</span><span class="n">String</span> <span class="n">hoscode</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+    <span class="c1">//医院详情</span>
+    <span class="n">Hospital</span> <span class="n">hospital</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">setHospitalHosType</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">getByHoscode</span><span class="p">(</span><span class="n">hoscode</span><span class="p">));</span>
+    <span class="n">result</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;hospital&quot;</span><span class="p">,</span> <span class="n">hospital</span><span class="p">);</span>
+    <span class="c1">//预约规则</span>
+    <span class="n">result</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;bookingRule&quot;</span><span class="p">,</span> <span class="n">hospital</span><span class="p">.</span><span class="na">getBookingRule</span><span class="p">());</span>
+    <span class="c1">//不需要重复返回</span>
+    <span class="n">hospital</span><span class="p">.</span><span class="na">setBookingRule</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h5 id="112-controller">1.1.2 添加controller接口<a class="headerlink" href="#112-controller" title="Permanent link">&para;</a></h5>
+<p>在HospitalApiController类添加方法</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@ApiOperation</span><span class="p">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&quot;获取科室列表&quot;</span><span class="p">)</span>
+<span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;department/{hoscode}&quot;</span><span class="p">)</span>
+<span class="kd">public</span> <span class="n">Result</span> <span class="nf">index</span><span class="p">(</span>
+        <span class="nd">@ApiParam</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;hoscode&quot;</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="s">&quot;医院code&quot;</span><span class="p">,</span> <span class="n">required</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span>
+        <span class="nd">@PathVariable</span> <span class="n">String</span> <span class="n">hoscode</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">Result</span><span class="p">.</span><span class="na">ok</span><span class="p">(</span><span class="n">departmentService</span><span class="p">.</span><span class="na">findTree</span><span class="p">(</span><span class="n">hoscode</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="nd">@ApiOperation</span><span class="p">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&quot;医院预约挂号详情&quot;</span><span class="p">)</span>
+<span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;{hoscode}&quot;</span><span class="p">)</span>
+<span class="kd">public</span> <span class="n">Result</span> <span class="nf">item</span><span class="p">(</span>
+        <span class="nd">@ApiParam</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;hoscode&quot;</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="s">&quot;医院code&quot;</span><span class="p">,</span> <span class="n">required</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span>
+        <span class="nd">@PathVariable</span> <span class="n">String</span> <span class="n">hoscode</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">Result</span><span class="p">.</span><span class="na">ok</span><span class="p">(</span><span class="n">hospitalService</span><span class="p">.</span><span class="na">item</span><span class="p">(</span><span class="n">hoscode</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="12_1">1.2 预约挂号前端<a class="headerlink" href="#12_1" title="Permanent link">&para;</a></h4>
+<h5 id="121api">1.2.1封装api请求<a class="headerlink" href="#121api" title="Permanent link">&para;</a></h5>
+<p>在/api/hosp.js文件添加方法</p>
+<div class="highlight"><pre><span></span><code> <span class="nx">show</span><span class="p">(</span><span class="nx">hoscode</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">request</span><span class="p">({</span>
+            <span class="nx">url</span><span class="o">:</span> <span class="sb">`</span><span class="si">${</span><span class="nx">api_name</span><span class="si">}</span><span class="sb">/</span><span class="si">${</span><span class="nx">hoscode</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span>
+            <span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;get&#39;</span>
+        <span class="p">})</span>
+    <span class="p">},</span>
+    <span class="nx">findDepartment</span><span class="p">(</span><span class="nx">hoscode</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">request</span><span class="p">({</span>
+            <span class="nx">url</span><span class="o">:</span> <span class="sb">`</span><span class="si">${</span><span class="nx">api_name</span><span class="si">}</span><span class="sb">/department/</span><span class="si">${</span><span class="nx">hoscode</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span>
+            <span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;get&#39;</span>
+        <span class="p">})</span>
+    <span class="p">}</span>
+</code></pre></div>
+<h5 id="122">1.2.2 页面布局<a class="headerlink" href="#122" title="Permanent link">&para;</a></h5>
+<p>创建/pages/hospital/_hoscode.vue组件</p>
+<div class="highlight"><pre><span></span><code>&lt;template&gt;
+&lt;!-- header --&gt;
+&lt;div class=&quot;nav-container page-component&quot;&gt;
+&lt;!--左侧导航 #start --&gt;
+&lt;div class=&quot;nav left-nav&quot;&gt;
+&lt;div class=&quot;nav-item selected&quot;&gt;
+&lt;span class=&quot;v-link selected dark&quot; 
+ :onclick=&quot;&#39;javascript:window.location=\&#39;/hospital/&#39;+hospital.hoscode+&#39;\&#39;&#39;&quot;&gt;预约挂号 &lt;/span&gt;
+&lt;/div&gt;
+&lt;div class=&quot;nav-item &quot;&gt;
+&lt;span class=&quot;v-link clickable dark&quot; :onclick=&quot;&#39;javascript:window.location=\&#39;/hospital/detail/&#39;+hospital.hoscode+&#39;\&#39;&#39;&quot;&gt; 医院详情 &lt;/span&gt;
+&lt;/div&gt;
+&lt;div class=&quot;nav-item&quot;&gt;
+&lt;span class=&quot;v-link clickable dark&quot; :onclick=&quot;&#39;javascript:window.location=\&#39;/hospital/notice/&#39;+hospital.hoscode+&#39;\&#39;&#39;&quot;&gt; 预约须知 &lt;/span&gt;
+&lt;/div&gt;
+&lt;div class=&quot;nav-item &quot;&gt;&lt;span
+class=&quot;v-link clickable dark&quot;&gt; 停诊信息 &lt;/span&gt;
+&lt;/div&gt;
+&lt;div class=&quot;nav-item &quot;&gt;&lt;span
+class=&quot;v-link clickable dark&quot;&gt; 查询/取消 &lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- 左侧导航 #end --&gt;
+&lt;!-- 右侧内容 #start --&gt;
+&lt;div class=&quot;page-container&quot;&gt;
+&lt;div class=&quot;hospital-home&quot;&gt;
+&lt;div class=&quot;common-header&quot;&gt;
+&lt;div class=&quot;title-wrapper&quot;&gt;&lt;span
+class=&quot;hospital-title&quot;&gt;{{ hospital.hosname }}&lt;/span&gt;
+&lt;div class=&quot;icon-wrapper&quot;&gt;
+&lt;span class=&quot;iconfont&quot;&gt;&lt;/span&gt;{{ hospital.param.hostypeString }}
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;info-wrapper&quot;&gt;
+&lt;img class=&quot;hospital-img&quot; :src=&quot;&#39;data:image/jpeg;base64,&#39;+hospital.logoData&quot; :alt=&quot;hospital.hosname&quot;&gt;
+&lt;div class=&quot;content-wrapper&quot;&gt;
+&lt;div&gt; 挂号规则&lt;/div&gt;
+&lt;div class=&quot;line&quot;&gt;
+&lt;div&gt;&lt;span class=&quot;label&quot;&gt;预约周期：&lt;/span&gt;&lt;span&gt;{{ bookingRule.cycle }}天&lt;/span&gt;&lt;/div&gt;
+&lt;div class=&quot;space&quot;&gt;&lt;span class=&quot;label&quot;&gt;放号时间：&lt;/span&gt;&lt;span&gt;{{ bookingRule.releaseTime }}&lt;/span&gt;&lt;/div&gt;
+&lt;div class=&quot;space&quot;&gt;&lt;span class=&quot;label&quot;&gt;停挂时间：&lt;/span&gt;&lt;span&gt;{{ bookingRule.stopTime }}&lt;/span&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;label&quot;&gt;退号时间：&lt;/span&gt;
+&lt;span v-if=&quot;bookingRule.quitDay == -1&quot;&gt;就诊前一工作日{{ bookingRule.quitTime }}前取消&lt;/span&gt;
+&lt;span v-if=&quot;bookingRule.quitDay == 0&quot;&gt;就诊前当天{{ bookingRule.quitTime }}前取消&lt;/span&gt;
+&lt;/div&gt;
+&lt;div style=&quot;margin-top:20px&quot;&gt; 医院预约规则&lt;/div&gt;
+&lt;div class=&quot;rule-wrapper&quot;&gt;
+&lt;ol&gt;
+&lt;li v-for=&quot;item in bookingRule.rule&quot; :key=&quot;item&quot;&gt;{{ item }}&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;title select-title&quot;&gt; 选择科室&lt;/div&gt;
+&lt;div class=&quot;select-dept-wrapper&quot;&gt;
+&lt;div class=&quot;department-wrapper&quot;&gt;
+&lt;div class=&quot;hospital-department&quot;&gt;
+&lt;div class=&quot;dept-list-wrapper el-scrollbar&quot; style=&quot;height: 100%;&quot;&gt;
+&lt;div class=&quot;dept-list el-scrollbar__wrap&quot; style=&quot;margin-bottom: -17px; margin-right: -17px;&quot;&gt;
+&lt;div class=&quot;el-scrollbar__view&quot;&gt;
+&lt;div class=&quot;sub-item&quot; v-for=&quot;(item,index) in departmentVoList&quot; :key=&quot;item.id&quot; :class=&quot;index == activeIndex ? &#39;selected&#39; : &#39;&#39;&quot; @click=&quot;move(index,item.depcode)&quot;&gt; {{ item.depname }}&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;el-scrollbar__bar is-horizontal&quot;&gt;
+&lt;div class=&quot;el-scrollbar__thumb&quot; style=&quot;transform: translateX(0%);&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;el-scrollbar__bar is-vertical&quot;&gt;
+&lt;div class=&quot;el-scrollbar__thumb&quot; style=&quot;transform: translateY(0%); height: 91.4761%;&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sub-dept-container&quot;&gt;
+&lt;div v-for=&quot;(item,index) in departmentVoList&quot; :key=&quot;item.id&quot; :class=&quot;index == 0 ? &#39;selected&#39; : &#39;&#39;&quot; class=&quot;sub-dept-wrapper&quot; :id=&quot;item.depcode&quot;&gt;
+&lt;div class=&quot;sub-title&quot;&gt;
+&lt;div class=&quot;block selected&quot;&gt;&lt;/div&gt;{{ item.depname }}
+&lt;/div&gt;
+&lt;div class=&quot;sub-item-wrapper&quot;&gt;
+&lt;div v-for=&quot;it in item.children&quot; :key=&quot;it.id&quot; class=&quot;sub-item&quot; @click=&quot;schedule(it.depcode)&quot;&gt;&lt;span class=&quot;v-link clickable&quot;&gt;{{ it.depname }} &lt;/span&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- 右侧内容 #end --&gt;
+&lt;/div&gt;
+&lt;!-- footer --&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import &#39;~/assets/css/hospital_personal.css&#39;
+import &#39;~/assets/css/hospital.css&#39;
+
+import hospitalApi from &#39;@/api/hosp&#39;
+
+export default {
+  data() {
+    return {
+      hoscode: null,
+      activeIndex: 0,
+
+      hospital: {
+        param: {}
+      },
+      bookingRule : {},
+      departmentVoList : []
+    }
+  },
+  created() {
+    this.hoscode = this.$route.params.hoscode
+    this.init()
+  },
+
+  methods: {
+    init() {
+      hospitalApi.show(this.hoscode).then(response =&gt; {
+        this.hospital = response.data.hospital
+        this.bookingRule = response.data.bookingRule
+      })
+
+      hospitalApi.findDepartment(this.hoscode).then(response =&gt; {
+        this.departmentVoList = response.data
+      })
+    },
+
+    move(index, depcode) {
+      this.activeIndex = index
+      document.getElementById(depcode).scrollIntoView();
+    },
+
+    schedule(depcode) {
+      window.location.href = &#39;/hospital/schedule?hoscode=&#39; + this.hoscode + &quot;&amp;depcode=&quot;+ depcode
+    }
+  }
+}
+&lt;/script&gt;
+</code></pre></div>
+<h3 id="2_1">2、医院详情<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
+<h4 id="21_2">2.1 页面布局<a class="headerlink" href="#21_2" title="Permanent link">&para;</a></h4>
+<p>创建/pages/hospital/detail/_hoscode.vue组件</p>
+<div class="highlight"><pre><span></span><code>&lt;template&gt;
+  &lt;!-- header --&gt;
+  &lt;div class=&quot;nav-container page-component&quot;&gt;
+    &lt;!--左侧导航 #start --&gt;
+    &lt;div class=&quot;nav left-nav&quot;&gt;
+      &lt;div class=&quot;nav-item &quot;&gt;
+        &lt;span class=&quot;v-link clickable dark&quot; :onclick=&quot;&#39;javascript:window.location=\&#39;/hosp/&#39;+hospital.hoscode+&#39;\&#39;&#39;&quot;&gt;预约挂号 &lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;nav-item selected&quot;&gt;
+        &lt;span class=&quot;v-link selected dark&quot; :onclick=&quot;&#39;javascript:window.location=\&#39;/hosp/detail/&#39;+hospital.hoscode+&#39;\&#39;&#39;&quot;&gt; 医院详情 &lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;nav-item&quot;&gt;
+        &lt;span class=&quot;v-link clickable dark&quot; :onclick=&quot;&#39;javascript:window.location=\&#39;/hosp/notice/&#39;+hospital.hoscode+&#39;\&#39;&#39;&quot;&gt; 预约须知 &lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;nav-item &quot;&gt;&lt;span
+        class=&quot;v-link clickable dark&quot;&gt; 停诊信息 &lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;nav-item &quot;&gt;&lt;span
+        class=&quot;v-link clickable dark&quot;&gt; 查询/取消 &lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- 左侧导航 #end --&gt;
+
+    &lt;!-- 右侧内容 #start --&gt;
+    &lt;div class=&quot;page-container&quot;&gt;
+      &lt;div class=&quot;hospital-detail&quot;&gt;
+        &lt;div class=&quot;common-header&quot;&gt;
+          &lt;div class=&quot;title-wrapper&quot;&gt;&lt;span class=&quot;hospital-title&quot;&gt;{{ hospital.hosname }}&lt;/span&gt;
+            &lt;div class=&quot;icon-wrapper&quot;&gt;&lt;span class=&quot;iconfont&quot;&gt;&lt;/span&gt; {{ hospital.param.hostypeString }}&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;info-wrapper&quot;&gt;&lt;img :src=&quot;&#39;data:image/jpeg;base64,&#39;+hospital.logoData&quot; :alt=&quot;hospital.hosname&quot; style=&quot;width: 80px; height: 80px;&quot;&gt;
+          &lt;div class=&quot;content-wrapper&quot;&gt;
+            &lt;div&gt;&lt;/div&gt;
+            &lt;div&gt;&lt;/div&gt;
+            &lt;div&gt;&lt;/div&gt;
+            &lt;div&gt;
+              &lt;div class=&quot;icon-text-wrapper&quot;&gt;&lt;span class=&quot;iconfont prefix-icon&quot;&gt;&lt;/span&gt;
+                &lt;span class=&quot;text&quot;&gt;&lt;p&gt;{{ hospital.route }}&lt;/p&gt;
+              &lt;/span&gt;&lt;span class=&quot;iconfont right-icon&quot;&gt;&lt;/span&gt;&lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;title mt40&quot;&gt; 医院介绍&lt;/div&gt;
+        &lt;div class=&quot;detail-content mt40&quot;&gt;&lt;p&gt;{{ hospital.intro }}&lt;/p&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- 右侧内容 #end --&gt;
+  &lt;/div&gt;
+  &lt;!-- footer --&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import &#39;~/assets/css/hospital_personal.css&#39;
+import &#39;~/assets/css/hospital.css&#39;
+
+import hospitalApi from &#39;@/api/hosp&#39;
+export default {
+  data() {
+    return {
+      hoscode: null,
+      hospital: {
+        param: {}
+      }
+    }
+  },
+
+  created() {
+    this.hoscode = this.$route.params.hoscode
+
+    this.init()
+  },
+
+  methods: {
+    init() {
+      hospitalApi.show(this.hoscode).then(response =&gt; {
+        this.hospital = response.data.hospital
+      })
+
+    }
+  }
+}
+&lt;/script&gt;
+&lt;style&gt;
+  .hospital-detail .info-wrapper {
+    width: 100%;
+    padding-left: 0;
+    padding-top: 0;
+    margin-top: 0;
+    flex-direction: inherit;
+  }
+
+  .hospital-detail .info-wrapper .text {
+    font-size: 14px;
+
+  }
+
+  .hospital-detail .content-wrapper p {
+    text-indent: 0;
+  }
+&lt;/style&gt;
+</code></pre></div>
+<h3 id="3">3、预约须知<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<h4 id="31_1">3.1 页面布局<a class="headerlink" href="#31_1" title="Permanent link">&para;</a></h4>
+<p>创建/pages/hospital/notice/_hoscode.vue组件</p>
+<div class="highlight"><pre><span></span><code>&lt;template&gt;
+  &lt;!-- header --&gt;
+  &lt;div class=&quot;nav-container page-component&quot;&gt;
+    &lt;!--左侧导航 #start --&gt;
+    &lt;div class=&quot;nav left-nav&quot;&gt;
+      &lt;div class=&quot;nav-item &quot;&gt;
+        &lt;span class=&quot;v-link clickable dark&quot; :onclick=&quot;&#39;javascript:window.location=\&#39;/hosp/&#39;+hospital.hoscode+&#39;\&#39;&#39;&quot;&gt;预约挂号 &lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;nav-item &quot;&gt;
+        &lt;span class=&quot;v-link clickable dark&quot; :onclick=&quot;&#39;javascript:window.location=\&#39;/hosp/detail/&#39;+hospital.hoscode+&#39;\&#39;&#39;&quot;&gt; 医院详情 &lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;nav-item selected&quot;&gt;
+        &lt;span class=&quot;v-link selected dark&quot; :onclick=&quot;&#39;javascript:window.location=\&#39;/hosp/notice/&#39;+hospital.hoscode+&#39;\&#39;&#39;&quot;&gt; 预约须知 &lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;nav-item &quot;&gt;&lt;span
+        class=&quot;v-link clickable dark&quot;&gt; 停诊信息 &lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;nav-item &quot;&gt;&lt;span
+        class=&quot;v-link clickable dark&quot;&gt; 查询/取消 &lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- 左侧导航 #end --&gt;
+
+    &lt;!-- 右侧内容 #start --&gt;
+    &lt;div class=&quot;page-container&quot;&gt;
+      &lt;div class=&quot;hospital-notice&quot;&gt;
+        &lt;div class=&quot;content&quot;&gt;&lt;h2&gt;{{ hospital.hosname }}预约挂号须知&lt;/h2&gt;
+          &lt;p&gt;为方便您早日就医康复，请您认真阅读预约挂号须知：&lt;/p&gt;
+          &lt;h4 id=&quot;一、预约实名制：&quot;&gt;一、预约实名制：&lt;/h4&gt;
+          &lt;p&gt;统一平台电话预约和网上预约挂号均采取实名制注册预约，请您如实提供就诊人员的真实姓名、有效证件号（身份证、护照）、性别、手机号码、社保卡号等基本信息。&lt;/p&gt;
+          &lt;h4 id=&quot;二、预约挂号：&quot;&gt;二、预约挂号：&lt;/h4&gt;
+          &lt;p&gt;按照北京市卫健委统一平台要求，预约挂号规则如下：&lt;/p&gt;
+          &lt;ul&gt;
+            &lt;li&gt;在同一自然日，同一医院，同一科室，同一就诊单元，同一就诊人，可以预约最多1个号源；&lt;/li&gt;
+            &lt;li&gt;在同一自然周，同一就诊人，可以预约最多8个号源；&lt;/li&gt;
+            &lt;li&gt;在同一自然月，同一就诊人，可以预约最多12个号源；&lt;/li&gt;
+            &lt;li&gt;在同一自然季度，同一就诊人，可以预约最多24个号源。&lt;/li&gt;
+          &lt;/ul&gt;
+          &lt;h4 id=&quot;三、取消预约：&quot;&gt;三、取消预约：&lt;/h4&gt;
+          &lt;p&gt;已完成预约的号源，如需办理退号，至少在就诊前一工作日14:00前通过网站、微信公众号、114电话等平台预约渠道进行取消预约。&lt;/p&gt;
+          &lt;h4 id=&quot;四、爽约处理：&quot;&gt;四、爽约处理：&lt;/h4&gt;
+          &lt;p&gt;如预约成功后患者未能按时就诊且不办理取消预约号视为爽约，同一患者在自然年内爽约规则如下：&lt;/p&gt;
+          &lt;ul&gt;
+            &lt;li&gt;累计爽约3次，自3次爽约日起，90天内不允许通过114平台进行预约挂号；&lt;/li&gt;
+            &lt;li&gt;累计爽约6次，自6次爽约日起，180天内不允许通过114平台进行预约挂号。&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/div&gt;
+
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- 右侧内容 #end --&gt;
+  &lt;/div&gt;
+  &lt;!-- footer --&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import &#39;~/assets/css/hospital_personal.css&#39;
+import &#39;~/assets/css/hospital.css&#39;
+
+import hospitalApi from &#39;@/api/hosp&#39;
+export default {
+  data() {
+    return {
+      hoscode: null,
+      hospital: {
+        param: {}
+      }
+    }
+  },
+
+  created() {
+    this.hoscode = this.$route.params.hoscode
+
+    this.init()
+  },
+
+  methods: {
+    init() {
+      hospitalApi.show(this.hoscode).then(response =&gt; {
+        this.hospital = response.data.hospital
+      })
+    }
+  }
+}
+&lt;/script&gt;
+&lt;style&gt;
+  .hospital-detail .info-wrapper {
+    width: 100%;
+    padding-left: 0;
+    padding-top: 0;
+    margin-top: 0;
+    flex-direction: inherit;
+  }
+
+  .hospital-detail .info-wrapper .text {
+    font-size: 14px;
+
+  }
+
+  .hospital-detail .content-wrapper p {
+    text-indent: 0;
+  }
+&lt;/style&gt;
+</code></pre></div>
+
+              
+			  <hr><span id="busuanzi_container_page_pv"><font size="3" color="grey">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</font></span><br/>
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../../day10%E6%8E%92%E7%8F%AD%E7%AE%A1%E7%90%86%E5%92%8C%E7%BD%91%E5%85%B3/day10%E6%8E%92%E7%8F%AD%E7%AE%A1%E7%90%86%E5%92%8C%E7%BD%91%E5%85%B3/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 排班管理和网关" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              排班管理和网关
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../day12%E6%89%8B%E6%9C%BA%E7%99%BB%E5%BD%95/day12%E6%89%8B%E6%9C%BA%E7%99%BB%E5%BD%95/" class="md-footer__link md-footer__link--next" aria-label="Next: 手机登录" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              手机登录
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 尚硅谷
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.tabs", "navigation.tabs.sticky"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.1514a9a0.min.js"></script>
+      
+        <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+      
+    
+  </body>
+</html>

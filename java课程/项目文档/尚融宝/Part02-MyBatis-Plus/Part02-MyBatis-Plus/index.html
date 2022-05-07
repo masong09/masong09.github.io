@@ -1,0 +1,4563 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.6">
+    
+    
+      
+        <title>MyBatis-Plus - 我的文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.cd566b2a.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#part02-mybatis-plus" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="我的文档" class="md-header__button md-logo" aria-label="我的文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            我的文档
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              MyBatis-Plus
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/01%20Java%E6%A6%82%E8%BF%B0/01%20-%20Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0/" class="md-tabs__link md-tabs__link--active">
+        Java课程
+      </a>
+    </li>
+  
+
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC1%E7%AB%A0%20%E9%9D%A2%E8%AF%95%E8%AF%B4%E6%98%8E/" class="md-tabs__link">
+        Java就业面试
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../../.." class="md-tabs__link">
+      学习文档
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="我的文档" class="md-nav__button md-logo" aria-label="我的文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    我的文档
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Java课程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Java课程" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Java课程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1" type="checkbox" id="__nav_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1">
+          Java基础
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Java基础" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Java基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1_1" type="checkbox" id="__nav_1_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1_1">
+          基础部分
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="基础部分" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          基础部分
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/01%20Java%E6%A6%82%E8%BF%B0/01%20-%20Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0/" class="md-nav__link">
+        Java概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/02%20%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/02%20%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" class="md-nav__link">
+        基本语法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/03%20%E6%95%B0%E7%BB%84/03%20%E6%95%B0%E7%BB%84/" class="md-nav__link">
+        数组
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/04%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/04%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="md-nav__link">
+        面向对象
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/05%20%E5%BC%82%E5%B8%B8/05%20%E5%BC%82%E5%B8%B8/" class="md-nav__link">
+        异常
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1_2" type="checkbox" id="__nav_1_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1_2">
+          高级部分
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="高级部分" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          高级部分
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/06%20%E5%B8%B8%E7%94%A8%E7%B1%BBAPI/06%20%E5%B8%B8%E7%94%A8%E7%B1%BBAPI/" class="md-nav__link">
+        常用类API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/07%20%E9%9B%86%E5%90%88/07%20%E9%9B%86%E5%90%88/" class="md-nav__link">
+        集合
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/08%20%E6%B3%9B%E5%9E%8B/08%20%E6%B3%9B%E5%9E%8B/" class="md-nav__link">
+        泛型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/09%20File%E7%B1%BB%E4%B8%8EIO%E6%B5%81/09%20File%E7%B1%BB%E4%B8%8EIO%E6%B5%81/" class="md-nav__link">
+        File类与IO流
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/10%20%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/10%20%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" class="md-nav__link">
+        网络编程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/11%20%E5%A4%9A%E7%BA%BF%E7%A8%8B/11%20%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="md-nav__link">
+        多线程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/12%20%E5%8F%8D%E5%B0%84/12%20%E5%8F%8D%E5%B0%84/" class="md-nav__link">
+        反射
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/13%20Java8%E6%96%B0%E7%89%B9%E6%80%A7/Java8%E6%96%B0%E7%89%B9%E6%80%A7/" class="md-nav__link">
+        Java8新特性
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2" type="checkbox" id="__nav_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_2">
+          MySQL数据库
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="MySQL数据库" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          MySQL数据库
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/14%20MySQL/MySQL5.7%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/" class="md-nav__link">
+        MySQL5.7安装文档
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/14%20MySQL/MySQL%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        MySQL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/14%20MySQL/JDBC%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        JDBC
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_3" type="checkbox" id="__nav_1_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_3">
+          JavaWeb阶段
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="JavaWeb阶段" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          JavaWeb阶段
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day01/day01_HTML%26CSS/" class="md-nav__link">
+        HTML&CSS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day02/day02_JS%26%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="md-nav__link">
+        JS&正则表达式
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day03/day03_VUE%26%E4%B9%A6%E5%9F%8E%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        VUE&书城第一阶段
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day04/day04_XML%26Tomcat%26Http%E5%8D%8F%E8%AE%AE/" class="md-nav__link">
+        XML&Tomcat&Http协议
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day05/day05_Servlet/" class="md-nav__link">
+        Servlet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day06/day06_Request%26Response/" class="md-nav__link">
+        Request&Response
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day07/day07_%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        书城项目第二阶
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day08/day08_Thymeleaf/" class="md-nav__link">
+        Thymeleaf
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day09/day09_%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        书城项目第三阶段
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day10/day10_%E4%BC%9A%E8%AF%9D%26%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5%281%29/" class="md-nav__link">
+        会话&书城项目第四阶段1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day11/day11_%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        书城项目第四阶段2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day12/day12_Filter%26Listener%26%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%BA%94%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        Filter&Listener&书城项目第五阶段1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day13/day13_%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%BA%94%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        书城项目第五阶段2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day14/day14_Ajax%26Axios%26%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E5%85%AD%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        Ajax&Axios&书城项目第六阶段
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4" type="checkbox" id="__nav_1_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4">
+          经典框架
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="经典框架" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          经典框架
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/Spring%20%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        Spring
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/SpringMVC%20%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        SpringMVC
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/MyBatis%20%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        MyBatis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/SSM%20%E6%95%B4%E5%90%88%E9%85%8D%E7%BD%AE/" class="md-nav__link">
+        SSM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/Maven%20%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        Maven
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/%E6%A1%86%E6%9E%B6%E9%AB%98%E7%BA%A7%E8%AF%BE%E7%A8%8B%E7%B3%BB%E5%88%97%E4%B9%8BLinuxCentOS7/" class="md-nav__link">
+        Linux
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/Redis/" class="md-nav__link">
+        Redis
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_5" type="checkbox" id="__nav_1_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_5">
+          微服务相关
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="微服务相关" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_5">
+          <span class="md-nav__icon md-icon"></span>
+          微服务相关
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/Docker/Docker/" class="md-nav__link">
+        Docker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/ElasticSearch/ElasticSearch/" class="md-nav__link">
+        ElasticSearch
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/RabbitMQ/RabbitMQ/" class="md-nav__link">
+        RabbitMQ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/SpringBoot/SpringBoot/" class="md-nav__link">
+        SpringBoot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/SpringCloud/SpringCloud/" class="md-nav__link">
+        SpringCloud
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_6" type="checkbox" id="__nav_1_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_6">
+          高级技术
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="高级技术" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_6">
+          <span class="md-nav__icon md-icon"></span>
+          高级技术
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/git/Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        git
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/juc/JUC/" class="md-nav__link">
+        JUC
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/jvm/jvm/" class="md-nav__link">
+        jvm
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/mysql%E9%AB%98%E7%BA%A7/MySQL%E9%AB%98%E7%BA%A7/" class="md-nav__link">
+        mysql高级
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/mysql%E9%AB%98%E7%BA%A7/MySQL%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/" class="md-nav__link">
+        MySQL主从复制
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/MyCat/Mycat/" class="md-nav__link">
+        MyCat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/nginx/Nginx/" class="md-nav__link">
+        Nginx
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7" type="checkbox" id="__nav_1_7" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7">
+          项目文档
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="项目文档" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_7">
+          <span class="md-nav__icon md-icon"></span>
+          项目文档
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_1" type="checkbox" id="__nav_1_7_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7_1">
+          美年旅游
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="美年旅游" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_7_1">
+          <span class="md-nav__icon md-icon"></span>
+          美年旅游
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BE%8E%E5%B9%B4/day01/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC1%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游01
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BE%8E%E5%B9%B4/day02/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC2%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游02
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BE%8E%E5%B9%B4/day03/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC3%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游03
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BE%8E%E5%B9%B4/day04/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC4%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游04
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BE%8E%E5%B9%B4/day05/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC5%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游05
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BE%8E%E5%B9%B4/day06/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC6%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游06
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BE%8E%E5%B9%B4/day07/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC7%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游07
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BE%8E%E5%B9%B4/day08/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC8%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游08
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BE%8E%E5%B9%B4/day09/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC9%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游09
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BE%8E%E5%B9%B4/day10/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC10%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游10
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BE%8E%E5%B9%B4/day11/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC11%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游11
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_2" type="checkbox" id="__nav_1_7_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7_2">
+          尚邻网
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="尚邻网" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_7_2">
+          <span class="md-nav__icon md-icon"></span>
+          尚邻网
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E9%82%BB%E7%BD%91/1.%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83/" class="md-nav__link">
+        搭建环境
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E9%82%BB%E7%BD%91/2.%E7%94%A8%E6%88%B7%E8%A7%92%E8%89%B2%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        用户角色管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E9%82%BB%E7%BD%91/3.Apache%20Dubbo/" class="md-nav__link">
+        Apache Dubbo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E9%82%BB%E7%BD%91/4.%E6%9C%8D%E5%8A%A1%E6%8B%86%E5%88%86/" class="md-nav__link">
+        服务拆分
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E9%82%BB%E7%BD%91/5.%E4%BA%8C%E6%89%8B%E6%88%BF%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        二手房管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E9%82%BB%E7%BD%91/6.%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/" class="md-nav__link">
+        图片上传
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E9%82%BB%E7%BD%91/7.%E5%89%8D%E7%AB%AF%E6%88%BF%E6%BA%90%E5%B1%95%E7%A4%BA/" class="md-nav__link">
+        前端房源展示
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E9%82%BB%E7%BD%91/8.%E5%89%8D%E7%AB%AF%E7%99%BB%E5%BD%95%E4%B8%8E%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%85%B3%E6%B3%A8/" class="md-nav__link">
+        前端登录与注册与关注
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E9%82%BB%E7%BD%91/9.%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        权限管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E9%82%BB%E7%BD%91/10.spring%20security/" class="md-nav__link">
+        spring security
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E9%82%BB%E7%BD%91/11.session%E5%85%B1%E4%BA%AB/" class="md-nav__link">
+        session共享
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_3" type="checkbox" id="__nav_1_7_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7_3">
+          谷粒商城
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="谷粒商城" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_7_3">
+          <span class="md-nav__icon md-icon"></span>
+          谷粒商城
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/1.%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%EF%BC%88nginx%E3%80%81cors%E3%80%81oss%EF%BC%89/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        谷粒商城01
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/2.%E5%88%86%E7%B1%BB%E3%80%81%E8%A7%84%E6%A0%BC%E3%80%81%E5%95%86%E5%93%81%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/%E8%A7%84%E6%A0%BC%E5%8F%82%E6%95%B0%E5%8F%8A%E5%95%86%E5%93%81%E6%96%B0%E5%A2%9E/" class="md-nav__link">
+        谷粒商城02
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/3.%E6%9C%AC%E5%9C%B0%E4%BA%8B%E5%8A%A1%E3%80%81%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E5%8F%8Aseata/%E6%9C%AC%E5%9C%B0%E4%BA%8B%E5%8A%A1%E3%80%81%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E5%8F%8Aseata/" class="md-nav__link">
+        谷粒商城03
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/4.elasticsearch%28DSL%E5%8F%8ASpringData-Elasticsearch%29/elasticsearch/" class="md-nav__link">
+        谷粒商城04
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/5.%E5%95%86%E5%93%81%E6%90%9C%E7%B4%A2/%E5%95%86%E5%93%81%E6%90%9C%E7%B4%A2/" class="md-nav__link">
+        谷粒商城05
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/6.%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%EF%BC%88Thymeleaf%EF%BC%89%E5%8F%8A%E6%90%9C%E7%B4%A2%E9%A1%B5%E6%B8%B2%E6%9F%93/%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E-Thymeleaf/" class="md-nav__link">
+        谷粒商城06
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/7.%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%EF%BC%88RabbitMQ%EF%BC%89/%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5/" class="md-nav__link">
+        谷粒商城07
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/8.%E5%95%86%E5%93%81%E5%88%86%E7%B1%BB%28%E7%BC%93%E5%AD%98%E3%80%81%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E3%80%81Redisson%E3%80%81%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8%29/%E9%A6%96%E9%A1%B5%E5%95%86%E5%93%81%E5%88%86%E7%B1%BB/" class="md-nav__link">
+        谷粒商城08
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/9.%E5%95%86%E5%93%81%E8%AF%A6%E6%83%85%E9%A1%B5%E5%8F%8A%E5%BC%82%E6%AD%A5%E7%BC%96%E6%8E%92%EF%BC%88CompletableFuture%EF%BC%89/%E5%95%86%E5%93%81%E8%AF%A6%E6%83%85%E9%A1%B5/" class="md-nav__link">
+        谷粒商城09
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/10.%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%EF%BC%88jwt%EF%BC%89/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%EF%BC%88jwt%EF%BC%89/" class="md-nav__link">
+        谷粒商城10
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/11.%E8%B4%AD%E7%89%A9%E8%BD%A6%EF%BC%88SpringTask%EF%BC%89/%E8%B4%AD%E7%89%A9%E8%BD%A6/" class="md-nav__link">
+        谷粒商城11
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/12.%E5%88%86%E5%B8%83%E5%BC%8F%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%EF%BC%88xxl-job%EF%BC%89/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%EF%BC%88xxl-job%EF%BC%89/" class="md-nav__link">
+        谷粒商城12
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/13.%E8%AE%A2%E5%8D%95%E3%80%81%E5%BA%93%E5%AD%98/%E8%AE%A2%E5%8D%95%E3%80%81%E5%BA%93%E5%AD%98/" class="md-nav__link">
+        谷粒商城13
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/14.%E6%94%AF%E4%BB%98%E3%80%81%E7%A7%92%E6%9D%80/%E6%94%AF%E4%BB%98%E3%80%81%E7%A7%92%E6%9D%80/" class="md-nav__link">
+        谷粒商城14
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_4" type="checkbox" id="__nav_1_7_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7_4">
+          尚融宝
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="尚融宝" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_7_4">
+          <span class="md-nav__icon md-icon"></span>
+          尚融宝
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part01-%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D/Part01-%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
+        项目介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          MyBatis-Plus
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        MyBatis-Plus
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#01-mybatis-plus" class="md-nav__link">
+    01-MyBatis-Plus 入门
+  </a>
+  
+    <nav class="md-nav" aria-label="01-MyBatis-Plus 入门">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    一、简介
+  </a>
+  
+    <nav class="md-nav" aria-label="一、简介">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1、官网
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2、特点
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3、支持数据库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4、框架结构
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    二、快速入门
+  </a>
+  
+    <nav class="md-nav" aria-label="二、快速入门">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    1、创建数据库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2springboot" class="md-nav__link">
+    2、创建SpringBoot工程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    3、引入依赖
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    4、修改配置文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5、创建实体类
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6mapper" class="md-nav__link">
+    6、创建mapper接口
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    7、启动类添加注解
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    8、测试
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sql" class="md-nav__link">
+    补充、查看sql输出日志
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#02-crud" class="md-nav__link">
+    02-基本CRUD
+  </a>
+  
+    <nav class="md-nav" aria-label="02-基本CRUD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mapper" class="md-nav__link">
+    一、通用Mapper
+  </a>
+  
+    <nav class="md-nav" aria-label="一、通用Mapper">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1create" class="md-nav__link">
+    1、Create
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2retrieve" class="md-nav__link">
+    2、Retrieve
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3update" class="md-nav__link">
+    3、Update
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4delete" class="md-nav__link">
+    4、Delete
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service" class="md-nav__link">
+    二、通用Service
+  </a>
+  
+    <nav class="md-nav" aria-label="二、通用Service">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1service" class="md-nav__link">
+    1、创建Service接口
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2service" class="md-nav__link">
+    2、创建Service实现类
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_2" class="md-nav__link">
+    3、创建测试类
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_2" class="md-nav__link">
+    4、测试记录数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_1" class="md-nav__link">
+    5、测试批量插入
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#03-" class="md-nav__link">
+    03-常用注解
+  </a>
+  
+    <nav class="md-nav" aria-label="03-常用注解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tablename" class="md-nav__link">
+    一、@TableName
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tableid" class="md-nav__link">
+    二、@TableId
+  </a>
+  
+    <nav class="md-nav" aria-label="二、@TableId">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    1、雪花算法
+  </a>
+  
+    <nav class="md-nav" aria-label="1、雪花算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    背景
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part03-%E5%90%8E%E7%AB%AF%E6%8E%A5%E5%8F%A3%E5%B7%A5%E7%A8%8B%E6%90%AD%E5%BB%BA/Part03-%E5%90%8E%E7%AB%AF%E6%8E%A5%E5%8F%A3%E5%B7%A5%E7%A8%8B%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        后端接口工程搭建
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part04-%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/Part04-%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/" class="md-nav__link">
+        前端知识
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part05-%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA/Part05-%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        管理平台前端搭建
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part06-Alibaba%20EasyExcel/Part06-Alibaba%20EasyExcel/" class="md-nav__link">
+        Alibaba EasyExcel
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part07-%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8/Part07-%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8/" class="md-nav__link">
+        数据字典
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part08-Redis%E7%BC%93%E5%AD%98/Part08-Redis%E7%BC%93%E5%AD%98/" class="md-nav__link">
+        Redis缓存
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part09-NuxtJS%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E6%B8%B2%E6%9F%93/Part09-NuxtJS%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E6%B8%B2%E6%9F%93/" class="md-nav__link">
+        NuxtJS服务器端渲染
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part10-%E9%98%BF%E9%87%8C%E4%BA%91%E7%9F%AD%E4%BF%A1/Part10-%E9%98%BF%E9%87%8C%E4%BA%91%E7%9F%AD%E4%BF%A1/" class="md-nav__link">
+        阿里云短信
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java课程/项目文档/尚融宝/Part11-分布式文件系统-阿里云OSS/分布式文件系统-阿里云OSS" class="md-nav__link">
+        阿里云OSS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part12-%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C/Part12-%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C/" class="md-nav__link">
+        用户注册
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part13-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%89%E5%85%A8-%E8%AE%BF%E9%97%AE%E4%BB%A4%E7%89%8C/Part13-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%89%E5%85%A8-%E8%AE%BF%E9%97%AE%E4%BB%A4%E7%89%8C/" class="md-nav__link">
+        访问令牌
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part14-%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81/Part14-%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81/" class="md-nav__link">
+        用户认证
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part15-%E4%BC%9A%E5%91%98%E7%AE%A1%E7%90%86/Part15-%E4%BC%9A%E5%91%98%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        会员管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part16-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%89%E5%85%A8-OAuth2/Part16-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%89%E5%85%A8-OAuth2/" class="md-nav__link">
+        OAuth2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part17-%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/Part17-%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" class="md-nav__link">
+        内网穿透
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part18-%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95/Part18-%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95/" class="md-nav__link">
+        微信登录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part19-%20SpringCloud/Part19-%20SpringCloud/" class="md-nav__link">
+        SpringCloud
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part20-%E8%B4%A6%E6%88%B7%E7%BB%91%E5%AE%9A/Part20-%E8%B4%A6%E6%88%B7%E7%BB%91%E5%AE%9A/" class="md-nav__link">
+        账户绑定
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part21-%E7%94%B3%E8%AF%B7%E5%80%9F%E6%AC%BE%E9%A2%9D%E5%BA%A6/Part21-%E7%94%B3%E8%AF%B7%E5%80%9F%E6%AC%BE%E9%A2%9D%E5%BA%A6/" class="md-nav__link">
+        申请借款额度
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part22-%E5%80%9F%E6%AC%BE%E9%A2%9D%E5%BA%A6%E5%AE%A1%E6%A0%B8/Part22-%E5%80%9F%E6%AC%BE%E9%A2%9D%E5%BA%A6%E5%AE%A1%E6%A0%B8/" class="md-nav__link">
+        借款额度审核
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part23-%E5%80%9F%E6%AC%BE%E7%94%B3%E8%AF%B7/Part23-%E5%80%9F%E6%AC%BE%E7%94%B3%E8%AF%B7/" class="md-nav__link">
+        借款申请
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part24-%E5%80%9F%E6%AC%BE%E5%AE%A1%E6%A0%B8/Part24-%E5%80%9F%E6%AC%BE%E5%AE%A1%E6%A0%B8/" class="md-nav__link">
+        借款审核
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part25-%E6%A0%87%E7%9A%84%E7%AE%A1%E7%90%86/Part25-%E6%A0%87%E7%9A%84%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        标的管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part26-%E6%88%91%E8%A6%81%E6%8A%95%E8%B5%84/Part26-%E6%88%91%E8%A6%81%E6%8A%95%E8%B5%84/" class="md-nav__link">
+        我要投资
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part27-%E5%85%85%E5%80%BC/Part27-%E5%85%85%E5%80%BC/" class="md-nav__link">
+        充值
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part28-%E6%8A%95%E6%A0%87/Part28-%E6%8A%95%E6%A0%87/" class="md-nav__link">
+        投标
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part29-%E6%94%BE%E6%AC%BE/Part29-%E6%94%BE%E6%AC%BE/" class="md-nav__link">
+        放款
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part30-%E6%8A%95%E8%B5%84%E5%88%97%E8%A1%A8%E5%B1%95%E7%A4%BA/Part30-%E6%8A%95%E8%B5%84%E5%88%97%E8%A1%A8%E5%B1%95%E7%A4%BA/" class="md-nav__link">
+        投资列表展示
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part31-%E6%8F%90%E7%8E%B0%E5%92%8C%E8%BF%98%E6%AC%BE/Part31-%E6%8F%90%E7%8E%B0%E5%92%8C%E8%BF%98%E6%AC%BE/" class="md-nav__link">
+        提现和还款
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part32-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83/Part32-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83/" class="md-nav__link">
+        个人中心
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part33-%E7%BD%91%E5%85%B3/Part33-%E7%BD%91%E5%85%B3/" class="md-nav__link">
+        网关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part34-%E8%A1%A5%E5%85%85/Part34-%E8%A1%A5%E5%85%85/" class="md-nav__link">
+        补充
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Part35-%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/Part35-%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/" class="md-nav__link">
+        微信支付
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_5" type="checkbox" id="__nav_1_7_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7_5">
+          尚医通
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="尚医通" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_7_5">
+          <span class="md-nav__icon md-icon"></span>
+          尚医通
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day01%20%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%E4%B8%8EMyBatis%20Plus/day01%20%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%E4%B8%8E%20Mybatis%20Plus/" class="md-nav__link">
+        项目介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day02%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E5%92%8C%E5%8C%BB%E9%99%A2%E8%AE%BE%E7%BD%AE/day02%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E5%92%8C%E5%8C%BB%E9%99%A2%E8%AE%BE%E7%BD%AE/" class="md-nav__link">
+        搭建环境和医院设置
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day03%20%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89/day03%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89/" class="md-nav__link">
+        前端基础知识（一）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day04%20%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%BA%8C%EF%BC%89/day04%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="md-nav__link">
+        前端基础知识（二）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day05%E5%B9%B3%E5%8F%B0%E7%AE%A1%E7%90%86%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA/day05%E5%B9%B3%E5%8F%B0%E7%AE%A1%E7%90%86%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        平台管理前端搭建
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day06%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8/day06%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8/" class="md-nav__link">
+        数据字典
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day07mongodb/day07mongodb/" class="md-nav__link">
+        mongodb
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day08%E5%8C%BB%E9%99%A2%E4%B8%8A%E4%BC%A0%E6%8E%A5%E5%8F%A3/day08%E5%8C%BB%E9%99%A2%E4%B8%8A%E4%BC%A0%E6%8E%A5%E5%8F%A3/" class="md-nav__link">
+        医院上传接口
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day09%E5%8C%BB%E9%99%A2%E7%AE%A1%E7%90%86/day09%E5%8C%BB%E9%99%A2%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        医院管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day10%E6%8E%92%E7%8F%AD%E7%AE%A1%E7%90%86%E5%92%8C%E7%BD%91%E5%85%B3/day10%E6%8E%92%E7%8F%AD%E7%AE%A1%E7%90%86%E5%92%8C%E7%BD%91%E5%85%B3/" class="md-nav__link">
+        排班管理和网关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day11%E5%B9%B3%E5%8F%B0%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA%E4%B8%8E%E9%A6%96%E9%A1%B5/day11%E5%B9%B3%E5%8F%B0%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA%E4%B8%8E%E9%A6%96%E9%A1%B5/" class="md-nav__link">
+        平台前端搭建与首页
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day12%E6%89%8B%E6%9C%BA%E7%99%BB%E5%BD%95/day12%E6%89%8B%E6%9C%BA%E7%99%BB%E5%BD%95/" class="md-nav__link">
+        手机登录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day13%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95/day13%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95/" class="md-nav__link">
+        微信登录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day14%E9%98%BF%E9%87%8C%E4%BA%91OSS%E3%80%81%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81%E4%B8%8E%E5%B0%B1%E8%AF%8A%E4%BA%BA/day14%E9%98%BF%E9%87%8C%E4%BA%91OSS%E3%80%81%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81%E4%B8%8E%E5%B0%B1%E8%AF%8A%E4%BA%BA/" class="md-nav__link">
+        阿里云OSS、用户认证与就诊人
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day15%E9%A2%84%E7%BA%A6%E6%8C%82%E5%8F%B7/day15%E9%A2%84%E7%BA%A6%E6%8C%82%E5%8F%B7/" class="md-nav__link">
+        预约挂号
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day16%E9%A2%84%E7%BA%A6%E4%B8%8B%E5%8D%95/day16%E9%A2%84%E7%BA%A6%E4%B8%8B%E5%8D%95/" class="md-nav__link">
+        预约下单
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day17%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/day17%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/" class="md-nav__link">
+        微信支付
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day18%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E4%B8%8E%E7%BB%9F%E8%AE%A1/day18%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E4%B8%8E%E7%BB%9F%E8%AE%A1/" class="md-nav__link">
+        定时任务与统计
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Java就业面试
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Java就业面试" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Java就业面试
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC1%E7%AB%A0%20%E9%9D%A2%E8%AF%95%E8%AF%B4%E6%98%8E/" class="md-nav__link">
+        第1章 面试说明
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC2%E7%AB%A0%20%E6%89%8B%E5%86%99%E4%BB%A3%E7%A0%81/" class="md-nav__link">
+        第2章 手写代码
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC3%E7%AB%A0%20JavaSE/" class="md-nav__link">
+        第3章 JavaSE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC4%E7%AB%A0%20JVM/" class="md-nav__link">
+        第4章 JVM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC5%E7%AB%A0%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="md-nav__link">
+        第5章 设计模式
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC6%E7%AB%A0%20MySql/" class="md-nav__link">
+        第6章 MySql
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC7%E7%AB%A0%20Java%20Web/" class="md-nav__link">
+        第7章 Java Web
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC8%E7%AB%A0%20SSM%E6%A1%86%E6%9E%B6/" class="md-nav__link">
+        第8章 SSM框架
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC9%E7%AB%A0%20SpringBoot/" class="md-nav__link">
+        第9章 SpringBoot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC10%E7%AB%A0%20SpringCloud/" class="md-nav__link">
+        第10章 SpringCloud
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC11%E7%AB%A0%20Redis/" class="md-nav__link">
+        第11章 Redis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC12%E7%AB%A0%20MQ/" class="md-nav__link">
+        第12章 MQ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC13%E7%AB%A0%20ElasticSearch/" class="md-nav__link">
+        第13章 ElasticSearch
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC14%E7%AB%A0%20Dubbo/" class="md-nav__link">
+        第14章 Dubbo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC15%E7%AB%A0%20Zookeeper/" class="md-nav__link">
+        第15章 Zookeeper
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC16%E7%AB%A0%20Git/" class="md-nav__link">
+        第16章 Git
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC17%E7%AB%A0%20Linux/" class="md-nav__link">
+        第17章 Linux
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        学习文档
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#01-mybatis-plus" class="md-nav__link">
+    01-MyBatis-Plus 入门
+  </a>
+  
+    <nav class="md-nav" aria-label="01-MyBatis-Plus 入门">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    一、简介
+  </a>
+  
+    <nav class="md-nav" aria-label="一、简介">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1、官网
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2、特点
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3、支持数据库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4、框架结构
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    二、快速入门
+  </a>
+  
+    <nav class="md-nav" aria-label="二、快速入门">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    1、创建数据库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2springboot" class="md-nav__link">
+    2、创建SpringBoot工程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    3、引入依赖
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    4、修改配置文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5、创建实体类
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6mapper" class="md-nav__link">
+    6、创建mapper接口
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    7、启动类添加注解
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    8、测试
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sql" class="md-nav__link">
+    补充、查看sql输出日志
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#02-crud" class="md-nav__link">
+    02-基本CRUD
+  </a>
+  
+    <nav class="md-nav" aria-label="02-基本CRUD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mapper" class="md-nav__link">
+    一、通用Mapper
+  </a>
+  
+    <nav class="md-nav" aria-label="一、通用Mapper">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1create" class="md-nav__link">
+    1、Create
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2retrieve" class="md-nav__link">
+    2、Retrieve
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3update" class="md-nav__link">
+    3、Update
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4delete" class="md-nav__link">
+    4、Delete
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service" class="md-nav__link">
+    二、通用Service
+  </a>
+  
+    <nav class="md-nav" aria-label="二、通用Service">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1service" class="md-nav__link">
+    1、创建Service接口
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2service" class="md-nav__link">
+    2、创建Service实现类
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_2" class="md-nav__link">
+    3、创建测试类
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_2" class="md-nav__link">
+    4、测试记录数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_1" class="md-nav__link">
+    5、测试批量插入
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#03-" class="md-nav__link">
+    03-常用注解
+  </a>
+  
+    <nav class="md-nav" aria-label="03-常用注解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tablename" class="md-nav__link">
+    一、@TableName
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tableid" class="md-nav__link">
+    二、@TableId
+  </a>
+  
+    <nav class="md-nav" aria-label="二、@TableId">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    1、雪花算法
+  </a>
+  
+    <nav class="md-nav" aria-label="1、雪花算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    背景
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+<h1 id="part02-mybatis-plus">Part02-MyBatis-Plus<a class="headerlink" href="#part02-mybatis-plus" title="Permanent link">&para;</a></h1>
+<h2 id="01-mybatis-plus">01-MyBatis-Plus 入门<a class="headerlink" href="#01-mybatis-plus" title="Permanent link">&para;</a></h2>
+<h3 id="_1"><strong>一、简介</strong><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<h4 id="1">1、官网<a class="headerlink" href="#1" title="Permanent link">&para;</a></h4>
+<p><a href="http://mp.baomidou.com/guide/">http://mp.baomidou.com</a></p>
+<h4 id="2">2、特点<a class="headerlink" href="#2" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/baomidou/mybatis-plus">MyBatis-Plus</a>（简称 MP）是一个 <a href="http://www.mybatis.org/mybatis-3/">MyBatis</a> 的增强工具，在 MyBatis 的基础上只做增强不做改变，为简化开发、提高效率而生。</p>
+<p><img alt="1645427817336" src="../imgs/1645427817336.png" /></p>
+<p><img alt="1645427831725" src="../imgs/1645427831725.png" /></p>
+<h4 id="3">3、支持数据库<a class="headerlink" href="#3" title="Permanent link">&para;</a></h4>
+<p>mysql 、mariadb 、oracle 、db2 、h2 、hsql 、sqlite 、postgresql 、sqlserver 、presto 、Gauss 、Firebird</p>
+<p>Phoenix 、clickhouse 、Sybase ASE 、 OceanBase 、达梦数据库 、虚谷数据库 、人大金仓数据库 、南大通用数据库 、</p>
+<h4 id="4">4、框架结构<a class="headerlink" href="#4" title="Permanent link">&para;</a></h4>
+<p><img alt="1645427840341" src="../imgs/1645427840341.png" /></p>
+<h3 id="_2">二、快速入门<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h4 id="1_1">1、创建数据库<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h4>
+<p>创建数据库：mybatis_plus</p>
+<p><img alt="1645427859023" src="../imgs/1645427859023.png" /></p>
+<p>创建数据表：user</p>
+<div class="highlight"><pre><span></span><code><span class="n">CREATE</span> <span class="n">TABLE</span> <span class="nf">user</span>
+<span class="p">(</span>
+    <span class="n">id</span> <span class="nf">BIGINT</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="n">NOT</span> <span class="n">NULL</span> <span class="n">COMMENT</span> <span class="err">&#39;</span><span class="n">主键ID</span><span class="err">&#39;</span><span class="p">,</span>
+    <span class="n">name</span> <span class="nf">VARCHAR</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> <span class="n">NULL</span> <span class="n">DEFAULT</span> <span class="n">NULL</span> <span class="n">COMMENT</span> <span class="err">&#39;</span><span class="n">姓名</span><span class="err">&#39;</span><span class="p">,</span>
+    <span class="n">age</span> <span class="nf">INT</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="n">NULL</span> <span class="n">DEFAULT</span> <span class="n">NULL</span> <span class="n">COMMENT</span> <span class="err">&#39;</span><span class="n">年龄</span><span class="err">&#39;</span><span class="p">,</span>
+    <span class="n">email</span> <span class="nf">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="n">NULL</span> <span class="n">DEFAULT</span> <span class="n">NULL</span> <span class="n">COMMENT</span> <span class="err">&#39;</span><span class="n">邮箱</span><span class="err">&#39;</span><span class="p">,</span>
+    <span class="n">PRIMARY</span> <span class="nf">KEY</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span>
+<span class="p">);</span>
+<span class="n">INSERT</span> <span class="n">INTO</span> <span class="nf">user</span> <span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">email</span><span class="p">)</span> <span class="n">VALUES</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">Jone</span><span class="err">&#39;</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">test1</span><span class="nd">@baomidou.com</span><span class="err">&#39;</span><span class="p">),</span>
+<span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">Jack</span><span class="err">&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">test2</span><span class="nd">@baomidou.com</span><span class="err">&#39;</span><span class="p">),</span>
+<span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">Tom</span><span class="err">&#39;</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">test3</span><span class="nd">@baomidou.com</span><span class="err">&#39;</span><span class="p">),</span>
+<span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">Sandy</span><span class="err">&#39;</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">test4</span><span class="nd">@baomidou.com</span><span class="err">&#39;</span><span class="p">),</span>
+<span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">Billie</span><span class="err">&#39;</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">test5</span><span class="nd">@baomidou.com</span><span class="err">&#39;</span><span class="p">);</span>
+</code></pre></div>
+<h4 id="2springboot"><strong>2、创建SpringBoot工程</strong><a class="headerlink" href="#2springboot" title="Permanent link">&para;</a></h4>
+<p><img alt="1645427924455" src="../imgs/1645427924455.png" /></p>
+<p><img alt="1645427933326" src="../imgs/1645427933326.png" /></p>
+<h4 id="3_1">3、引入依赖<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h4>
+<p>注意：SpringBoot版本修改为2.3.4</p>
+<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="n">dependencies</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="p">.</span><span class="na">springframework</span><span class="p">.</span><span class="na">boot</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">spring</span><span class="o">-</span><span class="n">boot</span><span class="o">-</span><span class="n">starter</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">com</span><span class="p">.</span><span class="na">baomidou</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">mybatis</span><span class="o">-</span><span class="n">plus</span><span class="o">-</span><span class="n">boot</span><span class="o">-</span><span class="n">starter</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="mf">3.4.1</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">mysql</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">mysql</span><span class="o">-</span><span class="n">connector</span><span class="o">-</span><span class="n">java</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">scope</span><span class="o">&gt;</span><span class="n">runtime</span><span class="o">&lt;/</span><span class="n">scope</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="p">.</span><span class="na">projectlombok</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">lombok</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">optional</span><span class="o">&gt;</span><span class="kc">true</span><span class="o">&lt;/</span><span class="n">optional</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="p">.</span><span class="na">springframework</span><span class="p">.</span><span class="na">boot</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">spring</span><span class="o">-</span><span class="n">boot</span><span class="o">-</span><span class="n">starter</span><span class="o">-</span><span class="n">test</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">scope</span><span class="o">&gt;</span><span class="n">test</span><span class="o">&lt;/</span><span class="n">scope</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">exclusions</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">exclusion</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="p">.</span><span class="na">junit</span><span class="p">.</span><span class="na">vintage</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">junit</span><span class="o">-</span><span class="n">vintage</span><span class="o">-</span><span class="n">engine</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
+            <span class="o">&lt;/</span><span class="n">exclusion</span><span class="o">&gt;</span>
+        <span class="o">&lt;/</span><span class="n">exclusions</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">dependencies</span><span class="o">&gt;</span>
+</code></pre></div>
+<h4 id="4_1"><strong>4、修改配置文件</strong><a class="headerlink" href="#4_1" title="Permanent link">&para;</a></h4>
+<p>在 <code>application.properties</code> 配置文件中添加 MySQL 数据库的相关配置：</p>
+<div class="highlight"><pre><span></span><code><span class="err">#</span><span class="n">mysql数据库连接</span>
+<span class="n">spring</span><span class="p">.</span><span class="na">datasource</span><span class="p">.</span><span class="na">driver</span><span class="o">-</span><span class="kd">class</span><span class="err">-</span><span class="nc">name</span><span class="o">=</span><span class="n">com</span><span class="p">.</span><span class="na">mysql</span><span class="p">.</span><span class="na">cj</span><span class="p">.</span><span class="na">jdbc</span><span class="p">.</span><span class="na">Driver</span>
+<span class="n">spring</span><span class="p">.</span><span class="na">datasource</span><span class="p">.</span><span class="na">url</span><span class="o">=</span><span class="n">jdbc</span><span class="p">:</span><span class="n">mysql</span><span class="p">:</span><span class="c1">//localhost:3306/mybatis_plus?serverTimezone=GMT%2B8&amp;characterEncoding=utf-8</span>
+<span class="n">spring</span><span class="p">.</span><span class="na">datasource</span><span class="p">.</span><span class="na">username</span><span class="o">=</span><span class="n">root</span>
+<span class="n">spring</span><span class="p">.</span><span class="na">datasource</span><span class="p">.</span><span class="na">password</span><span class="o">=</span><span class="mi">123456</span>
+</code></pre></div>
+<p>**注意：**如果定义了mysql驱动的依赖的版本为5，例如</p>
+<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="mf">5.1.47</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
+</code></pre></div>
+<p>则数据库连接配置为</p>
+<div class="highlight"><pre><span></span><code><span class="err">#</span><span class="n">mysql数据库连接</span>
+<span class="n">spring</span><span class="p">.</span><span class="na">datasource</span><span class="p">.</span><span class="na">driver</span><span class="o">-</span><span class="kd">class</span><span class="err">-</span><span class="nc">name</span><span class="o">=</span><span class="n">com</span><span class="p">.</span><span class="na">mysql</span><span class="p">.</span><span class="na">jdbc</span><span class="p">.</span><span class="na">Driver</span>
+<span class="n">spring</span><span class="p">.</span><span class="na">datasource</span><span class="p">.</span><span class="na">url</span><span class="o">=</span><span class="n">jdbc</span><span class="p">:</span><span class="n">mysql</span><span class="p">:</span><span class="c1">//localhost:3306/mybatis_plus?characterEncoding=utf-8&amp;useSSL=true</span>
+<span class="n">spring</span><span class="p">.</span><span class="na">datasource</span><span class="p">.</span><span class="na">username</span><span class="o">=</span><span class="n">root</span>
+<span class="n">spring</span><span class="p">.</span><span class="na">datasource</span><span class="p">.</span><span class="na">password</span><span class="o">=</span><span class="mi">123456</span>
+</code></pre></div>
+<h4 id="5">5、创建实体类<a class="headerlink" href="#5" title="Permanent link">&para;</a></h4>
+<p>创建包 entity，编写实体类 <code>User.java，并使用lombok简化``实体类的编写</code></p>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">com.atguigu.mybatisplus.entity</span><span class="p">;</span>
+
+<span class="nd">@Data</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">User</span> <span class="p">{</span>
+    <span class="kd">private</span> <span class="n">Long</span> <span class="n">id</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="n">Integer</span> <span class="n">age</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">email</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>查看编译结果</p>
+<p><img alt="1645428112511" src="../imgs/1645428112511.png" /></p>
+<h4 id="6mapper">6、创建mapper接口<a class="headerlink" href="#6mapper" title="Permanent link">&para;</a></h4>
+<p>创建包 mapper，编写Mapper 接口： <code>UserMapper.java</code></p>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">com.atguigu.mybatisplus.mapper</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">UserMapper</span> <span class="kd">extends</span> <span class="n">BaseMapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="p">{</span>
+
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="7">7、启动类添加注解<a class="headerlink" href="#7" title="Permanent link">&para;</a></h4>
+<p>在 Spring Boot 启动类中添加 <code>@MapperScan</code> 注解，扫描 Mapper 文件夹</p>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">com.atguigu.mybatisplus</span><span class="p">;</span>
+
+<span class="nd">@SpringBootApplication</span>
+<span class="nd">@MapperScan</span><span class="p">(</span><span class="s">&quot;com.atguigu.mybatisplus.mapper&quot;</span><span class="p">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MybatisPlusApplication</span> <span class="p">{</span>
+    <span class="p">......</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="8">8、测试<a class="headerlink" href="#8" title="Permanent link">&para;</a></h4>
+<p>添加测试类，进行功能测试：</p>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">com.atguigu.mybatisplus</span><span class="p">;</span>
+
+<span class="nd">@SpringBootTest</span>
+<span class="kd">class</span> <span class="nc">MybatisPlusApplicationTests</span> <span class="p">{</span>
+
+    <span class="c1">//@Autowired //默认按类型装配。是spring的注解</span>
+    <span class="nd">@Resource</span> <span class="c1">//默认按名称装配，找不到与名称匹配的bean，则按照类型装配。是J2EE的注解</span>
+    <span class="kd">private</span> <span class="n">UserMapper</span> <span class="n">userMapper</span><span class="p">;</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">testSelectList</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">//selectList()方法的参数：封装了查询条件</span>
+        <span class="c1">//null：无任何查询条件</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">users</span> <span class="o">=</span> <span class="n">userMapper</span><span class="p">.</span><span class="na">selectList</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+        <span class="n">users</span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">::</span><span class="n">println</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>通过以上几个简单的步骤，我们就实现了 User 表的 CRUD 功能，甚至连 XML 文件都不用编写！</p>
+<h4 id="sql">补充、查看sql输出日志<a class="headerlink" href="#sql" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="err">#</span><span class="n">mybatis日志</span>
+<span class="n">mybatis</span><span class="o">-</span><span class="n">plus</span><span class="p">.</span><span class="na">configuration</span><span class="p">.</span><span class="na">log</span><span class="o">-</span><span class="n">impl</span><span class="o">=</span><span class="n">org</span><span class="p">.</span><span class="na">apache</span><span class="p">.</span><span class="na">ibatis</span><span class="p">.</span><span class="na">logging</span><span class="p">.</span><span class="na">stdout</span><span class="p">.</span><span class="na">StdOutImpl</span>
+</code></pre></div>
+<h2 id="02-crud">02-基本CRUD<a class="headerlink" href="#02-crud" title="Permanent link">&para;</a></h2>
+<h3 id="mapper">一、通用Mapper<a class="headerlink" href="#mapper" title="Permanent link">&para;</a></h3>
+<p>MP中的基本CRUD在内置的BaseMapper中都已得到了实现。</p>
+<p>创建MapperTests测试类：</p>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">com.atguigu.mybatisplus</span><span class="p">;</span>
+
+<span class="nd">@SpringBootTest</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MapperTests</span> <span class="p">{</span>
+
+    <span class="nd">@Resource</span>
+    <span class="kd">private</span> <span class="n">UserMapper</span> <span class="n">userMapper</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="1create">1、Create<a class="headerlink" href="#1create" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">testInsert</span><span class="p">(){</span>
+
+    <span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="p">();</span>
+    <span class="n">user</span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="s">&quot;Helen&quot;</span><span class="p">);</span>
+    <span class="n">user</span><span class="p">.</span><span class="na">setAge</span><span class="p">(</span><span class="mi">18</span><span class="p">);</span>
+    <span class="c1">//不设置email属性，则生成的动态sql中不包括email字段</span>
+
+    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">userMapper</span><span class="p">.</span><span class="na">insert</span><span class="p">(</span><span class="n">user</span><span class="p">);</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;影响的行数：&quot;</span> <span class="o">+</span> <span class="n">result</span><span class="p">);</span> <span class="c1">//影响的行数</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;id：&quot;</span> <span class="o">+</span> <span class="n">user</span><span class="p">.</span><span class="na">getId</span><span class="p">());</span> <span class="c1">//id自动回填</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="2retrieve">2、Retrieve<a class="headerlink" href="#2retrieve" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">testSelect</span><span class="p">(){</span>
+
+    <span class="c1">//按id查询</span>
+    <span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="n">userMapper</span><span class="p">.</span><span class="na">selectById</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">user</span><span class="p">);</span>
+
+    <span class="c1">//按id列表查询</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">users</span> <span class="o">=</span> <span class="n">userMapper</span><span class="p">.</span><span class="na">selectBatchIds</span><span class="p">(</span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">));</span>
+    <span class="n">users</span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">::</span><span class="n">println</span><span class="p">);</span>
+
+    <span class="c1">//按条件查询</span>
+    <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+    <span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">,</span> <span class="s">&quot;Helen&quot;</span><span class="p">);</span> <span class="c1">//注意此处是表中的列名，不是类中的属性名</span>
+    <span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;age&quot;</span><span class="p">,</span> <span class="mi">18</span><span class="p">);</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">users1</span> <span class="o">=</span> <span class="n">userMapper</span><span class="p">.</span><span class="na">selectByMap</span><span class="p">(</span><span class="n">map</span><span class="p">);</span>
+    <span class="n">users1</span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">::</span><span class="n">println</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="3update">3、Update<a class="headerlink" href="#3update" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">testUpdate</span><span class="p">(){</span>
+
+    <span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="p">();</span>
+    <span class="n">user</span><span class="p">.</span><span class="na">setId</span><span class="p">(</span><span class="mi">1L</span><span class="p">);</span>
+    <span class="n">user</span><span class="p">.</span><span class="na">setAge</span><span class="p">(</span><span class="mi">28</span><span class="p">);</span>
+
+    <span class="c1">//注意：update时生成的sql自动是动态sql</span>
+    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">userMapper</span><span class="p">.</span><span class="na">updateById</span><span class="p">(</span><span class="n">user</span><span class="p">);</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;影响的行数：&quot;</span> <span class="o">+</span> <span class="n">result</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="4delete">4、Delete<a class="headerlink" href="#4delete" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">testDelete</span><span class="p">(){</span>
+
+    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">userMapper</span><span class="p">.</span><span class="na">deleteById</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;影响的行数：&quot;</span> <span class="o">+</span> <span class="n">result</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="service">二、通用Service<a class="headerlink" href="#service" title="Permanent link">&para;</a></h3>
+<p>MP中有一个接口 IService和其实现类 ServiceImpl，封装了常见的业务层逻辑</p>
+<h4 id="1service">1、创建Service接口<a class="headerlink" href="#1service" title="Permanent link">&para;</a></h4>
+<p>创建 service 包，创建 UserService，继承 IService</p>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">com.atguigu.mybatisplus.service</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">UserService</span> <span class="kd">extends</span> <span class="n">IService</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="p">{</span>
+
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="2service">2、创建Service实现类<a class="headerlink" href="#2service" title="Permanent link">&para;</a></h4>
+<p>创建 impl 包，创建 UserServiceImpl，继承 ServiceImpl，实现 UserService</p>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">com.atguigu.mybatisplus.service.impl</span><span class="p">;</span>
+
+<span class="nd">@Service</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserServiceImpl</span> <span class="kd">extends</span> <span class="n">ServiceImpl</span><span class="o">&lt;</span><span class="n">UserMapper</span><span class="p">,</span> <span class="n">User</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="n">UserService</span> <span class="p">{</span>
+
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="3_2">3、创建测试类<a class="headerlink" href="#3_2" title="Permanent link">&para;</a></h4>
+<p>创建ServiceTests</p>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">com.atguigu.mybatisplus</span><span class="p">;</span>
+
+<span class="nd">@SpringBootTest</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ServiceTests</span> <span class="p">{</span>
+
+    <span class="nd">@Resource</span>
+    <span class="kd">private</span> <span class="n">UserService</span> <span class="n">userService</span><span class="p">;</span>
+
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="4_2">4、测试记录数<a class="headerlink" href="#4_2" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">testCount</span><span class="p">(){</span>
+
+    <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="n">userService</span><span class="p">.</span><span class="na">count</span><span class="p">();</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;总记录数：&quot;</span> <span class="o">+</span> <span class="n">count</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="5_1">5、测试批量插入<a class="headerlink" href="#5_1" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">testSaveBatch</span><span class="p">(){</span>
+
+    <span class="c1">// SQL长度有限制，海量数据插入单条SQL无法实行，</span>
+    <span class="c1">// 因此MP将批量插入放在了通用Service中实现，而不是通用Mapper</span>
+    <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">users</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="p">();</span>
+        <span class="n">user</span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="s">&quot;Helen&quot;</span> <span class="o">+</span> <span class="n">i</span><span class="p">);</span>
+        <span class="n">user</span><span class="p">.</span><span class="na">setAge</span><span class="p">(</span><span class="mi">10</span> <span class="o">+</span> <span class="n">i</span><span class="p">);</span>
+        <span class="n">users</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">user</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">userService</span><span class="p">.</span><span class="na">saveBatch</span><span class="p">(</span><span class="n">users</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="03-">03-常用注解<a class="headerlink" href="#03-" title="Permanent link">&para;</a></h2>
+<h3 id="tablename"><strong>一、@TableName</strong><a class="headerlink" href="#tablename" title="Permanent link">&para;</a></h3>
+<p>实体类的名字是User，数据库表名是t_user</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@TableName</span><span class="p">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&quot;t_user&quot;</span><span class="p">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">User</span> <span class="p">{</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="tableid"><strong>二、@TableId</strong><a class="headerlink" href="#tableid" title="Permanent link">&para;</a></h3>
+<h4 id="1_2">1、雪花算法<a class="headerlink" href="#1_2" title="Permanent link">&para;</a></h4>
+<p>默认情况下数据库的id列使用的是基于雪花算法的策略生成</p>
+<p><img alt="1645428682283" src="../imgs/1645428682283.png" /></p>
+<h5 id="_3"><strong>背景</strong><a class="headerlink" href="#_3" title="Permanent link">&para;</a></h5>
+<h1 id="_4"><a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
+<p>随着业务规模的不断扩大，需要选择合适的方案去应对数据规模的增长，以应对逐渐增长的访问压力和数据量。</p>
+<p>数据库的扩展方式主要包括：业务分库、主从复制，数据库分表。</p>
+<h5 id="_5">数据库分表<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h5>
+<p>将不同业务数据分散存储到不同的数据库服务器，能够支撑百万甚至千万用户规模的业务，但如果业务继续发展，同一业务的单表数据也会达到单台数据库服务器的处理瓶颈。例如，淘宝的几亿用户数据，如果全部存放在一台数据库服务器的一张表中，肯定是无法满足性能要求的，此时就需要对单表数据进行拆分。</p>
+<p>单表数据拆分有两种方式：垂直分表和水平分表。示意图如下：</p>
+<p><img alt="1645428755872" src="../imgs/1645428755872.png" /></p>
+<p>垂直分表：</p>
+<ul>
+<li>垂直分表适合将表中某些不常用且占了大量空间的列拆分出去。</li>
+<li>**例如，**前面示意图中的 nickname 和 description 字段，假设我们是一个婚恋网站，用户在筛选其他用户的时候，主要是用 age 和 sex 两个字段进行查询，而 nickname 和 description 两个字段主要用于展示，一般不会在业务查询中用到。description 本身又比较长，因此我们可以将这两个字段独立到另外一张表中，这样在查询 age 和 sex 时，就能带来一定的性能提升。</li>
+</ul>
+<p><strong>水平分表：</strong></p>
+<ul>
+<li>水平分表适合表行数特别大的表，有的公司要求单表行数超过 5000 万就必须进行分表，这个数字可以作为参考，但并不是绝对标准，关键还是要看表的访问性能。对于一些比较复杂的表，可能超过 1000 万就要分表了；而对于一些简单的表，即使存储数据超过 1 亿行，也可以不分表。</li>
+<li>但不管怎样，当看到表的数据量达到千万级别时，作为架构师就要警觉起来，因为这很可能是架构的性能瓶颈或者隐患。</li>
+</ul>
+<p>水平分表相比垂直分表，会引入更多的复杂性，例如数据id：</p>
+<p><strong>主键自增：</strong></p>
+<ul>
+<li>以最常见的用户 ID 为例，可以按照 1000000 的范围大小进行分段，1 ~ 999999 放到表 1中，1000000 ~ 1999999 放到表2中，以此类推。</li>
+<li>复杂点：分段大小的选取。分段太小会导致切分后子表数量过多，增加维护复杂度；分段太大可能会导致单表依然存在性能问题，一般建议分段大小在 100 万至 2000 万之间，具体需要根据业务选取合适的分段大小。</li>
+<li>优点：可以随着数据的增加平滑地扩充新的表。例如，现在的用户是 100 万，如果增加到 1000 万，只需要增加新的表就可以了，原有的数据不需要动。</li>
+<li>缺点：分布不均匀。假如按照 1000 万来进行分表，有可能某个分段实际存储的数据量只有 1 条，而另外一个分段实际存储的数据量有 1000 万条。</li>
+</ul>
+<p><strong>Hash ：</strong></p>
+<ul>
+<li>同样以用户 ID 为例，假如我们一开始就规划了 10 个数据库表，可以简单地用 user_id % 10 的值来表示数据所属的数据库表编号，ID 为 985 的用户放到编号为 5 的子表中，ID 为 10086 的用户放到编号为 6 的子表中。</li>
+<li>复杂点：初始表数量的确定。表数量太多维护比较麻烦，表数量太少又可能导致单表性能存在问题。</li>
+<li>优点：表分布比较均匀。</li>
+<li>缺点：扩充新的表很麻烦，所有数据都要重分布。</li>
+<li></li>
+</ul>
+<p><strong>雪花算法：</strong></p>
+<p>雪花算法是由Twitter公布的分布式主键生成算法，它能够保证不同表的主键的不重复性，以及相同表的主键的有序性。</p>
+<ul>
+<li>
+<p>核心思想：</p>
+</li>
+<li>
+<ul>
+<li>长度共64bit（一个long型）。</li>
+</ul>
+</li>
+<li>首先是一个符号位，1bit标识，由于long基本类型在Java中是带符号的，最高位是符号位，正数是0，负数是1，所以id一般是正数，最高位是0。</li>
+<li>41bit时间截(毫秒级)，存储的是时间截的差值（当前时间截 - 开始时间截)，结果约等于69.73年。</li>
+<li>10bit作为机器的ID（5个bit是数据中心，5个bit的机器ID，可以部署在1024个节点）。</li>
+<li>12bit作为毫秒内的流水号（意味着每个节点在每毫秒可以产生 4096 个 ID）。</li>
+</ul>
+<p><img alt="1645428795272" src="../imgs/1645428795272.png" /></p>
+<p>优点：整体上按照时间自增排序，并且整个分布式系统内不会产生ID碰撞，并且效率较高。</p>
+<h4 id="2_1">2、指定主键列<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li>测试：将数据库表中的id列改为 uid，将实体类中的id属性改成 uid，执行数据插入，则报告如下错误</li>
+</ul>
+<p><img alt="1645428829670" src="../imgs/1645428829670.png" /></p>
+<ul>
+<li>原因：因为MP默认认为**id**是主键列，其他名字的属性MP无法默认自动填充</li>
+<li>解决方案：为主键列添加 @TableId 注解</li>
+</ul>
+<h4 id="3value">3、value属性<a class="headerlink" href="#3value" title="Permanent link">&para;</a></h4>
+<p>实体类的属性名是 id，数据库的列名是 uid，此时使用 value 属性将属性名映射到列名</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@TableId</span><span class="p">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&quot;uid&quot;</span><span class="p">)</span>
+<span class="kd">private</span> <span class="n">String</span> <span class="n">id</span><span class="p">;</span>
+</code></pre></div>
+<h4 id="4type"><strong>4、type属性</strong><a class="headerlink" href="#4type" title="Permanent link">&para;</a></h4>
+<p>type属性用来定义主键策略</p>
+<ul>
+<li>**IdType.ASSIGN_ID：**使用基于雪花算法的策略生成数据id</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nd">@TableId</span><span class="p">(</span><span class="n">type</span> <span class="o">=</span> <span class="n">IdType</span><span class="p">.</span><span class="na">ASSIGN_ID</span><span class="p">)</span>
+<span class="kd">private</span> <span class="n">Long</span> <span class="n">id</span><span class="p">;</span>
+</code></pre></div>
+<p>注意：当对象的id被明确赋值时，不会使用雪花算法</p>
+<ul>
+<li>**IdType.AUTO：**使用数据库的自增策略</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nd">@TableId</span><span class="p">(</span><span class="n">type</span> <span class="o">=</span> <span class="n">IdType</span><span class="p">.</span><span class="na">AUTO</span><span class="p">)</span>
+<span class="kd">private</span> <span class="n">Long</span> <span class="n">id</span><span class="p">;</span>
+</code></pre></div>
+<p>注意：该类型请确保数据库设置了 ID自增 否则无效</p>
+<ul>
+<li>**全局配置：**要想影响所有实体的配置，可以设置全局主键配置</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="err">#</span><span class="n">全局设置主键生成策略</span>
+<span class="n">mybatis</span><span class="o">-</span><span class="n">plus</span><span class="p">.</span><span class="na">global</span><span class="o">-</span><span class="n">config</span><span class="p">.</span><span class="na">db</span><span class="o">-</span><span class="n">config</span><span class="p">.</span><span class="na">id</span><span class="o">-</span><span class="n">type</span><span class="o">=</span><span class="n">auto</span>
+</code></pre></div>
+<h3 id="tablefield">三、@TableField<a class="headerlink" href="#tablefield" title="Permanent link">&para;</a></h3>
+<h4 id="1value">1、value属性<a class="headerlink" href="#1value" title="Permanent link">&para;</a></h4>
+<p>功能同TableId的value属性</p>
+<p>注意：MP会自动将数据库中的下划线命名风格转化为实体类中的驼峰命名风格</p>
+<p>**例如，**数据库中的列 create_time 和 update_time 自动对应实体类中的 createTime 和 updateTime</p>
+<p><img alt="1645429044249" src="../imgs/1645429044249.png" /></p>
+<div class="highlight"><pre><span></span><code><span class="kd">private</span> <span class="n">LocalDateTime</span> <span class="n">createTime</span><span class="p">;</span>
+<span class="kd">private</span> <span class="n">LocalDateTime</span> <span class="n">updateTime</span><span class="p">;</span>
+</code></pre></div>
+<p>扩展知识：为什么建议使用你 LocalDateTime ，而不是 Date？<a href="https://zhuanlan.zhihu.com/p/87555377">https://zhuanlan.zhihu.com/p/87555377</a></p>
+<ul>
+<li>java.util.Date的大多数方法已经过时</li>
+<li>java.util.Date的输出可读性差</li>
+<li>java.util.Date对应的格式化类SimpleDateFormat是线程不安全的类。阿里巴巴开发手册中禁用static修饰SimpleDateFormat。</li>
+<li>LocalDateTime 对应的格式化类DateTimeFormatter是线程安全的</li>
+</ul>
+<h4 id="2_2">2、自动填充<a class="headerlink" href="#2_2" title="Permanent link">&para;</a></h4>
+<p><strong>需求描述：</strong></p>
+<p>项目中经常会遇到一些数据，每次都使用相同的方式填充，例如记录的创建时间，更新时间等。我们可以使用MyBatis Plus的自动填充功能，完成这些字段的赋值工作。</p>
+<p>**例如，**阿里巴巴的开发手册中建议每个数据库表必须要有create_time 和 update_time字段，我们可以使用自动填充功能维护这两个字段</p>
+<ul>
+<li>**step1：**添加fill属性</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nd">@TableField</span><span class="p">(</span><span class="n">fill</span> <span class="o">=</span> <span class="n">FieldFill</span><span class="p">.</span><span class="na">INSERT</span><span class="p">)</span>
+<span class="kd">private</span> <span class="n">LocalDateTime</span> <span class="n">createTime</span><span class="p">;</span>
+
+<span class="nd">@TableField</span><span class="p">(</span><span class="n">fill</span> <span class="o">=</span> <span class="n">FieldFill</span><span class="p">.</span><span class="na">UPDATE</span><span class="p">)</span>
+<span class="kd">private</span> <span class="n">LocalDateTime</span> <span class="n">updateTime</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li>**step2：**实现元对象处理器接口 -&gt; 创建handler包，创建MyMetaObjectHandler类</li>
+</ul>
+<p>注意：不要忘记添加 @Component 注解</p>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">com.atguigu.mybatisplus.handler</span><span class="p">;</span>
+
+<span class="nd">@Slf4j</span>
+<span class="nd">@Component</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyMetaObjectHandler</span> <span class="kd">implements</span> <span class="n">MetaObjectHandler</span> <span class="p">{</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">insertFill</span><span class="p">(</span><span class="n">MetaObject</span> <span class="n">metaObject</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;start insert fill ....&quot;</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">strictInsertFill</span><span class="p">(</span><span class="n">metaObject</span><span class="p">,</span> <span class="s">&quot;createTime&quot;</span><span class="p">,</span> <span class="n">LocalDateTime</span><span class="p">.</span><span class="na">class</span><span class="p">,</span> <span class="n">LocalDateTime</span><span class="p">.</span><span class="na">now</span><span class="p">());</span> <span class="c1">// 起始版本 3.3.0(推荐使用)</span>
+        <span class="c1">// 或者</span>
+        <span class="c1">// this.strictUpdateFill(metaObject, &quot;createTime&quot;, () -&gt; LocalDateTime.now(), LocalDateTime.class); // 起始版本 3.3.3(推荐)</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">updateFill</span><span class="p">(</span><span class="n">MetaObject</span> <span class="n">metaObject</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;start update fill ....&quot;</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">strictUpdateFill</span><span class="p">(</span><span class="n">metaObject</span><span class="p">,</span> <span class="s">&quot;updateTime&quot;</span><span class="p">,</span> <span class="n">LocalDateTime</span><span class="p">.</span><span class="na">class</span><span class="p">,</span> <span class="n">LocalDateTime</span><span class="p">.</span><span class="na">now</span><span class="p">());</span> <span class="c1">// 起始版本 3.3.0(推荐)</span>
+        <span class="c1">// 或者</span>
+        <span class="c1">// this.strictUpdateFill(metaObject, &quot;updateTime&quot;, () -&gt; LocalDateTime.now(), LocalDateTime.class); // 起始版本 3.3.3(推荐)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="3_3">3、测试<a class="headerlink" href="#3_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li>测试新增</li>
+<li>测试修改</li>
+</ul>
+<h4 id="4_3">4、优化<a class="headerlink" href="#4_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li>避免自动填充时开销过大，填充前先判断当前对象中是否有相关属性</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">insertFill</span><span class="p">(</span><span class="n">MetaObject</span> <span class="n">metaObject</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="c1">//其他代码</span>
+
+    <span class="c1">//判断是否具备author属性</span>
+    <span class="kt">boolean</span> <span class="n">hasAuthor</span> <span class="o">=</span> <span class="n">metaObject</span><span class="p">.</span><span class="na">hasSetter</span><span class="p">(</span><span class="s">&quot;author&quot;</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">hasAuthor</span><span class="p">){</span>
+        <span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;start insert fill author....&quot;</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">strictInsertFill</span><span class="p">(</span><span class="n">metaObject</span><span class="p">,</span> <span class="s">&quot;author&quot;</span><span class="p">,</span> <span class="n">String</span><span class="p">.</span><span class="na">class</span><span class="p">,</span> <span class="s">&quot;Helen&quot;</span><span class="p">);</span> 
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>用户明确定义了属性值，则无需自动填充，否则使用自动填充</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@TableField</span><span class="p">(</span><span class="n">fill</span> <span class="o">=</span> <span class="n">FieldFill</span><span class="p">.</span><span class="na">INSERT</span><span class="p">)</span>
+<span class="kd">private</span> <span class="n">Integer</span> <span class="n">age</span><span class="p">;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code> <span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">insertFill</span><span class="p">(</span><span class="n">MetaObject</span> <span class="n">metaObject</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="c1">//其他代码</span>
+
+    <span class="c1">//判断age是否赋值</span>
+    <span class="n">Object</span> <span class="n">age</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">getFieldValByName</span><span class="p">(</span><span class="s">&quot;age&quot;</span><span class="p">,</span> <span class="n">metaObject</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">age</span> <span class="o">==</span> <span class="kc">null</span><span class="p">){</span>
+        <span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;start insert fill age....&quot;</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">strictInsertFill</span><span class="p">(</span><span class="n">metaObject</span><span class="p">,</span> <span class="s">&quot;age&quot;</span><span class="p">,</span> <span class="n">String</span><span class="p">.</span><span class="na">class</span><span class="p">,</span> <span class="s">&quot;18&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="tablelogic">四、@TableLogic<a class="headerlink" href="#tablelogic" title="Permanent link">&para;</a></h3>
+<h4 id="1_3">1、逻辑删除<a class="headerlink" href="#1_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li>物理删除：真实删除，将对应数据从数据库中删除，之后查询不到此条被删除的数据</li>
+<li>逻辑删除：假删除，将对应数据中代表是否被删除字段的状态修改为“被删除状态”，之后在数据库中仍旧能看到此条数据记录</li>
+</ul>
+<p>使用场景：可以进行数据恢复</p>
+<h4 id="2_3">2、实现逻辑删除<a class="headerlink" href="#2_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li>**step1：**数据库中创建逻辑删除状态列</li>
+</ul>
+<p><img alt="1645429206026" src="../imgs/1645429206026.png" /></p>
+<p>**step2：**实体类中添加逻辑删除属性</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@TableLogic</span>
+<span class="nd">@TableField</span><span class="p">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&quot;is_deleted&quot;</span><span class="p">)</span>
+<span class="kd">private</span> <span class="n">Integer</span> <span class="n">deleted</span><span class="p">;</span>
+</code></pre></div>
+<h4 id="3_4">3、测试<a class="headerlink" href="#3_4" title="Permanent link">&para;</a></h4>
+<ul>
+<li>测试删除：删除功能被转变为更新功能</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="o">--</span> <span class="n">实际执行的SQL</span>
+<span class="n">update</span> <span class="n">user</span> <span class="n">set</span> <span class="n">is_deleted</span><span class="o">=</span><span class="mi">1</span> <span class="n">where</span> <span class="n">id</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">and</span> <span class="n">is_deleted</span><span class="o">=</span><span class="mi">0</span>
+</code></pre></div>
+<p>测试查询：被逻辑删除的数据默认不会被查询</p>
+<div class="highlight"><pre><span></span><code><span class="o">--</span> <span class="n">实际执行的SQL</span>
+<span class="n">select</span> <span class="n">id</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">is_deleted</span> <span class="n">from</span> <span class="n">user</span> <span class="n">where</span> <span class="n">is_deleted</span><span class="o">=</span><span class="mi">0</span>
+</code></pre></div>
+<h2 id="04-">04-插件<a class="headerlink" href="#04-" title="Permanent link">&para;</a></h2>
+<h3 id="_6">一、分页插件<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<h1 id="_7"><a class="headerlink" href="#_7" title="Permanent link">&para;</a></h1>
+<p>MyBatis Plus自带分页插件，只要简单的配置即可实现分页功能</p>
+<h4 id="1_4">1、添加配置类<a class="headerlink" href="#1_4" title="Permanent link">&para;</a></h4>
+<p>创建config包，创建MybatisPlusConfig类</p>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">com.atguigu.mybatisplus.config</span><span class="p">;</span>
+
+<span class="nd">@Configuration</span>
+<span class="nd">@MapperScan</span><span class="p">(</span><span class="s">&quot;com.atguigu.mybatisplus.mapper&quot;</span><span class="p">)</span>  <span class="c1">//可以将主类中的注解移到此处</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MybatisPlusConfig</span> <span class="p">{</span>
+
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="2_4"><strong>2、添加分页插件</strong><a class="headerlink" href="#2_4" title="Permanent link">&para;</a></h4>
+<p>配置类中添加@Bean配置</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@Bean</span>
+<span class="kd">public</span> <span class="n">MybatisPlusInterceptor</span> <span class="nf">mybatisPlusInterceptor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">MybatisPlusInterceptor</span> <span class="n">interceptor</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MybatisPlusInterceptor</span><span class="p">();</span>
+    <span class="n">interceptor</span><span class="p">.</span><span class="na">addInnerInterceptor</span><span class="p">(</span><span class="k">new</span> <span class="n">PaginationInnerInterceptor</span><span class="p">(</span><span class="n">DbType</span><span class="p">.</span><span class="na">MYSQL</span><span class="p">));</span>
+    <span class="k">return</span> <span class="n">interceptor</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="3_5"><strong>3、测试分页</strong><a class="headerlink" href="#3_5" title="Permanent link">&para;</a></h4>
+<p>创建类InterceptorTests</p>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">com.atguigu.mybatisplus</span><span class="p">;</span>
+
+<span class="nd">@SpringBootTest</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">InterceptorTests</span> <span class="p">{</span>
+
+    <span class="nd">@Resource</span>
+    <span class="kd">private</span> <span class="n">UserMapper</span> <span class="n">userMapper</span><span class="p">;</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testSelectPage</span><span class="p">(){</span>
+
+        <span class="c1">//创建分页参数</span>
+        <span class="n">Page</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">pageParam</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Page</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">);</span>
+        <span class="c1">//执行分页查询</span>
+        <span class="n">userMapper</span><span class="p">.</span><span class="na">selectPage</span><span class="p">(</span><span class="n">pageParam</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span>
+        <span class="c1">//查看分页参数的成员</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">pageParam</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="xml">二、XML自定义分页<a class="headerlink" href="#xml" title="Permanent link">&para;</a></h3>
+<h4 id="1usermapper">1、UserMapper中定义接口方法<a class="headerlink" href="#1usermapper" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm">     * 查询 : 根据年龄查询用户列表，分页显示</span>
+<span class="cm">     *</span>
+<span class="cm">     * @param page 分页对象,xml中可以从里面进行取值,传递参数 Page 即自动分页,必须放在第一位</span>
+<span class="cm">     * @param age 年龄</span>
+<span class="cm">     * @return 分页对象</span>
+<span class="cm">     */</span>
+<span class="n">IPage</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="nf">selectPageVo</span><span class="p">(</span><span class="n">Page</span><span class="o">&lt;?&gt;</span> <span class="n">page</span><span class="p">,</span> <span class="n">Integer</span> <span class="n">age</span><span class="p">);</span>
+</code></pre></div>
+<h4 id="2xml">2、定义XML<a class="headerlink" href="#2xml" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="n">select</span> <span class="n">id</span><span class="o">=</span><span class="s">&quot;selectPageVo&quot;</span> <span class="n">resultType</span><span class="o">=</span><span class="s">&quot;com.atguigu.mybatisplus.entity.User&quot;</span><span class="o">&gt;</span>
+    <span class="n">SELECT</span> <span class="o">&lt;</span><span class="n">include</span> <span class="n">refid</span><span class="o">=</span><span class="s">&quot;Base_Column_List&quot;</span><span class="o">/&gt;</span> <span class="n">FROM</span> <span class="n">user</span> <span class="n">WHERE</span> <span class="n">age</span> <span class="o">&gt;</span> <span class="err">#</span><span class="p">{</span><span class="n">age</span><span class="p">}</span>
+<span class="o">&lt;/</span><span class="n">select</span><span class="o">&gt;</span>
+</code></pre></div>
+<h4 id="3_6">3、测试<a class="headerlink" href="#3_6" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">testSelectPageVo</span><span class="p">(){</span>
+    <span class="n">Page</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">pageParam</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Page</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">);</span>
+    <span class="n">userMapper</span><span class="p">.</span><span class="na">selectPageVo</span><span class="p">(</span><span class="n">pageParam</span><span class="p">,</span> <span class="mi">18</span><span class="p">);</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">users</span> <span class="o">=</span> <span class="n">pageParam</span><span class="p">.</span><span class="na">getRecords</span><span class="p">();</span>
+    <span class="n">users</span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">::</span><span class="n">println</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="_8"><strong>三、乐观锁</strong><a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<h4 id="1_5"><strong>1、场景</strong><a class="headerlink" href="#1_5" title="Permanent link">&para;</a></h4>
+<p>一件商品，成本价是80元，售价是100元。老板先是通知小李，说你去把商品价格增加50元。小李正在玩游戏，耽搁了一个小时。正好一个小时后，老板觉得商品价格增加到150元，价格太高，可能会影响销量。又通知小王，你把商品价格降低30元。</p>
+<p>此时，小李和小王同时操作商品后台系统。小李操作的时候，系统先取出商品价格100元；小王也在操作，取出的商品价格也是100元。小李将价格加了50元，并将100+50=150元存入了数据库；小王将商品减了30元，并将100-30=70元存入了数据库。是的，如果没有锁，小李的操作就完全被小王的覆盖了。</p>
+<p>现在商品价格是70元，比成本价低10元。几分钟后，这个商品很快出售了1千多件商品，老板亏1万多。</p>
+<p>接下来将我们演示这一过程：</p>
+<p><strong>step1：数据库中增加商品表</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">CREATE</span> <span class="n">TABLE</span> <span class="nf">product</span>
+<span class="p">(</span>
+    <span class="n">id</span> <span class="nf">BIGINT</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="n">NOT</span> <span class="n">NULL</span> <span class="n">AUTO_INCREMENT</span> <span class="n">COMMENT</span> <span class="err">&#39;</span><span class="n">主键ID</span><span class="err">&#39;</span><span class="p">,</span>
+    <span class="n">name</span> <span class="nf">VARCHAR</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> <span class="n">NULL</span> <span class="n">DEFAULT</span> <span class="n">NULL</span> <span class="n">COMMENT</span> <span class="err">&#39;</span><span class="n">商品名称</span><span class="err">&#39;</span><span class="p">,</span>
+    <span class="n">price</span> <span class="nf">INT</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="n">DEFAULT</span> <span class="mi">0</span> <span class="n">COMMENT</span> <span class="err">&#39;</span><span class="n">价格</span><span class="err">&#39;</span><span class="p">,</span>
+    <span class="n">version</span> <span class="nf">INT</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="n">DEFAULT</span> <span class="mi">0</span> <span class="n">COMMENT</span> <span class="err">&#39;</span><span class="n">乐观锁版本号</span><span class="err">&#39;</span><span class="p">,</span>
+    <span class="n">PRIMARY</span> <span class="nf">KEY</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span>
+<span class="p">);</span>
+
+<span class="n">INSERT</span> <span class="n">INTO</span> <span class="nf">product</span> <span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">NAME</span><span class="p">,</span> <span class="n">price</span><span class="p">)</span> <span class="n">VALUES</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">笔记本</span><span class="err">&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+</code></pre></div>
+<p><strong>step2：创建实体类</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">com.atguigu.mybatisplus.entity</span><span class="p">;</span>
+<span class="nd">@Data</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Product</span> <span class="p">{</span>
+    <span class="kd">private</span> <span class="n">Long</span> <span class="n">id</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="n">Integer</span> <span class="n">price</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="n">Integer</span> <span class="n">version</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>step3：创建Mapper</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">com.atguigu.mybatisplus.mapper</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">ProductMapper</span> <span class="kd">extends</span> <span class="n">BaseMapper</span><span class="o">&lt;</span><span class="n">Product</span><span class="o">&gt;</span> <span class="p">{</span>
+
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>step4：测试</strong></p>
+<div class="highlight"><pre><span></span><code><span class="nd">@Resource</span>
+<span class="kd">private</span> <span class="n">ProductMapper</span> <span class="n">productMapper</span><span class="p">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">testConcurrentUpdate</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="c1">//1、小李</span>
+    <span class="n">Product</span> <span class="n">p1</span> <span class="o">=</span> <span class="n">productMapper</span><span class="p">.</span><span class="na">selectById</span><span class="p">(</span><span class="mi">1L</span><span class="p">);</span>
+
+    <span class="c1">//2、小王</span>
+    <span class="n">Product</span> <span class="n">p2</span> <span class="o">=</span> <span class="n">productMapper</span><span class="p">.</span><span class="na">selectById</span><span class="p">(</span><span class="mi">1L</span><span class="p">);</span>
+
+    <span class="c1">//3、小李将价格加了50元，存入了数据库</span>
+    <span class="n">p1</span><span class="p">.</span><span class="na">setPrice</span><span class="p">(</span><span class="n">p1</span><span class="p">.</span><span class="na">getPrice</span><span class="p">()</span> <span class="o">+</span> <span class="mi">50</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">productMapper</span><span class="p">.</span><span class="na">updateById</span><span class="p">(</span><span class="n">p1</span><span class="p">);</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;小李修改结果：&quot;</span> <span class="o">+</span> <span class="n">result1</span><span class="p">);</span>
+
+    <span class="c1">//4、小王将商品减了30元，存入了数据库</span>
+    <span class="n">p2</span><span class="p">.</span><span class="na">setPrice</span><span class="p">(</span><span class="n">p2</span><span class="p">.</span><span class="na">getPrice</span><span class="p">()</span> <span class="o">-</span> <span class="mi">30</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">result2</span> <span class="o">=</span> <span class="n">productMapper</span><span class="p">.</span><span class="na">updateById</span><span class="p">(</span><span class="n">p2</span><span class="p">);</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;小王修改结果：&quot;</span> <span class="o">+</span> <span class="n">result2</span><span class="p">);</span>
+
+    <span class="c1">//最后的结果</span>
+    <span class="n">Product</span> <span class="n">p3</span> <span class="o">=</span> <span class="n">productMapper</span><span class="p">.</span><span class="na">selectById</span><span class="p">(</span><span class="mi">1L</span><span class="p">);</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;最后的结果：&quot;</span> <span class="o">+</span> <span class="n">p3</span><span class="p">.</span><span class="na">getPrice</span><span class="p">());</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="2_5">2、乐观锁方案<a class="headerlink" href="#2_5" title="Permanent link">&para;</a></h4>
+<p>数据库中添加version字段：取出记录时，获取当前version</p>
+<div class="highlight"><pre><span></span><code>SELECT id,`name`,price,`version` FROM product WHERE id=1
+</code></pre></div>
+<p>更新时，version + 1，如果where语句中的version版本不对，则更新失败</p>
+<div class="highlight"><pre><span></span><code><span class="n">UPDATE</span> <span class="n">product</span> <span class="n">SET</span> <span class="n">price</span><span class="o">=</span><span class="n">price</span><span class="o">+</span><span class="mi">50</span><span class="p">,</span> <span class="err">`</span><span class="n">version</span><span class="err">`</span><span class="o">=</span><span class="err">`</span><span class="n">version</span><span class="err">`</span> <span class="o">+</span> <span class="mi">1</span> <span class="n">WHERE</span> <span class="n">id</span><span class="o">=</span><span class="mi">1</span> <span class="n">AND</span> <span class="err">`</span><span class="n">version</span><span class="err">`</span><span class="o">=</span><span class="mi">1</span>
+</code></pre></div>
+<p>接下来介绍如何在Mybatis-Plus项目中，使用乐观锁：</p>
+<h4 id="3_7">3、乐观锁实现流程<a class="headerlink" href="#3_7" title="Permanent link">&para;</a></h4>
+<p><strong>step1：修改实体类</strong></p>
+<p>添加 @Version 注解</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@Version</span>
+<span class="kd">private</span> <span class="n">Integer</span> <span class="n">version</span><span class="p">;</span>
+</code></pre></div>
+<p><strong>step2：添加乐观锁插件</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">interceptor</span><span class="p">.</span><span class="na">addInnerInterceptor</span><span class="p">(</span><span class="k">new</span> <span class="n">OptimisticLockerInnerInterceptor</span><span class="p">());</span><span class="c1">//乐观锁</span>
+</code></pre></div>
+<p><strong>step3：重新执行测试</strong></p>
+<p>小王的修改失败！</p>
+<h4 id="4_4">4、优化流程<a class="headerlink" href="#4_4" title="Permanent link">&para;</a></h4>
+<p>失败后重试</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="p">(</span><span class="n">result2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span><span class="c1">//更新失败，重试</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;小王重试&quot;</span><span class="p">);</span>
+    <span class="c1">//重新获取数据</span>
+    <span class="n">p2</span> <span class="o">=</span> <span class="n">productMapper</span><span class="p">.</span><span class="na">selectById</span><span class="p">(</span><span class="mi">1L</span><span class="p">);</span>
+    <span class="c1">//更新</span>
+    <span class="n">p2</span><span class="p">.</span><span class="na">setPrice</span><span class="p">(</span><span class="n">p2</span><span class="p">.</span><span class="na">getPrice</span><span class="p">()</span> <span class="o">-</span> <span class="mi">30</span><span class="p">);</span>
+    <span class="n">productMapper</span><span class="p">.</span><span class="na">updateById</span><span class="p">(</span><span class="n">p2</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="05-">05-条件构造器<a class="headerlink" href="#05-" title="Permanent link">&para;</a></h2>
+<h3 id="wapper"><strong>一、wapper介绍</strong><a class="headerlink" href="#wapper" title="Permanent link">&para;</a></h3>
+<h4 id="1wrapper">1、Wrapper家族<a class="headerlink" href="#1wrapper" title="Permanent link">&para;</a></h4>
+<p>在MP中我们可以使用通用Mapper（BaseMapper）实现基本查询，也可以使用自定义Mapper（自定义XML）来实现更高级的查询。当然你也可以结合条件构造器来方便的实现更多的高级查询。</p>
+<p><img alt="1645429718292" src="../imgs/1645429718292.png" /></p>
+<p>Wrapper ： 条件构造抽象类，最顶端父类  </p>
+<p>​    AbstractWrapper ： 用于查询条件封装，生成 sql 的 where 条件</p>
+<p>​        QueryWrapper ： 查询条件封装</p>
+<p>​        UpdateWrapper ： Update 条件封装</p>
+<p>​    AbstractLambdaWrapper ： 使用Lambda 语法</p>
+<p>​        LambdaQueryWrapper ：用于Lambda语法使用的查询Wrapper</p>
+<p>​        LambdaUpdateWrapper ： Lambda 更新封装Wrapper</p>
+<h4 id="2_6">2、创建测试类<a class="headerlink" href="#2_6" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nd">@SpringBootTest</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">WrapperTests</span> <span class="p">{</span>
+
+    <span class="nd">@Resource</span>
+    <span class="kd">private</span> <span class="n">UserMapper</span> <span class="n">userMapper</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="querywrapper">二、QueryWrapper<a class="headerlink" href="#querywrapper" title="Permanent link">&para;</a></h3>
+<h4 id="11"><strong>1</strong>、例1：组装查询条件<a class="headerlink" href="#11" title="Permanent link">&para;</a></h4>
+<p>查询名字中包含n，年龄大于10且小于20，email不为空的用户</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">test1</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">queryWrapper</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueryWrapper</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+    <span class="n">queryWrapper</span>
+        <span class="p">.</span><span class="na">like</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">,</span><span class="s">&quot;n&quot;</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">between</span><span class="p">(</span><span class="s">&quot;age&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">isNotNull</span><span class="p">(</span><span class="s">&quot;email&quot;</span><span class="p">);</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">users</span> <span class="o">=</span> <span class="n">userMapper</span><span class="p">.</span><span class="na">selectList</span><span class="p">(</span><span class="n">queryWrapper</span><span class="p">);</span>
+    <span class="n">users</span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">::</span><span class="n">println</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="22"><strong>2、例2：组装排序条件</strong><a class="headerlink" href="#22" title="Permanent link">&para;</a></h4>
+<p>按年龄降序查询用户，如果年龄相同则按id升序排列</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">test2</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">queryWrapper</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueryWrapper</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+    <span class="n">queryWrapper</span>
+        <span class="p">.</span><span class="na">orderByDesc</span><span class="p">(</span><span class="s">&quot;age&quot;</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">orderByAsc</span><span class="p">(</span><span class="s">&quot;id&quot;</span><span class="p">);</span>
+
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">users</span> <span class="o">=</span> <span class="n">userMapper</span><span class="p">.</span><span class="na">selectList</span><span class="p">(</span><span class="n">queryWrapper</span><span class="p">);</span>
+    <span class="n">users</span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">::</span><span class="n">println</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="33"><strong>3、例3：组装删除条件</strong><a class="headerlink" href="#33" title="Permanent link">&para;</a></h4>
+<p>删除email为空的用户</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">test3</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">queryWrapper</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueryWrapper</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+    <span class="n">queryWrapper</span><span class="p">.</span><span class="na">isNull</span><span class="p">(</span><span class="s">&quot;email&quot;</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">userMapper</span><span class="p">.</span><span class="na">delete</span><span class="p">(</span><span class="n">queryWrapper</span><span class="p">);</span> <span class="c1">//条件构造器也可以构建删除语句的条件</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;delete return count = &quot;</span> <span class="o">+</span> <span class="n">result</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="44">4、例4：条件的优先级<a class="headerlink" href="#44" title="Permanent link">&para;</a></h4>
+<p>查询名字中包含n，且（年龄小于18或email为空的用户），并将这些用户的年龄设置为18，邮箱设置为 <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#117;&#115;&#101;&#114;&#64;&#97;&#116;&#103;&#117;&#105;&#103;&#117;&#46;&#99;&#111;&#109;">&#117;&#115;&#101;&#114;&#64;&#97;&#116;&#103;&#117;&#105;&#103;&#117;&#46;&#99;&#111;&#109;</a></p>
+<div class="highlight"><pre><span></span><code><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">test4</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="c1">//修改条件</span>
+    <span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">queryWrapper</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueryWrapper</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+    <span class="n">queryWrapper</span>
+        <span class="p">.</span><span class="na">like</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">,</span> <span class="s">&quot;n&quot;</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">and</span><span class="p">(</span><span class="n">i</span> <span class="o">-&gt;</span> <span class="n">i</span><span class="p">.</span><span class="na">lt</span><span class="p">(</span><span class="s">&quot;age&quot;</span><span class="p">,</span> <span class="mi">18</span><span class="p">).</span><span class="na">or</span><span class="p">().</span><span class="na">isNull</span><span class="p">(</span><span class="s">&quot;email&quot;</span><span class="p">));</span> <span class="c1">//lambda表达式内的逻辑优先运算</span>
+
+    <span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="p">();</span>
+    <span class="n">user</span><span class="p">.</span><span class="na">setAge</span><span class="p">(</span><span class="mi">18</span><span class="p">);</span>
+    <span class="n">user</span><span class="p">.</span><span class="na">setEmail</span><span class="p">(</span><span class="s">&quot;user@atguigu.com&quot;</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">userMapper</span><span class="p">.</span><span class="na">update</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">queryWrapper</span><span class="p">);</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="55select"><strong>5、例5：组装select子句</strong><a class="headerlink" href="#55select" title="Permanent link">&para;</a></h4>
+<p>查询所有用户的用户名和年龄</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">test5</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">queryWrapper</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueryWrapper</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+    <span class="n">queryWrapper</span><span class="p">.</span><span class="na">select</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">,</span> <span class="s">&quot;age&quot;</span><span class="p">);</span>
+
+    <span class="c1">//selectMaps()返回Map集合列表，通常配合select()使用，避免User对象中没有被查询到的列值为null</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">Object</span><span class="o">&gt;&gt;</span> <span class="n">maps</span> <span class="o">=</span> <span class="n">userMapper</span><span class="p">.</span><span class="na">selectMaps</span><span class="p">(</span><span class="n">queryWrapper</span><span class="p">);</span><span class="c1">//返回值是Map列表</span>
+    <span class="n">maps</span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">::</span><span class="n">println</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="66"><strong>6、例6：实现子查询</strong><a class="headerlink" href="#66" title="Permanent link">&para;</a></h4>
+<p>查询id不大于3的所有用户的id列表</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">test6</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">queryWrapper</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueryWrapper</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+    <span class="n">queryWrapper</span><span class="p">.</span><span class="na">inSql</span><span class="p">(</span><span class="s">&quot;id&quot;</span><span class="p">,</span> <span class="s">&quot;select id from user where id &lt;= 3&quot;</span><span class="p">);</span>
+
+    <span class="c1">//selectObjs的使用场景：只返回一列</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">objects</span> <span class="o">=</span> <span class="n">userMapper</span><span class="p">.</span><span class="na">selectObjs</span><span class="p">(</span><span class="n">queryWrapper</span><span class="p">);</span><span class="c1">//返回值是Object列表</span>
+    <span class="n">objects</span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">::</span><span class="n">println</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>但上面的方式容易引发sql注入</p>
+<div class="highlight"><pre><span></span><code> <span class="n">queryWrapper</span><span class="p">.</span><span class="na">inSql</span><span class="p">(</span><span class="s">&quot;id&quot;</span><span class="p">,</span> <span class="s">&quot;select id from user where id &lt;= 3 or true&quot;</span><span class="p">);</span> <span class="c1">// 或插叙出所有用户id</span>
+</code></pre></div>
+<p>可是使用下面的查询方式替换</p>
+<div class="highlight"><pre><span></span><code><span class="n">queryWrapper</span><span class="p">.</span><span class="na">in</span><span class="p">(</span><span class="s">&quot;id&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span> <span class="p">);</span>
+<span class="c1">// 或</span>
+<span class="n">queryWrapper</span><span class="p">.</span><span class="na">le</span><span class="p">(</span><span class="s">&quot;id&quot;</span><span class="p">,</span> <span class="mi">3</span> <span class="p">);</span>
+</code></pre></div>
+<h3 id="updatewrapper">三、UpdateWrapper<a class="headerlink" href="#updatewrapper" title="Permanent link">&para;</a></h3>
+<h4 id="74"><strong>例7：需求同例4</strong><a class="headerlink" href="#74" title="Permanent link">&para;</a></h4>
+<p>查询名字中包含n，且（年龄小于18或email为空的用户），并将这些用户的年龄设置为18，邮箱设置为 <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#117;&#115;&#101;&#114;&#64;&#97;&#116;&#103;&#117;&#105;&#103;&#117;&#46;&#99;&#111;&#109;">&#117;&#115;&#101;&#114;&#64;&#97;&#116;&#103;&#117;&#105;&#103;&#117;&#46;&#99;&#111;&#109;</a></p>
+<div class="highlight"><pre><span></span><code><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">test7</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="c1">//组装set子句</span>
+    <span class="n">UpdateWrapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">updateWrapper</span> <span class="o">=</span> <span class="k">new</span> <span class="n">UpdateWrapper</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+    <span class="n">updateWrapper</span>
+        <span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">&quot;age&quot;</span><span class="p">,</span> <span class="mi">18</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">&quot;email&quot;</span><span class="p">,</span> <span class="s">&quot;user@atguigu.com&quot;</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">like</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">,</span> <span class="s">&quot;n&quot;</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">and</span><span class="p">(</span><span class="n">i</span> <span class="o">-&gt;</span> <span class="n">i</span><span class="p">.</span><span class="na">lt</span><span class="p">(</span><span class="s">&quot;age&quot;</span><span class="p">,</span> <span class="mi">18</span><span class="p">).</span><span class="na">or</span><span class="p">().</span><span class="na">isNull</span><span class="p">(</span><span class="s">&quot;email&quot;</span><span class="p">));</span> <span class="c1">//lambda表达式内的逻辑优先运算</span>
+
+    <span class="c1">//这里必须要创建User对象，否则无法应用自动填充。如果没有自动填充，可以设置为null</span>
+    <span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="p">();</span>
+    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">userMapper</span><span class="p">.</span><span class="na">update</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">updateWrapper</span><span class="p">);</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="condition">四、condition<a class="headerlink" href="#condition" title="Permanent link">&para;</a></h3>
+<h4 id="8_1">例8：动态组装查询条件<a class="headerlink" href="#8_1" title="Permanent link">&para;</a></h4>
+<p>查询名字中包含n，年龄大于10且小于20的用户，查询条件来源于用户输入，是可选的</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">test8</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="c1">//定义查询条件，有可能为null（用户未输入）</span>
+    <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="n">Integer</span> <span class="n">ageBegin</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="n">Integer</span> <span class="n">ageEnd</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+
+    <span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">queryWrapper</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueryWrapper</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">StringUtils</span><span class="p">.</span><span class="na">isNotBlank</span><span class="p">(</span><span class="n">name</span><span class="p">)){</span>
+        <span class="n">queryWrapper</span><span class="p">.</span><span class="na">like</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">,</span><span class="s">&quot;n&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">ageBegin</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">){</span>
+        <span class="n">queryWrapper</span><span class="p">.</span><span class="na">ge</span><span class="p">(</span><span class="s">&quot;age&quot;</span><span class="p">,</span> <span class="n">ageBegin</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">ageEnd</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">){</span>
+        <span class="n">queryWrapper</span><span class="p">.</span><span class="na">le</span><span class="p">(</span><span class="s">&quot;age&quot;</span><span class="p">,</span> <span class="n">ageEnd</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">users</span> <span class="o">=</span> <span class="n">userMapper</span><span class="p">.</span><span class="na">selectList</span><span class="p">(</span><span class="n">queryWrapper</span><span class="p">);</span>
+    <span class="n">users</span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">::</span><span class="n">println</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>上面的实现方案没有问题，但是代码比较复杂，我们可以使用带condition参数的重载方法构建查询条件，简化代码的编写</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">test8Condition</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="c1">//定义查询条件，有可能为null（用户未输入）</span>
+    <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="n">Integer</span> <span class="n">ageBegin</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="n">Integer</span> <span class="n">ageEnd</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+
+    <span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">queryWrapper</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueryWrapper</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+    <span class="n">queryWrapper</span>
+        <span class="p">.</span><span class="na">like</span><span class="p">(</span><span class="n">StringUtils</span><span class="p">.</span><span class="na">isNotBlank</span><span class="p">(</span><span class="n">name</span><span class="p">),</span> <span class="s">&quot;name&quot;</span><span class="p">,</span> <span class="s">&quot;n&quot;</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">ge</span><span class="p">(</span><span class="n">ageBegin</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">,</span> <span class="s">&quot;age&quot;</span><span class="p">,</span> <span class="n">ageBegin</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">le</span><span class="p">(</span><span class="n">ageEnd</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">,</span> <span class="s">&quot;age&quot;</span><span class="p">,</span> <span class="n">ageEnd</span><span class="p">);</span>
+
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">users</span> <span class="o">=</span> <span class="n">userMapper</span><span class="p">.</span><span class="na">selectList</span><span class="p">(</span><span class="n">queryWrapper</span><span class="p">);</span>
+    <span class="n">users</span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">::</span><span class="n">println</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="lambdaxxxwrapper">五、LambdaXxxWrapper<a class="headerlink" href="#lambdaxxxwrapper" title="Permanent link">&para;</a></h3>
+<h4 id="19query-8">1、例9：Query - 需求同例8<a class="headerlink" href="#19query-8" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">test9</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="c1">//定义查询条件，有可能为null（用户未输入）</span>
+    <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="n">Integer</span> <span class="n">ageBegin</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="n">Integer</span> <span class="n">ageEnd</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+
+    <span class="n">LambdaQueryWrapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">queryWrapper</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LambdaQueryWrapper</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+    <span class="n">queryWrapper</span>
+        <span class="c1">//避免使用字符串表示字段，防止运行时错误</span>
+        <span class="p">.</span><span class="na">like</span><span class="p">(</span><span class="n">StringUtils</span><span class="p">.</span><span class="na">isNotBlank</span><span class="p">(</span><span class="n">name</span><span class="p">),</span> <span class="n">User</span><span class="p">::</span><span class="n">getName</span><span class="p">,</span> <span class="s">&quot;n&quot;</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">ge</span><span class="p">(</span><span class="n">ageBegin</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">,</span> <span class="n">User</span><span class="p">::</span><span class="n">getAge</span><span class="p">,</span> <span class="n">ageBegin</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">le</span><span class="p">(</span><span class="n">ageEnd</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">,</span> <span class="n">User</span><span class="p">::</span><span class="n">getAge</span><span class="p">,</span> <span class="n">ageEnd</span><span class="p">);</span>
+
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">users</span> <span class="o">=</span> <span class="n">userMapper</span><span class="p">.</span><span class="na">selectList</span><span class="p">(</span><span class="n">queryWrapper</span><span class="p">);</span>
+    <span class="n">users</span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">::</span><span class="n">println</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="210update-4">2、例10：Update - 需求同例4<a class="headerlink" href="#210update-4" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">test10</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="c1">//组装set子句</span>
+    <span class="n">LambdaUpdateWrapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">updateWrapper</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LambdaUpdateWrapper</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+    <span class="n">updateWrapper</span>
+        <span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="n">User</span><span class="p">::</span><span class="n">getAge</span><span class="p">,</span> <span class="mi">18</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="n">User</span><span class="p">::</span><span class="n">getEmail</span><span class="p">,</span> <span class="s">&quot;user@atguigu.com&quot;</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">like</span><span class="p">(</span><span class="n">User</span><span class="p">::</span><span class="n">getName</span><span class="p">,</span> <span class="s">&quot;n&quot;</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">and</span><span class="p">(</span><span class="n">i</span> <span class="o">-&gt;</span> <span class="n">i</span><span class="p">.</span><span class="na">lt</span><span class="p">(</span><span class="n">User</span><span class="p">::</span><span class="n">getAge</span><span class="p">,</span> <span class="mi">18</span><span class="p">).</span><span class="na">or</span><span class="p">().</span><span class="na">isNull</span><span class="p">(</span><span class="n">User</span><span class="p">::</span><span class="n">getEmail</span><span class="p">));</span> <span class="c1">//lambda表达式内的逻辑优先运算</span>
+
+    <span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="p">();</span>
+    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">userMapper</span><span class="p">.</span><span class="na">update</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">updateWrapper</span><span class="p">);</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+              
+			  <hr><span id="busuanzi_container_page_pv"><font size="3" color="grey">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</font></span><br/>
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../../Part01-%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D/Part01-%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 项目介绍" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              项目介绍
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../Part03-%E5%90%8E%E7%AB%AF%E6%8E%A5%E5%8F%A3%E5%B7%A5%E7%A8%8B%E6%90%AD%E5%BB%BA/Part03-%E5%90%8E%E7%AB%AF%E6%8E%A5%E5%8F%A3%E5%B7%A5%E7%A8%8B%E6%90%AD%E5%BB%BA/" class="md-footer__link md-footer__link--next" aria-label="Next: 后端接口工程搭建" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              后端接口工程搭建
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 尚硅谷
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.tabs", "navigation.tabs.sticky"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.1514a9a0.min.js"></script>
+      
+        <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+      
+    
+  </body>
+</html>

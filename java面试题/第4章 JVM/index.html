@@ -1,0 +1,3607 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.6">
+    
+    
+      
+        <title>第4章 JVM - 我的文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.cd566b2a.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#4jvm" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="我的文档" class="md-header__button md-logo" aria-label="我的文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            我的文档
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              第4章 JVM
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/01%20Java%E6%A6%82%E8%BF%B0/01%20-%20Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0/" class="md-tabs__link">
+        Java课程
+      </a>
+    </li>
+  
+
+  
+
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../%E7%AC%AC1%E7%AB%A0%20%E9%9D%A2%E8%AF%95%E8%AF%B4%E6%98%8E/" class="md-tabs__link md-tabs__link--active">
+        Java就业面试
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      学习文档
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="我的文档" class="md-nav__button md-logo" aria-label="我的文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    我的文档
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Java课程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Java课程" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Java课程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1" type="checkbox" id="__nav_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1">
+          Java基础
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Java基础" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Java基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1_1" type="checkbox" id="__nav_1_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1_1">
+          基础部分
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="基础部分" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          基础部分
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/01%20Java%E6%A6%82%E8%BF%B0/01%20-%20Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0/" class="md-nav__link">
+        Java概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/02%20%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/02%20%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" class="md-nav__link">
+        基本语法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/03%20%E6%95%B0%E7%BB%84/03%20%E6%95%B0%E7%BB%84/" class="md-nav__link">
+        数组
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/04%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/04%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="md-nav__link">
+        面向对象
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/05%20%E5%BC%82%E5%B8%B8/05%20%E5%BC%82%E5%B8%B8/" class="md-nav__link">
+        异常
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1_2" type="checkbox" id="__nav_1_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1_2">
+          高级部分
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="高级部分" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          高级部分
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/06%20%E5%B8%B8%E7%94%A8%E7%B1%BBAPI/06%20%E5%B8%B8%E7%94%A8%E7%B1%BBAPI/" class="md-nav__link">
+        常用类API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/07%20%E9%9B%86%E5%90%88/07%20%E9%9B%86%E5%90%88/" class="md-nav__link">
+        集合
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/08%20%E6%B3%9B%E5%9E%8B/08%20%E6%B3%9B%E5%9E%8B/" class="md-nav__link">
+        泛型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/09%20File%E7%B1%BB%E4%B8%8EIO%E6%B5%81/09%20File%E7%B1%BB%E4%B8%8EIO%E6%B5%81/" class="md-nav__link">
+        File类与IO流
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/10%20%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/10%20%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" class="md-nav__link">
+        网络编程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/11%20%E5%A4%9A%E7%BA%BF%E7%A8%8B/11%20%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="md-nav__link">
+        多线程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/12%20%E5%8F%8D%E5%B0%84/12%20%E5%8F%8D%E5%B0%84/" class="md-nav__link">
+        反射
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/13%20Java8%E6%96%B0%E7%89%B9%E6%80%A7/Java8%E6%96%B0%E7%89%B9%E6%80%A7/" class="md-nav__link">
+        Java8新特性
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2" type="checkbox" id="__nav_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_2">
+          MySQL数据库
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="MySQL数据库" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          MySQL数据库
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/14%20MySQL/MySQL5.7%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/" class="md-nav__link">
+        MySQL5.7安装文档
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/14%20MySQL/MySQL%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        MySQL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/14%20MySQL/JDBC%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        JDBC
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_3" type="checkbox" id="__nav_1_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_3">
+          JavaWeb阶段
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="JavaWeb阶段" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          JavaWeb阶段
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/JavaWeb%E9%98%B6%E6%AE%B5/day01/day01_HTML%26CSS/" class="md-nav__link">
+        HTML&CSS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/JavaWeb%E9%98%B6%E6%AE%B5/day02/day02_JS%26%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="md-nav__link">
+        JS&正则表达式
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/JavaWeb%E9%98%B6%E6%AE%B5/day03/day03_VUE%26%E4%B9%A6%E5%9F%8E%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        VUE&书城第一阶段
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/JavaWeb%E9%98%B6%E6%AE%B5/day04/day04_XML%26Tomcat%26Http%E5%8D%8F%E8%AE%AE/" class="md-nav__link">
+        XML&Tomcat&Http协议
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/JavaWeb%E9%98%B6%E6%AE%B5/day05/day05_Servlet/" class="md-nav__link">
+        Servlet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/JavaWeb%E9%98%B6%E6%AE%B5/day06/day06_Request%26Response/" class="md-nav__link">
+        Request&Response
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/JavaWeb%E9%98%B6%E6%AE%B5/day07/day07_%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        书城项目第二阶
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/JavaWeb%E9%98%B6%E6%AE%B5/day08/day08_Thymeleaf/" class="md-nav__link">
+        Thymeleaf
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/JavaWeb%E9%98%B6%E6%AE%B5/day09/day09_%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        书城项目第三阶段
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/JavaWeb%E9%98%B6%E6%AE%B5/day10/day10_%E4%BC%9A%E8%AF%9D%26%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5%281%29/" class="md-nav__link">
+        会话&书城项目第四阶段1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/JavaWeb%E9%98%B6%E6%AE%B5/day11/day11_%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        书城项目第四阶段2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/JavaWeb%E9%98%B6%E6%AE%B5/day12/day12_Filter%26Listener%26%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%BA%94%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        Filter&Listener&书城项目第五阶段1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/JavaWeb%E9%98%B6%E6%AE%B5/day13/day13_%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%BA%94%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        书城项目第五阶段2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/JavaWeb%E9%98%B6%E6%AE%B5/day14/day14_Ajax%26Axios%26%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E5%85%AD%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        Ajax&Axios&书城项目第六阶段
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4" type="checkbox" id="__nav_1_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4">
+          经典框架
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="经典框架" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          经典框架
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/Spring%20%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        Spring
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/SpringMVC%20%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        SpringMVC
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/MyBatis%20%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        MyBatis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/SSM%20%E6%95%B4%E5%90%88%E9%85%8D%E7%BD%AE/" class="md-nav__link">
+        SSM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/Maven%20%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        Maven
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/%E6%A1%86%E6%9E%B6%E9%AB%98%E7%BA%A7%E8%AF%BE%E7%A8%8B%E7%B3%BB%E5%88%97%E4%B9%8BLinuxCentOS7/" class="md-nav__link">
+        Linux
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/Redis/" class="md-nav__link">
+        Redis
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_5" type="checkbox" id="__nav_1_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_5">
+          微服务相关
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="微服务相关" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_5">
+          <span class="md-nav__icon md-icon"></span>
+          微服务相关
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/Docker/Docker/" class="md-nav__link">
+        Docker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/ElasticSearch/ElasticSearch/" class="md-nav__link">
+        ElasticSearch
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/RabbitMQ/RabbitMQ/" class="md-nav__link">
+        RabbitMQ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/SpringBoot/SpringBoot/" class="md-nav__link">
+        SpringBoot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/SpringCloud/SpringCloud/" class="md-nav__link">
+        SpringCloud
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_6" type="checkbox" id="__nav_1_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_6">
+          高级技术
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="高级技术" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_6">
+          <span class="md-nav__icon md-icon"></span>
+          高级技术
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/git/Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        git
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/juc/JUC/" class="md-nav__link">
+        JUC
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/jvm/jvm/" class="md-nav__link">
+        jvm
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/mysql%E9%AB%98%E7%BA%A7/MySQL%E9%AB%98%E7%BA%A7/" class="md-nav__link">
+        mysql高级
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/mysql%E9%AB%98%E7%BA%A7/MySQL%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/" class="md-nav__link">
+        MySQL主从复制
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/MyCat/Mycat/" class="md-nav__link">
+        MyCat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/nginx/Nginx/" class="md-nav__link">
+        Nginx
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7" type="checkbox" id="__nav_1_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7">
+          项目文档
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="项目文档" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_7">
+          <span class="md-nav__icon md-icon"></span>
+          项目文档
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_1" type="checkbox" id="__nav_1_7_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7_1">
+          美年旅游
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="美年旅游" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_7_1">
+          <span class="md-nav__icon md-icon"></span>
+          美年旅游
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%BE%8E%E5%B9%B4/day01/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC1%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游01
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%BE%8E%E5%B9%B4/day02/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC2%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游02
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%BE%8E%E5%B9%B4/day03/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC3%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游03
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%BE%8E%E5%B9%B4/day04/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC4%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游04
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%BE%8E%E5%B9%B4/day05/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC5%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游05
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%BE%8E%E5%B9%B4/day06/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC6%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游06
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%BE%8E%E5%B9%B4/day07/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC7%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游07
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%BE%8E%E5%B9%B4/day08/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC8%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游08
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%BE%8E%E5%B9%B4/day09/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC9%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游09
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%BE%8E%E5%B9%B4/day10/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC10%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游10
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%BE%8E%E5%B9%B4/day11/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC11%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游11
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_2" type="checkbox" id="__nav_1_7_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7_2">
+          尚邻网
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="尚邻网" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_7_2">
+          <span class="md-nav__icon md-icon"></span>
+          尚邻网
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E9%82%BB%E7%BD%91/1.%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83/" class="md-nav__link">
+        搭建环境
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E9%82%BB%E7%BD%91/2.%E7%94%A8%E6%88%B7%E8%A7%92%E8%89%B2%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        用户角色管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E9%82%BB%E7%BD%91/3.Apache%20Dubbo/" class="md-nav__link">
+        Apache Dubbo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E9%82%BB%E7%BD%91/4.%E6%9C%8D%E5%8A%A1%E6%8B%86%E5%88%86/" class="md-nav__link">
+        服务拆分
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E9%82%BB%E7%BD%91/5.%E4%BA%8C%E6%89%8B%E6%88%BF%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        二手房管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E9%82%BB%E7%BD%91/6.%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/" class="md-nav__link">
+        图片上传
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E9%82%BB%E7%BD%91/7.%E5%89%8D%E7%AB%AF%E6%88%BF%E6%BA%90%E5%B1%95%E7%A4%BA/" class="md-nav__link">
+        前端房源展示
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E9%82%BB%E7%BD%91/8.%E5%89%8D%E7%AB%AF%E7%99%BB%E5%BD%95%E4%B8%8E%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%85%B3%E6%B3%A8/" class="md-nav__link">
+        前端登录与注册与关注
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E9%82%BB%E7%BD%91/9.%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        权限管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E9%82%BB%E7%BD%91/10.spring%20security/" class="md-nav__link">
+        spring security
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E9%82%BB%E7%BD%91/11.session%E5%85%B1%E4%BA%AB/" class="md-nav__link">
+        session共享
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_3" type="checkbox" id="__nav_1_7_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7_3">
+          谷粒商城
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="谷粒商城" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_7_3">
+          <span class="md-nav__icon md-icon"></span>
+          谷粒商城
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/1.%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%EF%BC%88nginx%E3%80%81cors%E3%80%81oss%EF%BC%89/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        谷粒商城01
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/2.%E5%88%86%E7%B1%BB%E3%80%81%E8%A7%84%E6%A0%BC%E3%80%81%E5%95%86%E5%93%81%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/%E8%A7%84%E6%A0%BC%E5%8F%82%E6%95%B0%E5%8F%8A%E5%95%86%E5%93%81%E6%96%B0%E5%A2%9E/" class="md-nav__link">
+        谷粒商城02
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/3.%E6%9C%AC%E5%9C%B0%E4%BA%8B%E5%8A%A1%E3%80%81%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E5%8F%8Aseata/%E6%9C%AC%E5%9C%B0%E4%BA%8B%E5%8A%A1%E3%80%81%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E5%8F%8Aseata/" class="md-nav__link">
+        谷粒商城03
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/4.elasticsearch%28DSL%E5%8F%8ASpringData-Elasticsearch%29/elasticsearch/" class="md-nav__link">
+        谷粒商城04
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/5.%E5%95%86%E5%93%81%E6%90%9C%E7%B4%A2/%E5%95%86%E5%93%81%E6%90%9C%E7%B4%A2/" class="md-nav__link">
+        谷粒商城05
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/6.%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%EF%BC%88Thymeleaf%EF%BC%89%E5%8F%8A%E6%90%9C%E7%B4%A2%E9%A1%B5%E6%B8%B2%E6%9F%93/%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E-Thymeleaf/" class="md-nav__link">
+        谷粒商城06
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/7.%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%EF%BC%88RabbitMQ%EF%BC%89/%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5/" class="md-nav__link">
+        谷粒商城07
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/8.%E5%95%86%E5%93%81%E5%88%86%E7%B1%BB%28%E7%BC%93%E5%AD%98%E3%80%81%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E3%80%81Redisson%E3%80%81%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8%29/%E9%A6%96%E9%A1%B5%E5%95%86%E5%93%81%E5%88%86%E7%B1%BB/" class="md-nav__link">
+        谷粒商城08
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/9.%E5%95%86%E5%93%81%E8%AF%A6%E6%83%85%E9%A1%B5%E5%8F%8A%E5%BC%82%E6%AD%A5%E7%BC%96%E6%8E%92%EF%BC%88CompletableFuture%EF%BC%89/%E5%95%86%E5%93%81%E8%AF%A6%E6%83%85%E9%A1%B5/" class="md-nav__link">
+        谷粒商城09
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/10.%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%EF%BC%88jwt%EF%BC%89/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%EF%BC%88jwt%EF%BC%89/" class="md-nav__link">
+        谷粒商城10
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/11.%E8%B4%AD%E7%89%A9%E8%BD%A6%EF%BC%88SpringTask%EF%BC%89/%E8%B4%AD%E7%89%A9%E8%BD%A6/" class="md-nav__link">
+        谷粒商城11
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/12.%E5%88%86%E5%B8%83%E5%BC%8F%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%EF%BC%88xxl-job%EF%BC%89/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%EF%BC%88xxl-job%EF%BC%89/" class="md-nav__link">
+        谷粒商城12
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/13.%E8%AE%A2%E5%8D%95%E3%80%81%E5%BA%93%E5%AD%98/%E8%AE%A2%E5%8D%95%E3%80%81%E5%BA%93%E5%AD%98/" class="md-nav__link">
+        谷粒商城13
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/14.%E6%94%AF%E4%BB%98%E3%80%81%E7%A7%92%E6%9D%80/%E6%94%AF%E4%BB%98%E3%80%81%E7%A7%92%E6%9D%80/" class="md-nav__link">
+        谷粒商城14
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_4" type="checkbox" id="__nav_1_7_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7_4">
+          尚融宝
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="尚融宝" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_7_4">
+          <span class="md-nav__icon md-icon"></span>
+          尚融宝
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part01-%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D/Part01-%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
+        项目介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part02-MyBatis-Plus/Part02-MyBatis-Plus/" class="md-nav__link">
+        MyBatis-Plus
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part03-%E5%90%8E%E7%AB%AF%E6%8E%A5%E5%8F%A3%E5%B7%A5%E7%A8%8B%E6%90%AD%E5%BB%BA/Part03-%E5%90%8E%E7%AB%AF%E6%8E%A5%E5%8F%A3%E5%B7%A5%E7%A8%8B%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        后端接口工程搭建
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part04-%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/Part04-%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/" class="md-nav__link">
+        前端知识
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part05-%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA/Part05-%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        管理平台前端搭建
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part06-Alibaba%20EasyExcel/Part06-Alibaba%20EasyExcel/" class="md-nav__link">
+        Alibaba EasyExcel
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part07-%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8/Part07-%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8/" class="md-nav__link">
+        数据字典
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part08-Redis%E7%BC%93%E5%AD%98/Part08-Redis%E7%BC%93%E5%AD%98/" class="md-nav__link">
+        Redis缓存
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part09-NuxtJS%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E6%B8%B2%E6%9F%93/Part09-NuxtJS%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E6%B8%B2%E6%9F%93/" class="md-nav__link">
+        NuxtJS服务器端渲染
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part10-%E9%98%BF%E9%87%8C%E4%BA%91%E7%9F%AD%E4%BF%A1/Part10-%E9%98%BF%E9%87%8C%E4%BA%91%E7%9F%AD%E4%BF%A1/" class="md-nav__link">
+        阿里云短信
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java课程/项目文档/尚融宝/Part11-分布式文件系统-阿里云OSS/分布式文件系统-阿里云OSS" class="md-nav__link">
+        阿里云OSS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part12-%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C/Part12-%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C/" class="md-nav__link">
+        用户注册
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part13-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%89%E5%85%A8-%E8%AE%BF%E9%97%AE%E4%BB%A4%E7%89%8C/Part13-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%89%E5%85%A8-%E8%AE%BF%E9%97%AE%E4%BB%A4%E7%89%8C/" class="md-nav__link">
+        访问令牌
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part14-%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81/Part14-%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81/" class="md-nav__link">
+        用户认证
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part15-%E4%BC%9A%E5%91%98%E7%AE%A1%E7%90%86/Part15-%E4%BC%9A%E5%91%98%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        会员管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part16-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%89%E5%85%A8-OAuth2/Part16-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%89%E5%85%A8-OAuth2/" class="md-nav__link">
+        OAuth2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part17-%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/Part17-%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" class="md-nav__link">
+        内网穿透
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part18-%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95/Part18-%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95/" class="md-nav__link">
+        微信登录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part19-%20SpringCloud/Part19-%20SpringCloud/" class="md-nav__link">
+        SpringCloud
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part20-%E8%B4%A6%E6%88%B7%E7%BB%91%E5%AE%9A/Part20-%E8%B4%A6%E6%88%B7%E7%BB%91%E5%AE%9A/" class="md-nav__link">
+        账户绑定
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part21-%E7%94%B3%E8%AF%B7%E5%80%9F%E6%AC%BE%E9%A2%9D%E5%BA%A6/Part21-%E7%94%B3%E8%AF%B7%E5%80%9F%E6%AC%BE%E9%A2%9D%E5%BA%A6/" class="md-nav__link">
+        申请借款额度
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part22-%E5%80%9F%E6%AC%BE%E9%A2%9D%E5%BA%A6%E5%AE%A1%E6%A0%B8/Part22-%E5%80%9F%E6%AC%BE%E9%A2%9D%E5%BA%A6%E5%AE%A1%E6%A0%B8/" class="md-nav__link">
+        借款额度审核
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part23-%E5%80%9F%E6%AC%BE%E7%94%B3%E8%AF%B7/Part23-%E5%80%9F%E6%AC%BE%E7%94%B3%E8%AF%B7/" class="md-nav__link">
+        借款申请
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part24-%E5%80%9F%E6%AC%BE%E5%AE%A1%E6%A0%B8/Part24-%E5%80%9F%E6%AC%BE%E5%AE%A1%E6%A0%B8/" class="md-nav__link">
+        借款审核
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part25-%E6%A0%87%E7%9A%84%E7%AE%A1%E7%90%86/Part25-%E6%A0%87%E7%9A%84%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        标的管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part26-%E6%88%91%E8%A6%81%E6%8A%95%E8%B5%84/Part26-%E6%88%91%E8%A6%81%E6%8A%95%E8%B5%84/" class="md-nav__link">
+        我要投资
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part27-%E5%85%85%E5%80%BC/Part27-%E5%85%85%E5%80%BC/" class="md-nav__link">
+        充值
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part28-%E6%8A%95%E6%A0%87/Part28-%E6%8A%95%E6%A0%87/" class="md-nav__link">
+        投标
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part29-%E6%94%BE%E6%AC%BE/Part29-%E6%94%BE%E6%AC%BE/" class="md-nav__link">
+        放款
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part30-%E6%8A%95%E8%B5%84%E5%88%97%E8%A1%A8%E5%B1%95%E7%A4%BA/Part30-%E6%8A%95%E8%B5%84%E5%88%97%E8%A1%A8%E5%B1%95%E7%A4%BA/" class="md-nav__link">
+        投资列表展示
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part31-%E6%8F%90%E7%8E%B0%E5%92%8C%E8%BF%98%E6%AC%BE/Part31-%E6%8F%90%E7%8E%B0%E5%92%8C%E8%BF%98%E6%AC%BE/" class="md-nav__link">
+        提现和还款
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part32-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83/Part32-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83/" class="md-nav__link">
+        个人中心
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part33-%E7%BD%91%E5%85%B3/Part33-%E7%BD%91%E5%85%B3/" class="md-nav__link">
+        网关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part34-%E8%A1%A5%E5%85%85/Part34-%E8%A1%A5%E5%85%85/" class="md-nav__link">
+        补充
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part35-%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/Part35-%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/" class="md-nav__link">
+        微信支付
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_5" type="checkbox" id="__nav_1_7_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7_5">
+          尚医通
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="尚医通" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_7_5">
+          <span class="md-nav__icon md-icon"></span>
+          尚医通
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day01%20%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%E4%B8%8EMyBatis%20Plus/day01%20%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%E4%B8%8E%20Mybatis%20Plus/" class="md-nav__link">
+        项目介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day02%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E5%92%8C%E5%8C%BB%E9%99%A2%E8%AE%BE%E7%BD%AE/day02%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E5%92%8C%E5%8C%BB%E9%99%A2%E8%AE%BE%E7%BD%AE/" class="md-nav__link">
+        搭建环境和医院设置
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day03%20%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89/day03%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89/" class="md-nav__link">
+        前端基础知识（一）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day04%20%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%BA%8C%EF%BC%89/day04%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="md-nav__link">
+        前端基础知识（二）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day05%E5%B9%B3%E5%8F%B0%E7%AE%A1%E7%90%86%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA/day05%E5%B9%B3%E5%8F%B0%E7%AE%A1%E7%90%86%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        平台管理前端搭建
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day06%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8/day06%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8/" class="md-nav__link">
+        数据字典
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day07mongodb/day07mongodb/" class="md-nav__link">
+        mongodb
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day08%E5%8C%BB%E9%99%A2%E4%B8%8A%E4%BC%A0%E6%8E%A5%E5%8F%A3/day08%E5%8C%BB%E9%99%A2%E4%B8%8A%E4%BC%A0%E6%8E%A5%E5%8F%A3/" class="md-nav__link">
+        医院上传接口
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day09%E5%8C%BB%E9%99%A2%E7%AE%A1%E7%90%86/day09%E5%8C%BB%E9%99%A2%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        医院管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day10%E6%8E%92%E7%8F%AD%E7%AE%A1%E7%90%86%E5%92%8C%E7%BD%91%E5%85%B3/day10%E6%8E%92%E7%8F%AD%E7%AE%A1%E7%90%86%E5%92%8C%E7%BD%91%E5%85%B3/" class="md-nav__link">
+        排班管理和网关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day11%E5%B9%B3%E5%8F%B0%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA%E4%B8%8E%E9%A6%96%E9%A1%B5/day11%E5%B9%B3%E5%8F%B0%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA%E4%B8%8E%E9%A6%96%E9%A1%B5/" class="md-nav__link">
+        平台前端搭建与首页
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day12%E6%89%8B%E6%9C%BA%E7%99%BB%E5%BD%95/day12%E6%89%8B%E6%9C%BA%E7%99%BB%E5%BD%95/" class="md-nav__link">
+        手机登录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day13%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95/day13%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95/" class="md-nav__link">
+        微信登录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day14%E9%98%BF%E9%87%8C%E4%BA%91OSS%E3%80%81%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81%E4%B8%8E%E5%B0%B1%E8%AF%8A%E4%BA%BA/day14%E9%98%BF%E9%87%8C%E4%BA%91OSS%E3%80%81%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81%E4%B8%8E%E5%B0%B1%E8%AF%8A%E4%BA%BA/" class="md-nav__link">
+        阿里云OSS、用户认证与就诊人
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day15%E9%A2%84%E7%BA%A6%E6%8C%82%E5%8F%B7/day15%E9%A2%84%E7%BA%A6%E6%8C%82%E5%8F%B7/" class="md-nav__link">
+        预约挂号
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day16%E9%A2%84%E7%BA%A6%E4%B8%8B%E5%8D%95/day16%E9%A2%84%E7%BA%A6%E4%B8%8B%E5%8D%95/" class="md-nav__link">
+        预约下单
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day17%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/day17%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/" class="md-nav__link">
+        微信支付
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java%E8%AF%BE%E7%A8%8B/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day18%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E4%B8%8E%E7%BB%9F%E8%AE%A1/day18%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E4%B8%8E%E7%BB%9F%E8%AE%A1/" class="md-nav__link">
+        定时任务与统计
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Java就业面试
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Java就业面试" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Java就业面试
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC1%E7%AB%A0%20%E9%9D%A2%E8%AF%95%E8%AF%B4%E6%98%8E/" class="md-nav__link">
+        第1章 面试说明
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC2%E7%AB%A0%20%E6%89%8B%E5%86%99%E4%BB%A3%E7%A0%81/" class="md-nav__link">
+        第2章 手写代码
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC3%E7%AB%A0%20JavaSE/" class="md-nav__link">
+        第3章 JavaSE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          第4章 JVM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        第4章 JVM
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#41-jvm" class="md-nav__link">
+    4.1 JVM内存分哪几个区，每个区的作用是什么?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#42-heap-stack" class="md-nav__link">
+    4.2 heap 和stack 有什么区别
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#43java" class="md-nav__link">
+    4.3java类加载过程?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#44" class="md-nav__link">
+    4.4什么是类加载器，类加载器有哪些?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#45java" class="md-nav__link">
+    4.5java中垃圾收集的方法有哪些?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#46gc" class="md-nav__link">
+    4.6如何判断一个对象是否存活?(或者GC对象的判定方法)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#47javaminor-gcmajor-gcfull-gc" class="md-nav__link">
+    4.7简述java内存分配与回收策略以及Minor GC和Major GC（full GC）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#48" class="md-nav__link">
+    4.8什么情况下会发生栈内存溢出。
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#49-jvmgc" class="md-nav__link">
+    4.9 JVM中一次完整的GC流程是怎样的，对象如何晋升到老年代
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#410cmsg1" class="md-nav__link">
+    4.10你知道哪几种垃圾收集器，各自的优缺点，重点讲下cms和G1，包括原理，流程，优缺点。
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#411-jvmhappen-before" class="md-nav__link">
+    4.11 JVM内存模型的相关知识了解多少，比如重排序，内存屏障，happen-before，主内存，工作内存。
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#412" class="md-nav__link">
+    4.12简单说说你了解的类加载器，可以打破双亲委派么，怎么打破。
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#413jvm" class="md-nav__link">
+    4.13说说你知道的几种主要的JVM参数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#414jvmclass" class="md-nav__link">
+    4.14描述一下JVM加载class文件的原理机制？
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#415" class="md-nav__link">
+    4.15垃圾收集算法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#416" class="md-nav__link">
+    4.16调优工具用过哪些
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#417jvm" class="md-nav__link">
+    4.17你知道哪些JVM性能调优
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#418-edensurvivor" class="md-nav__link">
+    4.18 Eden和Survivor的比例分配等
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#419classpathclasspathclassnotfoundexception" class="md-nav__link">
+    4.19说一说你对环境变量classpath的理解？如果一个类不在classpath下，为什么会抛出ClassNotFoundException异常，如果在不改变这个类路径的前期下，怎样才能正确加载这个类？
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC5%E7%AB%A0%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="md-nav__link">
+        第5章 设计模式
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC6%E7%AB%A0%20MySql/" class="md-nav__link">
+        第6章 MySql
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC7%E7%AB%A0%20Java%20Web/" class="md-nav__link">
+        第7章 Java Web
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC8%E7%AB%A0%20SSM%E6%A1%86%E6%9E%B6/" class="md-nav__link">
+        第8章 SSM框架
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC9%E7%AB%A0%20SpringBoot/" class="md-nav__link">
+        第9章 SpringBoot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC10%E7%AB%A0%20SpringCloud/" class="md-nav__link">
+        第10章 SpringCloud
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC11%E7%AB%A0%20Redis/" class="md-nav__link">
+        第11章 Redis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC12%E7%AB%A0%20MQ/" class="md-nav__link">
+        第12章 MQ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC13%E7%AB%A0%20ElasticSearch/" class="md-nav__link">
+        第13章 ElasticSearch
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC14%E7%AB%A0%20Dubbo/" class="md-nav__link">
+        第14章 Dubbo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC15%E7%AB%A0%20Zookeeper/" class="md-nav__link">
+        第15章 Zookeeper
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC16%E7%AB%A0%20Git/" class="md-nav__link">
+        第16章 Git
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AC%AC17%E7%AB%A0%20Linux/" class="md-nav__link">
+        第17章 Linux
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        学习文档
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#41-jvm" class="md-nav__link">
+    4.1 JVM内存分哪几个区，每个区的作用是什么?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#42-heap-stack" class="md-nav__link">
+    4.2 heap 和stack 有什么区别
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#43java" class="md-nav__link">
+    4.3java类加载过程?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#44" class="md-nav__link">
+    4.4什么是类加载器，类加载器有哪些?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#45java" class="md-nav__link">
+    4.5java中垃圾收集的方法有哪些?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#46gc" class="md-nav__link">
+    4.6如何判断一个对象是否存活?(或者GC对象的判定方法)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#47javaminor-gcmajor-gcfull-gc" class="md-nav__link">
+    4.7简述java内存分配与回收策略以及Minor GC和Major GC（full GC）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#48" class="md-nav__link">
+    4.8什么情况下会发生栈内存溢出。
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#49-jvmgc" class="md-nav__link">
+    4.9 JVM中一次完整的GC流程是怎样的，对象如何晋升到老年代
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#410cmsg1" class="md-nav__link">
+    4.10你知道哪几种垃圾收集器，各自的优缺点，重点讲下cms和G1，包括原理，流程，优缺点。
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#411-jvmhappen-before" class="md-nav__link">
+    4.11 JVM内存模型的相关知识了解多少，比如重排序，内存屏障，happen-before，主内存，工作内存。
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#412" class="md-nav__link">
+    4.12简单说说你了解的类加载器，可以打破双亲委派么，怎么打破。
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#413jvm" class="md-nav__link">
+    4.13说说你知道的几种主要的JVM参数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#414jvmclass" class="md-nav__link">
+    4.14描述一下JVM加载class文件的原理机制？
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#415" class="md-nav__link">
+    4.15垃圾收集算法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#416" class="md-nav__link">
+    4.16调优工具用过哪些
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#417jvm" class="md-nav__link">
+    4.17你知道哪些JVM性能调优
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#418-edensurvivor" class="md-nav__link">
+    4.18 Eden和Survivor的比例分配等
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#419classpathclasspathclassnotfoundexception" class="md-nav__link">
+    4.19说一说你对环境变量classpath的理解？如果一个类不在classpath下，为什么会抛出ClassNotFoundException异常，如果在不改变这个类路径的前期下，怎样才能正确加载这个类？
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+<h1 id="4jvm">第4章JVM<a class="headerlink" href="#4jvm" title="Permanent link">&para;</a></h1>
+<h3 id="41-jvm">4.1 JVM内存分哪几个区，每个区的作用是什么?<a class="headerlink" href="#41-jvm" title="Permanent link">&para;</a></h3>
+<p><img alt="1646981753829" src="../images/1646981753829.png" /></p>
+<p>java虚拟机主要分为以下几个区:</p>
+<p>（1）方法区：</p>
+<p>​      a.  有时候也成为永久代，在该区内很少发生垃圾回收，但是并不代表不发生GC，在这里进行的GC主要是对方法区里的常量池和对类型的卸载</p>
+<p>​      b.  方法区主要用来存储已被虚拟机加载的类的信息、常量、静态变量和即时编译器编译后的代码等数据。</p>
+<p>​      c.  该区域是被线程共享的。</p>
+<p>​      d.  方法区里有一个运行时常量池，用于存放静态编译产生的字面量和符号引用。该常量池具有动态性，也就是说常量并不一定是编译时确定，运行时生成的常量也会存在这个常量池中。</p>
+<p>（2）虚拟机栈:</p>
+<p>​      a.  虚拟机栈也就是我们平常所称的栈内存,它为java方法服务，每个方法在执行的时候都会创建一个栈帧，用于存储局部变量表、操作数栈、动态链接和方法出口等信息。</p>
+<p>​      b.  虚拟机栈是线程私有的，它的生命周期与线程相同。</p>
+<p>​      c.  局部变量表里存储的是基本数据类型、returnAddress类型（指向一条字节码指令的地址）和对象引用，这个对象引用有可能是指向对象起始地址的一个指针，也有可能是代表对象的句柄或者与对象相关联的位置。局部变量所需的内存空间在编译器间确定</p>
+<p>​      d.  操作数栈的作用主要用来存储运算结果以及运算的操作数，它不同于局部变量表通过索引来访问，而是压栈和出栈的方式</p>
+<p>​      e.  每个栈帧都包含一个指向运行时常量池中该栈帧所属方法的引用，持有这个引用是为了支持方法调用过程中的动态连接.动态链接就是将常量池中的符号引用在运行期转化为直接引用。</p>
+<p>（3）本地方法栈：
+ 本地方法栈和虚拟机栈类似，只不过本地方法栈为Native方法服务。</p>
+<p>（4）堆：</p>
+<p>java堆是所有线程所共享的一块内存，在虚拟机启动时创建，几乎所有的对象实例都在这里创建，因此该区域经常发生垃圾回收操作。</p>
+<p>（5）程序计数器：</p>
+<p>内存空间小，字节码解释器工作时通过改变这个计数值可以选取下一条需要执行的字节码指令，分支、循环、跳转、异常处理和线程恢复等功能都需要依赖这个计数器完成。该内存区域是唯一一个java虚拟机规范没有规定任何OOM情况的区域。</p>
+<h3 id="42-heap-stack">4.2 heap 和stack 有什么区别<a class="headerlink" href="#42-heap-stack" title="Permanent link">&para;</a></h3>
+<p>（1）申请方式</p>
+<p>stack:由系统自动分配。例如，声明在函数中一个局部变量 int b; 系统自动在栈中为 b 开辟空间</p>
+<p>heap:需要程序员自己申请，并指明大小，在 c 中 malloc 函数，对于Java 需要手动 new Object()的形式开辟</p>
+<p>（2）申请后系统的响应</p>
+<p>stack：只要栈的剩余空间大于所申请空间，系统将为程序提供内存，否则将报异常提示栈溢出。</p>
+<p>heap：首先应该知道操作系统有一个记录空闲内存地址的链表，当系统收到程序的申请时，会遍历该链表，寻找第一个空间大于所申请空间的堆结点，然后将该结点从空闲结点链表中删除，并将该结点的空间分配给程序。另外，由于找到的堆结点的大小不一定正好等于申请的大小，系统会自动的将多余的那部分重新放入空闲链表中。</p>
+<p>（3）申请大小的限制</p>
+<p>stack：栈是向低地址扩展的数据结构，是一块连续的内存的区域。这句话的意思是栈顶的地址和栈的最大容量是系统预先规定好的，在 WINDOWS 下，栈的大小是 2M（也有的说是 1M，总之是一个编译时就确定的常数），如果申请的空间超过栈的剩余空间时，将提示 overflow。因此，能从栈获得的空间较小。</p>
+<p>heap：堆是向高地址扩展的数据结构，是不连续的内存区域。这是由于系统是用链表来存储的空闲内存地址的，自然是不连续的，而链表的遍历方向是由低地址向高地址。堆的大小受限于计算机系统中有效的虚拟内存。由此可见，堆获得的空间比较灵活，也比较大。</p>
+<p>（4）申请效率的比较</p>
+<p>stack：由系统自动分配，速度较快。但程序员是无法控制的。</p>
+<p>heap：由 new 分配的内存，一般速度比较慢，而且容易产生内存碎片,不过用起来最方便。</p>
+<p>（5）heap和stack中的存储内容</p>
+<p>stack：在函数调用时，第一个进栈的是主函数中后的下一条指令（函数调用语句的下一条可执行语句）的地址，然后是函数的各个参数，在大多数的 C 编译器中，参数是由右往左入栈的，然后是函数中的局部变量。注意静态变量是不入栈的。</p>
+<p>当本次函数调用结束后，局部变量先出栈，然后是参数，最后栈顶指针指向最开始存的地址，也就是主函数中的下一条指令，程序由该点继续运行。</p>
+<p>heap：一般是在堆的头部用一个字节存放堆的大小。堆中的具体内容有程序员安排。</p>
+<h3 id="43java">4.3java类加载过程?<a class="headerlink" href="#43java" title="Permanent link">&para;</a></h3>
+<p>Java类加载需要经历一下几个过程：</p>
+<p>（1）加载</p>
+<p>加载时类加载的第一个过程，在这个阶段，将完成一下三件事情：</p>
+<p>​      a.  通过一个类的全限定名获取该类的二进制流。</p>
+<p>​      b.  将该二进制流中的静态存储结构转化为方法去运行时数据结构。 </p>
+<p>​      c.  在内存中生成该类的Class对象，作为该类的数据访问入口。</p>
+<p>（2）验证</p>
+<p>验证的目的是为了确保Class文件的字节流中的信息不回危害到虚拟机.在该阶段主要完成以下四钟验证:</p>
+<p>​      a.  文件格式验证：验证字节流是否符合Class文件的规范，如主次版本号是否在当前虚拟机范围内，常量池中的常量是否有不被支持的类型.</p>
+<p>​      b.  元数据验证:对字节码描述的信息进行语义分析，如这个类是否有父类，是否集成了不被继承的类等。</p>
+<p>​      c.  字节码验证：是整个验证过程中最复杂的一个阶段，通过验证数据流和控制流的分析，确定程序语义是否正确，主要针对方法体的验证。如：方法中的类型转换是否正确，跳转指令是否正确等。</p>
+<p>​      d.  符号引用验证：这个动作在后面的解析过程中发生，主要是为了确保解析动作能正确执行。</p>
+<p>​      e.  准备</p>
+<p>准备阶段是为类的静态变量分配内存并将其初始化为默认值，这些内存都将在方法区中进行分配。准备阶段不分配类中的实例变量的内存，实例变量将会在对象实例化时随着对象一起分配在Java堆中。</p>
+<p>（3）解析</p>
+<p>该阶段主要完成符号引用到直接引用的转换动作。解析动作并不一定在初始化动作完成之前，也有可能在初始化之后。</p>
+<p>（4）初始化</p>
+<p>初始化时类加载的最后一步，前面的类加载过程，除了在加载阶段用户应用程序可以通过自定义类加载器参与之外，其余动作完全由虚拟机主导和控制。到了初始化阶段，才真正开始执行类中定义的Java程序代码。</p>
+<h3 id="44">4.4什么是类加载器，类加载器有哪些?<a class="headerlink" href="#44" title="Permanent link">&para;</a></h3>
+<p>实现通过类的权限定名获取该类的二进制字节流的代码块叫做类加载器。</p>
+<p>主要有一下四种类加载器:</p>
+<p>（1）启动类加载器(Bootstrap ClassLoader)用来加载java核心类库，无法被java程序直接引用。</p>
+<p>（2）扩展类加载器(extensions class loader):它用来加载 Java 的扩展库。Java 虚拟机的实现会提供一个扩展库目录。该类加载器在此目录里面查找并加载 Java 类。</p>
+<p>（3）系统类加载器（system class loader）也叫应用类加载器：它根据 Java 应用的类路径（CLASSPATH）来加载 Java 类。一般来说，Java 应用的类都是由它来完成加载的。可以通过 ClassLoader.getSystemClassLoader()来获取它。</p>
+<p>（4）用户自定义类加载器，通过继承 java.lang.ClassLoader类的方式实现。</p>
+<h3 id="45java">4.5java中垃圾收集的方法有哪些?<a class="headerlink" href="#45java" title="Permanent link">&para;</a></h3>
+<p>1）引用计数法   应用于：微软的COM/ActionScrip3/Python等</p>
+<p>a) 如果对象没有被引用，就会被回收，缺点：需要维护一个引用计算器</p>
+<p>2）复制算法 年轻代中使用的是Minor GC，这种GC算法采用的是复制算法(Copying)</p>
+<p>a) 效率高，缺点：需要内存容量大，比较耗内存</p>
+<p>b) 使用在占空间比较小、刷新次数多的新生区</p>
+<p>3）标记清除  老年代一般是由标记清除或者是标记清除与标记整理的混合实现</p>
+<p>a) 效率比较低，会差生碎片。</p>
+<p>4）标记压缩  老年代一般是由标记清除或者是标记清除与标记整理的混合实现</p>
+<p>a) 效率低速度慢，需要移动对象，但不会产生碎片。</p>
+<p>5）标记清除 压缩标记清除-标记压缩的集合，多次GC后才Compact</p>
+<p>a) 使用于占空间大刷新次数少的养老区，是3 4的集合体</p>
+<h3 id="46gc">4.6如何判断一个对象是否存活?(或者GC对象的判定方法)<a class="headerlink" href="#46gc" title="Permanent link">&para;</a></h3>
+<p>判断一个对象是否存活有两种方法:</p>
+<p>（1）引用计数法</p>
+<p>所谓引用计数法就是给每一个对象设置一个引用计数器，每当有一个地方引用这个对象时，就将计数器加一，引用失效时，计数器就减一。当一个对象的引用计数器为零时，说明此对象没有被引用，也就是“死对象”,将会被垃圾回收.</p>
+<p>引用计数法有一个缺陷就是无法解决循环引用问题，也就是说当对象A引用对象B，对象B又引用者对象A，那么此时A,B对象的引用计数器都不为零，也就造成无法完成垃圾回收，所以主流的虚拟机都没有采用这种算法。</p>
+<p>（2）可达性算法(引用链法)</p>
+<p>该算法的基本思路就是通过一些被称为引用链（GC Roots）的对象作为起点，从这些节点开始向下搜索，搜索走过的路径被称为（Reference Chain)，当一个对象到GC Roots没有任何引用链相连时（即从GC Roots节点到该节点不可达），则证明该对象是不可用的。</p>
+<p>在java中可以作为GC Roots的对象有以下几种：虚拟机栈中引用的对象、方法区类静态属性引用的对象、方法区常量池引用的对象、本地方法栈JNI引用的对象。</p>
+<h3 id="47javaminor-gcmajor-gcfull-gc">4.7简述java内存分配与回收策略以及Minor GC和Major GC（full GC）<a class="headerlink" href="#47javaminor-gcmajor-gcfull-gc" title="Permanent link">&para;</a></h3>
+<p><strong>内存分配：</strong></p>
+<p>（1）栈区：栈分为java虚拟机栈和本地方法栈</p>
+<p>（2）堆区：堆被所有线程共享区域，在虚拟机启动时创建，唯一目的存放对象实例。堆区是gc的主要区域，通常情况下分为两个区块年轻代和年老代。更细一点年轻代又分为Eden区，主要放新创建对象，From survivor 和 To survivor 保存gc后幸存下的对象，默认情况下各自占比 8:1:1。</p>
+<p>（3）方法区：被所有线程共享区域，用于存放已被虚拟机加载的类信息，常量，静态变量等数据。被Java虚拟机描述为堆的一个逻辑部分。习惯是也叫它永久代（permanment generation）</p>
+<p>（4）程序计数器：当前线程所执行的行号指示器。通过改变计数器的值来确定下一条指令，比如循环，分支，跳转，异常处理，线程恢复等都是依赖计数器来完成。线程私有的。</p>
+<p>回收策略以及Minor GC和Major GC：</p>
+<p>（1）对象优先在堆的Eden区分配。</p>
+<p>（2）大对象直接进入老年代。</p>
+<p>（3）长期存活的对象将直接进入老年代。</p>
+<p>当Eden区没有足够的空间进行分配时，虚拟机会执行一次Minor GC.Minor GC通常发生在新生代的Eden区，在这个区的对象生存期短，往往发生GC的频率较高，回收速度比较快;Full Gc/Major GC 发生在老年代，一般情况下，触发老年代GC的时候不会触发Minor GC,但是通过配置，可以在Full GC之前进行一次Minor GC这样可以加快老年代的回收速度。</p>
+<h3 id="48">4.8什么情况下会发生栈内存溢出。<a class="headerlink" href="#48" title="Permanent link">&para;</a></h3>
+<p>栈是线程私有的，他的生命周期与线程相同，每个方法在执行的时候都会创建一个栈帧，用来存储局部变量表，操作数栈，动态链接，方法出口等信息。局部变量表又包含基本数据类型，对象引用类型</p>
+<p>如果线程请求的栈深度大于虚拟机所允许的最大深度，将抛出StackOverflowError异常，方法递归调用产生这种结果。</p>
+<p>如果Java虚拟机栈可以动态扩展，并且扩展的动作已经尝试过，但是无法申请到足够的内存去完成扩展，或者在新建立线程的时候没有足够的内存去创建对应的虚拟机栈，那么Java虚拟机将抛出一个OutOfMemory 异常。(线程启动过多)</p>
+<p>参数 -Xss 去调整JVM栈的大小</p>
+<h3 id="49-jvmgc">4.9 JVM中一次完整的GC流程是怎样的，对象如何晋升到老年代<a class="headerlink" href="#49-jvmgc" title="Permanent link">&para;</a></h3>
+<p>对象诞生即新生代-&gt;eden，在进行minor gc过程中，如果依旧存活，移动到from，变成Survivor，进行标记。当一个对象存活默认超过15次都没有被回收掉，就会进入老年代。</p>
+<h3 id="410cmsg1">4.10你知道哪几种垃圾收集器，各自的优缺点，重点讲下cms和G1，包括原理，流程，优缺点。<a class="headerlink" href="#410cmsg1" title="Permanent link">&para;</a></h3>
+<p>垃圾收集器包括Serial、parNew、ParallelScavenge、SerialOld、ParallelOld、CMS、G1 </p>
+<p>CMS:</p>
+<p>一、初始标记：此时标记需要用户线程停下来；</p>
+<p>二、并发标记：此时标记可以和用户线程一起运行；</p>
+<p>三、重新标记：此时标记需要用户线程停下来，主要母的是为了对并发标记的垃圾进行审核；</p>
+<p>四、并发清除：与用户线程一起与运行进行垃圾清除；</p>
+<p>缺点：</p>
+<p>​     1、CMS收集器对cpu资源非常敏感；</p>
+<p>​     2、CMS收集器无法清除浮动垃圾；</p>
+<p>​     3、cms基于标记清除的算法实现的，所以内存碎片会产生过多。</p>
+<p>G1收集器：</p>
+<p>​    1、初始标记：标记GC Root能直接关联的对象，并且修改TAMS的值，让下一阶段的用户进行并发运行是，能够正确运用Region创建新对象，这阶段需要停顿，但停顿时间很短</p>
+<p>2、并发标记：从GC Root开始对堆进行可达性分析，找出存活的对象，这段耗时较长，但可以与用户线程并发执行。</p>
+<p>​    3、最终标记是为了修正在并发标记阶段因用户程序继续运作导致标记产生变动的那一部分的标记记录，虚拟机将这部分标记记录在线程Remembered Set中，这阶段需要停顿线程，但是可并行执行。</p>
+<p>4、筛选回收：首先对各个Region的回收价值和成本进行排序，根据用户所期待的GC停顿时间来制定回收计划，这个阶段也可以与用户线程并行执行，但由于只回收一部分的Region,时间是用户可控制的，而且停顿用户线程将大幅度提高收集效率。</p>
+<h3 id="411-jvmhappen-before">4.11 JVM内存模型的相关知识了解多少，比如重排序，内存屏障，happen-before，主内存，工作内存。<a class="headerlink" href="#411-jvmhappen-before" title="Permanent link">&para;</a></h3>
+<p>重排序：jvm虚拟机允许在不影响代码最终结果的情况下，可以乱序执行。</p>
+<p>内存屏障：可以阻挡编译器的优化，也可以阻挡处理器的优化</p>
+<p>happens-before原则：</p>
+<p>1：一个线程的A操作总是在B之前，那多线程的A操作肯定实在B之前。</p>
+<p>2：monitor 再加锁的情况下，持有锁的肯定先执行。</p>
+<p>3：volatile修饰的情况下，写先于读发生</p>
+<p>4：线程启动在一起之前 strat</p>
+<p>5：线程死亡在一切之后 end</p>
+<p>6：线程操作在一切线程中断之前</p>
+<p>7：一个对象构造函数的结束都该对象的finalizer的开始之前</p>
+<p>8：传递性，如果A肯定在B之前，B肯定在C之前，那A肯定是在C之前。</p>
+<p>主内存：所有线程共享的内存空间</p>
+<p>工作内存：每个线程特有的内存空间</p>
+<h3 id="412">4.12简单说说你了解的类加载器，可以打破双亲委派么，怎么打破。<a class="headerlink" href="#412" title="Permanent link">&para;</a></h3>
+<p>1) 什么是类加载器？</p>
+<p>类加载器就是根据指定全限定名称将class文件加载到JVM内存，转为Class对象。</p>
+<p>启动类加载器（Bootstrap ClassLoader）：由C++语言实现（针对HotSpot）,负责将存放在<JAVA_HOME>\lib目录或-Xbootclasspath参数指定的路径中的类库加载到内存中。</p>
+<p>其他类加载器：由Java语言实现，继承自抽象类ClassLoader。如：</p>
+<p>扩展类加载器（Extension ClassLoader）：负责加载<JAVA_HOME>\lib\ext目录或java.ext.dirs系统变量指定的路径中的所有类库。</p>
+<p>应用程序类加载器（Application ClassLoader）。负责加载用户类路径（classpath）上的指定类库，我们可以直接使用这个类加载器。一般情况，如果我们没有自定义类加载器默认就是用这个加载器。</p>
+<p>2）双亲委派模型</p>
+<p>双亲委派模型工作过程是：</p>
+<p>如果一个类加载器收到类加载的请求，它首先不会自己去尝试加载这个类，而是把这个请求委派给父类加载器完成。每个类加载器都是如此，只有当父加载器在自己的搜索范围内找不到指定的类时（即ClassNotFoundException），子加载器才会尝试自己去加载。</p>
+<p>双亲委派模型图：</p>
+<p><img alt="1646981919433" src="../images/1646981919433.png" /></p>
+<p>3）为什么需要双亲委派模型？</p>
+<p>在这里，先想一下，如果没有双亲委派，那么用户是不是可以自己定义一个java.lang.Object的同名类，java.lang.String的同名类，并把它放到ClassPath中,那么类之间的比较结果及类的唯一性将无法保证，因此，为什么需要双亲委派模型？防止内存中出现多份同样的字节码</p>
+<p>4）怎么打破双亲委派模型？</p>
+<p>打破双亲委派机制则不仅要继承ClassLoader类，还要重写loadClass和findClass方法。</p>
+<h3 id="413jvm">4.13说说你知道的几种主要的JVM参数<a class="headerlink" href="#413jvm" title="Permanent link">&para;</a></h3>
+<p>1）堆栈配置相关</p>
+<p>java -Xmx3550m -Xms3550m -Xmn2g -Xss128k </p>
+<p>-XX:MaxPermSize=16m -XX:NewRatio=4 -XX:SurvivorRatio=4 -XX:MaxTenuringThreshold=0</p>
+<p>-Xmx3550m：最大堆大小为3550m。</p>
+<p>-Xms3550m：设置初始堆大小为3550m。</p>
+<p>-Xmn2g：设置年轻代大小为2g。</p>
+<p>-Xss128k：每个线程的堆栈大小为128k。</p>
+<p>-XX:MaxPermSize：设置持久代大小为16m</p>
+<p>-XX:NewRatio=4: 设置年轻代（包括Eden和两个Survivor区）与年老代的比值（除去持久代）。</p>
+<p>-XX:SurvivorRatio=4：设置年轻代中Eden区与Survivor区的大小比值。设置为4，则两个Survivor区与一个Eden区的比值为2:4，一个Survivor区占整个年轻代的&#8537;</p>
+<p>-XX:MaxTenuringThreshold=0：设置垃圾最大年龄。如果设置为0的话，则年轻代对象不经过Survivor区，直接进入年老代。</p>
+<p>2）垃圾收集器相关</p>
+<p>-XX:+UseParallelGC</p>
+<p>-XX:ParallelGCThreads=20</p>
+<p>-XX:+UseConcMarkSweepGC </p>
+<p>-XX:CMSFullGCsBeforeCompaction=5</p>
+<p>-XX:+UseCMSCompactAtFullCollection：</p>
+<p>-XX:+UseParallelGC：选择垃圾收集器为并行收集器。</p>
+<p>-XX:ParallelGCThreads=20：配置并行收集器的线程数</p>
+<p>-XX:+UseConcMarkSweepGC：设置年老代为并发收集。</p>
+<p>-XX:CMSFullGCsBeforeCompaction：由于并发收集器不对内存空间进行压缩、整理，所以运行一段时间以后会产生“碎片”，使得运行效率降低。此值设置运行多少次GC以后对内存空间进行压缩、整理。</p>
+<p>-XX:+UseCMSCompactAtFullCollection：打开对年老代的压缩。可能会影响性能，但是可以消除碎片</p>
+<p>3）辅助信息相关</p>
+<p>-XX:+PrintGC</p>
+<p>-XX:+PrintGCDetails</p>
+<p>-XX:+PrintGC 输出形式:</p>
+<p>[GC 118250K-&gt;113543K(130112K), 0.0094143 secs] [Full GC 121376K-&gt;10414K(130112K), 0.0650971 secs]</p>
+<p>-XX:+PrintGCDetails 输出形式:</p>
+<p>[GC [DefNew: 8614K-&gt;781K(9088K), 0.0123035 secs] 118250K-&gt;113543K(130112K), 0.0124633 secs] [GC [DefNew: 8614K-&gt;8614K(9088K), 0.0000665 secs][Tenured: 112761K-&gt;10414K(121024K), 0.0433488 secs] 121376K-&gt;10414K(130112K), 0.0436268 secs</p>
+<h3 id="414jvmclass">4.14描述一下JVM加载class文件的原理机制？<a class="headerlink" href="#414jvmclass" title="Permanent link">&para;</a></h3>
+<p>装载:查找和导入class文件;</p>
+<p>连接:</p>
+<p>①检查:检查载入的class文件数据的正确性;</p>
+<p>②准备:为类的静态变量分配存储空间;</p>
+<p>③解析:将符号引用转换成直接引用(这一步是可选的)</p>
+<p>初始化:初始化静态变量，静态代码块。</p>
+<p>这样的过程在程序调用类的静态成员的时候开始执行，所以静态方法main()才会成为一般程序的入口方法。类的构造器也会引发该动作。</p>
+<h3 id="415">4.15垃圾收集算法<a class="headerlink" href="#415" title="Permanent link">&para;</a></h3>
+<p>jvm的垃圾回收算法有3种，列举如下：</p>
+<p>1，标记清除算法。（即把标注的可回收对象直接清理，这样会带来内存碎片化的问题，而且效率不高）；</p>
+<p>2，标记整理算法。（即把标注的可回收对象清理，在清理的过程中整理内存，解决了内存的碎片化问题）；</p>
+<p>3，标记复制算法。（把标注的对象清理，没有清理的对象复制到to区，然后互换引用，解决了内存碎片化的问题，但是需要维护对象关系带来一定代价）</p>
+<h3 id="416">4.16调优工具用过哪些<a class="headerlink" href="#416" title="Permanent link">&para;</a></h3>
+<p>常用调优工具分为两类,jdk自带监控工具：jconsole和jvisualvm，第三方有：MAT(Memory Analyzer Tool)、GChisto。</p>
+<p>jconsole，Java Monitoring and Management Console是从java5开始，在JDK中自带的java监控和管理控制台，用于对JVM中内存，线程和类等的监控jvisualvm，jdk自带全能工具，可以分析内存快照、线程快照；监控内存变化、GC变化等。MAT，Memory Analyzer Tool，一个基于Eclipse的内存分析工具，是一个快速、功能丰富的Java heap分析工具，它可以帮助我们查找内存泄漏和减少内存消耗</p>
+<p>GChisto，一款专业分析gc日志的工具</p>
+<h3 id="417jvm">4.17你知道哪些JVM性能调优<a class="headerlink" href="#417jvm" title="Permanent link">&para;</a></h3>
+<p>首先需要注意的是在对JVM内存调优的时候不能只看操作系统级别Java进程所占用的内存，这个数值不能准确的反应堆内存的真实占用情况，因为GC过后这个值是不会变化的，因此内存调优的时候要更多地使用JDK提供的内存查看工具，比如JConsole和Java VisualVM。</p>
+<p>对JVM内存的系统级的调优主要的目的是减少GC的频率和Full GC的次数，过多的GC和Full GC是会占用很多的系统资源（主要是CPU），影响系统的吞吐量。特别要关注Full GC，因为它会对整个堆进行整理，导致Full GC一般由于以下几种情况：</p>
+<p>旧生代空间不足</p>
+<p>调优时尽量让对象在新生代GC时被回收、让对象在新生代多存活一段时间和不要创建过大的对象及数组避免直接在旧生代创建对象</p>
+<p>Pemanet Generation空间不足</p>
+<p>增大Perm Gen空间，避免太多静态对象</p>
+<p>统计得到的GC后晋升到旧生代的平均大小大于旧生代剩余空间</p>
+<p>控制好新生代和旧生代的比例</p>
+<p>System.gc()被显示调用</p>
+<p>垃圾回收不要手动触发，尽量依靠JVM自身的机制</p>
+<p>调优手段主要是通过控制堆内存的各个部分的比例和GC策略来实现，下面来看看各部分比例不良设置会导致什么后果</p>
+<p>1). 新生代设置过小</p>
+<p>一是新生代GC次数非常频繁，增大系统消耗；二是导致大对象直接进入旧生代，占据了旧生代剩余空间，诱发Full GC</p>
+<p>2). 新生代设置过大</p>
+<p>一是新生代设置过大会导致旧生代过小（堆总量一定），从而诱发Full GC；二是新生代GC耗时大幅度增加</p>
+<p>一般说来新生代占整个堆&#8531;比较合适</p>
+<p>3). Survivor设置过小</p>
+<p>导致对象从eden直接到达旧生代，降低了在新生代的存活时间</p>
+<p>4). Survivor设置过大</p>
+<p>导致eden过小，增加了GC频率</p>
+<p>另外，通过-XX:MaxTenuringThreshold=n来控制新生代存活时间，尽量让对象在新生代被回收</p>
+<p>由内存管理和垃圾回收可知新生代和旧生代都有多种GC策略和组合搭配，选择这些策略对于我们这些开发人员是个难题，JVM提供两种较为简单的GC策略的设置方式</p>
+<p>1). 吞吐量优先</p>
+<p>JVM以吞吐量为指标，自行选择相应的GC策略及控制新生代与旧生代的大小比例，来达到吞吐量指标。这个值可由-XX:GCTimeRatio=n来设置</p>
+<p>2). 暂停时间优先</p>
+<p>JVM以暂停时间为指标，自行选择相应的GC策略及控制新生代与旧生代的大小比例，尽量保证每次GC造成的应用停止时间都在指定的数值范围内完成。这个值可由-XX:MaxGCPauseRatio=n来设置</p>
+<h3 id="418-edensurvivor">4.18 Eden和Survivor的比例分配等<a class="headerlink" href="#418-edensurvivor" title="Permanent link">&para;</a></h3>
+<p>默认比例8:1。部分对象都是朝生夕死。复制算法的基本思想就是将内存分为两块，每次只用其中一块，当这一块内存用完，就将还活着的对象复制到另外一块上面。复制算法不会产生内存碎片。</p>
+<h3 id="419classpathclasspathclassnotfoundexception">4.19说一说你对环境变量classpath的理解？如果一个类不在classpath下，为什么会抛出ClassNotFoundException异常，如果在不改变这个类路径的前期下，怎样才能正确加载这个类？<a class="headerlink" href="#419classpathclasspathclassnotfoundexception" title="Permanent link">&para;</a></h3>
+<p>classpath是javac编译器的一个环境变量。它的作用与import、package关键字有关。package的所在位置，就是设置CLASSPATH当编译器面对import packag这个语句时，它先会查找CLASSPATH所指定的目录，并检视子目录java/util是否存在，然后找出名称吻合的已编译文件（.class文件）。如果没有找到就会报错！</p>
+<p>动态加载包</p>
+
+              
+			  <hr><span id="busuanzi_container_page_pv"><font size="3" color="grey">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</font></span><br/>
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../%E7%AC%AC3%E7%AB%A0%20JavaSE/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 第3章 JavaSE" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              第3章 JavaSE
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../%E7%AC%AC5%E7%AB%A0%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="md-footer__link md-footer__link--next" aria-label="Next: 第5章 设计模式" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              第5章 设计模式
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 尚硅谷
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.1514a9a0.min.js"></script>
+      
+        <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+      
+    
+  </body>
+</html>

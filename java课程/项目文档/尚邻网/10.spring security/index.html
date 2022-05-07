@@ -1,0 +1,4796 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.6">
+    
+    
+      
+        <title>spring security - 我的文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.cd566b2a.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#spring-security" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="我的文档" class="md-header__button md-logo" aria-label="我的文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            我的文档
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              spring security
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/01%20Java%E6%A6%82%E8%BF%B0/01%20-%20Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0/" class="md-tabs__link md-tabs__link--active">
+        Java课程
+      </a>
+    </li>
+  
+
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC1%E7%AB%A0%20%E9%9D%A2%E8%AF%95%E8%AF%B4%E6%98%8E/" class="md-tabs__link">
+        Java就业面试
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../.." class="md-tabs__link">
+      学习文档
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="我的文档" class="md-nav__button md-logo" aria-label="我的文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    我的文档
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Java课程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Java课程" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Java课程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1" type="checkbox" id="__nav_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1">
+          Java基础
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Java基础" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Java基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1_1" type="checkbox" id="__nav_1_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1_1">
+          基础部分
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="基础部分" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          基础部分
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/01%20Java%E6%A6%82%E8%BF%B0/01%20-%20Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0/" class="md-nav__link">
+        Java概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/02%20%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/02%20%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" class="md-nav__link">
+        基本语法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/03%20%E6%95%B0%E7%BB%84/03%20%E6%95%B0%E7%BB%84/" class="md-nav__link">
+        数组
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/04%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/04%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="md-nav__link">
+        面向对象
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/05%20%E5%BC%82%E5%B8%B8/05%20%E5%BC%82%E5%B8%B8/" class="md-nav__link">
+        异常
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1_2" type="checkbox" id="__nav_1_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1_2">
+          高级部分
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="高级部分" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          高级部分
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/06%20%E5%B8%B8%E7%94%A8%E7%B1%BBAPI/06%20%E5%B8%B8%E7%94%A8%E7%B1%BBAPI/" class="md-nav__link">
+        常用类API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/07%20%E9%9B%86%E5%90%88/07%20%E9%9B%86%E5%90%88/" class="md-nav__link">
+        集合
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/08%20%E6%B3%9B%E5%9E%8B/08%20%E6%B3%9B%E5%9E%8B/" class="md-nav__link">
+        泛型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/09%20File%E7%B1%BB%E4%B8%8EIO%E6%B5%81/09%20File%E7%B1%BB%E4%B8%8EIO%E6%B5%81/" class="md-nav__link">
+        File类与IO流
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/10%20%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/10%20%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" class="md-nav__link">
+        网络编程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/11%20%E5%A4%9A%E7%BA%BF%E7%A8%8B/11%20%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="md-nav__link">
+        多线程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/12%20%E5%8F%8D%E5%B0%84/12%20%E5%8F%8D%E5%B0%84/" class="md-nav__link">
+        反射
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/13%20Java8%E6%96%B0%E7%89%B9%E6%80%A7/Java8%E6%96%B0%E7%89%B9%E6%80%A7/" class="md-nav__link">
+        Java8新特性
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2" type="checkbox" id="__nav_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_2">
+          MySQL数据库
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="MySQL数据库" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          MySQL数据库
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/14%20MySQL/MySQL5.7%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/" class="md-nav__link">
+        MySQL5.7安装文档
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/14%20MySQL/MySQL%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        MySQL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/14%20MySQL/JDBC%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        JDBC
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_3" type="checkbox" id="__nav_1_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_3">
+          JavaWeb阶段
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="JavaWeb阶段" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          JavaWeb阶段
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../JavaWeb%E9%98%B6%E6%AE%B5/day01/day01_HTML%26CSS/" class="md-nav__link">
+        HTML&CSS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../JavaWeb%E9%98%B6%E6%AE%B5/day02/day02_JS%26%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="md-nav__link">
+        JS&正则表达式
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../JavaWeb%E9%98%B6%E6%AE%B5/day03/day03_VUE%26%E4%B9%A6%E5%9F%8E%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        VUE&书城第一阶段
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../JavaWeb%E9%98%B6%E6%AE%B5/day04/day04_XML%26Tomcat%26Http%E5%8D%8F%E8%AE%AE/" class="md-nav__link">
+        XML&Tomcat&Http协议
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../JavaWeb%E9%98%B6%E6%AE%B5/day05/day05_Servlet/" class="md-nav__link">
+        Servlet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../JavaWeb%E9%98%B6%E6%AE%B5/day06/day06_Request%26Response/" class="md-nav__link">
+        Request&Response
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../JavaWeb%E9%98%B6%E6%AE%B5/day07/day07_%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        书城项目第二阶
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../JavaWeb%E9%98%B6%E6%AE%B5/day08/day08_Thymeleaf/" class="md-nav__link">
+        Thymeleaf
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../JavaWeb%E9%98%B6%E6%AE%B5/day09/day09_%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        书城项目第三阶段
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../JavaWeb%E9%98%B6%E6%AE%B5/day10/day10_%E4%BC%9A%E8%AF%9D%26%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5%281%29/" class="md-nav__link">
+        会话&书城项目第四阶段1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../JavaWeb%E9%98%B6%E6%AE%B5/day11/day11_%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        书城项目第四阶段2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../JavaWeb%E9%98%B6%E6%AE%B5/day12/day12_Filter%26Listener%26%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%BA%94%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        Filter&Listener&书城项目第五阶段1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../JavaWeb%E9%98%B6%E6%AE%B5/day13/day13_%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%BA%94%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        书城项目第五阶段2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../JavaWeb%E9%98%B6%E6%AE%B5/day14/day14_Ajax%26Axios%26%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E5%85%AD%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        Ajax&Axios&书城项目第六阶段
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4" type="checkbox" id="__nav_1_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4">
+          经典框架
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="经典框架" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          经典框架
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/Spring%20%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        Spring
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/SpringMVC%20%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        SpringMVC
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/MyBatis%20%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        MyBatis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/SSM%20%E6%95%B4%E5%90%88%E9%85%8D%E7%BD%AE/" class="md-nav__link">
+        SSM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/Maven%20%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        Maven
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/%E6%A1%86%E6%9E%B6%E9%AB%98%E7%BA%A7%E8%AF%BE%E7%A8%8B%E7%B3%BB%E5%88%97%E4%B9%8BLinuxCentOS7/" class="md-nav__link">
+        Linux
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/Redis/" class="md-nav__link">
+        Redis
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_5" type="checkbox" id="__nav_1_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_5">
+          微服务相关
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="微服务相关" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_5">
+          <span class="md-nav__icon md-icon"></span>
+          微服务相关
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/Docker/Docker/" class="md-nav__link">
+        Docker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/ElasticSearch/ElasticSearch/" class="md-nav__link">
+        ElasticSearch
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/RabbitMQ/RabbitMQ/" class="md-nav__link">
+        RabbitMQ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/SpringBoot/SpringBoot/" class="md-nav__link">
+        SpringBoot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/SpringCloud/SpringCloud/" class="md-nav__link">
+        SpringCloud
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_6" type="checkbox" id="__nav_1_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_6">
+          高级技术
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="高级技术" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_6">
+          <span class="md-nav__icon md-icon"></span>
+          高级技术
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/git/Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        git
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/juc/JUC/" class="md-nav__link">
+        JUC
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/jvm/jvm/" class="md-nav__link">
+        jvm
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/mysql%E9%AB%98%E7%BA%A7/MySQL%E9%AB%98%E7%BA%A7/" class="md-nav__link">
+        mysql高级
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/mysql%E9%AB%98%E7%BA%A7/MySQL%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/" class="md-nav__link">
+        MySQL主从复制
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/MyCat/Mycat/" class="md-nav__link">
+        MyCat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/nginx/Nginx/" class="md-nav__link">
+        Nginx
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7" type="checkbox" id="__nav_1_7" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7">
+          项目文档
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="项目文档" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_7">
+          <span class="md-nav__icon md-icon"></span>
+          项目文档
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_1" type="checkbox" id="__nav_1_7_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7_1">
+          美年旅游
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="美年旅游" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_7_1">
+          <span class="md-nav__icon md-icon"></span>
+          美年旅游
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BE%8E%E5%B9%B4/day01/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC1%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游01
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BE%8E%E5%B9%B4/day02/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC2%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游02
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BE%8E%E5%B9%B4/day03/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC3%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游03
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BE%8E%E5%B9%B4/day04/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC4%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游04
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BE%8E%E5%B9%B4/day05/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC5%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游05
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BE%8E%E5%B9%B4/day06/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC6%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游06
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BE%8E%E5%B9%B4/day07/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC7%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游07
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BE%8E%E5%B9%B4/day08/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC8%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游08
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BE%8E%E5%B9%B4/day09/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC9%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游09
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BE%8E%E5%B9%B4/day10/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC10%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游10
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BE%8E%E5%B9%B4/day11/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC11%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游11
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_2" type="checkbox" id="__nav_1_7_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7_2">
+          尚邻网
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="尚邻网" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_7_2">
+          <span class="md-nav__icon md-icon"></span>
+          尚邻网
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83/" class="md-nav__link">
+        搭建环境
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.%E7%94%A8%E6%88%B7%E8%A7%92%E8%89%B2%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        用户角色管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.Apache%20Dubbo/" class="md-nav__link">
+        Apache Dubbo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.%E6%9C%8D%E5%8A%A1%E6%8B%86%E5%88%86/" class="md-nav__link">
+        服务拆分
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.%E4%BA%8C%E6%89%8B%E6%88%BF%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        二手房管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/" class="md-nav__link">
+        图片上传
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.%E5%89%8D%E7%AB%AF%E6%88%BF%E6%BA%90%E5%B1%95%E7%A4%BA/" class="md-nav__link">
+        前端房源展示
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8.%E5%89%8D%E7%AB%AF%E7%99%BB%E5%BD%95%E4%B8%8E%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%85%B3%E6%B3%A8/" class="md-nav__link">
+        前端登录与注册与关注
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9.%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        权限管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          spring security
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        spring security
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#spring-security_1" class="md-nav__link">
+    一、Spring Security概念
+  </a>
+  
+    <nav class="md-nav" aria-label="一、Spring Security概念">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1、认证和授权概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2spring-security" class="md-nav__link">
+    2、Spring Security简介
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spring-security_2" class="md-nav__link">
+    二、Spring Security集成与入门
+  </a>
+  
+    <nav class="md-nav" aria-label="二、Spring Security集成与入门">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    1、引入依赖
+  </a>
+  
+    <nav class="md-nav" aria-label="1、引入依赖">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11shf-parent" class="md-nav__link">
+    1.1、shf-parent添加版本管理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12web-admin" class="md-nav__link">
+    1.2、web-admin引入依赖
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2spring-security-fillter" class="md-nav__link">
+    2、配置Spring Security Fillter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3spring-security" class="md-nav__link">
+    3、配置Spring Security
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4、测试
+  </a>
+  
+    <nav class="md-nav" aria-label="4、测试">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    4.1、内存分配用户名密码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    4.2、设置加密方式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43iframe" class="md-nav__link">
+    4.3、设置允许iframe嵌套显示
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spring-security_3" class="md-nav__link">
+    三、Spring Security集成进阶
+  </a>
+  
+    <nav class="md-nav" aria-label="三、Spring Security集成进阶">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    1、实现思路
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2、登录基础设置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3、定义登录页面
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    4、从数据库中查询用户信息
+  </a>
+  
+    <nav class="md-nav" aria-label="4、从数据库中查询用户信息">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41_1" class="md-nav__link">
+    4.1、注释掉内存分配用户名密码方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42_1" class="md-nav__link">
+    4.2、定义根据用户名获取用户信息接口
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2、定义根据用户名获取用户信息接口">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#421service" class="md-nav__link">
+    4.2.1、定义service接口
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#422service" class="md-nav__link">
+    4.2.2、定义service接口实现
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#423dao" class="md-nav__link">
+    4.2.3、dao层接口
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#424daoxml" class="md-nav__link">
+    4.2.4、dao层xml
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43userdetailsservice" class="md-nav__link">
+    4.3、实现UserDetailsService接口
+  </a>
+  
+    <nav class="md-nav" aria-label="4.3、实现UserDetailsService接口">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#431userdetailsserviceimpl" class="md-nav__link">
+    4.3.1、新建UserDetailsServiceImpl类
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#432" class="md-nav__link">
+    4.3.2、调整添加用户设置密码
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44" class="md-nav__link">
+    4.4、获取当前用户
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45" class="md-nav__link">
+    4.5、更改左侧菜单权限方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5、用户授权
+  </a>
+  
+    <nav class="md-nav" aria-label="5、用户授权">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    5.1、获取用户权限
+  </a>
+  
+    <nav class="md-nav" aria-label="5.1、获取用户权限">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#511service" class="md-nav__link">
+    5.1.1、定义service接口
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#512service" class="md-nav__link">
+    5.1.2、定义service接口实现
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#512dao" class="md-nav__link">
+    5.1.2、dao层接口
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#512daoxml" class="md-nav__link">
+    5.1.2、dao层xml
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    5.2、设置用户权限
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" class="md-nav__link">
+    5.3、测试
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54controller" class="md-nav__link">
+    5.4、controller方法权限控制
+  </a>
+  
+    <nav class="md-nav" aria-label="5.4、controller方法权限控制">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#541controller" class="md-nav__link">
+    5.4.1、开启controller方法权限控制
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#542controller" class="md-nav__link">
+    5.4.2、controller方法添加权限注解
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#543" class="md-nav__link">
+    5.4.3、测试
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#544" class="md-nav__link">
+    5.4.4、友好提示
+  </a>
+  
+    <nav class="md-nav" aria-label="5.4.4、友好提示">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#5441" class="md-nav__link">
+    5.4.4.1、定义页面
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5442accessdeniedhandler" class="md-nav__link">
+    5.4.4.2、实现AccessDeniedHandler接口
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5443accessdeniedhandler" class="md-nav__link">
+    5.4.4.3、配置AccessDeniedHandler接口实现类
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5444" class="md-nav__link">
+    5.4.4.4、测试
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55" class="md-nav__link">
+    5.5、页面功能按钮权限控制
+  </a>
+  
+    <nav class="md-nav" aria-label="5.5、页面功能按钮权限控制">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#551shf-parent" class="md-nav__link">
+    5.5.1、shf-parent添加依赖管理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#552web-admin" class="md-nav__link">
+    5.5.2、web-admin引入依赖
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#553spring-security" class="md-nav__link">
+    5.5.3、模板引擎配置spring security 标签支持
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#554" class="md-nav__link">
+    5.5.4、页面按钮控制
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#555" class="md-nav__link">
+    5.5.5、测试
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#56" class="md-nav__link">
+    5.6、配置功能权限
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11.session%E5%85%B1%E4%BA%AB/" class="md-nav__link">
+        session共享
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_3" type="checkbox" id="__nav_1_7_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7_3">
+          谷粒商城
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="谷粒商城" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_7_3">
+          <span class="md-nav__icon md-icon"></span>
+          谷粒商城
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%94%B5%E5%95%86/1.%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%EF%BC%88nginx%E3%80%81cors%E3%80%81oss%EF%BC%89/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        谷粒商城01
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%94%B5%E5%95%86/2.%E5%88%86%E7%B1%BB%E3%80%81%E8%A7%84%E6%A0%BC%E3%80%81%E5%95%86%E5%93%81%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/%E8%A7%84%E6%A0%BC%E5%8F%82%E6%95%B0%E5%8F%8A%E5%95%86%E5%93%81%E6%96%B0%E5%A2%9E/" class="md-nav__link">
+        谷粒商城02
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%94%B5%E5%95%86/3.%E6%9C%AC%E5%9C%B0%E4%BA%8B%E5%8A%A1%E3%80%81%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E5%8F%8Aseata/%E6%9C%AC%E5%9C%B0%E4%BA%8B%E5%8A%A1%E3%80%81%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E5%8F%8Aseata/" class="md-nav__link">
+        谷粒商城03
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%94%B5%E5%95%86/4.elasticsearch%28DSL%E5%8F%8ASpringData-Elasticsearch%29/elasticsearch/" class="md-nav__link">
+        谷粒商城04
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%94%B5%E5%95%86/5.%E5%95%86%E5%93%81%E6%90%9C%E7%B4%A2/%E5%95%86%E5%93%81%E6%90%9C%E7%B4%A2/" class="md-nav__link">
+        谷粒商城05
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%94%B5%E5%95%86/6.%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%EF%BC%88Thymeleaf%EF%BC%89%E5%8F%8A%E6%90%9C%E7%B4%A2%E9%A1%B5%E6%B8%B2%E6%9F%93/%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E-Thymeleaf/" class="md-nav__link">
+        谷粒商城06
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%94%B5%E5%95%86/7.%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%EF%BC%88RabbitMQ%EF%BC%89/%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5/" class="md-nav__link">
+        谷粒商城07
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%94%B5%E5%95%86/8.%E5%95%86%E5%93%81%E5%88%86%E7%B1%BB%28%E7%BC%93%E5%AD%98%E3%80%81%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E3%80%81Redisson%E3%80%81%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8%29/%E9%A6%96%E9%A1%B5%E5%95%86%E5%93%81%E5%88%86%E7%B1%BB/" class="md-nav__link">
+        谷粒商城08
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%94%B5%E5%95%86/9.%E5%95%86%E5%93%81%E8%AF%A6%E6%83%85%E9%A1%B5%E5%8F%8A%E5%BC%82%E6%AD%A5%E7%BC%96%E6%8E%92%EF%BC%88CompletableFuture%EF%BC%89/%E5%95%86%E5%93%81%E8%AF%A6%E6%83%85%E9%A1%B5/" class="md-nav__link">
+        谷粒商城09
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%94%B5%E5%95%86/10.%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%EF%BC%88jwt%EF%BC%89/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%EF%BC%88jwt%EF%BC%89/" class="md-nav__link">
+        谷粒商城10
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%94%B5%E5%95%86/11.%E8%B4%AD%E7%89%A9%E8%BD%A6%EF%BC%88SpringTask%EF%BC%89/%E8%B4%AD%E7%89%A9%E8%BD%A6/" class="md-nav__link">
+        谷粒商城11
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%94%B5%E5%95%86/12.%E5%88%86%E5%B8%83%E5%BC%8F%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%EF%BC%88xxl-job%EF%BC%89/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%EF%BC%88xxl-job%EF%BC%89/" class="md-nav__link">
+        谷粒商城12
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%94%B5%E5%95%86/13.%E8%AE%A2%E5%8D%95%E3%80%81%E5%BA%93%E5%AD%98/%E8%AE%A2%E5%8D%95%E3%80%81%E5%BA%93%E5%AD%98/" class="md-nav__link">
+        谷粒商城13
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%94%B5%E5%95%86/14.%E6%94%AF%E4%BB%98%E3%80%81%E7%A7%92%E6%9D%80/%E6%94%AF%E4%BB%98%E3%80%81%E7%A7%92%E6%9D%80/" class="md-nav__link">
+        谷粒商城14
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_4" type="checkbox" id="__nav_1_7_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7_4">
+          尚融宝
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="尚融宝" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_7_4">
+          <span class="md-nav__icon md-icon"></span>
+          尚融宝
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part01-%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D/Part01-%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
+        项目介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part02-MyBatis-Plus/Part02-MyBatis-Plus/" class="md-nav__link">
+        MyBatis-Plus
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part03-%E5%90%8E%E7%AB%AF%E6%8E%A5%E5%8F%A3%E5%B7%A5%E7%A8%8B%E6%90%AD%E5%BB%BA/Part03-%E5%90%8E%E7%AB%AF%E6%8E%A5%E5%8F%A3%E5%B7%A5%E7%A8%8B%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        后端接口工程搭建
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part04-%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/Part04-%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/" class="md-nav__link">
+        前端知识
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part05-%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA/Part05-%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        管理平台前端搭建
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part06-Alibaba%20EasyExcel/Part06-Alibaba%20EasyExcel/" class="md-nav__link">
+        Alibaba EasyExcel
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part07-%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8/Part07-%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8/" class="md-nav__link">
+        数据字典
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part08-Redis%E7%BC%93%E5%AD%98/Part08-Redis%E7%BC%93%E5%AD%98/" class="md-nav__link">
+        Redis缓存
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part09-NuxtJS%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E6%B8%B2%E6%9F%93/Part09-NuxtJS%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E6%B8%B2%E6%9F%93/" class="md-nav__link">
+        NuxtJS服务器端渲染
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part10-%E9%98%BF%E9%87%8C%E4%BA%91%E7%9F%AD%E4%BF%A1/Part10-%E9%98%BF%E9%87%8C%E4%BA%91%E7%9F%AD%E4%BF%A1/" class="md-nav__link">
+        阿里云短信
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java课程/项目文档/尚融宝/Part11-分布式文件系统-阿里云OSS/分布式文件系统-阿里云OSS" class="md-nav__link">
+        阿里云OSS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part12-%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C/Part12-%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C/" class="md-nav__link">
+        用户注册
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part13-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%89%E5%85%A8-%E8%AE%BF%E9%97%AE%E4%BB%A4%E7%89%8C/Part13-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%89%E5%85%A8-%E8%AE%BF%E9%97%AE%E4%BB%A4%E7%89%8C/" class="md-nav__link">
+        访问令牌
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part14-%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81/Part14-%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81/" class="md-nav__link">
+        用户认证
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part15-%E4%BC%9A%E5%91%98%E7%AE%A1%E7%90%86/Part15-%E4%BC%9A%E5%91%98%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        会员管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part16-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%89%E5%85%A8-OAuth2/Part16-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%89%E5%85%A8-OAuth2/" class="md-nav__link">
+        OAuth2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part17-%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/Part17-%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" class="md-nav__link">
+        内网穿透
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part18-%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95/Part18-%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95/" class="md-nav__link">
+        微信登录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part19-%20SpringCloud/Part19-%20SpringCloud/" class="md-nav__link">
+        SpringCloud
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part20-%E8%B4%A6%E6%88%B7%E7%BB%91%E5%AE%9A/Part20-%E8%B4%A6%E6%88%B7%E7%BB%91%E5%AE%9A/" class="md-nav__link">
+        账户绑定
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part21-%E7%94%B3%E8%AF%B7%E5%80%9F%E6%AC%BE%E9%A2%9D%E5%BA%A6/Part21-%E7%94%B3%E8%AF%B7%E5%80%9F%E6%AC%BE%E9%A2%9D%E5%BA%A6/" class="md-nav__link">
+        申请借款额度
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part22-%E5%80%9F%E6%AC%BE%E9%A2%9D%E5%BA%A6%E5%AE%A1%E6%A0%B8/Part22-%E5%80%9F%E6%AC%BE%E9%A2%9D%E5%BA%A6%E5%AE%A1%E6%A0%B8/" class="md-nav__link">
+        借款额度审核
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part23-%E5%80%9F%E6%AC%BE%E7%94%B3%E8%AF%B7/Part23-%E5%80%9F%E6%AC%BE%E7%94%B3%E8%AF%B7/" class="md-nav__link">
+        借款申请
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part24-%E5%80%9F%E6%AC%BE%E5%AE%A1%E6%A0%B8/Part24-%E5%80%9F%E6%AC%BE%E5%AE%A1%E6%A0%B8/" class="md-nav__link">
+        借款审核
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part25-%E6%A0%87%E7%9A%84%E7%AE%A1%E7%90%86/Part25-%E6%A0%87%E7%9A%84%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        标的管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part26-%E6%88%91%E8%A6%81%E6%8A%95%E8%B5%84/Part26-%E6%88%91%E8%A6%81%E6%8A%95%E8%B5%84/" class="md-nav__link">
+        我要投资
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part27-%E5%85%85%E5%80%BC/Part27-%E5%85%85%E5%80%BC/" class="md-nav__link">
+        充值
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part28-%E6%8A%95%E6%A0%87/Part28-%E6%8A%95%E6%A0%87/" class="md-nav__link">
+        投标
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part29-%E6%94%BE%E6%AC%BE/Part29-%E6%94%BE%E6%AC%BE/" class="md-nav__link">
+        放款
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part30-%E6%8A%95%E8%B5%84%E5%88%97%E8%A1%A8%E5%B1%95%E7%A4%BA/Part30-%E6%8A%95%E8%B5%84%E5%88%97%E8%A1%A8%E5%B1%95%E7%A4%BA/" class="md-nav__link">
+        投资列表展示
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part31-%E6%8F%90%E7%8E%B0%E5%92%8C%E8%BF%98%E6%AC%BE/Part31-%E6%8F%90%E7%8E%B0%E5%92%8C%E8%BF%98%E6%AC%BE/" class="md-nav__link">
+        提现和还款
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part32-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83/Part32-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83/" class="md-nav__link">
+        个人中心
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part33-%E7%BD%91%E5%85%B3/Part33-%E7%BD%91%E5%85%B3/" class="md-nav__link">
+        网关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part34-%E8%A1%A5%E5%85%85/Part34-%E8%A1%A5%E5%85%85/" class="md-nav__link">
+        补充
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part35-%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/Part35-%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/" class="md-nav__link">
+        微信支付
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_5" type="checkbox" id="__nav_1_7_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7_5">
+          尚医通
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="尚医通" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_7_5">
+          <span class="md-nav__icon md-icon"></span>
+          尚医通
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day01%20%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%E4%B8%8EMyBatis%20Plus/day01%20%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%E4%B8%8E%20Mybatis%20Plus/" class="md-nav__link">
+        项目介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day02%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E5%92%8C%E5%8C%BB%E9%99%A2%E8%AE%BE%E7%BD%AE/day02%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E5%92%8C%E5%8C%BB%E9%99%A2%E8%AE%BE%E7%BD%AE/" class="md-nav__link">
+        搭建环境和医院设置
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day03%20%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89/day03%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89/" class="md-nav__link">
+        前端基础知识（一）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day04%20%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%BA%8C%EF%BC%89/day04%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="md-nav__link">
+        前端基础知识（二）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day05%E5%B9%B3%E5%8F%B0%E7%AE%A1%E7%90%86%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA/day05%E5%B9%B3%E5%8F%B0%E7%AE%A1%E7%90%86%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        平台管理前端搭建
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day06%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8/day06%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8/" class="md-nav__link">
+        数据字典
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day07mongodb/day07mongodb/" class="md-nav__link">
+        mongodb
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day08%E5%8C%BB%E9%99%A2%E4%B8%8A%E4%BC%A0%E6%8E%A5%E5%8F%A3/day08%E5%8C%BB%E9%99%A2%E4%B8%8A%E4%BC%A0%E6%8E%A5%E5%8F%A3/" class="md-nav__link">
+        医院上传接口
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day09%E5%8C%BB%E9%99%A2%E7%AE%A1%E7%90%86/day09%E5%8C%BB%E9%99%A2%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        医院管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day10%E6%8E%92%E7%8F%AD%E7%AE%A1%E7%90%86%E5%92%8C%E7%BD%91%E5%85%B3/day10%E6%8E%92%E7%8F%AD%E7%AE%A1%E7%90%86%E5%92%8C%E7%BD%91%E5%85%B3/" class="md-nav__link">
+        排班管理和网关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day11%E5%B9%B3%E5%8F%B0%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA%E4%B8%8E%E9%A6%96%E9%A1%B5/day11%E5%B9%B3%E5%8F%B0%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA%E4%B8%8E%E9%A6%96%E9%A1%B5/" class="md-nav__link">
+        平台前端搭建与首页
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day12%E6%89%8B%E6%9C%BA%E7%99%BB%E5%BD%95/day12%E6%89%8B%E6%9C%BA%E7%99%BB%E5%BD%95/" class="md-nav__link">
+        手机登录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day13%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95/day13%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95/" class="md-nav__link">
+        微信登录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day14%E9%98%BF%E9%87%8C%E4%BA%91OSS%E3%80%81%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81%E4%B8%8E%E5%B0%B1%E8%AF%8A%E4%BA%BA/day14%E9%98%BF%E9%87%8C%E4%BA%91OSS%E3%80%81%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81%E4%B8%8E%E5%B0%B1%E8%AF%8A%E4%BA%BA/" class="md-nav__link">
+        阿里云OSS、用户认证与就诊人
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day15%E9%A2%84%E7%BA%A6%E6%8C%82%E5%8F%B7/day15%E9%A2%84%E7%BA%A6%E6%8C%82%E5%8F%B7/" class="md-nav__link">
+        预约挂号
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day16%E9%A2%84%E7%BA%A6%E4%B8%8B%E5%8D%95/day16%E9%A2%84%E7%BA%A6%E4%B8%8B%E5%8D%95/" class="md-nav__link">
+        预约下单
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day17%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/day17%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/" class="md-nav__link">
+        微信支付
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B0%9A%E5%8C%BB%E9%80%9A/day18%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E4%B8%8E%E7%BB%9F%E8%AE%A1/day18%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E4%B8%8E%E7%BB%9F%E8%AE%A1/" class="md-nav__link">
+        定时任务与统计
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Java就业面试
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Java就业面试" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Java就业面试
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC1%E7%AB%A0%20%E9%9D%A2%E8%AF%95%E8%AF%B4%E6%98%8E/" class="md-nav__link">
+        第1章 面试说明
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC2%E7%AB%A0%20%E6%89%8B%E5%86%99%E4%BB%A3%E7%A0%81/" class="md-nav__link">
+        第2章 手写代码
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC3%E7%AB%A0%20JavaSE/" class="md-nav__link">
+        第3章 JavaSE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC4%E7%AB%A0%20JVM/" class="md-nav__link">
+        第4章 JVM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC5%E7%AB%A0%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="md-nav__link">
+        第5章 设计模式
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC6%E7%AB%A0%20MySql/" class="md-nav__link">
+        第6章 MySql
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC7%E7%AB%A0%20Java%20Web/" class="md-nav__link">
+        第7章 Java Web
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC8%E7%AB%A0%20SSM%E6%A1%86%E6%9E%B6/" class="md-nav__link">
+        第8章 SSM框架
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC9%E7%AB%A0%20SpringBoot/" class="md-nav__link">
+        第9章 SpringBoot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC10%E7%AB%A0%20SpringCloud/" class="md-nav__link">
+        第10章 SpringCloud
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC11%E7%AB%A0%20Redis/" class="md-nav__link">
+        第11章 Redis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC12%E7%AB%A0%20MQ/" class="md-nav__link">
+        第12章 MQ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC13%E7%AB%A0%20ElasticSearch/" class="md-nav__link">
+        第13章 ElasticSearch
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC14%E7%AB%A0%20Dubbo/" class="md-nav__link">
+        第14章 Dubbo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC15%E7%AB%A0%20Zookeeper/" class="md-nav__link">
+        第15章 Zookeeper
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC16%E7%AB%A0%20Git/" class="md-nav__link">
+        第16章 Git
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC17%E7%AB%A0%20Linux/" class="md-nav__link">
+        第17章 Linux
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        学习文档
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#spring-security_1" class="md-nav__link">
+    一、Spring Security概念
+  </a>
+  
+    <nav class="md-nav" aria-label="一、Spring Security概念">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1、认证和授权概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2spring-security" class="md-nav__link">
+    2、Spring Security简介
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spring-security_2" class="md-nav__link">
+    二、Spring Security集成与入门
+  </a>
+  
+    <nav class="md-nav" aria-label="二、Spring Security集成与入门">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    1、引入依赖
+  </a>
+  
+    <nav class="md-nav" aria-label="1、引入依赖">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11shf-parent" class="md-nav__link">
+    1.1、shf-parent添加版本管理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12web-admin" class="md-nav__link">
+    1.2、web-admin引入依赖
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2spring-security-fillter" class="md-nav__link">
+    2、配置Spring Security Fillter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3spring-security" class="md-nav__link">
+    3、配置Spring Security
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4、测试
+  </a>
+  
+    <nav class="md-nav" aria-label="4、测试">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    4.1、内存分配用户名密码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    4.2、设置加密方式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43iframe" class="md-nav__link">
+    4.3、设置允许iframe嵌套显示
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spring-security_3" class="md-nav__link">
+    三、Spring Security集成进阶
+  </a>
+  
+    <nav class="md-nav" aria-label="三、Spring Security集成进阶">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    1、实现思路
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2、登录基础设置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3、定义登录页面
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    4、从数据库中查询用户信息
+  </a>
+  
+    <nav class="md-nav" aria-label="4、从数据库中查询用户信息">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41_1" class="md-nav__link">
+    4.1、注释掉内存分配用户名密码方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42_1" class="md-nav__link">
+    4.2、定义根据用户名获取用户信息接口
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2、定义根据用户名获取用户信息接口">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#421service" class="md-nav__link">
+    4.2.1、定义service接口
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#422service" class="md-nav__link">
+    4.2.2、定义service接口实现
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#423dao" class="md-nav__link">
+    4.2.3、dao层接口
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#424daoxml" class="md-nav__link">
+    4.2.4、dao层xml
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43userdetailsservice" class="md-nav__link">
+    4.3、实现UserDetailsService接口
+  </a>
+  
+    <nav class="md-nav" aria-label="4.3、实现UserDetailsService接口">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#431userdetailsserviceimpl" class="md-nav__link">
+    4.3.1、新建UserDetailsServiceImpl类
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#432" class="md-nav__link">
+    4.3.2、调整添加用户设置密码
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44" class="md-nav__link">
+    4.4、获取当前用户
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45" class="md-nav__link">
+    4.5、更改左侧菜单权限方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5、用户授权
+  </a>
+  
+    <nav class="md-nav" aria-label="5、用户授权">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    5.1、获取用户权限
+  </a>
+  
+    <nav class="md-nav" aria-label="5.1、获取用户权限">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#511service" class="md-nav__link">
+    5.1.1、定义service接口
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#512service" class="md-nav__link">
+    5.1.2、定义service接口实现
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#512dao" class="md-nav__link">
+    5.1.2、dao层接口
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#512daoxml" class="md-nav__link">
+    5.1.2、dao层xml
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    5.2、设置用户权限
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" class="md-nav__link">
+    5.3、测试
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54controller" class="md-nav__link">
+    5.4、controller方法权限控制
+  </a>
+  
+    <nav class="md-nav" aria-label="5.4、controller方法权限控制">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#541controller" class="md-nav__link">
+    5.4.1、开启controller方法权限控制
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#542controller" class="md-nav__link">
+    5.4.2、controller方法添加权限注解
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#543" class="md-nav__link">
+    5.4.3、测试
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#544" class="md-nav__link">
+    5.4.4、友好提示
+  </a>
+  
+    <nav class="md-nav" aria-label="5.4.4、友好提示">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#5441" class="md-nav__link">
+    5.4.4.1、定义页面
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5442accessdeniedhandler" class="md-nav__link">
+    5.4.4.2、实现AccessDeniedHandler接口
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5443accessdeniedhandler" class="md-nav__link">
+    5.4.4.3、配置AccessDeniedHandler接口实现类
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5444" class="md-nav__link">
+    5.4.4.4、测试
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55" class="md-nav__link">
+    5.5、页面功能按钮权限控制
+  </a>
+  
+    <nav class="md-nav" aria-label="5.5、页面功能按钮权限控制">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#551shf-parent" class="md-nav__link">
+    5.5.1、shf-parent添加依赖管理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#552web-admin" class="md-nav__link">
+    5.5.2、web-admin引入依赖
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#553spring-security" class="md-nav__link">
+    5.5.3、模板引擎配置spring security 标签支持
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#554" class="md-nav__link">
+    5.5.4、页面按钮控制
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#555" class="md-nav__link">
+    5.5.5、测试
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#56" class="md-nav__link">
+    5.6、配置功能权限
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+<h1 id="spring-security">尚好房：Spring Security<a class="headerlink" href="#spring-security" title="Permanent link">&para;</a></h1>
+<h2 id="spring-security_1">一、Spring Security概念<a class="headerlink" href="#spring-security_1" title="Permanent link">&para;</a></h2>
+<p>前面我们已经完成了尚好房权限管理的部分相关功能，给用户分配角色，给角色分配权限，及左侧动态菜单，做好权限管理的数据准备，接下来我们要使用这些数据进行权限的相关控制。</p>
+<h3 id="1">1、认证和授权概念<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<p>现在我们需要思考2个问题：</p>
+<p><strong><em>*问题1*</em></strong>：在生产环境下我们如果不登录后台系统就可以完成这些功能操作吗？</p>
+<p>答案显然是否定的，要操作这些功能必须首先登录到系统才可以。（用户登录系统–&gt;认证）</p>
+<p><strong><em>*问题2*</em></strong>：是不是所有用户，只要登录成功就都可以操作所有功能呢？</p>
+<p>答案是否定的，并不是所有的用户都可以操作这些功能。不同的用户可能拥有不同的权限，这就需要进行授权了。（用户登录之后，对每个用户进行授权，通过授权去访问系统中不同的功能–&gt;授权）</p>
+<p><strong><em>*认证*</em></strong>：系统提供的用于识别用户身份的功能，通常提供用户名和密码进行登录其实就是在进行认证，认证的目的是让系统知道你是谁。</p>
+<p><strong><em>*授权*</em></strong>：用户认证成功后，需要为用户授权，其实就是指定当前用户可以操作哪些功能。</p>
+<p>本章节就是要对后台系统进行权限控制，其本质就是对用户进行认证和授权。</p>
+<h3 id="2spring-security">2、Spring Security简介<a class="headerlink" href="#2spring-security" title="Permanent link">&para;</a></h3>
+<p>Spring Security是 Spring提供的安全认证服务的框架。 使用Spring Security可以帮助我们来简化认证和授权的过程。</p>
+<p>官网：<a href="https://spring.io/projects/spring-security/">https://spring.io/projects/spring-security/</a>  </p>
+<p>中文官网：<a href="https://www.w3cschool.cn/springsecurity/">https://www.w3cschool.cn/springsecurity/</a> </p>
+<p><img alt="image-20220222100249999" src="../images/10.spring%20security/image-20220222100249999.png" /></p>
+<p>对应的maven坐标：</p>
+<div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- spring security安全框架 --&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.springframework.security<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>spring-security-web<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>5.2.7.RELEASE<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.springframework.security<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>spring-security-config<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>5.2.7.RELEASE<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div>
+<p>常用的权限框架除了Spring Security，还有Apache的shiro框架。</p>
+<h2 id="spring-security_2">二、Spring Security集成与入门<a class="headerlink" href="#spring-security_2" title="Permanent link">&para;</a></h2>
+<h3 id="1_1">1、引入依赖<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
+<h4 id="11shf-parent">1.1、shf-parent添加版本管理<a class="headerlink" href="#11shf-parent" title="Permanent link">&para;</a></h4>
+<p>pom.xml</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;spring.security.version&gt;</span>5.2.7.RELEASE<span class="nt">&lt;/spring.security.version&gt;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- spring security安全框架 --&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.springframework.security<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>spring-security-web<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>${spring.security.version}<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.springframework.security<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>spring-security-config<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>${spring.security.version}<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div>
+<h4 id="12web-admin">1.2、web-admin引入依赖<a class="headerlink" href="#12web-admin" title="Permanent link">&para;</a></h4>
+<p>目前只是我们的后台管理系统需要授权与认证</p>
+<p>pom.xml</p>
+<div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- spring security安全框架 --&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.springframework.security<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>spring-security-web<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.springframework.security<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>spring-security-config<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div>
+<h3 id="2spring-security-fillter">2、配置Spring Security Fillter<a class="headerlink" href="#2spring-security-fillter" title="Permanent link">&para;</a></h3>
+<p>web.xml</p>
+<div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- SpringSecurity Filter --&gt;</span>
+<span class="cm">&lt;!-- DelegatingFilterProxy用于整合第三方框架（代理过滤器，非真正的过滤器，真正的过滤器需要在spring的配置文件） --&gt;</span>
+<span class="nt">&lt;filter&gt;</span>
+  <span class="nt">&lt;filter-name&gt;</span>springSecurityFilterChain<span class="nt">&lt;/filter-name&gt;</span>
+  <span class="nt">&lt;filter-class&gt;</span>org.springframework.web.filter.DelegatingFilterProxy<span class="nt">&lt;/filter-class&gt;</span>
+<span class="nt">&lt;/filter&gt;</span>
+<span class="nt">&lt;filter-mapping&gt;</span>
+  <span class="nt">&lt;filter-name&gt;</span>springSecurityFilterChain<span class="nt">&lt;/filter-name&gt;</span>
+  <span class="nt">&lt;url-pattern&gt;</span>/*<span class="nt">&lt;/url-pattern&gt;</span>
+<span class="nt">&lt;/filter-mapping&gt;</span>
+</code></pre></div>
+<h3 id="3spring-security">3、配置Spring Security<a class="headerlink" href="#3spring-security" title="Permanent link">&para;</a></h3>
+<p>配置Spring Security有两种方式：</p>
+<p>​   1、xml文件配置</p>
+<p>​   2、java类配置</p>
+<p>两种方式配置效果一致，当前我们使用java类配置，更加简洁</p>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">com.atguigu.config</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.context.annotation.Configuration</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.config.annotation.web.configuration.EnableWebSecurity</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter</span><span class="p">;</span>
+
+
+<span class="nd">@Configuration</span>
+<span class="nd">@EnableWebSecurity</span> <span class="c1">//@EnableWebSecurity是开启SpringSecurity的默认行为</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">WebSecurityConfig</span> <span class="kd">extends</span> <span class="n">WebSecurityConfigurerAdapter</span> <span class="p">{</span>
+
+<span class="p">}</span>
+</code></pre></div>
+<p><font color='red'>注意：该配置类也需要被扫描</font></p>
+<h3 id="4">4、测试<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<p>仅需三个步骤，我们就已经集成好了Spring Security，其他的事情就可以交给Spring Security为我们处理。</p>
+<p>启动项目</p>
+<p>访问：<a href="http://localhost:8000/">http://localhost:8000/</a></p>
+<p><img alt="image-20220222104759534" src="../images/10.spring%20security/image-20220222104759534.png" /></p>
+<p>所有资源访问受限（包括静态资源）</p>
+<p>url自动跳转到了一个默认的登录页面（框架自带的），我们目前没有定义login页面及login controller方法。</p>
+<p>但是当前没有账号啊！下面我们测试一个最简单的内存分配用户名密码。</p>
+<h4 id="41">4.1、内存分配用户名密码<a class="headerlink" href="#41" title="Permanent link">&para;</a></h4>
+<p>操作类：WebSecurityConfig</p>
+<p>重写configure(AuthenticationManagerBuilder auth)方法</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">configure</span><span class="p">(</span><span class="n">AuthenticationManagerBuilder</span> <span class="n">auth</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="p">{</span>
+    <span class="n">auth</span><span class="p">.</span><span class="na">inMemoryAuthentication</span><span class="p">()</span>
+            <span class="p">.</span><span class="na">withUser</span><span class="p">(</span><span class="s">&quot;lucy&quot;</span><span class="p">)</span>
+            <span class="p">.</span><span class="na">password</span><span class="p">(</span><span class="k">new</span> <span class="n">BCryptPasswordEncoder</span><span class="p">().</span><span class="na">encode</span><span class="p">(</span><span class="s">&quot;123456&quot;</span><span class="p">))</span>
+            <span class="p">.</span><span class="na">roles</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">);</span>
+
+<span class="p">}</span>
+</code></pre></div>
+<p>请求：<a href="http://localhost:8000/">http://localhost:8000/</a></p>
+<p>报错：<code>springsecurity There is no PasswordEncoder mapped for the id "null"</code></p>
+<p>需要设置加密方式</p>
+<h4 id="42">4.2、设置加密方式<a class="headerlink" href="#42" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * 必须指定加密方式，上下加密方式要一致</span>
+<span class="cm"> * @return</span>
+<span class="cm"> */</span>
+<span class="nd">@Bean</span>
+<span class="kd">public</span> <span class="n">PasswordEncoder</span> <span class="nf">passwordEncoder</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">BCryptPasswordEncoder</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>登录成功，但是iframe部分页面不显示</p>
+<h4 id="43iframe">4.3、设置允许iframe嵌套显示<a class="headerlink" href="#43iframe" title="Permanent link">&para;</a></h4>
+<p>默认Spring Security不允许iframe嵌套显示，我们需要设置</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">configure</span><span class="p">(</span><span class="n">HttpSecurity</span> <span class="n">http</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="p">{</span>
+    <span class="c1">//必须调用父类的方法，否则就不需要认证即可访问</span>
+    <span class="kd">super</span><span class="p">.</span><span class="na">configure</span><span class="p">(</span><span class="n">http</span><span class="p">);</span>
+    <span class="c1">//允许iframe嵌套显示</span>
+    <span class="c1">//http.headers().frameOptions().disable();</span>
+    <span class="c1">//允许iframe显示</span>
+    <span class="n">http</span><span class="p">.</span><span class="na">headers</span><span class="p">().</span><span class="na">frameOptions</span><span class="p">().</span><span class="na">sameOrigin</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>到目前为止，我们通过内存分配用户名密码的方式，可以访问后台页面了。</p>
+<h2 id="spring-security_3">三、Spring Security集成进阶<a class="headerlink" href="#spring-security_3" title="Permanent link">&para;</a></h2>
+<p>前面我们已经完成了Spring Security的入门级配置，通过Spring Security的使用，Spring Security将我们项目中的所有资源都保护了起来，要访问这些资源必须要完成认证才能够访问。</p>
+<p>但是这个案例中的使用方法离我们真实生产环境还差很远，还存在如下一些问题：</p>
+<p>1、项目中我们将所有的资源（所有请求URL）都保护起来，实际环境下往往有一些资源不需要认证也可以访问，也就是可以匿名访问。</p>
+<p>2、登录页面是由框架生成的，而我们的项目往往会使用自己的登录页面。</p>
+<p>3、直接将用户名和密码配置在了java程序中，而真实生产环境下的用户名和密码往往保存在数据库中。</p>
+<p>现在我们需要对这些问题进行改进。</p>
+<h3 id="1_2">1、实现思路<a class="headerlink" href="#1_2" title="Permanent link">&para;</a></h3>
+<p>1，使用指定的登录页面（login.html)</p>
+<p>2，配置可匿名访问的资源(不需要登录权限和角色，就可以访问的资源，如：静态资源等)</p>
+<p>3，从数据库查询用户信息</p>
+<p>4，对密码进行加密</p>
+<p>5，配置多种校验规则（对访问的页面做权限控制，按钮权限）</p>
+<p>6，注解方式权限控制（对访问的Controller类中的方法做权限控制）</p>
+<p>7，退出登录</p>
+<h3 id="2">2、登录基础设置<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<p>当前还是在上面的基础上进行调整，逐步改造为生成环境效果，每个步骤自行测试，不做说明</p>
+<p>配置指定登录页面</p>
+<p>修改configure方法</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">configure</span><span class="p">(</span><span class="n">HttpSecurity</span> <span class="n">http</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="p">{</span>
+    <span class="c1">//允许iframe嵌套显示</span>
+    <span class="n">http</span><span class="p">.</span><span class="na">headers</span><span class="p">().</span><span class="na">frameOptions</span><span class="p">().</span><span class="na">disable</span><span class="p">();</span>
+    <span class="c1">//登录设置</span>
+    <span class="n">http</span>
+            <span class="p">.</span><span class="na">authorizeRequests</span><span class="p">()</span>
+            <span class="p">.</span><span class="na">antMatchers</span><span class="p">(</span><span class="s">&quot;/static/**&quot;</span><span class="p">,</span><span class="s">&quot;/login&quot;</span><span class="p">).</span><span class="na">permitAll</span><span class="p">()</span>  <span class="c1">//允许匿名用户访问的路径</span>
+            <span class="p">.</span><span class="na">anyRequest</span><span class="p">().</span><span class="na">authenticated</span><span class="p">()</span>    <span class="c1">// 其它页面全部需要验证</span>
+            <span class="p">.</span><span class="na">and</span><span class="p">()</span>
+            <span class="p">.</span><span class="na">formLogin</span><span class="p">()</span>
+            <span class="p">.</span><span class="na">loginPage</span><span class="p">(</span><span class="s">&quot;/login&quot;</span><span class="p">)</span>    <span class="c1">//用户未登录时，访问任何需要权限的资源都转跳到该路径，即登录页面，此时登陆成功后会继续跳转到第一次访问的资源页面（相当于被过滤了一下）</span>
+            <span class="p">.</span><span class="na">defaultSuccessUrl</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">)</span> <span class="c1">//登录认证成功后默认转跳的路径，意思时admin登录后也跳转到/user</span>
+            <span class="p">.</span><span class="na">and</span><span class="p">()</span>
+            <span class="p">.</span><span class="na">logout</span><span class="p">()</span>
+            <span class="p">.</span><span class="na">logoutUrl</span><span class="p">(</span><span class="s">&quot;/logout&quot;</span><span class="p">)</span>   <span class="c1">//退出登陆的路径，指定spring security拦截的注销url,退出功能是security提供的</span>
+            <span class="p">.</span><span class="na">logoutSuccessUrl</span><span class="p">(</span><span class="s">&quot;/login&quot;</span><span class="p">)</span><span class="c1">//用户退出后要被重定向的url</span>
+            <span class="p">.</span><span class="na">and</span><span class="p">()</span>
+            <span class="p">.</span><span class="na">csrf</span><span class="p">().</span><span class="na">disable</span><span class="p">();</span><span class="c1">//关闭跨域请求伪造功能</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>我们对登录相关做了一个最基本的设置，每一个设置都有对应的备注。</p>
+<h3 id="3">3、定义登录页面<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<p>前面我们指定了登录页面为：/login，因此我们要去自定义该页面</p>
+<p>页面模板：项目模板/hplus-master/login.html</p>
+<p>页面完整代码：frame/login.html</p>
+<p>说明：</p>
+<p>1，Spring Security登录的默认用户名密码字段为：username、password，默认提交请求地址：/login，这样我们都不要去更改，如果更改的话需在上面的配置方法中更改。</p>
+<p>2、用户名密码错误url会错误标识：error，可用作提示信息</p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">xmlns:th</span><span class="o">=</span><span class="s">&quot;http://www.thymeleaf.org&quot;</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">head</span> <span class="na">th:include</span><span class="o">=</span><span class="s">&quot;common/head :: head&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">body</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;gray-bg&quot;</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;middle-box text-center loginscreen  animated fadeInDown&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+
+                <span class="p">&lt;</span><span class="nt">h1</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;logo-name&quot;</span><span class="p">&gt;</span>房<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+
+            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>欢迎使用 尚好房平台管理系统<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+
+            <span class="p">&lt;</span><span class="nt">form</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;m-t&quot;</span> <span class="na">role</span><span class="o">=</span><span class="s">&quot;form&quot;</span> <span class="na">th:action</span><span class="o">=</span><span class="s">&quot;@{/login}&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">label</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;color:red;&quot;</span> <span class="na">th:if</span><span class="o">=</span><span class="s">&quot;${param.error}&quot;</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;用户名或密码错误&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-group&quot;</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;username&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;admin&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;用户名&quot;</span> <span class="na">required</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-group&quot;</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;password&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;password&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;123456&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;密码&quot;</span> <span class="na">required</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn btn-primary block full-width m-b&quot;</span><span class="p">&gt;</span>登 录<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+
+
+                <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-muted text-center&quot;</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;javascript:&quot;</span><span class="p">&gt;&lt;</span><span class="nt">small</span><span class="p">&gt;</span>忘记密码了？<span class="p">&lt;/</span><span class="nt">small</span><span class="p">&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;</span> | <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;javascript:&quot;</span><span class="p">&gt;</span>注册一个新账号<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+
+            <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+<h3 id="4_1">4、从数据库中查询用户信息<a class="headerlink" href="#4_1" title="Permanent link">&para;</a></h3>
+<h4 id="41_1">4.1、注释掉内存分配用户名密码方法<a class="headerlink" href="#41_1" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1">//    @Override</span>
+<span class="c1">//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {</span>
+<span class="c1">//        auth.inMemoryAuthentication()</span>
+<span class="c1">//                .withUser(&quot;user&quot;)</span>
+<span class="c1">//                .password(new BCryptPasswordEncoder().encode(&quot;user&quot;))</span>
+<span class="c1">//                .roles(&quot;&quot;);</span>
+<span class="c1">//</span>
+<span class="c1">//    }</span>
+</code></pre></div>
+<h4 id="42_1">4.2、定义根据用户名获取用户信息接口<a class="headerlink" href="#42_1" title="Permanent link">&para;</a></h4>
+<h5 id="421service">4.2.1、定义service接口<a class="headerlink" href="#421service" title="Permanent link">&para;</a></h5>
+<p>AdminService</p>
+<div class="highlight"><pre><span></span><code><span class="n">Admin</span> <span class="nf">getByUsername</span><span class="p">(</span><span class="n">String</span> <span class="n">username</span><span class="p">);</span>
+</code></pre></div>
+<h5 id="422service">4.2.2、定义service接口实现<a class="headerlink" href="#422service" title="Permanent link">&para;</a></h5>
+<p>AdminServiceImpl</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="n">Admin</span> <span class="nf">getByUsername</span><span class="p">(</span><span class="n">String</span> <span class="n">username</span><span class="p">)</span> <span class="p">{</span>
+   <span class="k">return</span> <span class="n">adminDao</span><span class="p">.</span><span class="na">getByUsername</span><span class="p">(</span><span class="n">username</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h5 id="423dao">4.2.3、dao层接口<a class="headerlink" href="#423dao" title="Permanent link">&para;</a></h5>
+<p>AdminDao</p>
+<div class="highlight"><pre><span></span><code><span class="n">Admin</span> <span class="nf">getByUsername</span><span class="p">(</span><span class="n">String</span> <span class="n">username</span><span class="p">);</span>
+</code></pre></div>
+<h5 id="424daoxml">4.2.4、dao层xml<a class="headerlink" href="#424daoxml" title="Permanent link">&para;</a></h5>
+<p>AdminDao.xml</p>
+<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="n">select</span> <span class="n">id</span><span class="o">=</span><span class="s">&quot;getByUsername&quot;</span> <span class="n">resultMap</span><span class="o">=</span><span class="s">&quot;Admin&quot;</span><span class="o">&gt;</span>
+   <span class="n">select</span> <span class="o">&lt;</span><span class="n">include</span> <span class="n">refid</span><span class="o">=</span><span class="s">&quot;columns&quot;</span> <span class="o">/&gt;</span>
+   <span class="n">from</span> <span class="n">acl_admin</span>
+   <span class="n">where</span>
+   <span class="n">username</span> <span class="o">=</span> <span class="err">#</span><span class="p">{</span><span class="n">username</span><span class="p">}</span>
+   <span class="n">and</span> <span class="n">is_deleted</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="o">&lt;/</span><span class="n">select</span><span class="o">&gt;</span>
+</code></pre></div>
+<h4 id="43userdetailsservice">4.3、实现UserDetailsService接口<a class="headerlink" href="#43userdetailsservice" title="Permanent link">&para;</a></h4>
+<p>Spring Security支持通过实现UserDetailsService接口的方式来提供用户认证授权信息</p>
+<h5 id="431userdetailsserviceimpl">4.3.1、新建UserDetailsServiceImpl类<a class="headerlink" href="#431userdetailsserviceimpl" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">com.atguigu.config</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">com.alibaba.dubbo.config.annotation.Reference</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">com.atguigu.entity.Admin</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">com.atguigu.service.AdminService</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.core.authority.AuthorityUtils</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.core.userdetails.User</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.core.userdetails.UserDetails</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.core.userdetails.UserDetailsService</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.core.userdetails.UsernameNotFoundException</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Component</span><span class="p">;</span>
+
+
+<span class="nd">@Component</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserDetailsServiceImpl</span> <span class="kd">implements</span> <span class="n">UserDetailsService</span> <span class="p">{</span>
+
+    <span class="nd">@Reference</span>
+    <span class="kd">private</span> <span class="n">AdminService</span> <span class="n">adminService</span><span class="p">;</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">UserDetails</span> <span class="nf">loadUserByUsername</span><span class="p">(</span><span class="n">String</span> <span class="n">username</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">UsernameNotFoundException</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;username-----&gt;&quot;</span><span class="o">+</span><span class="n">username</span><span class="p">);</span>
+        <span class="n">Admin</span> <span class="n">admin</span> <span class="o">=</span> <span class="n">adminService</span><span class="p">.</span><span class="na">getByUsername</span><span class="p">(</span><span class="n">username</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="kc">null</span> <span class="o">==</span> <span class="n">admin</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="n">UsernameNotFoundException</span><span class="p">(</span><span class="s">&quot;用户名不存在！&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">User</span><span class="p">(</span><span class="n">username</span><span class="p">,</span><span class="n">admin</span><span class="p">.</span><span class="na">getPassword</span><span class="p">(),</span>
+                <span class="n">AuthorityUtils</span><span class="p">.</span><span class="na">commaSeparatedStringToAuthorityList</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h5 id="432">4.3.2、调整添加用户设置密码<a class="headerlink" href="#432" title="Permanent link">&para;</a></h5>
+<p>前面添加用户是我们没有对密码进行加密处理，现在改造。删除未加密的数据记录，重新创建用户信息</p>
+<p>修改AdminController类save方法</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@Autowired</span>
+<span class="kd">private</span> <span class="n">PasswordEncoder</span> <span class="n">passwordEncoder</span><span class="p">;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nd">@PostMapping</span><span class="p">(</span><span class="s">&quot;/save&quot;</span><span class="p">)</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">save</span><span class="p">(</span><span class="n">Admin</span> <span class="n">admin</span><span class="p">,</span> <span class="n">HttpServletRequest</span> <span class="n">request</span><span class="p">)</span> <span class="p">{</span>
+   <span class="n">admin</span><span class="p">.</span><span class="na">setPassword</span><span class="p">(</span><span class="n">passwordEncoder</span><span class="p">.</span><span class="na">encode</span><span class="p">(</span><span class="n">admin</span><span class="p">.</span><span class="na">getPassword</span><span class="p">()));</span>
+   <span class="c1">//设置默认头像</span>
+   <span class="n">admin</span><span class="p">.</span><span class="na">setHeadUrl</span><span class="p">(</span><span class="s">&quot;http://47.93.148.192:8080/group1/M00/03/F0/rBHu8mHqbpSAU0jVAAAgiJmKg0o148.jpg&quot;</span><span class="p">);</span>
+   <span class="n">adminService</span><span class="p">.</span><span class="na">insert</span><span class="p">(</span><span class="n">admin</span><span class="p">);</span>
+
+   <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">successPage</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">MESSAGE_SUCCESS</span><span class="p">,</span> <span class="n">request</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="44">4.4、获取当前用户<a class="headerlink" href="#44" title="Permanent link">&para;</a></h4>
+<p>上面实现了数据库中校验用户名密码，登录成功后怎么获取用户信息呢？</p>
+<div class="highlight"><pre><span></span><code><span class="n">Authentication</span> <span class="n">authentication</span> <span class="o">=</span> <span class="n">SecurityContextHolder</span><span class="p">.</span><span class="na">getContext</span><span class="p">().</span><span class="na">getAuthentication</span><span class="p">();</span>
+<span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="p">(</span><span class="n">User</span><span class="p">)</span><span class="n">authentication</span><span class="p">.</span><span class="na">getPrincipal</span><span class="p">();</span>
+</code></pre></div>
+<p>User为：org.springframework.security.core.userdetails.User</p>
+<p>这样就能获取到当前登录用户的信息，我们可以定义一个controller方法，获取当前用户信息，便于获取。</p>
+<p>在IndexController类定义方法</p>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * 获取当前登录信息</span>
+<span class="cm"> * @return</span>
+<span class="cm"> */</span>
+<span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;getInfo&quot;</span><span class="p">)</span>
+<span class="nd">@ResponseBody</span>
+<span class="kd">public</span> <span class="n">Object</span> <span class="nf">getInfo</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">Authentication</span> <span class="n">authentication</span> <span class="o">=</span> <span class="n">SecurityContextHolder</span><span class="p">.</span><span class="na">getContext</span><span class="p">().</span><span class="na">getAuthentication</span><span class="p">();</span>
+
+    <span class="k">return</span> <span class="n">authentication</span><span class="p">.</span><span class="na">getPrincipal</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>登录成功后访问：<a href="http://localhost:8080/getInfo">http://localhost:8080/getInfo</a></p>
+<p>{
+    "accountNonExpired": true,
+    "accountNonLocked": true,
+    "authorities": [],
+    "credentialsNonExpired": true,
+    "enabled": true,
+    "username": "admin"
+}</p>
+<h4 id="45">4.5、更改左侧菜单权限方法<a class="headerlink" href="#45" title="Permanent link">&para;</a></h4>
+<p>之前获取左侧菜单我们是写死了的，目前可以动态获取当前用户了</p>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * 框架首页</span>
+<span class="cm"> *</span>
+<span class="cm"> * @return</span>
+<span class="cm"> */</span>
+<span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">)</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">index</span><span class="p">(</span><span class="n">ModelMap</span> <span class="n">model</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">//后续替换为当前登录用户id</span>
+    <span class="n">Authentication</span> <span class="n">authentication</span> <span class="o">=</span> <span class="n">SecurityContextHolder</span><span class="p">.</span><span class="na">getContext</span><span class="p">().</span><span class="na">getAuthentication</span><span class="p">();</span>
+    <span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="p">(</span><span class="n">User</span><span class="p">)</span><span class="n">authentication</span><span class="p">.</span><span class="na">getPrincipal</span><span class="p">();</span>
+    <span class="n">Admin</span> <span class="n">admin</span> <span class="o">=</span> <span class="n">adminService</span><span class="p">.</span><span class="na">getByUsername</span><span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="na">getUsername</span><span class="p">());</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">Permission</span><span class="o">&gt;</span> <span class="n">permissionList</span> <span class="o">=</span> <span class="n">permissionService</span><span class="p">.</span><span class="na">findMenuPermissionByAdminId</span><span class="p">(</span><span class="n">admin</span><span class="p">.</span><span class="na">getId</span><span class="p">());</span>
+    <span class="n">model</span><span class="p">.</span><span class="na">addAttribute</span><span class="p">(</span><span class="s">&quot;admin&quot;</span><span class="p">,</span> <span class="n">admin</span><span class="p">);</span>
+    <span class="n">model</span><span class="p">.</span><span class="na">addAttribute</span><span class="p">(</span><span class="s">&quot;permissionList&quot;</span><span class="p">,</span><span class="n">permissionList</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">PAGE_INDEX</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="5">5、用户授权<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
+<p>前面我们使用了用户认证，现在我们要实现用户授权，即：哪些controller方法可以访问，哪些不能访问，哪些页面按钮显示，哪些不显示。</p>
+<p>首先我们要告诉Spring Security当前用户有哪些权限。</p>
+<h4 id="51">5.1、获取用户权限<a class="headerlink" href="#51" title="Permanent link">&para;</a></h4>
+<h5 id="511service">5.1.1、定义service接口<a class="headerlink" href="#511service" title="Permanent link">&para;</a></h5>
+<p>PermissionService</p>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> *  获取用户功能权限</span>
+<span class="cm"> * @param adminId</span>
+<span class="cm"> * @return</span>
+<span class="cm"> */</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="nf">findCodeListByAdminId</span><span class="p">(</span><span class="n">Long</span> <span class="n">adminId</span><span class="p">);</span>
+</code></pre></div>
+<h5 id="512service">5.1.2、定义service接口实现<a class="headerlink" href="#512service" title="Permanent link">&para;</a></h5>
+<p>PermissionServiceImpl</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="nf">findCodeListByAdminId</span><span class="p">(</span><span class="n">Long</span> <span class="n">adminId</span><span class="p">)</span> <span class="p">{</span>
+   <span class="c1">//超级管理员admin账号id为：1</span>
+   <span class="k">if</span><span class="p">(</span><span class="n">adminId</span><span class="p">.</span><span class="na">longValue</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n">permissionDao</span><span class="p">.</span><span class="na">findAllCodeList</span><span class="p">();</span>
+   <span class="p">}</span>
+   <span class="k">return</span> <span class="n">permissionDao</span><span class="p">.</span><span class="na">findCodeListByAdminId</span><span class="p">(</span><span class="n">adminId</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h5 id="512dao">5.1.2、dao层接口<a class="headerlink" href="#512dao" title="Permanent link">&para;</a></h5>
+<p>PermissionDao</p>
+<div class="highlight"><pre><span></span><code><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="nf">findAllCodeList</span><span class="p">();</span>
+
+<span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="nf">findCodeListByAdminId</span><span class="p">(</span><span class="n">Long</span> <span class="n">adminId</span><span class="p">);</span>
+</code></pre></div>
+<h5 id="512daoxml">5.1.2、dao层xml<a class="headerlink" href="#512daoxml" title="Permanent link">&para;</a></h5>
+<p>PermissionDao.xml</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;select</span> <span class="na">id=</span><span class="s">&quot;findAllCodeList&quot;</span> <span class="na">resultType=</span><span class="s">&quot;String&quot;</span><span class="nt">&gt;</span>
+       select
+   code
+   from acl_permission
+   where
+   type =2
+   and is_deleted = 0
+   <span class="nt">&lt;/select&gt;</span>
+
+<span class="nt">&lt;select</span> <span class="na">id=</span><span class="s">&quot;findCodeListByAdminId&quot;</span> <span class="na">resultType=</span><span class="s">&quot;String&quot;</span><span class="nt">&gt;</span>
+       select
+   distinct c.code
+   from acl_admin_role a
+   inner join acl_role_permission b on b.role_id = a.role_id
+   inner join acl_permission c on c.id = b.permission_id
+   where
+   a.admin_id = #{adminId}
+   and c.type =2
+   and a.is_deleted = 0
+   and b.is_deleted = 0
+   and c.is_deleted = 0
+   <span class="nt">&lt;/select&gt;</span>
+</code></pre></div>
+<h4 id="52">5.2、设置用户权限<a class="headerlink" href="#52" title="Permanent link">&para;</a></h4>
+<p>修改UserDetailsServiceImpl类</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@Reference</span>
+<span class="kd">private</span> <span class="n">PermissionService</span> <span class="n">permissionService</span><span class="p">;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="n">UserDetails</span> <span class="nf">loadUserByUsername</span><span class="p">(</span><span class="n">String</span> <span class="n">username</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">UsernameNotFoundException</span> <span class="p">{</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;username-----&gt;&quot;</span><span class="o">+</span><span class="n">username</span><span class="p">);</span>
+    <span class="n">Admin</span> <span class="n">admin</span> <span class="o">=</span> <span class="n">adminService</span><span class="p">.</span><span class="na">getByUsername</span><span class="p">(</span><span class="n">username</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="kc">null</span> <span class="o">==</span> <span class="n">admin</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="n">UsernameNotFoundException</span><span class="p">(</span><span class="s">&quot;用户名不存在！&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">//用户功能权限</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">codeList</span> <span class="o">=</span> <span class="n">permissionService</span><span class="p">.</span><span class="na">findCodeListByAdminId</span><span class="p">(</span><span class="n">admin</span><span class="p">.</span><span class="na">getId</span><span class="p">());</span>
+    <span class="n">Collection</span><span class="o">&lt;</span><span class="n">GrantedAuthority</span><span class="o">&gt;</span> <span class="n">authorities</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+    <span class="k">for</span><span class="p">(</span><span class="n">String</span> <span class="n">code</span> <span class="p">:</span> <span class="n">codeList</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">StringUtils</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">(</span><span class="n">code</span><span class="p">))</span> <span class="k">continue</span><span class="p">;</span>
+        <span class="n">SimpleGrantedAuthority</span> <span class="n">authority</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SimpleGrantedAuthority</span><span class="p">(</span><span class="n">code</span><span class="p">);</span>
+        <span class="n">authorities</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">authority</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">User</span><span class="p">(</span><span class="n">username</span><span class="p">,</span><span class="n">admin</span><span class="p">.</span><span class="na">getPassword</span><span class="p">(),</span><span class="n">authorities</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="53">5.3、测试<a class="headerlink" href="#53" title="Permanent link">&para;</a></h4>
+<p>重启服务</p>
+<p>登录成功后访问：<a href="http://localhost:8080/getInfo">http://localhost:8080/getInfo</a></p>
+<p>目前authorities参数里面就有我们的权限值了，怎么使用呢？</p>
+<h4 id="54controller">5.4、controller方法权限控制<a class="headerlink" href="#54controller" title="Permanent link">&para;</a></h4>
+<p>前面Spring Security已经加载了功能权限数据，下面我们来看使用</p>
+<h5 id="541controller">5.4.1、开启controller方法权限控制<a class="headerlink" href="#541controller" title="Permanent link">&para;</a></h5>
+<p>WebSecurityConfig类添加开启标签</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@EnableGlobalMethodSecurity</span><span class="p">(</span><span class="n">prePostEnabled</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span>
+</code></pre></div>
+<h5 id="542controller">5.4.2、controller方法添加权限注解<a class="headerlink" href="#542controller" title="Permanent link">&para;</a></h5>
+<p>以角色管理增删改查等为例</p>
+<p>RoleController</p>
+<p>功能权限数据我们已经配置到数据库表，自行查看</p>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * 列表</span>
+<span class="cm"> * @param model</span>
+<span class="cm"> * @param request</span>
+<span class="cm"> * @return</span>
+<span class="cm"> */</span>
+<span class="nd">@PreAuthorize</span><span class="p">(</span><span class="s">&quot;hasAuthority(&#39;role.show&#39;)&quot;</span><span class="p">)</span>
+   <span class="nd">@RequestMapping</span>
+   <span class="kd">public</span> <span class="n">String</span> <span class="nf">index</span><span class="p">(</span><span class="n">ModelMap</span> <span class="n">model</span><span class="p">,</span> <span class="n">HttpServletRequest</span> <span class="n">request</span><span class="p">)</span> <span class="p">{</span>
+       <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">filters</span> <span class="o">=</span> <span class="n">getFilters</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+       <span class="n">PageInfo</span><span class="o">&lt;</span><span class="n">Role</span><span class="o">&gt;</span> <span class="n">page</span> <span class="o">=</span> <span class="n">roleService</span><span class="p">.</span><span class="na">findPage</span><span class="p">(</span><span class="n">filters</span><span class="p">);</span>
+
+       <span class="n">model</span><span class="p">.</span><span class="na">addAttribute</span><span class="p">(</span><span class="s">&quot;page&quot;</span><span class="p">,</span> <span class="n">page</span><span class="p">);</span>
+       <span class="n">model</span><span class="p">.</span><span class="na">addAttribute</span><span class="p">(</span><span class="s">&quot;filters&quot;</span><span class="p">,</span> <span class="n">filters</span><span class="p">);</span>
+       <span class="k">return</span> <span class="n">PAGE_INDEX</span><span class="p">;</span>
+   <span class="p">}</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * 进入新增</span>
+<span class="cm"> * @param model</span>
+<span class="cm"> * @return</span>
+<span class="cm"> */</span>
+<span class="nd">@PreAuthorize</span><span class="p">(</span><span class="s">&quot;hasAuthority(&#39;role.create&#39;)&quot;</span><span class="p">)</span>
+<span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/create&quot;</span><span class="p">)</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">create</span><span class="p">(</span><span class="n">ModelMap</span> <span class="n">model</span><span class="p">)</span> <span class="p">{</span>
+   <span class="k">return</span> <span class="n">PAGE_CREATE</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * 保存新增</span>
+<span class="cm"> * @param role</span>
+<span class="cm"> * @param request</span>
+<span class="cm"> * @return</span>
+<span class="cm"> */</span>
+<span class="nd">@PreAuthorize</span><span class="p">(</span><span class="s">&quot;hasAuthority(&#39;role.create&#39;)&quot;</span><span class="p">)</span>
+<span class="nd">@PostMapping</span><span class="p">(</span><span class="s">&quot;/save&quot;</span><span class="p">)</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">save</span><span class="p">(</span><span class="n">Role</span> <span class="n">role</span><span class="p">)</span> <span class="p">{</span>
+   <span class="n">roleService</span><span class="p">.</span><span class="na">insert</span><span class="p">(</span><span class="n">role</span><span class="p">);</span>
+       <span class="k">return</span> <span class="n">PAGE_SUCCESS</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * 编辑</span>
+<span class="cm"> * @param model</span>
+<span class="cm"> * @param id</span>
+<span class="cm"> * @return</span>
+<span class="cm"> */</span>
+<span class="nd">@PreAuthorize</span><span class="p">(</span><span class="s">&quot;hasAuthority(&#39;role.edit&#39;)&quot;</span><span class="p">)</span>
+<span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/edit/{id}&quot;</span><span class="p">)</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">edit</span><span class="p">(</span><span class="n">ModelMap</span> <span class="n">model</span><span class="p">,</span><span class="nd">@PathVariable</span> <span class="n">Long</span> <span class="n">id</span><span class="p">)</span> <span class="p">{</span>
+   <span class="n">Role</span> <span class="n">role</span> <span class="o">=</span> <span class="n">roleService</span><span class="p">.</span><span class="na">getById</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+   <span class="n">model</span><span class="p">.</span><span class="na">addAttribute</span><span class="p">(</span><span class="s">&quot;role&quot;</span><span class="p">,</span><span class="n">role</span><span class="p">);</span>
+   <span class="k">return</span> <span class="n">PAGE_EDIT</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * 保存更新</span>
+<span class="cm"> * @param id</span>
+<span class="cm"> * @param role</span>
+<span class="cm"> * @param request</span>
+<span class="cm"> * @return</span>
+<span class="cm"> */</span>
+<span class="nd">@PreAuthorize</span><span class="p">(</span><span class="s">&quot;hasAuthority(&#39;role.edit&#39;)&quot;</span><span class="p">)</span>
+<span class="nd">@PostMapping</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s">&quot;/update&quot;</span><span class="p">)</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">update</span><span class="p">(</span><span class="n">Role</span> <span class="n">role</span><span class="p">)</span> <span class="p">{</span>
+   <span class="n">roleService</span><span class="p">.</span><span class="na">update</span><span class="p">(</span><span class="n">role</span><span class="p">);</span>
+       <span class="k">return</span> <span class="n">PAGE_SUCCESS</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * 删除</span>
+<span class="cm"> * @param id</span>
+<span class="cm"> * @return</span>
+<span class="cm"> */</span>
+<span class="nd">@PreAuthorize</span><span class="p">(</span><span class="s">&quot;hasAuthority(&#39;role.delete&#39;)&quot;</span><span class="p">)</span>
+<span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/delete/{id}&quot;</span><span class="p">)</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">delete</span><span class="p">(</span><span class="nd">@PathVariable</span> <span class="n">Long</span> <span class="n">id</span><span class="p">)</span> <span class="p">{</span>
+   <span class="n">roleService</span><span class="p">.</span><span class="na">delete</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+   <span class="k">return</span> <span class="n">LIST_ACTION</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * 进入分配权限页面</span>
+<span class="cm"> * @param roleId</span>
+<span class="cm"> * @return</span>
+<span class="cm"> */</span>
+<span class="nd">@PreAuthorize</span><span class="p">(</span><span class="s">&quot;hasAuthority(&#39;role.assgin&#39;)&quot;</span><span class="p">)</span>
+<span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/assignShow/{roleId}&quot;</span><span class="p">)</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">assignShow</span><span class="p">(</span><span class="n">ModelMap</span> <span class="n">model</span><span class="p">,</span><span class="nd">@PathVariable</span> <span class="n">Long</span> <span class="n">roleId</span><span class="p">)</span> <span class="p">{</span>
+   <span class="n">List</span><span class="o">&lt;</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="n">Object</span><span class="o">&gt;&gt;</span> <span class="n">zNodes</span> <span class="o">=</span> <span class="n">permissionService</span><span class="p">.</span><span class="na">findPermissionByRoleId</span><span class="p">(</span><span class="n">roleId</span><span class="p">);</span>
+   <span class="n">model</span><span class="p">.</span><span class="na">addAttribute</span><span class="p">(</span><span class="s">&quot;zNodes&quot;</span><span class="p">,</span> <span class="n">JSON</span><span class="p">.</span><span class="na">toJSONString</span><span class="p">(</span><span class="n">zNodes</span><span class="p">));</span>
+   <span class="n">model</span><span class="p">.</span><span class="na">addAttribute</span><span class="p">(</span><span class="s">&quot;roleId&quot;</span><span class="p">,</span> <span class="n">roleId</span><span class="p">);</span>
+   <span class="k">return</span> <span class="n">PAGE_ASSGIN_SHOW</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * 给角色分配权限</span>
+<span class="cm"> * @param roleId</span>
+<span class="cm"> * @param permissionIds</span>
+<span class="cm"> * @return</span>
+<span class="cm"> */</span>
+<span class="nd">@PreAuthorize</span><span class="p">(</span><span class="s">&quot;hasAuthority(&#39;role.assgin&#39;)&quot;</span><span class="p">)</span>
+<span class="nd">@PostMapping</span><span class="p">(</span><span class="s">&quot;/assignPermission&quot;</span><span class="p">)</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">assignPermission</span><span class="p">(</span><span class="n">Long</span> <span class="n">roleId</span><span class="p">,</span><span class="n">Long</span><span class="o">[]</span> <span class="n">permissionIds</span><span class="p">)</span> <span class="p">{</span>
+   <span class="n">permissionService</span><span class="p">.</span><span class="na">saveRolePermissionRealtionShip</span><span class="p">(</span><span class="n">roleId</span><span class="p">,</span> <span class="n">permissionIds</span><span class="p">);</span>
+   <span class="k">return</span> <span class="n">PAGE_SUCCESS</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h5 id="543">5.4.3、测试<a class="headerlink" href="#543" title="Permanent link">&para;</a></h5>
+<p>目前已admin登录，这些权限都有，点击角色管理相关功能都能正常访问。</p>
+<p>切换用户，只分配角色查看权限，退出登录，查看角色相关功能。</p>
+<p><img alt="image-20220222203827695" src="../images/10.spring%20security/image-20220222203827695.png" /></p>
+<p>不能访问了，提示403错误状态，表示没有访问权限。</p>
+<h5 id="544">5.4.4、友好提示<a class="headerlink" href="#544" title="Permanent link">&para;</a></h5>
+<p>上面这样提示很不友好，我们自定义提示页面。</p>
+<h6 id="5441">5.4.4.1、定义页面<a class="headerlink" href="#5441" title="Permanent link">&para;</a></h6>
+<p>1、IndexController添加方法</p>
+<div class="highlight"><pre><span></span><code><span class="kd">private</span> <span class="kd">final</span> <span class="kd">static</span> <span class="n">String</span> <span class="n">PAGE_AUTH</span>     <span class="o">=</span> <span class="s">&quot;frame/auth&quot;</span><span class="p">;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/auth&quot;</span><span class="p">)</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">auth</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">PAGE_AUTH</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>2、frame添加页面auth.html</p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;position: relative;&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;text-align:center;margin-top: 100px;font-size: 20px;&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>没有权限<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+<h6 id="5442accessdeniedhandler">5.4.4.2、实现AccessDeniedHandler接口<a class="headerlink" href="#5442accessdeniedhandler" title="Permanent link">&para;</a></h6>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">com.atguigu.config</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.security.access.AccessDeniedException</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.web.access.AccessDeniedHandler</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.servlet.ServletException</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletRequest</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletResponse</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="p">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * 未授权的统一处理方式</span>
+<span class="cm"> *</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CustomAccessDeineHandler</span> <span class="kd">implements</span> <span class="n">AccessDeniedHandler</span> <span class="p">{</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">handle</span><span class="p">(</span><span class="n">HttpServletRequest</span> <span class="n">request</span><span class="p">,</span> <span class="n">HttpServletResponse</span> <span class="n">response</span><span class="p">,</span>
+                       <span class="n">AccessDeniedException</span> <span class="n">accessDeniedException</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="p">{</span>
+        <span class="n">response</span><span class="p">.</span><span class="na">sendRedirect</span><span class="p">(</span><span class="s">&quot;/auth&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+<h6 id="5443accessdeniedhandler">5.4.4.3、配置AccessDeniedHandler接口实现类<a class="headerlink" href="#5443accessdeniedhandler" title="Permanent link">&para;</a></h6>
+<p>//配置异常类
+http.exceptionHandling().accessDeniedHandler(new CustomAccessDeineHandler());</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">configure</span><span class="p">(</span><span class="n">HttpSecurity</span> <span class="n">http</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="p">{</span>
+    <span class="c1">//允许iframe嵌套显示</span>
+    <span class="n">http</span><span class="p">.</span><span class="na">headers</span><span class="p">().</span><span class="na">frameOptions</span><span class="p">().</span><span class="na">disable</span><span class="p">();</span>
+    <span class="c1">//登录设置</span>
+    <span class="n">http</span>
+            <span class="p">.</span><span class="na">authorizeRequests</span><span class="p">()</span>
+            <span class="p">.</span><span class="na">antMatchers</span><span class="p">(</span><span class="s">&quot;/static/**&quot;</span><span class="p">,</span><span class="s">&quot;/login&quot;</span><span class="p">).</span><span class="na">permitAll</span><span class="p">()</span>  <span class="c1">//允许匿名用户访问的路径</span>
+            <span class="p">.</span><span class="na">anyRequest</span><span class="p">().</span><span class="na">authenticated</span><span class="p">()</span>    <span class="c1">// 其它页面全部需要验证</span>
+            <span class="p">.</span><span class="na">and</span><span class="p">()</span>
+            <span class="p">.</span><span class="na">formLogin</span><span class="p">()</span>
+            <span class="p">.</span><span class="na">loginPage</span><span class="p">(</span><span class="s">&quot;/login&quot;</span><span class="p">)</span>    <span class="c1">//用户未登录时，访问任何需要权限的资源都转跳到该路径，即登录页面，此时登陆成功后会继续跳转到第一次访问的资源页面（相当于被过滤了一下）</span>
+            <span class="p">.</span><span class="na">defaultSuccessUrl</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">)</span> <span class="c1">//登录认证成功后默认转跳的路径，意思时admin登录后也跳转到/user</span>
+            <span class="p">.</span><span class="na">and</span><span class="p">()</span>
+            <span class="p">.</span><span class="na">logout</span><span class="p">()</span>
+            <span class="p">.</span><span class="na">logoutUrl</span><span class="p">(</span><span class="s">&quot;/logout&quot;</span><span class="p">)</span>   <span class="c1">//退出登陆的路径，指定spring security拦截的注销url,退出功能是security提供的</span>
+            <span class="p">.</span><span class="na">logoutSuccessUrl</span><span class="p">(</span><span class="s">&quot;/login&quot;</span><span class="p">);</span><span class="c1">//用户退出后要被重定向的url</span>
+            <span class="p">.</span><span class="na">end</span><span class="p">()</span>
+            <span class="p">.</span><span class="na">csrf</span><span class="p">().</span><span class="na">disable</span><span class="p">();</span><span class="c1">//关闭跨域请求伪造功能</span>
+
+    <span class="c1">//添加自定义异常入口</span>
+    <span class="n">http</span><span class="p">.</span><span class="na">exceptionHandling</span><span class="p">().</span><span class="na">accessDeniedHandler</span><span class="p">(</span><span class="k">new</span> <span class="n">CustomAccessDeineHandler</span><span class="p">());</span>
+<span class="p">}</span>
+</code></pre></div>
+<h6 id="5444">5.4.4.4、测试<a class="headerlink" href="#5444" title="Permanent link">&para;</a></h6>
+<p>测试成功</p>
+<p><img alt="image-20220222204918137" src="../images/10.spring%20security/image-20220222204918137.png" /></p>
+<h4 id="55">5.5、页面功能按钮权限控制<a class="headerlink" href="#55" title="Permanent link">&para;</a></h4>
+<p>上面我们完成了controller层方法的权限，现在我们要控制页面按钮的权限，如：角色管理上面只有查看权限，那么页面新增、修改、删除、分配权限按都不显示。</p>
+<p>怎么实现呢？其实Spring Security已经给我们封装好了标签库，我们直接使用即可。</p>
+<h5 id="551shf-parent">5.5.1、shf-parent添加依赖管理<a class="headerlink" href="#551shf-parent" title="Permanent link">&para;</a></h5>
+<p>pom.xml</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;thymeleaf-springsecurity5.version&gt;</span>3.0.4.RELEASE<span class="nt">&lt;/thymeleaf-springsecurity5.version&gt;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="cm">&lt;!--用于springsecurity5标签--&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.thymeleaf.extras<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>thymeleaf-extras-springsecurity5<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>${thymeleaf-springsecurity5.version}<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div>
+<h5 id="552web-admin">5.5.2、web-admin引入依赖<a class="headerlink" href="#552web-admin" title="Permanent link">&para;</a></h5>
+<p>pom.xml</p>
+<div class="highlight"><pre><span></span><code><span class="cm">&lt;!--用于springsecurity5标签--&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.thymeleaf.extras<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>thymeleaf-extras-springsecurity5<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div>
+<h5 id="553spring-security">5.5.3、模板引擎配置spring security 标签支持<a class="headerlink" href="#553spring-security" title="Permanent link">&para;</a></h5>
+<p>修改spring-mvc.xml，在模板引擎配置spring security 标签支持</p>
+<div class="highlight"><pre><span></span><code><span class="cm">&lt;!--配置模板引擎--&gt;</span>
+<span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&quot;templateEngine&quot;</span> <span class="na">class=</span><span class="s">&quot;org.thymeleaf.spring5.SpringTemplateEngine&quot;</span><span class="nt">&gt;</span>
+    <span class="cm">&lt;!--引用视图解析器--&gt;</span>
+    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;templateResolver&quot;</span> <span class="na">ref=</span><span class="s">&quot;templateResolver&quot;</span><span class="nt">&gt;&lt;/property&gt;</span>
+    <span class="cm">&lt;!-- 添加spring security 标签支持：sec --&gt;</span>
+    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;additionalDialects&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;set&gt;</span>
+            <span class="nt">&lt;bean</span> <span class="na">class=</span><span class="s">&quot;org.thymeleaf.extras.springsecurity5.dialect.SpringSecurityDialect&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/set&gt;</span>
+    <span class="nt">&lt;/property&gt;</span>
+<span class="nt">&lt;/bean&gt;</span>
+</code></pre></div>
+<h5 id="554">5.5.4、页面按钮控制<a class="headerlink" href="#554" title="Permanent link">&para;</a></h5>
+<p>以角色管理为例。</p>
+<p>使用标签：sec:authorize="hasAuthority('')"与controller层一一对应</p>
+<p>1、在html文件里面申明使用spring-security标签</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">html</span> <span class="na">xmlns:th</span><span class="o">=</span><span class="s">&quot;http://www.thymeleaf.org&quot;</span>
+      <span class="na">xmlns:sec</span><span class="o">=</span><span class="s">&quot;http://www.thymeleaf.org/extras/spring-security&quot;</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>2、按钮上使用标签</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn btn-sm btn-primary create&quot;</span> <span class="na">sec:authorize</span><span class="o">=</span><span class="s">&quot;hasAuthority(&#39;role.create&#39;)&quot;</span><span class="p">&gt;</span>新增<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;edit&quot;</span> <span class="na">th:attr</span><span class="o">=</span><span class="s">&quot;data-id=${item.id}&quot;</span> <span class="na">sec:authorize</span><span class="o">=</span><span class="s">&quot;hasAuthority(&#39;role.edit&#39;)&quot;</span><span class="p">&gt;</span>修改<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;delete&quot;</span> <span class="na">th:attr</span><span class="o">=</span><span class="s">&quot;data-id=${item.id}&quot;</span> <span class="na">sec:authorize</span><span class="o">=</span><span class="s">&quot;hasAuthority(&#39;role.delete&#39;)&quot;</span><span class="p">&gt;</span>删除<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;assgin&quot;</span> <span class="na">th:attr</span><span class="o">=</span><span class="s">&quot;data-id=${item.id}&quot;</span> <span class="na">sec:authorize</span><span class="o">=</span><span class="s">&quot;hasAuthority(&#39;role.assgin&#39;)&quot;</span><span class="p">&gt;</span>分配权限<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>3、完整代码</p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">xmlns:th</span><span class="o">=</span><span class="s">&quot;http://www.thymeleaf.org&quot;</span>
+      <span class="na">xmlns:sec</span><span class="o">=</span><span class="s">&quot;http://www.thymeleaf.org/extras/spring-security&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span> <span class="na">th:include</span><span class="o">=</span><span class="s">&quot;common/head :: head&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;gray-bg&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">form</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;ec&quot;</span> <span class="na">th:action</span><span class="o">=</span><span class="s">&quot;@{/role}&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;wrapper wrapper-content animated fadeInRight&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col-sm-12&quot;</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;ibox float-e-margins&quot;</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;ibox-content&quot;</span><span class="p">&gt;</span>
+                        <span class="p">&lt;</span><span class="nt">table</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;table form-table margin-bottom10&quot;</span><span class="p">&gt;</span>
+                            <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+                                <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>
+                                    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;roleName&quot;</span> <span class="na">th:value</span><span class="o">=</span><span class="s">&quot;${#maps.containsKey(filters, &#39;roleName&#39;)} ? ${filters.roleName} : &#39;&#39;&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;角色名称&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;input-sm form-control&quot;</span><span class="p">/&gt;</span>
+                                <span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+                            <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+                        <span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+                        <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+                            <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn btn-sm btn-primary&quot;</span><span class="p">&gt;</span> 搜索<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+                            <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn btn-sm btn-primary create&quot;</span> <span class="na">sec:authorize</span><span class="o">=</span><span class="s">&quot;hasAuthority(&#39;role.create&#39;)&quot;</span><span class="p">&gt;</span>新增<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+                            <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;loading-example-btn&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;javascript:window.location.reload();&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn btn-white btn-sm&quot;</span><span class="p">&gt;</span>刷新<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+                        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+                        <span class="p">&lt;</span><span class="nt">table</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;table table-striped table-bordered table-hover dataTables-example&quot;</span><span class="p">&gt;</span>
+                            <span class="p">&lt;</span><span class="nt">thead</span><span class="p">&gt;</span>
+                            <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+                                <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>序号<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+                                <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>角色名称<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+                                <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>角色编码<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+                                <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>描述<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+                                <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>创建时间<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+                                <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>操作 <span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+                            <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+                            <span class="p">&lt;/</span><span class="nt">thead</span><span class="p">&gt;</span>
+                            <span class="p">&lt;</span><span class="nt">tbody</span><span class="p">&gt;</span>
+                            <span class="p">&lt;</span><span class="nt">tr</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;gradeX&quot;</span> <span class="na">th:each</span><span class="o">=</span><span class="s">&quot;item,it : ${page.list}&quot;</span><span class="p">&gt;</span>
+                                <span class="p">&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-center&quot;</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${it.count}&quot;</span><span class="p">&gt;</span>11<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+                                <span class="p">&lt;</span><span class="nt">td</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${item.roleName}&quot;</span><span class="p">&gt;</span>22<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+                                <span class="p">&lt;</span><span class="nt">td</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${item.roleCode}&quot;</span><span class="p">&gt;</span>33<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+                                <span class="p">&lt;</span><span class="nt">td</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${item.description}&quot;</span><span class="p">&gt;</span>33<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+                                <span class="p">&lt;</span><span class="nt">td</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${#dates.format(item.createTime,&#39;yyyy-MM-dd HH:mm:ss&#39;)}&quot;</span> <span class="p">&gt;</span>33<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+                                <span class="p">&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-center&quot;</span><span class="p">&gt;</span>
+                                    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;edit&quot;</span> <span class="na">th:attr</span><span class="o">=</span><span class="s">&quot;data-id=${item.id}&quot;</span> <span class="na">sec:authorize</span><span class="o">=</span><span class="s">&quot;hasAuthority(&#39;role.edit&#39;)&quot;</span><span class="p">&gt;</span>修改<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+                                    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;delete&quot;</span> <span class="na">th:attr</span><span class="o">=</span><span class="s">&quot;data-id=${item.id}&quot;</span> <span class="na">sec:authorize</span><span class="o">=</span><span class="s">&quot;hasAuthority(&#39;role.delete&#39;)&quot;</span><span class="p">&gt;</span>删除<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+                                    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;assgin&quot;</span> <span class="na">th:attr</span><span class="o">=</span><span class="s">&quot;data-id=${item.id}&quot;</span> <span class="na">sec:authorize</span><span class="o">=</span><span class="s">&quot;hasAuthority(&#39;role.assgin&#39;)&quot;</span><span class="p">&gt;</span>分配权限<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+                                <span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+                            <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+                            <span class="p">&lt;/</span><span class="nt">tbody</span><span class="p">&gt;</span>
+                        <span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+                        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row&quot;</span> <span class="na">th:include</span><span class="o">=</span><span class="s">&quot;common/pagination :: pagination&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+                    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">th:inline</span><span class="o">=</span><span class="s">&quot;javascript&quot;</span><span class="p">&gt;</span>
+    <span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+        <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.create&quot;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="nx">opt</span><span class="p">.</span><span class="nx">openWin</span><span class="p">(</span><span class="s2">&quot;/role/create&quot;</span><span class="p">,</span><span class="s2">&quot;新增&quot;</span><span class="p">,</span><span class="mf">580</span><span class="p">,</span><span class="mf">430</span><span class="p">);</span>
+        <span class="p">});</span>
+        <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.edit&quot;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">id</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;data-id&quot;</span><span class="p">);</span>
+            <span class="nx">opt</span><span class="p">.</span><span class="nx">openWin</span><span class="p">(</span><span class="s1">&#39;/role/edit/&#39;</span> <span class="o">+</span> <span class="nx">id</span><span class="p">,</span><span class="s1">&#39;修改&#39;</span><span class="p">,</span><span class="mf">580</span><span class="p">,</span><span class="mf">430</span><span class="p">);</span>
+        <span class="p">});</span>
+        <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.delete&quot;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span><span class="kd">function</span><span class="p">(){</span>
+            <span class="kd">var</span> <span class="nx">id</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;data-id&quot;</span><span class="p">);</span>
+            <span class="nx">opt</span><span class="p">.</span><span class="nx">confirm</span><span class="p">(</span><span class="s1">&#39;/role/delete/&#39;</span><span class="o">+</span><span class="nx">id</span><span class="p">);</span>
+        <span class="p">});</span>
+        <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.assgin&quot;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">id</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;data-id&quot;</span><span class="p">);</span>
+            <span class="nx">opt</span><span class="p">.</span><span class="nx">openWin</span><span class="p">(</span><span class="s2">&quot;/role/assignShow/&quot;</span><span class="o">+</span><span class="nx">id</span><span class="p">,</span><span class="s1">&#39;修改&#39;</span><span class="p">,</span><span class="mf">580</span><span class="p">,</span><span class="mf">430</span><span class="p">);</span>
+        <span class="p">});</span>
+    <span class="p">});</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+<h5 id="555">5.5.5、测试<a class="headerlink" href="#555" title="Permanent link">&para;</a></h5>
+<p>按钮消失</p>
+<p><img alt="image-20220223093723122" src="../images/10.spring%20security/image-20220223093723122.png" /></p>
+<h4 id="56">5.6、配置功能权限<a class="headerlink" href="#56" title="Permanent link">&para;</a></h4>
+<p>根据acl_permission表数据，参考角色管理配置controller层及页面权限。</p>
+
+              
+			  <hr><span id="busuanzi_container_page_pv"><font size="3" color="grey">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</font></span><br/>
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../9.%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 权限管理" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              权限管理
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../11.session%E5%85%B1%E4%BA%AB/" class="md-footer__link md-footer__link--next" aria-label="Next: session共享" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              session共享
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 尚硅谷
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tabs", "navigation.tabs.sticky"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.1514a9a0.min.js"></script>
+      
+        <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+      
+    
+  </body>
+</html>

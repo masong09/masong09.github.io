@@ -1,0 +1,4964 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.6">
+    
+    
+      
+        <title>git - 我的文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.cd566b2a.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#git" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="我的文档" class="md-header__button md-logo" aria-label="我的文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            我的文档
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              git
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/01%20Java%E6%A6%82%E8%BF%B0/01%20-%20Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0/" class="md-tabs__link md-tabs__link--active">
+        Java课程
+      </a>
+    </li>
+  
+
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC1%E7%AB%A0%20%E9%9D%A2%E8%AF%95%E8%AF%B4%E6%98%8E/" class="md-tabs__link">
+        Java就业面试
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../.." class="md-tabs__link">
+      学习文档
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="我的文档" class="md-nav__button md-logo" aria-label="我的文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    我的文档
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Java课程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Java课程" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Java课程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1" type="checkbox" id="__nav_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1">
+          Java基础
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Java基础" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Java基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1_1" type="checkbox" id="__nav_1_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1_1">
+          基础部分
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="基础部分" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          基础部分
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/01%20Java%E6%A6%82%E8%BF%B0/01%20-%20Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0/" class="md-nav__link">
+        Java概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/02%20%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/02%20%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" class="md-nav__link">
+        基本语法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/03%20%E6%95%B0%E7%BB%84/03%20%E6%95%B0%E7%BB%84/" class="md-nav__link">
+        数组
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/04%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/04%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="md-nav__link">
+        面向对象
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/05%20%E5%BC%82%E5%B8%B8/05%20%E5%BC%82%E5%B8%B8/" class="md-nav__link">
+        异常
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1_2" type="checkbox" id="__nav_1_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1_2">
+          高级部分
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="高级部分" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          高级部分
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/06%20%E5%B8%B8%E7%94%A8%E7%B1%BBAPI/06%20%E5%B8%B8%E7%94%A8%E7%B1%BBAPI/" class="md-nav__link">
+        常用类API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/07%20%E9%9B%86%E5%90%88/07%20%E9%9B%86%E5%90%88/" class="md-nav__link">
+        集合
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/08%20%E6%B3%9B%E5%9E%8B/08%20%E6%B3%9B%E5%9E%8B/" class="md-nav__link">
+        泛型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/09%20File%E7%B1%BB%E4%B8%8EIO%E6%B5%81/09%20File%E7%B1%BB%E4%B8%8EIO%E6%B5%81/" class="md-nav__link">
+        File类与IO流
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/10%20%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/10%20%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" class="md-nav__link">
+        网络编程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/11%20%E5%A4%9A%E7%BA%BF%E7%A8%8B/11%20%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="md-nav__link">
+        多线程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/12%20%E5%8F%8D%E5%B0%84/12%20%E5%8F%8D%E5%B0%84/" class="md-nav__link">
+        反射
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/13%20Java8%E6%96%B0%E7%89%B9%E6%80%A7/Java8%E6%96%B0%E7%89%B9%E6%80%A7/" class="md-nav__link">
+        Java8新特性
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2" type="checkbox" id="__nav_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_2">
+          MySQL数据库
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="MySQL数据库" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          MySQL数据库
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/14%20MySQL/MySQL5.7%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/" class="md-nav__link">
+        MySQL5.7安装文档
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/14%20MySQL/MySQL%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        MySQL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/14%20MySQL/JDBC%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        JDBC
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_3" type="checkbox" id="__nav_1_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_3">
+          JavaWeb阶段
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="JavaWeb阶段" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          JavaWeb阶段
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../JavaWeb%E9%98%B6%E6%AE%B5/day01/day01_HTML%26CSS/" class="md-nav__link">
+        HTML&CSS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../JavaWeb%E9%98%B6%E6%AE%B5/day02/day02_JS%26%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="md-nav__link">
+        JS&正则表达式
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../JavaWeb%E9%98%B6%E6%AE%B5/day03/day03_VUE%26%E4%B9%A6%E5%9F%8E%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        VUE&书城第一阶段
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../JavaWeb%E9%98%B6%E6%AE%B5/day04/day04_XML%26Tomcat%26Http%E5%8D%8F%E8%AE%AE/" class="md-nav__link">
+        XML&Tomcat&Http协议
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../JavaWeb%E9%98%B6%E6%AE%B5/day05/day05_Servlet/" class="md-nav__link">
+        Servlet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../JavaWeb%E9%98%B6%E6%AE%B5/day06/day06_Request%26Response/" class="md-nav__link">
+        Request&Response
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../JavaWeb%E9%98%B6%E6%AE%B5/day07/day07_%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        书城项目第二阶
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../JavaWeb%E9%98%B6%E6%AE%B5/day08/day08_Thymeleaf/" class="md-nav__link">
+        Thymeleaf
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../JavaWeb%E9%98%B6%E6%AE%B5/day09/day09_%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        书城项目第三阶段
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../JavaWeb%E9%98%B6%E6%AE%B5/day10/day10_%E4%BC%9A%E8%AF%9D%26%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5%281%29/" class="md-nav__link">
+        会话&书城项目第四阶段1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../JavaWeb%E9%98%B6%E6%AE%B5/day11/day11_%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        书城项目第四阶段2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../JavaWeb%E9%98%B6%E6%AE%B5/day12/day12_Filter%26Listener%26%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%BA%94%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        Filter&Listener&书城项目第五阶段1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../JavaWeb%E9%98%B6%E6%AE%B5/day13/day13_%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%BA%94%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        书城项目第五阶段2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../JavaWeb%E9%98%B6%E6%AE%B5/day14/day14_Ajax%26Axios%26%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E5%85%AD%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        Ajax&Axios&书城项目第六阶段
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4" type="checkbox" id="__nav_1_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4">
+          经典框架
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="经典框架" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          经典框架
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/Spring%20%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        Spring
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/SpringMVC%20%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        SpringMVC
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/MyBatis%20%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        MyBatis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/SSM%20%E6%95%B4%E5%90%88%E9%85%8D%E7%BD%AE/" class="md-nav__link">
+        SSM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/Maven%20%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        Maven
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/%E6%A1%86%E6%9E%B6%E9%AB%98%E7%BA%A7%E8%AF%BE%E7%A8%8B%E7%B3%BB%E5%88%97%E4%B9%8BLinuxCentOS7/" class="md-nav__link">
+        Linux
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/Redis/" class="md-nav__link">
+        Redis
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_5" type="checkbox" id="__nav_1_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_5">
+          微服务相关
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="微服务相关" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_5">
+          <span class="md-nav__icon md-icon"></span>
+          微服务相关
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/Docker/Docker/" class="md-nav__link">
+        Docker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/ElasticSearch/ElasticSearch/" class="md-nav__link">
+        ElasticSearch
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/RabbitMQ/RabbitMQ/" class="md-nav__link">
+        RabbitMQ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/SpringBoot/SpringBoot/" class="md-nav__link">
+        SpringBoot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/SpringCloud/SpringCloud/" class="md-nav__link">
+        SpringCloud
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_6" type="checkbox" id="__nav_1_6" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_6">
+          高级技术
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="高级技术" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_6">
+          <span class="md-nav__icon md-icon"></span>
+          高级技术
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          git
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        git
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-git" class="md-nav__link">
+    第1章 Git概述
+  </a>
+  
+    <nav class="md-nav" aria-label="第1章 Git概述">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-git" class="md-nav__link">
+    1.1 Git作用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-git" class="md-nav__link">
+    1.2 Git的诞生
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 Git的诞生">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-git" class="md-nav__link">
+    1.1.1 git的特点
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-gitsvn" class="md-nav__link">
+    1.3 Git与SVN对比
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-git" class="md-nav__link">
+    1.4 Git工作流程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-git" class="md-nav__link">
+    1.5 Git下载与安装
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-git-for-windows" class="md-nav__link">
+    1.6 安装git for windows
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-git" class="md-nav__link">
+    第2章 Git代码托管服务
+  </a>
+  
+    <nav class="md-nav" aria-label="第2章 Git代码托管服务">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-git" class="md-nav__link">
+    2.1 常用的Git代码托管服务
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2 在码云注册账号
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-git" class="md-nav__link">
+    2.3 登录码云并创建Git远程仓库
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-git" class="md-nav__link">
+    第3章 Git常用命令
+  </a>
+  
+    <nav class="md-nav" aria-label="第3章 Git常用命令">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1工作目录、暂存区以及版本库概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2 环境配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-git" class="md-nav__link">
+    3.3 Git单人本地仓库操作
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 Git单人本地仓库操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#331git" class="md-nav__link">
+    3.3.1在本地初始化一个Git仓库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#332-java" class="md-nav__link">
+    3.3.2 新建一个java文件
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-git" class="md-nav__link">
+    3.4 Git工作目录下文件的两种状态
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35" class="md-nav__link">
+    3.5 本地仓库操作
+  </a>
+  
+    <nav class="md-nav" aria-label="3.5 本地仓库操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#351" class="md-nav__link">
+    3.5.1  将工作区文件添加到暂存区
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#352" class="md-nav__link">
+    3.5.2 将暂存区的文件取消暂存
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#353" class="md-nav__link">
+    3.5.3 将暂存区文件提交到仓库区
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#354-loginjava" class="md-nav__link">
+    3.5.4 接下来就可以在login.java文件中编辑代码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#355" class="md-nav__link">
+    3.5.5 查看历史版本
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#357" class="md-nav__link">
+    3.5.7 将文件添加至忽略列表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#358" class="md-nav__link">
+    3.5.8 删除文件
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36" class="md-nav__link">
+    3.6 远程仓库操作
+  </a>
+  
+    <nav class="md-nav" aria-label="3.6 远程仓库操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#361" class="md-nav__link">
+    3.6.1 从远程仓库克隆
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#362" class="md-nav__link">
+    3.6.2查看远程仓库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#363" class="md-nav__link">
+    3.6.3 添加远程仓库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#364" class="md-nav__link">
+    3.6.4 移除无效的远程仓库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#365" class="md-nav__link">
+    3.6.5 从远程仓库中拉取
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#366" class="md-nav__link">
+    3.6.6 推送到远程仓库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#367" class="md-nav__link">
+    3.6.7 多人克隆项目
+  </a>
+  
+    <nav class="md-nav" aria-label="3.6.7 多人克隆项目">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    创建远程仓库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    经理的工作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    张三的工作
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#368" class="md-nav__link">
+    3.6.8 多人协同开发
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#369" class="md-nav__link">
+    3.6.9 代码冲突
+  </a>
+  
+    <nav class="md-nav" aria-label="3.6.9 代码冲突">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    代码冲突演练
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#37-git" class="md-nav__link">
+    3.7 Git分支
+  </a>
+  
+    <nav class="md-nav" aria-label="3.7 Git分支">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#371" class="md-nav__link">
+    3.7.1 查看分支
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#372" class="md-nav__link">
+    3.7.2 创建分支
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#373" class="md-nav__link">
+    3.7.3 切换分支
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#374" class="md-nav__link">
+    3.7.4 推送至远程仓库分支
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#375" class="md-nav__link">
+    3.7.5 合并分支
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#376" class="md-nav__link">
+    3.7.6 推送远程分支
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#377" class="md-nav__link">
+    3.7.7 删除分支
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-ideagit" class="md-nav__link">
+    第4章 在IDEA中使用Git
+  </a>
+  
+    <nav class="md-nav" aria-label="第4章 在IDEA中使用Git">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-ideagit" class="md-nav__link">
+    4.1 在IDEA中配置Git
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-ideagit" class="md-nav__link">
+    4.2 在IDEA中使用Git
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2 在IDEA中使用Git">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#421ideagit" class="md-nav__link">
+    4.2.1在IDEA中创建工程并将工程添加至Git
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#422" class="md-nav__link">
+    4.2.2 将文件添加到暂存区
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#423" class="md-nav__link">
+    4.2.3 提交文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#424" class="md-nav__link">
+    4.2.4 将代码推送到远程仓库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#424_1" class="md-nav__link">
+    4.2.4 常见错误
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#425" class="md-nav__link">
+    4.2.5 从远程仓库克隆工程到本地
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#426" class="md-nav__link">
+    4.2.6 从远程拉取代码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#427" class="md-nav__link">
+    4.2.7 版本对比
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#428" class="md-nav__link">
+    4.2.8 创建分支
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#429" class="md-nav__link">
+    4.2.9 切换分支
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4210" class="md-nav__link">
+    4.2.10 分支合并
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../juc/JUC/" class="md-nav__link">
+        JUC
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jvm/jvm/" class="md-nav__link">
+        jvm
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mysql%E9%AB%98%E7%BA%A7/MySQL%E9%AB%98%E7%BA%A7/" class="md-nav__link">
+        mysql高级
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mysql%E9%AB%98%E7%BA%A7/MySQL%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/" class="md-nav__link">
+        MySQL主从复制
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MyCat/Mycat/" class="md-nav__link">
+        MyCat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nginx/Nginx/" class="md-nav__link">
+        Nginx
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7" type="checkbox" id="__nav_1_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7">
+          项目文档
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="项目文档" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_7">
+          <span class="md-nav__icon md-icon"></span>
+          项目文档
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_1" type="checkbox" id="__nav_1_7_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7_1">
+          美年旅游
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="美年旅游" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_7_1">
+          <span class="md-nav__icon md-icon"></span>
+          美年旅游
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%BE%8E%E5%B9%B4/day01/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC1%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游01
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%BE%8E%E5%B9%B4/day02/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC2%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游02
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%BE%8E%E5%B9%B4/day03/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC3%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游03
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%BE%8E%E5%B9%B4/day04/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC4%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游04
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%BE%8E%E5%B9%B4/day05/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC5%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游05
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%BE%8E%E5%B9%B4/day06/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC6%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游06
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%BE%8E%E5%B9%B4/day07/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC7%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游07
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%BE%8E%E5%B9%B4/day08/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC8%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游08
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%BE%8E%E5%B9%B4/day09/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC9%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游09
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%BE%8E%E5%B9%B4/day10/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC10%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游10
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%BE%8E%E5%B9%B4/day11/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC11%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游11
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_2" type="checkbox" id="__nav_1_7_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7_2">
+          尚邻网
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="尚邻网" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_7_2">
+          <span class="md-nav__icon md-icon"></span>
+          尚邻网
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E9%82%BB%E7%BD%91/1.%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83/" class="md-nav__link">
+        搭建环境
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E9%82%BB%E7%BD%91/2.%E7%94%A8%E6%88%B7%E8%A7%92%E8%89%B2%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        用户角色管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E9%82%BB%E7%BD%91/3.Apache%20Dubbo/" class="md-nav__link">
+        Apache Dubbo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E9%82%BB%E7%BD%91/4.%E6%9C%8D%E5%8A%A1%E6%8B%86%E5%88%86/" class="md-nav__link">
+        服务拆分
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E9%82%BB%E7%BD%91/5.%E4%BA%8C%E6%89%8B%E6%88%BF%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        二手房管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E9%82%BB%E7%BD%91/6.%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/" class="md-nav__link">
+        图片上传
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E9%82%BB%E7%BD%91/7.%E5%89%8D%E7%AB%AF%E6%88%BF%E6%BA%90%E5%B1%95%E7%A4%BA/" class="md-nav__link">
+        前端房源展示
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E9%82%BB%E7%BD%91/8.%E5%89%8D%E7%AB%AF%E7%99%BB%E5%BD%95%E4%B8%8E%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%85%B3%E6%B3%A8/" class="md-nav__link">
+        前端登录与注册与关注
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E9%82%BB%E7%BD%91/9.%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        权限管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E9%82%BB%E7%BD%91/10.spring%20security/" class="md-nav__link">
+        spring security
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E9%82%BB%E7%BD%91/11.session%E5%85%B1%E4%BA%AB/" class="md-nav__link">
+        session共享
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_3" type="checkbox" id="__nav_1_7_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7_3">
+          谷粒商城
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="谷粒商城" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_7_3">
+          <span class="md-nav__icon md-icon"></span>
+          谷粒商城
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/1.%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%EF%BC%88nginx%E3%80%81cors%E3%80%81oss%EF%BC%89/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        谷粒商城01
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/2.%E5%88%86%E7%B1%BB%E3%80%81%E8%A7%84%E6%A0%BC%E3%80%81%E5%95%86%E5%93%81%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/%E8%A7%84%E6%A0%BC%E5%8F%82%E6%95%B0%E5%8F%8A%E5%95%86%E5%93%81%E6%96%B0%E5%A2%9E/" class="md-nav__link">
+        谷粒商城02
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/3.%E6%9C%AC%E5%9C%B0%E4%BA%8B%E5%8A%A1%E3%80%81%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E5%8F%8Aseata/%E6%9C%AC%E5%9C%B0%E4%BA%8B%E5%8A%A1%E3%80%81%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E5%8F%8Aseata/" class="md-nav__link">
+        谷粒商城03
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/4.elasticsearch%28DSL%E5%8F%8ASpringData-Elasticsearch%29/elasticsearch/" class="md-nav__link">
+        谷粒商城04
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/5.%E5%95%86%E5%93%81%E6%90%9C%E7%B4%A2/%E5%95%86%E5%93%81%E6%90%9C%E7%B4%A2/" class="md-nav__link">
+        谷粒商城05
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/6.%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%EF%BC%88Thymeleaf%EF%BC%89%E5%8F%8A%E6%90%9C%E7%B4%A2%E9%A1%B5%E6%B8%B2%E6%9F%93/%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E-Thymeleaf/" class="md-nav__link">
+        谷粒商城06
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/7.%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%EF%BC%88RabbitMQ%EF%BC%89/%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5/" class="md-nav__link">
+        谷粒商城07
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/8.%E5%95%86%E5%93%81%E5%88%86%E7%B1%BB%28%E7%BC%93%E5%AD%98%E3%80%81%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E3%80%81Redisson%E3%80%81%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8%29/%E9%A6%96%E9%A1%B5%E5%95%86%E5%93%81%E5%88%86%E7%B1%BB/" class="md-nav__link">
+        谷粒商城08
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/9.%E5%95%86%E5%93%81%E8%AF%A6%E6%83%85%E9%A1%B5%E5%8F%8A%E5%BC%82%E6%AD%A5%E7%BC%96%E6%8E%92%EF%BC%88CompletableFuture%EF%BC%89/%E5%95%86%E5%93%81%E8%AF%A6%E6%83%85%E9%A1%B5/" class="md-nav__link">
+        谷粒商城09
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/10.%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%EF%BC%88jwt%EF%BC%89/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%EF%BC%88jwt%EF%BC%89/" class="md-nav__link">
+        谷粒商城10
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/11.%E8%B4%AD%E7%89%A9%E8%BD%A6%EF%BC%88SpringTask%EF%BC%89/%E8%B4%AD%E7%89%A9%E8%BD%A6/" class="md-nav__link">
+        谷粒商城11
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/12.%E5%88%86%E5%B8%83%E5%BC%8F%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%EF%BC%88xxl-job%EF%BC%89/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%EF%BC%88xxl-job%EF%BC%89/" class="md-nav__link">
+        谷粒商城12
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/13.%E8%AE%A2%E5%8D%95%E3%80%81%E5%BA%93%E5%AD%98/%E8%AE%A2%E5%8D%95%E3%80%81%E5%BA%93%E5%AD%98/" class="md-nav__link">
+        谷粒商城13
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/14.%E6%94%AF%E4%BB%98%E3%80%81%E7%A7%92%E6%9D%80/%E6%94%AF%E4%BB%98%E3%80%81%E7%A7%92%E6%9D%80/" class="md-nav__link">
+        谷粒商城14
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_4" type="checkbox" id="__nav_1_7_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7_4">
+          尚融宝
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="尚融宝" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_7_4">
+          <span class="md-nav__icon md-icon"></span>
+          尚融宝
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part01-%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D/Part01-%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
+        项目介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part02-MyBatis-Plus/Part02-MyBatis-Plus/" class="md-nav__link">
+        MyBatis-Plus
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part03-%E5%90%8E%E7%AB%AF%E6%8E%A5%E5%8F%A3%E5%B7%A5%E7%A8%8B%E6%90%AD%E5%BB%BA/Part03-%E5%90%8E%E7%AB%AF%E6%8E%A5%E5%8F%A3%E5%B7%A5%E7%A8%8B%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        后端接口工程搭建
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part04-%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/Part04-%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/" class="md-nav__link">
+        前端知识
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part05-%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA/Part05-%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        管理平台前端搭建
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part06-Alibaba%20EasyExcel/Part06-Alibaba%20EasyExcel/" class="md-nav__link">
+        Alibaba EasyExcel
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part07-%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8/Part07-%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8/" class="md-nav__link">
+        数据字典
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part08-Redis%E7%BC%93%E5%AD%98/Part08-Redis%E7%BC%93%E5%AD%98/" class="md-nav__link">
+        Redis缓存
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part09-NuxtJS%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E6%B8%B2%E6%9F%93/Part09-NuxtJS%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E6%B8%B2%E6%9F%93/" class="md-nav__link">
+        NuxtJS服务器端渲染
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part10-%E9%98%BF%E9%87%8C%E4%BA%91%E7%9F%AD%E4%BF%A1/Part10-%E9%98%BF%E9%87%8C%E4%BA%91%E7%9F%AD%E4%BF%A1/" class="md-nav__link">
+        阿里云短信
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java课程/项目文档/尚融宝/Part11-分布式文件系统-阿里云OSS/分布式文件系统-阿里云OSS" class="md-nav__link">
+        阿里云OSS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part12-%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C/Part12-%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C/" class="md-nav__link">
+        用户注册
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part13-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%89%E5%85%A8-%E8%AE%BF%E9%97%AE%E4%BB%A4%E7%89%8C/Part13-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%89%E5%85%A8-%E8%AE%BF%E9%97%AE%E4%BB%A4%E7%89%8C/" class="md-nav__link">
+        访问令牌
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part14-%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81/Part14-%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81/" class="md-nav__link">
+        用户认证
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part15-%E4%BC%9A%E5%91%98%E7%AE%A1%E7%90%86/Part15-%E4%BC%9A%E5%91%98%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        会员管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part16-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%89%E5%85%A8-OAuth2/Part16-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%89%E5%85%A8-OAuth2/" class="md-nav__link">
+        OAuth2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part17-%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/Part17-%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" class="md-nav__link">
+        内网穿透
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part18-%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95/Part18-%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95/" class="md-nav__link">
+        微信登录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part19-%20SpringCloud/Part19-%20SpringCloud/" class="md-nav__link">
+        SpringCloud
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part20-%E8%B4%A6%E6%88%B7%E7%BB%91%E5%AE%9A/Part20-%E8%B4%A6%E6%88%B7%E7%BB%91%E5%AE%9A/" class="md-nav__link">
+        账户绑定
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part21-%E7%94%B3%E8%AF%B7%E5%80%9F%E6%AC%BE%E9%A2%9D%E5%BA%A6/Part21-%E7%94%B3%E8%AF%B7%E5%80%9F%E6%AC%BE%E9%A2%9D%E5%BA%A6/" class="md-nav__link">
+        申请借款额度
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part22-%E5%80%9F%E6%AC%BE%E9%A2%9D%E5%BA%A6%E5%AE%A1%E6%A0%B8/Part22-%E5%80%9F%E6%AC%BE%E9%A2%9D%E5%BA%A6%E5%AE%A1%E6%A0%B8/" class="md-nav__link">
+        借款额度审核
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part23-%E5%80%9F%E6%AC%BE%E7%94%B3%E8%AF%B7/Part23-%E5%80%9F%E6%AC%BE%E7%94%B3%E8%AF%B7/" class="md-nav__link">
+        借款申请
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part24-%E5%80%9F%E6%AC%BE%E5%AE%A1%E6%A0%B8/Part24-%E5%80%9F%E6%AC%BE%E5%AE%A1%E6%A0%B8/" class="md-nav__link">
+        借款审核
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part25-%E6%A0%87%E7%9A%84%E7%AE%A1%E7%90%86/Part25-%E6%A0%87%E7%9A%84%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        标的管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part26-%E6%88%91%E8%A6%81%E6%8A%95%E8%B5%84/Part26-%E6%88%91%E8%A6%81%E6%8A%95%E8%B5%84/" class="md-nav__link">
+        我要投资
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part27-%E5%85%85%E5%80%BC/Part27-%E5%85%85%E5%80%BC/" class="md-nav__link">
+        充值
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part28-%E6%8A%95%E6%A0%87/Part28-%E6%8A%95%E6%A0%87/" class="md-nav__link">
+        投标
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part29-%E6%94%BE%E6%AC%BE/Part29-%E6%94%BE%E6%AC%BE/" class="md-nav__link">
+        放款
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part30-%E6%8A%95%E8%B5%84%E5%88%97%E8%A1%A8%E5%B1%95%E7%A4%BA/Part30-%E6%8A%95%E8%B5%84%E5%88%97%E8%A1%A8%E5%B1%95%E7%A4%BA/" class="md-nav__link">
+        投资列表展示
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part31-%E6%8F%90%E7%8E%B0%E5%92%8C%E8%BF%98%E6%AC%BE/Part31-%E6%8F%90%E7%8E%B0%E5%92%8C%E8%BF%98%E6%AC%BE/" class="md-nav__link">
+        提现和还款
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part32-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83/Part32-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83/" class="md-nav__link">
+        个人中心
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part33-%E7%BD%91%E5%85%B3/Part33-%E7%BD%91%E5%85%B3/" class="md-nav__link">
+        网关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part34-%E8%A1%A5%E5%85%85/Part34-%E8%A1%A5%E5%85%85/" class="md-nav__link">
+        补充
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part35-%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/Part35-%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/" class="md-nav__link">
+        微信支付
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_5" type="checkbox" id="__nav_1_7_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7_5">
+          尚医通
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="尚医通" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_7_5">
+          <span class="md-nav__icon md-icon"></span>
+          尚医通
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day01%20%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%E4%B8%8EMyBatis%20Plus/day01%20%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%E4%B8%8E%20Mybatis%20Plus/" class="md-nav__link">
+        项目介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day02%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E5%92%8C%E5%8C%BB%E9%99%A2%E8%AE%BE%E7%BD%AE/day02%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E5%92%8C%E5%8C%BB%E9%99%A2%E8%AE%BE%E7%BD%AE/" class="md-nav__link">
+        搭建环境和医院设置
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day03%20%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89/day03%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89/" class="md-nav__link">
+        前端基础知识（一）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day04%20%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%BA%8C%EF%BC%89/day04%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="md-nav__link">
+        前端基础知识（二）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day05%E5%B9%B3%E5%8F%B0%E7%AE%A1%E7%90%86%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA/day05%E5%B9%B3%E5%8F%B0%E7%AE%A1%E7%90%86%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        平台管理前端搭建
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day06%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8/day06%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8/" class="md-nav__link">
+        数据字典
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day07mongodb/day07mongodb/" class="md-nav__link">
+        mongodb
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day08%E5%8C%BB%E9%99%A2%E4%B8%8A%E4%BC%A0%E6%8E%A5%E5%8F%A3/day08%E5%8C%BB%E9%99%A2%E4%B8%8A%E4%BC%A0%E6%8E%A5%E5%8F%A3/" class="md-nav__link">
+        医院上传接口
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day09%E5%8C%BB%E9%99%A2%E7%AE%A1%E7%90%86/day09%E5%8C%BB%E9%99%A2%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        医院管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day10%E6%8E%92%E7%8F%AD%E7%AE%A1%E7%90%86%E5%92%8C%E7%BD%91%E5%85%B3/day10%E6%8E%92%E7%8F%AD%E7%AE%A1%E7%90%86%E5%92%8C%E7%BD%91%E5%85%B3/" class="md-nav__link">
+        排班管理和网关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day11%E5%B9%B3%E5%8F%B0%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA%E4%B8%8E%E9%A6%96%E9%A1%B5/day11%E5%B9%B3%E5%8F%B0%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA%E4%B8%8E%E9%A6%96%E9%A1%B5/" class="md-nav__link">
+        平台前端搭建与首页
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day12%E6%89%8B%E6%9C%BA%E7%99%BB%E5%BD%95/day12%E6%89%8B%E6%9C%BA%E7%99%BB%E5%BD%95/" class="md-nav__link">
+        手机登录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day13%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95/day13%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95/" class="md-nav__link">
+        微信登录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day14%E9%98%BF%E9%87%8C%E4%BA%91OSS%E3%80%81%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81%E4%B8%8E%E5%B0%B1%E8%AF%8A%E4%BA%BA/day14%E9%98%BF%E9%87%8C%E4%BA%91OSS%E3%80%81%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81%E4%B8%8E%E5%B0%B1%E8%AF%8A%E4%BA%BA/" class="md-nav__link">
+        阿里云OSS、用户认证与就诊人
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day15%E9%A2%84%E7%BA%A6%E6%8C%82%E5%8F%B7/day15%E9%A2%84%E7%BA%A6%E6%8C%82%E5%8F%B7/" class="md-nav__link">
+        预约挂号
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day16%E9%A2%84%E7%BA%A6%E4%B8%8B%E5%8D%95/day16%E9%A2%84%E7%BA%A6%E4%B8%8B%E5%8D%95/" class="md-nav__link">
+        预约下单
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day17%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/day17%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/" class="md-nav__link">
+        微信支付
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day18%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E4%B8%8E%E7%BB%9F%E8%AE%A1/day18%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E4%B8%8E%E7%BB%9F%E8%AE%A1/" class="md-nav__link">
+        定时任务与统计
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Java就业面试
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Java就业面试" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Java就业面试
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC1%E7%AB%A0%20%E9%9D%A2%E8%AF%95%E8%AF%B4%E6%98%8E/" class="md-nav__link">
+        第1章 面试说明
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC2%E7%AB%A0%20%E6%89%8B%E5%86%99%E4%BB%A3%E7%A0%81/" class="md-nav__link">
+        第2章 手写代码
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC3%E7%AB%A0%20JavaSE/" class="md-nav__link">
+        第3章 JavaSE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC4%E7%AB%A0%20JVM/" class="md-nav__link">
+        第4章 JVM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC5%E7%AB%A0%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="md-nav__link">
+        第5章 设计模式
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC6%E7%AB%A0%20MySql/" class="md-nav__link">
+        第6章 MySql
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC7%E7%AB%A0%20Java%20Web/" class="md-nav__link">
+        第7章 Java Web
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC8%E7%AB%A0%20SSM%E6%A1%86%E6%9E%B6/" class="md-nav__link">
+        第8章 SSM框架
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC9%E7%AB%A0%20SpringBoot/" class="md-nav__link">
+        第9章 SpringBoot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC10%E7%AB%A0%20SpringCloud/" class="md-nav__link">
+        第10章 SpringCloud
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC11%E7%AB%A0%20Redis/" class="md-nav__link">
+        第11章 Redis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC12%E7%AB%A0%20MQ/" class="md-nav__link">
+        第12章 MQ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC13%E7%AB%A0%20ElasticSearch/" class="md-nav__link">
+        第13章 ElasticSearch
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC14%E7%AB%A0%20Dubbo/" class="md-nav__link">
+        第14章 Dubbo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC15%E7%AB%A0%20Zookeeper/" class="md-nav__link">
+        第15章 Zookeeper
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC16%E7%AB%A0%20Git/" class="md-nav__link">
+        第16章 Git
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC17%E7%AB%A0%20Linux/" class="md-nav__link">
+        第17章 Linux
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        学习文档
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-git" class="md-nav__link">
+    第1章 Git概述
+  </a>
+  
+    <nav class="md-nav" aria-label="第1章 Git概述">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-git" class="md-nav__link">
+    1.1 Git作用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-git" class="md-nav__link">
+    1.2 Git的诞生
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 Git的诞生">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-git" class="md-nav__link">
+    1.1.1 git的特点
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-gitsvn" class="md-nav__link">
+    1.3 Git与SVN对比
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-git" class="md-nav__link">
+    1.4 Git工作流程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-git" class="md-nav__link">
+    1.5 Git下载与安装
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-git-for-windows" class="md-nav__link">
+    1.6 安装git for windows
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-git" class="md-nav__link">
+    第2章 Git代码托管服务
+  </a>
+  
+    <nav class="md-nav" aria-label="第2章 Git代码托管服务">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-git" class="md-nav__link">
+    2.1 常用的Git代码托管服务
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2 在码云注册账号
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-git" class="md-nav__link">
+    2.3 登录码云并创建Git远程仓库
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-git" class="md-nav__link">
+    第3章 Git常用命令
+  </a>
+  
+    <nav class="md-nav" aria-label="第3章 Git常用命令">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1工作目录、暂存区以及版本库概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2 环境配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-git" class="md-nav__link">
+    3.3 Git单人本地仓库操作
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 Git单人本地仓库操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#331git" class="md-nav__link">
+    3.3.1在本地初始化一个Git仓库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#332-java" class="md-nav__link">
+    3.3.2 新建一个java文件
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-git" class="md-nav__link">
+    3.4 Git工作目录下文件的两种状态
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35" class="md-nav__link">
+    3.5 本地仓库操作
+  </a>
+  
+    <nav class="md-nav" aria-label="3.5 本地仓库操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#351" class="md-nav__link">
+    3.5.1  将工作区文件添加到暂存区
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#352" class="md-nav__link">
+    3.5.2 将暂存区的文件取消暂存
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#353" class="md-nav__link">
+    3.5.3 将暂存区文件提交到仓库区
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#354-loginjava" class="md-nav__link">
+    3.5.4 接下来就可以在login.java文件中编辑代码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#355" class="md-nav__link">
+    3.5.5 查看历史版本
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#357" class="md-nav__link">
+    3.5.7 将文件添加至忽略列表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#358" class="md-nav__link">
+    3.5.8 删除文件
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36" class="md-nav__link">
+    3.6 远程仓库操作
+  </a>
+  
+    <nav class="md-nav" aria-label="3.6 远程仓库操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#361" class="md-nav__link">
+    3.6.1 从远程仓库克隆
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#362" class="md-nav__link">
+    3.6.2查看远程仓库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#363" class="md-nav__link">
+    3.6.3 添加远程仓库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#364" class="md-nav__link">
+    3.6.4 移除无效的远程仓库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#365" class="md-nav__link">
+    3.6.5 从远程仓库中拉取
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#366" class="md-nav__link">
+    3.6.6 推送到远程仓库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#367" class="md-nav__link">
+    3.6.7 多人克隆项目
+  </a>
+  
+    <nav class="md-nav" aria-label="3.6.7 多人克隆项目">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    创建远程仓库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    经理的工作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    张三的工作
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#368" class="md-nav__link">
+    3.6.8 多人协同开发
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#369" class="md-nav__link">
+    3.6.9 代码冲突
+  </a>
+  
+    <nav class="md-nav" aria-label="3.6.9 代码冲突">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    代码冲突演练
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#37-git" class="md-nav__link">
+    3.7 Git分支
+  </a>
+  
+    <nav class="md-nav" aria-label="3.7 Git分支">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#371" class="md-nav__link">
+    3.7.1 查看分支
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#372" class="md-nav__link">
+    3.7.2 创建分支
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#373" class="md-nav__link">
+    3.7.3 切换分支
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#374" class="md-nav__link">
+    3.7.4 推送至远程仓库分支
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#375" class="md-nav__link">
+    3.7.5 合并分支
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#376" class="md-nav__link">
+    3.7.6 推送远程分支
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#377" class="md-nav__link">
+    3.7.7 删除分支
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-ideagit" class="md-nav__link">
+    第4章 在IDEA中使用Git
+  </a>
+  
+    <nav class="md-nav" aria-label="第4章 在IDEA中使用Git">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-ideagit" class="md-nav__link">
+    4.1 在IDEA中配置Git
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-ideagit" class="md-nav__link">
+    4.2 在IDEA中使用Git
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2 在IDEA中使用Git">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#421ideagit" class="md-nav__link">
+    4.2.1在IDEA中创建工程并将工程添加至Git
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#422" class="md-nav__link">
+    4.2.2 将文件添加到暂存区
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#423" class="md-nav__link">
+    4.2.3 提交文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#424" class="md-nav__link">
+    4.2.4 将代码推送到远程仓库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#424_1" class="md-nav__link">
+    4.2.4 常见错误
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#425" class="md-nav__link">
+    4.2.5 从远程仓库克隆工程到本地
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#426" class="md-nav__link">
+    4.2.6 从远程拉取代码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#427" class="md-nav__link">
+    4.2.7 版本对比
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#428" class="md-nav__link">
+    4.2.8 创建分支
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#429" class="md-nav__link">
+    4.2.9 切换分支
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4210" class="md-nav__link">
+    4.2.10 分支合并
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+<h1 id="git">Git高级<a class="headerlink" href="#git" title="Permanent link">&para;</a></h1>
+<h2 id="1-git">第1章 Git概述<a class="headerlink" href="#1-git" title="Permanent link">&para;</a></h2>
+<h3 id="11-git">1.1 Git作用<a class="headerlink" href="#11-git" title="Permanent link">&para;</a></h3>
+<ul>
+<li>源代码管理</li>
+<li>Git 是目前世界上最先进的分布式版本控制系统（没有之一）</li>
+</ul>
+<p><strong>思考：</strong>如何多人协同开发同一个项目？</p>
+<p>为什么要进行源代码管理?</p>
+<ul>
+<li>方便多人协同开发</li>
+<li>方便版本控制</li>
+</ul>
+<h3 id="12-git">1.2 Git的诞生<a class="headerlink" href="#12-git" title="Permanent link">&para;</a></h3>
+<ul>
+<li>作者是 Linux 之父：Linus Benedict Torvalds</li>
+<li>当初开发 Git 仅仅是为了辅助 Linux 内核的开发（管理源代码）</li>
+</ul>
+<p><img alt="1563146820767" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563146820767.png" /></p>
+<h4 id="111-git">1.1.1 git的特点<a class="headerlink" href="#111-git" title="Permanent link">&para;</a></h4>
+<p>① GIT 是分布式管理.服务器和客户端都有版本控制能力,都能进行代码的提交、合并、...</p>
+<p><img alt="1563006353109" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563006353109.png" /></p>
+<p>② Git 会在根目录下创建一个.git隐藏文件夹，作为本地代码仓库</p>
+<p><img alt="1563006393579" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563006393579.png" /></p>
+<h3 id="13-gitsvn">1.3 Git与SVN对比<a class="headerlink" href="#13-gitsvn" title="Permanent link">&para;</a></h3>
+<p>SVN是集中式版本控制系统，版本库是集中放在中央服务器的，而开发人员工作的时候，用的都是自己的电脑，所以首先要从中央服务器下载最新的版本，然后开发，开发完后，需要把自己开发的代码提交到中央服务器。</p>
+<p>集中式版本控制工具缺点：</p>
+<p>服务器单点故障</p>
+<p>容错性差</p>
+<p><img alt="1559580034272" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/%E5%9B%BE%E7%89%871.png" /></p>
+<p>Git是分布式版本控制系统（Distributed Version Control System，简称 DVCS） ，分为两种类型的仓库：</p>
+<p>本地仓库和远程仓库</p>
+<p>本地仓库：是在开发人员自己电脑上的Git仓库      </p>
+<p>远程仓库：是在远程服务器上的Git仓库</p>
+<p>Clone：克隆，就是将远程仓库复制到本地</p>
+<p>Push：推送，就是将本地仓库代码上传到远程仓库</p>
+<p>Pull：拉取，就是将远程仓库代码下载到本地仓库</p>
+<p><img alt="1559580115132" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/%E5%9B%BE%E7%89%872.png" /></p>
+<h3 id="14-git">1.4 Git工作流程<a class="headerlink" href="#14-git" title="Permanent link">&para;</a></h3>
+<p>工作流程如下：</p>
+<p>1．从远程仓库中克隆代码到本地仓库</p>
+<p>2．从本地仓库中checkout代码然后进行代码修改</p>
+<p>3．在提交前先将代码提交到暂存区</p>
+<p>4．提交到本地仓库。本地仓库中保存修改的各个历史版本</p>
+<p>5．修改完成后，需要和团队成员共享代码时，将代码push到远程仓库</p>
+<div class="highlight"><pre><span></span><code>Git服务器 --&gt; 本地仓库 --&gt; 客户端 --&gt; 本地仓库 --&gt; Git服务器
+</code></pre></div>
+<p><img alt="1563006235085" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563006235085.png" /></p>
+<h3 id="15-git">1.5 Git下载与安装<a class="headerlink" href="#15-git" title="Permanent link">&para;</a></h3>
+<p>下载地址： <a href="https://git-scm.com/download">https://git-scm.com/download</a></p>
+<p><img alt="1559580189784" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/%E5%9B%BE%E7%89%874.png" /></p>
+<p>下载完成后可以得到如下安装文件：</p>
+<p><img alt="1559580208972" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/%E5%9B%BE%E7%89%875.png" /></p>
+<h3 id="16-git-for-windows">1.6 安装git for windows<a class="headerlink" href="#16-git-for-windows" title="Permanent link">&para;</a></h3>
+<p><img alt="1561546850357" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1561546850357.png" /></p>
+<p><img alt="1561546873346" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1561546873346.png" /></p>
+<p>一路“下一步”使用默认选项即可。</p>
+<p>我这里安装到D盘</p>
+<p><img alt="1561546898433" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1561546898433.png" /></p>
+<p>判断是否安装成功，输入git --version</p>
+<p><img alt="1561546922036" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1561546922036.png" /></p>
+<p>安装完成后在电脑桌面（也可以是其他目录）点击右键，如果能够看到如下两个菜单则说明Git安装成功。</p>
+<p><img alt="1586790638295" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586790638295.png" /></p>
+<p>Git GUI：Git提供的图形界面工具</p>
+<p>Git Bash：Git提供的命令行工具</p>
+<h2 id="2-git">第2章 Git代码托管服务<a class="headerlink" href="#2-git" title="Permanent link">&para;</a></h2>
+<h3 id="21-git">2.1 常用的Git代码托管服务<a class="headerlink" href="#21-git" title="Permanent link">&para;</a></h3>
+<p>前面我们已经知道了Git中存在两种类型的仓库，即本地仓库和远程仓库。那么我们如何搭建Git远程仓库呢？我们可以借助互联网上提供的一些代码托管服务来实现，其中比较常用的有GitHub、码云、GitLab等。</p>
+<p>gitHub（ 地址：<a href="https://github.com/">https://github.com/</a> ）是一个面向开源及私有软件项目的托管平台，因为只支持Git 作为唯一的版本库格式进行托管，故名gitHub</p>
+<p>码云（地址： <a href="https://gitee.com/">https://gitee.com/</a> ）是国内的一个代码托管平台，由于服务器在国内，所以相比于GitHub，码云速度会更快</p>
+<p>GitLab （地址： <a href="https://about.gitlab.com/">https://about.gitlab.com/</a> ）是一个用于仓库管理系统的开源项目，使用Git作为代码管理工具，并在此基础上搭建起来的web服务</p>
+<h3 id="22">2.2 在码云注册账号<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<p>要想使用码云的相关服务，需要注册账号（地址： <a href="https://gitee.com/signup">https://gitee.com/signup</a> ）</p>
+<p>注册账号，<strong>不要用中文，不要用中文，不要用中文</strong></p>
+<p><img alt="1559580306570" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/%E5%9B%BE%E7%89%876.png" /></p>
+<h3 id="23-git">2.3 登录码云并创建Git远程仓库<a class="headerlink" href="#23-git" title="Permanent link">&para;</a></h3>
+<p>注册完成后就可以使用刚刚注册的邮箱进行登录（地址： <a href="https://gitee.com/login">https://gitee.com/login</a> ）</p>
+<p><img alt="1559580325617" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/%E5%9B%BE%E7%89%877.png" /></p>
+<p>登录成功后就可以创建Git远程仓库</p>
+<p><img alt="1559580374460" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/%E5%9B%BE%E7%89%878.png" /></p>
+<p><img alt="1561548012143" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1561548012143.png" /></p>
+<p>创建完成后可以查看仓库信息</p>
+<p><img alt="1561548060627" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1561548060627.png" /></p>
+<p>每个Git远程仓库都会对应一个网络地址，可以点击克隆/下载按钮弹出窗口并点击复制按钮获得这个网络地址</p>
+<p><img alt="1559580453747" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/111.png" /></p>
+<p>我们当前创建的Git远程仓库对应的地址为：<a href="https://gitee.com/ChuanZhiBoKe/myGitRepo.git">https://gitee.com/ChuanZhiBoKe/myGitRepo.git</a></p>
+<h2 id="3-git">第3章 Git常用命令<a class="headerlink" href="#3-git" title="Permanent link">&para;</a></h2>
+<p>Git提供了很多命令来完成相应的操作，为了方便学习，我们将这些命令进行了分类。在学习命令的过程中会讲解一些Git相关的概念。</p>
+<p>在本章节我们会学习到如下一些命令和概念(学习目标)</p>
+<ul>
+<li>
+<p>环境配置</p>
+</li>
+<li>
+<p>获取Git仓库</p>
+</li>
+<li>
+<p>工作目录、暂存区以及版本库概念</p>
+</li>
+<li>
+<p>Git工作目录下文件的两种状态</p>
+</li>
+<li>
+<p>本地仓库操作</p>
+</li>
+<li>
+<p>远程仓库的使用</p>
+</li>
+<li>
+<p>分支</p>
+</li>
+<li>
+<p>标签</p>
+</li>
+</ul>
+<h3 id="31">3.1工作目录、暂存区以及版本库概念<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<p>为了更好的学习Git，我们需要了解Git相关的一些概念，这些概念在后面的学习中会经常提到</p>
+<p><strong>版本库</strong>：前面看到的.git隐藏文件夹就是版本库，版本库中存储了很多配置信息、日志信息和文件版本信息等</p>
+<p><strong>工作目录（工作区）</strong>：包含.git文件夹的目录就是工作目录，主要用于存放开发的代码 ，比如：<code>repo1</code> 就是咱们的工作区 , 主要是存放咱们的代码</p>
+<p><strong>暂存区</strong>：.git文件夹中有很多文件，其中有一个index文件就是暂存区，也可以叫做stage。暂存区是一个临时保存修改文件的地方</p>
+<p>暂存区文件：</p>
+<p><img alt="1586776709175" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586776709175.png" /></p>
+<p><img alt="1563007300910" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563007300910.png" /></p>
+<h3 id="32">3.2 环境配置<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
+<p>当安装Git后首先要做的事情是设置用户名称和email地址。这是非常重要的，因为每次Git提交都会使用该用户信息 ，这个用户信息可以任意设置 ， 这个用户信息不是码云上面的用户名和密码 。随意设置就行。</p>
+<p>git安装完成之后，默认会配置一些信息 ，直接右键随意打开 <code>git bash</code>  输入如下命令，获取默认配置信息</p>
+<div class="highlight"><pre><span></span><code><span class="err">git</span><span class="w"> </span><span class="err">config</span><span class="w"> </span><span class="err">--list</span><span class="w"></span>
+</code></pre></div>
+<p><img alt="1586774968613" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586774968613.png" /></p>
+<p>设置用户信息 </p>
+<div class="highlight"><pre><span></span><code><span class="err">git</span><span class="w"> </span><span class="err">config</span><span class="w"> </span><span class="err">--global</span><span class="w"> </span><span class="err">user.name</span><span class="w"> </span><span class="err">&quot;maweiqi&quot;</span><span class="w"></span>
+
+<span class="err">git</span><span class="w"> </span><span class="err">config</span><span class="w"> </span><span class="err">--global</span><span class="w"> </span><span class="err">user.email</span><span class="w"> </span><span class="err">&quot;hello@maweiqi.cn&quot;</span><span class="w"></span>
+</code></pre></div>
+<p>查看配置信息</p>
+<div class="highlight"><pre><span></span><code><span class="err">git</span><span class="w"> </span><span class="err">config</span><span class="w"> </span><span class="err">--list</span><span class="w"></span>
+
+<span class="err">git</span><span class="w"> </span><span class="err">config</span><span class="w"> </span><span class="err">user.name</span><span class="w"></span>
+</code></pre></div>
+<p>通过上面的命令设置的信息会保存在~/.gitconfig文件中</p>
+<p><img alt="1561549588784" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1561549588784.png" /></p>
+<p><img alt="1561549692872" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1561549692872.png" /></p>
+<p>通过上面的命令设置的信息会保存在 <code>~/.gitconfig</code> 文件中</p>
+<p><img alt="1586775214278" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586775214278.png" /></p>
+<h3 id="33-git">3.3 Git单人本地仓库操作<a class="headerlink" href="#33-git" title="Permanent link">&para;</a></h3>
+<p>要使用Git对我们的代码进行版本控制，首先需要获得Git仓库</p>
+<p>获取Git仓库通常有两种方式：</p>
+<ul>
+<li>
+<p>在本地初始化一个Git仓库</p>
+</li>
+<li>
+<p>从远程仓库克隆</p>
+</li>
+</ul>
+<h4 id="331git">3.3.1在本地初始化一个Git仓库<a class="headerlink" href="#331git" title="Permanent link">&para;</a></h4>
+<p>执行步骤如下：</p>
+<ol>
+<li>在电脑的任意位置创建一个空目录（例如repo1）作为我们的本地Git仓库</li>
+<li>进入这个目录中，点击右键打开Git bash窗口</li>
+<li>执行命令git init</li>
+</ol>
+<div class="highlight"><pre><span></span><code>git init
+</code></pre></div>
+<p>创建空目录 ， 进入该目录 ，直接右键 <code>git bash</code></p>
+<p><img alt="1586775435475" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586775435475.png" /></p>
+<p>如果在当前目录中看到.git文件夹（此文件夹为隐藏文件夹）则说明Git仓库创建成功</p>
+<p><img alt="1563007516965" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563007516965.png" /></p>
+<p>注意：当前的 .git 是一个隐藏文件夹，需要在电脑上面设置隐藏文件夹</p>
+<p><img alt="1586775701340" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586775701340.png" /></p>
+<h4 id="332-java">3.3.2 新建一个java文件<a class="headerlink" href="#332-java" title="Permanent link">&para;</a></h4>
+<p>在仓库文件夹repo1里面创建login.py文件，用于版本控制演示</p>
+<p><img alt="1563007801041" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563007801041.png" /></p>
+<h3 id="34-git">3.4 Git工作目录下文件的两种状态<a class="headerlink" href="#34-git" title="Permanent link">&para;</a></h3>
+<p>Git工作目录下的文件存在两种状态：</p>
+<ul>
+<li>
+<p>untracked 未跟踪（未被纳入版本控制）</p>
+</li>
+<li>
+<p>tracked 已跟踪（被纳入版本控制）</p>
+</li>
+</ul>
+<p>​        Unmodified 未修改状态</p>
+<p>​        Modified 已修改状态</p>
+<p>​        Staged 已暂存状态</p>
+<p>这些文件的状态会随着我们执行Git的命令发生变化</p>
+<h3 id="35">3.5 本地仓库操作<a class="headerlink" href="#35" title="Permanent link">&para;</a></h3>
+<p>① 红色表示新建文件或者新修改的文件,都在工作区.
+② 绿色表示文件在暂存区
+③ 新建的login.java文件在工作区，需要添加到暂存区并提交到仓库区</p>
+<div class="highlight"><pre><span></span><code>// 查看文件状态
+git status 
+</code></pre></div>
+<p><img alt="1563008065333" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563008065333.png" /></p>
+<p>On branch master ：表示主分支</p>
+<p>Untracked files: 表示未跟踪状态</p>
+<div class="highlight"><pre><span></span><code>// 也可以使用 使输出信息更加简洁
+git status –s 
+</code></pre></div>
+<p><img alt="1563008117031" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563008117031.png" /></p>
+<p>?? : 表示未跟踪状态</p>
+<h4 id="351">3.5.1  将工作区文件添加到暂存区<a class="headerlink" href="#351" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c">// 将未跟踪的文件加入暂存区</span><span class="w"></span>
+<span class="c">// 添加项目中所有文件</span><span class="w"></span>
+<span class="err">git</span><span class="w"> </span><span class="err">add</span><span class="w"> </span><span class="err">.</span><span class="w"></span>
+<span class="w">  </span><span class="err">或者</span><span class="w"></span>
+<span class="c">// 添加指定文件</span><span class="w"></span>
+<span class="err">git</span><span class="w"> </span><span class="err">add</span><span class="w"> </span><span class="err">login.java</span><span class="w"> </span>
+</code></pre></div>
+<p><img alt="1563008302252" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563008302252.png" /></p>
+<div class="highlight"><pre><span></span><code>git add hello.txt
+</code></pre></div>
+<p>但可能会出现这样的提示：</p>
+<div class="highlight"><pre><span></span><code>fatal: pathspec &#39;hello.txt&#39; did not match any files
+</code></pre></div>
+<p>这说明在文件夹里并没有hello.txt这个文件</p>
+<p>去库的文件夹下创建好hello.txt后，再次输入：</p>
+<div class="highlight"><pre><span></span><code>git add readme.txt
+</code></pre></div>
+<p>将新创建的文件加入暂存区后查看文件状态</p>
+<p><img alt="1559615033227" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/%E5%9B%BE%E7%89%8719.png" /></p>
+<h4 id="352">3.5.2 将暂存区的文件取消暂存<a class="headerlink" href="#352" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>将暂存区的文件取消暂存
+git reset 
+</code></pre></div>
+<p><img alt="1559615050490" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/%E5%9B%BE%E7%89%8720.png" /></p>
+<p>将文件取消暂存后查看文件状态</p>
+<p>​   <img alt="1559615064841" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/%E5%9B%BE%E7%89%8721.png" /></p>
+<h4 id="353">3.5.3 将暂存区文件提交到仓库区<a class="headerlink" href="#353" title="Permanent link">&para;</a></h4>
+<ul>
+<li>commit 会生成一条版本记录</li>
+<li>-m  ：是message的意思，后面跟的是版本描述信息</li>
+</ul>
+<div class="highlight"><pre><span></span><code>// 将暂存区的文件修改提交到本地仓库
+git commit -m &#39;版本描述&#39;
+</code></pre></div>
+<p><img alt="1563008674255" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563008674255.png" /></p>
+<p>如果忘记输入 -m ，会进入到 linux的脚本 ，也可以输入保存信息，不过还是建议使用 -m 参数</p>
+<p><img alt="1586779064944" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586779064944.png" /></p>
+<h4 id="354-loginjava">3.5.4 接下来就可以在login.java文件中编辑代码<a class="headerlink" href="#354-loginjava" title="Permanent link">&para;</a></h4>
+<ul>
+<li>代码编辑完成后即可进行 add 和 commit 操作</li>
+<li>提示：添加和提交合并命令</li>
+</ul>
+<div class="highlight"><pre><span></span><code>git commit -am &quot;版本描述&quot;
+</code></pre></div>
+<ul>
+<li>提交两次代码，会有两个版本记录</li>
+</ul>
+<p><img alt="1563009175440" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563009175440.png" /></p>
+<p><img alt="1563009280595" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563009280595.png" /></p>
+<h4 id="355">3.5.5 查看历史版本<a class="headerlink" href="#355" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>git log
+或者
+git reflog
+</code></pre></div>
+<p><img alt="1563010829792" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563010829792.png" /></p>
+<p>3.5.6 回退版本</p>
+<p>通过每个版本的版本号回退到指定版本</p>
+<div class="highlight"><pre><span></span><code>  git reset --hard 版本号
+</code></pre></div>
+<p><img alt="1563011110995" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563011110995.png" /></p>
+<h4 id="357">3.5.7 将文件添加至忽略列表<a class="headerlink" href="#357" title="Permanent link">&para;</a></h4>
+<p>一般我们总会有些文件无需纳入Git 的管理，也不希望它们总出现在未跟踪文件列表。 通常都是些自动生成的文件，比如日志文件，或者编译过程中创建的临时文件等。 在这种情况下，我们可以在工作目录中创建一个名为 <code>.gitignore</code> 的文件（文件名称固定），列出要忽略的文件模式。下面是一个示例：</p>
+<div class="highlight"><pre><span></span><code><span class="c">#  所有以.a 结尾的文件都会被git忽略</span><span class="w"></span>
+<span class="err">*.a</span><span class="w"></span>
+<span class="c"># !是取反的意思，lib.a 结尾的不会被忽略 ，会被git进行管理</span><span class="w"></span>
+<span class="c">!lib.a</span><span class="w"></span>
+<span class="c"># TODO 文件会被忽略</span><span class="w"></span>
+<span class="err">/TODO</span><span class="w"></span>
+<span class="c"># build/ 目录 下面的所有文件都忽略</span><span class="w"></span>
+<span class="err">build/</span><span class="w"></span>
+<span class="c">#  doc 目录下面 ，以.txt文件结尾的都会忽略</span><span class="w"></span>
+<span class="err">doc/*.txt</span><span class="w"></span>
+<span class="c">#  doc 目录下面的子目录和孙子目录，以.pdf结尾的都会忽略</span><span class="w"></span>
+<span class="err">doc/**/*.pdf</span><span class="w"></span>
+</code></pre></div>
+<p>右键创建 <code>User.class</code> 文件和  <code>UserDao.class</code> 文件</p>
+<p><img alt="1561592322870" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1561592322870.png" /></p>
+<div class="highlight"><pre><span></span><code>touch .gitignore
+打开新创建的.gitignore文件，输入
+*.class
+</code></pre></div>
+<p><img alt="1586782664760" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586782664760.png" /></p>
+<p><img alt="1561592617060" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1561592617060.png" /></p>
+<h4 id="358">3.5.8 删除文件<a class="headerlink" href="#358" title="Permanent link">&para;</a></h4>
+<p>在项目中新建 test.py 文件，并添加和提交到仓库</p>
+<ul>
+<li>确定删除处理：</li>
+</ul>
+<div class="highlight"><pre><span></span><code>  # 删除文件
+  rm 文件名
+  # git确定删除文件，对比添加文件git add 
+  git rm 文件名
+  # 删除后记录删除操作版本
+  git commit -m &#39;删除描述&#39;
+</code></pre></div>
+<p>删除可能会报错误</p>
+<p>解决方法：</p>
+<div class="highlight"><pre><span></span><code>git add .
+git commit -m &#39;xxxx&#39;
+git rm -f 要删除文件的名字
+</code></pre></div>
+<p>删除文件后查看文件状态</p>
+<p>上面删除的只是工作区的文件，需要提交到本地仓库</p>
+<p>​                </p>
+<h3 id="36">3.6 远程仓库操作<a class="headerlink" href="#36" title="Permanent link">&para;</a></h3>
+<p>前面执行的命令操作都是针对的本地仓库，本章节我们会学习关于远程仓库的一些操作，具体包括：</p>
+<ul>
+<li>
+<p>查看远程仓库</p>
+</li>
+<li>
+<p>添加远程仓库</p>
+</li>
+<li>
+<p>从远程仓库克隆</p>
+</li>
+<li>
+<p>移除无效的远程仓库</p>
+</li>
+<li>
+<p>从远程仓库中抓取与拉取</p>
+</li>
+<li>
+<p>推送到远程仓库</p>
+</li>
+</ul>
+<p><img alt="1586783363488" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586783363488.png" /></p>
+<h4 id="361">3.6.1 <strong>从远程仓库克隆</strong><a class="headerlink" href="#361" title="Permanent link">&para;</a></h4>
+<p>可以通过Git提供的命令从远程仓库进行克隆，将远程仓库克隆到本地</p>
+<p>命令形式为：</p>
+<div class="highlight"><pre><span></span><code><span class="err">git</span><span class="w"> </span><span class="err">clone</span><span class="w"> </span><span class="err">远程Git仓库地址</span><span class="w"> </span>
+</code></pre></div>
+<p>新建一个文件夹，用来存放远程仓库，拉取下来的代码 ，进入文件夹</p>
+<p><img alt="1586784757477" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586784757477.png" /></p>
+<p>进入文件夹，输入如下命令，拉取服务器代码 ：</p>
+<div class="highlight"><pre><span></span><code><span class="na">git clone https</span><span class="o">:</span><span class="s">//gitee.com/ithe/myRepo3.git</span><span class="w"></span>
+</code></pre></div>
+<p><img alt="1586784890448" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586784890448.png" /></p>
+<h4 id="362">3.6.2查看远程仓库<a class="headerlink" href="#362" title="Permanent link">&para;</a></h4>
+<p>如果想查看已经配置的远程仓库服务器，可以运行 git remote 命令。 它会列出指定的每一个远程服务器的简写。 如果已经克隆了远程仓库，那么至少应该能看到 origin ，这是 Git 克隆的仓库服务器的默认名字</p>
+<div class="highlight"><pre><span></span><code>git remote
+git remote -v
+</code></pre></div>
+<p><img alt="1586785295524" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586785295524.png" /></p>
+<p>fetch：可以从码云仓库抓取数据</p>
+<p>push：也可以把本地的代码提交到服务器 </p>
+<p>在进入到开始创建的 <code>repo1</code>文件夹 , 用同样的命令，发现就找不到源头，也找不到远程的地址，是因为没有跟远程仓库建立连接</p>
+<p><img alt="1586786344154" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586786344154.png" /></p>
+<h4 id="363">3.6.3 添加远程仓库<a class="headerlink" href="#363" title="Permanent link">&para;</a></h4>
+<p>添加远程仓库，需要现在码云上面新建一个远程仓库，仓库的名字，建议跟本地仓库名字保持一致，当然不是必须的，只是建议保持一致 ，我本地的仓库名字叫 <code>repo1</code>  ，现在需要上码云新建一个 叫 <code>repo1</code> 的仓库</p>
+<p><img alt="1586787243570" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586787243570.png" /></p>
+<p>本地仓库如果需要跟远程仓库建立关联关系如下：</p>
+<div class="highlight"><pre><span></span><code><span class="c"># 运行 git remote add origin &lt;url&gt; 添加一个新的远程 Git 仓库</span><span class="w"></span>
+<span class="err">git</span><span class="w"> </span><span class="err">remote</span><span class="w"> </span><span class="err">add</span><span class="w"> </span><span class="err">origin</span><span class="w"> </span><span class="err">远程仓库地址</span><span class="w"></span>
+</code></pre></div>
+<p><img alt="1586787365325" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586787365325.png" /></p>
+<p>​                 </p>
+<h4 id="364">3.6.4 移除无效的远程仓库<a class="headerlink" href="#364" title="Permanent link">&para;</a></h4>
+<p>如果因为一些原因想要移除一个远程仓库 ，可以使用 </p>
+<div class="highlight"><pre><span></span><code>git remote rm
+</code></pre></div>
+<p><img alt="1586787776964" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586787776964.png" /></p>
+<p>注意：此命令只是从本地移除远程仓库的记录，并不会真正影响到远程仓库</p>
+<h4 id="365">3.6.5 从远程仓库中拉取<a class="headerlink" href="#365" title="Permanent link">&para;</a></h4>
+<p>拉取仓库的命令格式是 </p>
+<div class="highlight"><pre><span></span><code>git pull 是从远程仓库获取最新版本到本地仓库
+</code></pre></div>
+<p><img alt="1586790070845" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586790070845.png" /></p>
+<p>如果本地没有任何文件，如果拉取远程仓库代码， 如下显示</p>
+<p>先删除本地仓库里面所有文件 ，然后在通过 init 命令初始化仓库</p>
+<p><img alt="1586790256697" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586790256697.png" /></p>
+<p>注意：如果当前本地仓库不是从远程仓库克隆，而是本地创建的仓库，并且仓库中存在文件，此时再从远程仓库拉取文件的时候会报错（fatal: refusing to merge unrelated
+histories ），解决此问题可以在git pull命令后加入参数 <code>--allow-unrelated-histories</code></p>
+<p><img alt="1586790440716" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586790440716.png" /></p>
+<h4 id="366">3.6.6 推送到远程仓库<a class="headerlink" href="#366" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code># 工作区添加到暂存区
+git add .
+# 暂存区提交到仓库区
+git commit -m &#39;立项&#39;
+# 推送到远程仓库
+git push
+</code></pre></div>
+<p><img alt="1563021863838" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563021863838.png" /></p>
+<p>当你想分享你的代码时，可以将其推送到远程仓库。 命令形式：</p>
+<div class="highlight"><pre><span></span><code>// 将其推送到远程仓库
+git push origin master
+// 或者
+git push
+</code></pre></div>
+<p><img alt="1563162719249" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563162719249.png" /></p>
+<p>查看远程仓库 ，发现文件已经提交</p>
+<p><img alt="1586789599542" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586789599542.png" /></p>
+<p>注意：提交的时候，需要填写 当时注册码云的用户名和密码：</p>
+<p><img alt="1586789660197" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586789660197.png" /></p>
+<p>push到远程仓库，常见错误：</p>
+<p><img alt="1563175253725" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563175253725.png" /></p>
+<p>说明用户名或者密码错误：需要重新输入用户名和密码，输入地方如下：</p>
+<p><img alt="1586789748850" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586789748850.png" /></p>
+<p><img alt="1586789778353" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586789778353.png" /></p>
+<p><img alt="1563175311929" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563175311929.png" /></p>
+<h4 id="367">3.6.7 多人克隆项目<a class="headerlink" href="#367" title="Permanent link">&para;</a></h4>
+<h5 id="_1">创建远程仓库<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h5>
+<p>以下操作为演示在Github网站上创建远程仓库</p>
+<ul>
+<li>
+<p>1 登陆注册Github</p>
+</li>
+<li>
+<p>2 创建仓库入口</p>
+</li>
+</ul>
+<p><img alt="1563166468985" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563166468985.png" /></p>
+<ul>
+<li>3 编辑仓库信息</li>
+</ul>
+<p><img alt="1563166506538" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563166506538.png" /></p>
+<ul>
+<li>4 仓库创建完成</li>
+</ul>
+<p><img alt="1563166560462" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563166560462.png" /></p>
+<ul>
+<li>5 查看仓库地址</li>
+</ul>
+<p><img alt="1563166586197" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563166586197.png" /></p>
+<ul>
+<li>准备经理的文件 Desktop/manager/</li>
+<li>准备张三的文件 Desktop/zhangsan/</li>
+</ul>
+<h5 id="_2">经理的工作<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h5>
+<ul>
+<li>立项：克隆远程仓库+配置身份信息+创建项目+推送项目到远程仓库</li>
+<li>1.克隆远程仓库的命令</li>
+</ul>
+<div class="highlight"><pre><span></span><code>cd Desktop/manager/
+git clone https://github.com/zhangxiaochuZXC/test007.git
+</code></pre></div>
+<ul>
+<li>2.克隆远程仓库到本地</li>
+</ul>
+<p><img alt="1563106307680" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563106307680.png" /></p>
+<ul>
+<li>3 克隆成功后查看经理的文件</li>
+</ul>
+<p><img alt="1563106334326" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563106334326.png" /></p>
+<ul>
+<li>4.配置经理身份信息</li>
+</ul>
+<div class="highlight"><pre><span></span><code>git config --global user.name “经理”
+
+git config --global user.email “manager@163.com”
+</code></pre></div>
+<p><img alt="1586791579175" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586791579175.png" /></p>
+<ul>
+<li>5.创建项目</li>
+</ul>
+<p><img alt="1563106388814" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563106388814.png" /></p>
+<ul>
+<li>6.推送项目到远程仓库</li>
+</ul>
+<div class="highlight"><pre><span></span><code># 工作区添加到暂存区
+  git add .
+  # 暂存区提交到仓库区
+  git commit -m &#39;立项&#39;
+  # 推送到远程仓库
+  git push
+</code></pre></div>
+<p><img alt="1563106423379" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563106423379.png" /></p>
+<p><img alt="1563106435604" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563106435604.png" /></p>
+<h5 id="_3">张三的工作<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h5>
+<ul>
+<li>
+<p>获取项目：克隆项目到本地、配置身份信息</p>
+</li>
+<li>
+<p>1.克隆项目到本地</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code>cd Desktop/zhangsan/
+git clone https://github.com/zhangxiaochuZXC/test007.git
+</code></pre></div>
+<p><img alt="1563106522682" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563106522682.png" /></p>
+<ul>
+<li>2.克隆成功后查看张三的文件</li>
+</ul>
+<p><img alt="1563106545617" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563106545617.png" /></p>
+<ul>
+<li>3 配置张三身份信息</li>
+</ul>
+<div class="highlight"><pre><span></span><code>git config --global user.name “张三”
+
+git config --global user.email “zhangsan@163.com”
+</code></pre></div>
+<p><img alt="1586791747082" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586791747082.png" /></p>
+<h4 id="368">3.6.8 多人协同开发<a class="headerlink" href="#368" title="Permanent link">&para;</a></h4>
+<p>1.代码编辑界面介绍：此处做演示</p>
+<ul>
+<li>代码编辑界面左边为模拟经理的操作</li>
+<li>代码编辑界面右边为模拟张三的操作</li>
+</ul>
+<p><img alt="1563106693512" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563106693512.png" /></p>
+<p>2.模拟张三先编辑login.py文件代码</p>
+<ul>
+<li>进入张三本地仓库：cd Desktop/zhangsan/test007</li>
+<li>编辑代码：num1 = 10</li>
+<li>本地仓库记录版本：git commit -am 第一个变量</li>
+<li>推送到远程仓库：git push</li>
+</ul>
+<p><img alt="1563106767630" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563106767630.png" /></p>
+<p>3.模拟经理后编辑login.py文件代码</p>
+<ul>
+<li>进入经理本地仓库：cd Desktop/manager/test007/</li>
+<li>经理同步服务器代码：git pull</li>
+<li>编辑代码：num2 = 20</li>
+<li>本地仓库记录版本：git commit -am '第二个变量'</li>
+<li>推送到远程仓库：git push</li>
+</ul>
+<p><img alt="1563106860009" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563106860009.png" /></p>
+<p><img alt="1563106878961" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563106878961.png" /></p>
+<p>4.模拟张三同步服务器代码</p>
+<ul>
+<li>本次可以把num2同步到张三的本地仓库</li>
+</ul>
+<p><img alt="1563106908785" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563106908785.png" /></p>
+<ul>
+<li>5.按照以上 2-3-4 步骤循环操作，即可实现基本的协同开发</li>
+<li>6.总结：</li>
+<li>要使用git命令操作仓库，需要进入到仓库内部</li>
+<li>要同步服务器代码就执行：git pull</li>
+<li>本地仓库记录版本就执行：git commit -am '版本描述'</li>
+<li>推送代码到服务器就执行：git push</li>
+<li>编辑代码前要先 pull，编辑完再 commit，最后推送是 push</li>
+</ul>
+<h4 id="369">3.6.9 代码冲突<a class="headerlink" href="#369" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>提示</strong>：多人协同开发时，避免不了会出现代码冲突的情况</li>
+<li><strong>原因</strong>：多人同时修改了同一个文件</li>
+<li><strong>危害</strong>：会影响正常的开发进度</li>
+<li><strong>注意</strong>：一旦出现代码冲突，必须先解决再做后续开发</li>
+</ul>
+<h5 id="_4">代码冲突演练<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h5>
+<p>1.张三先编辑 login.py 文件代码</p>
+<ul>
+<li>进入张三本地仓库：cd Desktop/zhangsan/test007</li>
+<li>拉取服务器最新代码：git pull</li>
+<li>编辑代码：num3 = 30</li>
+<li>本地仓库记录版本：git commit -am 第三个变量</li>
+<li>推送到服务器仓库：git push</li>
+<li>张三本地仓库和远程仓库代码如下：</li>
+</ul>
+<p><img alt="1563107120195" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563107120195.png" /></p>
+<p>2.经理后编辑login.py文件代码</p>
+<ul>
+<li>进入经理本地仓库：cd Desktop/manager/test007/</li>
+<li>编辑代码：num3 = 300</li>
+<li>本地仓库记录版本：git commit -am 第三个变量</li>
+<li>推送到服务器仓库：git push</li>
+<li><strong>以上操作会出现代码冲突</strong></li>
+<li>提示需要先pull</li>
+</ul>
+<p><img alt="1563107185742" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563107185742.png" /></p>
+<ul>
+<li>提示冲突文件</li>
+</ul>
+<p><img alt="1563107211629" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563107211629.png" /></p>
+<ul>
+<li>冲突代码表现</li>
+</ul>
+<p><img alt="1563107237678" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563107237678.png" /></p>
+<p>3.解决冲突</p>
+<ul>
+<li>原则：谁冲突谁解决，并且一定要协商解决</li>
+<li>方案：保留所有代码 或者 保留某一人代码</li>
+<li>解决完冲突代码后，依然需要add、commit、push</li>
+</ul>
+<p><img alt="1563107275084" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563107275084.png" /></p>
+<p>提示：如果张三执行pull没有影响，就算真正解决了冲突代码</p>
+<p><strong>容易冲突的操作方式</strong></p>
+<div class="highlight"><pre><span></span><code>多个人同时操作了同一个文件
+
+一个人一直写不提交
+
+修改之前不更新最新代码
+
+提交之前不更新最新代码
+
+擅自修改同事代码
+</code></pre></div>
+<p><strong>减少冲突的操作方式</strong></p>
+<div class="highlight"><pre><span></span><code>养成良好的操作习惯,先`pull`在修改,修改完立即`commit`和`push`
+
+一定要确保自己正在修改的文件是最新版本的
+
+各自开发各自的模块
+
+如果要修改公共文件,一定要先确认有没有人正在修改
+
+下班前一定要提交代码,上班第一件事拉取最新代码
+
+一定不要擅自修改同事的代码
+</code></pre></div>
+<h3 id="37-git">3.7 Git分支<a class="headerlink" href="#37-git" title="Permanent link">&para;</a></h3>
+<p>几乎所有的版本控制系统都以某种形式支持分支。 使用分支意味着你可以把你的工作从开发主线上分离开来，以免影响开发主线。Git 的master分支并不是一个特殊分支。 它跟其它分支没有区别。 之所以几乎每一个仓库都有 master 分支，是因为git init 命令默认创建它，并且大多数人都懒得去改动它。</p>
+<p><img alt="1563017526064" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563017526064.png" /></p>
+<p><strong>作用</strong></p>
+<div class="highlight"><pre><span></span><code>区分生产环境代码以及开发环境代码
+研究新的功能或者攻关难题
+解决线上bug
+</code></pre></div>
+<p><strong>特点</strong></p>
+<div class="highlight"><pre><span></span><code>项目开发中公用分支包括master、dev
+分支master是默认分支，用于发布，当需要发布时将dev分支合并到master分支
+分支dev是用于开发的分支，开发完阶段性的代码后，需要合并到master分支
+</code></pre></div>
+<p>在本章节我们会学习到关于分支的相关命令，具体如下：</p>
+<h4 id="371">3.7.1 查看分支<a class="headerlink" href="#371" title="Permanent link">&para;</a></h4>
+<p><strong>列出所有本地分支</strong></p>
+<div class="highlight"><pre><span></span><code>$ git branch
+</code></pre></div>
+<p><strong>列出所有远程分支</strong></p>
+<div class="highlight"><pre><span></span><code>$ git branch -r
+</code></pre></div>
+<p><strong>列出所有本地分支和远程分支</strong></p>
+<div class="highlight"><pre><span></span><code>$ git branch -a
+</code></pre></div>
+<p><img alt="1559617419855" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/%E5%9B%BE%E7%89%8733.png" /></p>
+<h4 id="372">3.7.2 创建分支<a class="headerlink" href="#372" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>// 创建分支
+git branch 分支的名字
+</code></pre></div>
+<p><img alt="1559617439442" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/%E5%9B%BE%E7%89%8734.png" /></p>
+<h4 id="373">3.7.3 切换分支<a class="headerlink" href="#373" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>// 切换分支
+git checkout 分支的名字
+</code></pre></div>
+<p><img alt="1559617458282" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/%E5%9B%BE%E7%89%8735.png" /></p>
+<p>​   </p>
+<h4 id="374">3.7.4 推送至远程仓库分支<a class="headerlink" href="#374" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>git push origin 分支的名字
+</code></pre></div>
+<p><img alt="1586772575297" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586772575297.png" /></p>
+<h4 id="375">3.7.5 合并分支<a class="headerlink" href="#375" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>git merge 分支的名字
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c"># 切换到b1分支</span><span class="w"></span>
+<span class="err">git</span><span class="w"> </span><span class="err">checkout</span><span class="w"> </span><span class="err">b1</span><span class="w"></span>
+<span class="c"># 创建 abc.java , 进入abc.java文件随意输入内容</span><span class="w"></span>
+<span class="err">touch</span><span class="w"> </span><span class="err">abc.java</span><span class="w"></span>
+<span class="c"># 提交到工作区</span><span class="w"></span>
+<span class="err">git</span><span class="w"> </span><span class="err">add</span><span class="w"> </span><span class="err">.</span><span class="w"></span>
+<span class="c"># 提交到暂存区</span><span class="w"></span>
+<span class="err">git</span><span class="w"> </span><span class="err">commit</span><span class="w"> </span><span class="err">-m</span><span class="w"> </span><span class="err">&#39;abc&#39;</span><span class="w"></span>
+<span class="c"># 切换到主分区</span><span class="w"></span>
+<span class="err">git</span><span class="w"> </span><span class="err">checkout</span><span class="w"> </span><span class="err">master</span><span class="w"></span>
+<span class="c"># 在主分区合并b1分支开发的代码 ，合并完成需要:wq保存退出</span><span class="w"></span>
+<span class="err">git</span><span class="w"> </span><span class="err">merge</span><span class="w"> </span><span class="err">b1</span><span class="w"></span>
+</code></pre></div>
+<p><img alt="1586793691798" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586793691798.png" /></p>
+<p>有时候合并操作不会如此顺利。 如果你在两个不同的分支中，对同一个文件的同一个部分进行了不同的修改，Git 就没办法合并它们，同时会提示文件冲突。此时需要我们打开冲突的文件并修复冲突内容，最后执行git add命令来标识冲突已解决 ，master分支和b1分支，修改同一个地方，会造成冲突</p>
+<p><img alt="1586793899966" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586793899966.png" /></p>
+<p>解决冲突</p>
+<p><img alt="1586794131459" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586794131459.png" /></p>
+<h4 id="376">3.7.6 推送远程分支<a class="headerlink" href="#376" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="err">git</span><span class="w"> </span><span class="err">push</span><span class="w"> </span><span class="err">origin</span><span class="w"> </span><span class="err">master</span><span class="w"></span>
+</code></pre></div>
+<p><img alt="1586794297075" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586794297075.png" /></p>
+<h4 id="377">3.7.7 删除分支<a class="headerlink" href="#377" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>删除本地分支
+git branch -d 分支名字
+</code></pre></div>
+<p><img alt="1586842566075" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586842566075.png" /></p>
+<p>如果在b1 分支，想删除b1分支，是删除不了，必须切换到 master分支 ，才可以删除b1分支 ，如果修改了b1分支，但 b1 分支并没有push 到远程仓库，也删除不了。</p>
+<p><img alt="1586842742869" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586842742869.png" /></p>
+<p>如果要删除的分支中进行了一些开发动作，此时执行上面的删除命令并不会删除分支，如果坚持要删除此分支，可以将命令中的-d参数改为-D</p>
+<div class="highlight"><pre><span></span><code>强行删除本地分支
+git branch -D 分支名字
+</code></pre></div>
+<p><img alt="1586842935750" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586842935750.png" /></p>
+<p>注：如果要删除远程仓库中的分支，可以使用命令 </p>
+<div class="highlight"><pre><span></span><code>git push origin –d 分支的名字
+</code></pre></div>
+<p>删除远程仓库的 b1 分支 和 b2 分支</p>
+<p><img alt="1586843023529" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586843023529.png" /></p>
+<h2 id="4-ideagit">第4章 在IDEA中使用Git<a class="headerlink" href="#4-ideagit" title="Permanent link">&para;</a></h2>
+<h3 id="41-ideagit">4.1 在IDEA中配置Git<a class="headerlink" href="#41-ideagit" title="Permanent link">&para;</a></h3>
+<p>安装好IntelliJ IDEA后，如果Git安装在默认路径下，那么idea会自动找到git的位置，如果更改了Git的安装位置则需要手动配置下Git的路径。</p>
+<p>选择File→Settings打开设置窗口，找到Version Control下的git选项：</p>
+<p><img alt="1563012209599" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563012209599.png" /></p>
+<p>选择git的安装目录后可以点击“Test”按钮测试是否正确配置</p>
+<p>​                       <img alt="1563012229822" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563012229822.png" /></p>
+<h3 id="42-ideagit">4.2 在IDEA中使用Git<a class="headerlink" href="#42-ideagit" title="Permanent link">&para;</a></h3>
+<h4 id="421ideagit">4.2.1在IDEA中创建工程并将工程添加至Git<a class="headerlink" href="#421ideagit" title="Permanent link">&para;</a></h4>
+<p>创建新的工程，交给git进行管理</p>
+<p><img alt="1586821572387" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586821572387.png" /></p>
+<p>选择 VCS ，导入版本控制工具，选择，创建git 仓库</p>
+<p><img alt="1586821710643" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586821710643.png" /></p>
+<p>​                                  将项目添加至Git管理后，可以从IDEA的工具栏上看到Git操作的按钮</p>
+<p><img alt="1586821823783" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586821823783.png" /></p>
+<p>交给git进行管理</p>
+<p><img alt="1586821951464" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586821951464.png" /></p>
+<p>进入当前项目工作空间，发现会有一个.git文件夹</p>
+<p><img alt="1586821918637" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586821918637.png" /></p>
+<h4 id="422">4.2.2 将文件添加到暂存区<a class="headerlink" href="#422" title="Permanent link">&para;</a></h4>
+<p>添加忽略文件 <code>.gitignore</code> ，忽略文件必须和 src 同级目录 ，高版本的idea添加忽略可能会有不兼容的问题。</p>
+<p><img alt="1591003197895" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1591003197895.png" /></p>
+<div class="highlight"><pre><span></span><code>.idea/
+maven-demo.iml
+target/
+</code></pre></div>
+<p><img alt="1586822327435" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586822327435.png" /></p>
+<p>将文件添加到暂存区</p>
+<p><img alt="1586822472690" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586822472690.png" /></p>
+<p>添加到暂存区之后，文件变成绿色</p>
+<p><img alt="1586822509535" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586822509535.png" /></p>
+<h4 id="423">4.2.3 提交文件<a class="headerlink" href="#423" title="Permanent link">&para;</a></h4>
+<p>提交项目</p>
+<p><img alt="1586822621692" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586822621692.png" /></p>
+<p>提交项目</p>
+<p><img alt="1586822841766" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586822841766.png" /></p>
+<p>屏幕下方出现提交的弹出窗口</p>
+<p><img alt="1586822877924" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586822877924.png" /></p>
+<p>已经提交到本地仓库</p>
+<p><img alt="1586822974800" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586822974800.png" /></p>
+<h4 id="424">4.2.4 将代码推送到远程仓库<a class="headerlink" href="#424" title="Permanent link">&para;</a></h4>
+<p>在项目身上右键提交到远程仓库 , 在推送项目之前，需要注意，远程仓库上面需要有一个跟本地项目一样名字的仓库</p>
+<p><img alt="1586823041696" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586823041696.png" /></p>
+<p>上码云创建新的仓库</p>
+<p><img alt="1586823212874" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586823212874.png" /></p>
+<p>拷贝码云上面的地址</p>
+<p><img alt="1586823265481" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586823265481.png" /></p>
+<p><img alt="1586823324936" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586823324936.png" /></p>
+<p>推送到远程仓库</p>
+<p><img alt="1586823378221" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586823378221.png" /></p>
+<p>屏幕右下方会显示推送成功</p>
+<p><img alt="1563014337203" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563014337203.png" /></p>
+<p>刷新码云仓库，刚刚的项目就已经推送成功了</p>
+<p><img alt="1586823427093" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586823427093.png" /></p>
+<h4 id="424_1">4.2.4 常见错误<a class="headerlink" href="#424_1" title="Permanent link">&para;</a></h4>
+<p>权限拒绝</p>
+<p><img alt="1563186935064" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563186935064.png" /></p>
+<p>解决方案：</p>
+<div class="highlight"><pre><span></span><code>在要push的项目 打开git黑窗口输入
+git pull origin master --allow-unrelated-histories
+git push -u origin master -f
+</code></pre></div>
+<p>在提交如果出现空仓库：</p>
+<p><img alt="1563183188633" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563183188633.png" /></p>
+<p>解决方案：</p>
+<p><img alt="1563183088499" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563183088499.png" /></p>
+<p><strong>需要注意：</strong></p>
+<p>一个项目能不能被git进行管理，取决于被管理的项目，有没有如下文件 ，vcs 版本控制系统（version control system）</p>
+<p><img alt="1586837187847" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586837187847.png" /></p>
+<h4 id="425">4.2.5 从远程仓库克隆工程到本地<a class="headerlink" href="#425" title="Permanent link">&para;</a></h4>
+<p>从远程仓库克隆工程到本地</p>
+<p>首先需要关闭项目， file --- close project</p>
+<p><img alt="1586837531725" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586837531725.png" /></p>
+<p>因为刚刚提交了项目，所以本地有这个项目，建议换一个文件夹存放 码云 上面的项目。</p>
+<p><img alt="1563014775315" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563014775315.png" /></p>
+<p>是否作为idea 项目检出，选择 yes</p>
+<p><img alt="1586840391630" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586840391630.png" /></p>
+<p>克隆成功</p>
+<p><img alt="1586838400614" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586838400614.png" /></p>
+<h4 id="426">4.2.6 从远程拉取代码<a class="headerlink" href="#426" title="Permanent link">&para;</a></h4>
+<p>刚刚从远处仓库已经把代码克隆下来了，然后，可以两个人协作开发</p>
+<p>① 拉取代码</p>
+<p><img alt="1563014949044" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563014949044.png" /></p>
+<p><img alt="1563015077689" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563015077689.png" /></p>
+<p>开启两个idea模拟公司两个人进行开发，一个提交代码，一个拉取代码。</p>
+<p><img alt="1586773022551" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586773022551.png" /></p>
+<p>先把添加方法的文件，添加到暂存区</p>
+<p><img alt="1593434786009" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1593434786009.png" /></p>
+<p>将文件添加到暂存区之后，然后在对文件进行commit提交</p>
+<p><img alt="1593434827979" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1593434827979.png" /></p>
+<p>提交文件，并且添加到远程仓库</p>
+<p><img alt="1586773067193" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586773067193.png" /></p>
+<p><img alt="1563015401116" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563015401116.png" /></p>
+<p><img alt="1563015276278" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563015276278.png" /></p>
+<p><img alt="1563015488220" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563015488220.png" /></p>
+<p>用另外一个idea，把刚刚提交的代码拉取下来</p>
+<p><img alt="1563015575237" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563015575237.png" /></p>
+<p><img alt="1586773121099" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586773121099.png" /></p>
+<h4 id="427">4.2.7 版本对比<a class="headerlink" href="#427" title="Permanent link">&para;</a></h4>
+<p>直接在代码区域右键 可以进行版本对比</p>
+<p><img alt="1586841326403" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586841326403.png" /></p>
+<p>查看一共修改过多少次版本</p>
+<p><img alt="1563015763971" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563015763971.png" /></p>
+<p>随便选择一个上面的版本可以跟当前版本进行对比</p>
+<p><img alt="1586773152811" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586773152811.png" /></p>
+<h4 id="428">4.2.8 创建分支<a class="headerlink" href="#428" title="Permanent link">&para;</a></h4>
+<p>选择 VCS --- GIT --- Branches</p>
+<p><img alt="1586841480321" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586841480321.png" /></p>
+<p>新建一个分支</p>
+<p><img alt="1563016026636" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563016026636.png" /></p>
+<p>给分支取一个名字</p>
+<p><img alt="1563016122384" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563016122384.png" /></p>
+<h4 id="429">4.2.9 切换分支<a class="headerlink" href="#429" title="Permanent link">&para;</a></h4>
+<p>项目右键进行切换分支</p>
+<p><img alt="1563016253527" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563016253527.png" /></p>
+<p>当前在B1分支，我们切换到master分支</p>
+<p><img alt="1563016319676" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563016319676.png" /></p>
+<h4 id="4210">4.2.10 分支合并<a class="headerlink" href="#4210" title="Permanent link">&para;</a></h4>
+<p>先切换到b1分支，进行开发</p>
+<p><img alt="1563016590625" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1563016590625.png" /></p>
+<p>使用b1分支，随便写一句代码，推送到远程仓库</p>
+<p><img alt="1593441939916" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1593441939916.png" /></p>
+<p><img alt="1586842130099" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586842130099.png" /></p>
+<p>直接通过push提交到远程仓库</p>
+<p>刚刚通过b1分支进行提交代码，在master分支查看不到刚刚提交的代码</p>
+<p><img alt="1586841976950" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586841976950.png" /></p>
+<p>切换到主分支，并没有刚刚提交的代码，现在 在主分支进行合并操作</p>
+<p><img alt="1593442055063" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1593442055063.png" /></p>
+<p>切换到主分支</p>
+<p><img alt="1593442105111" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1593442105111.png" /></p>
+<p><img alt="1586842194675" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586842194675.png" /></p>
+<p>选择merge合并分支</p>
+<p><img alt="1586842277487" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586842277487.png" /></p>
+<p>合并本地的b1分支，选中，merge</p>
+<p><img alt="1586842397484" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586842397484.png" /></p>
+<p>b1 分支合并完成之后，就可以在主分支看到b1分支了</p>
+<p><img alt="1586842449273" src="../Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.assets/1586842449273.png" /></p>
+
+              
+			  <hr><span id="busuanzi_container_page_pv"><font size="3" color="grey">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</font></span><br/>
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../../../%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/SpringCloud/SpringCloud/" class="md-footer__link md-footer__link--prev" aria-label="Previous: SpringCloud" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              SpringCloud
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../juc/JUC/" class="md-footer__link md-footer__link--next" aria-label="Next: JUC" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              JUC
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 尚硅谷
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tabs", "navigation.tabs.sticky"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.1514a9a0.min.js"></script>
+      
+        <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+      
+    
+  </body>
+</html>

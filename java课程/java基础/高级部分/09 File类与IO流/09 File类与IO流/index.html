@@ -1,0 +1,5134 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.6">
+    
+    
+      
+        <title>File类与IO流 - 我的文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.cd566b2a.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#file" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="我的文档" class="md-header__button md-logo" aria-label="我的文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            我的文档
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              File类与IO流
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/01%20Java%E6%A6%82%E8%BF%B0/01%20-%20Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0/" class="md-tabs__link md-tabs__link--active">
+        Java课程
+      </a>
+    </li>
+  
+
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC1%E7%AB%A0%20%E9%9D%A2%E8%AF%95%E8%AF%B4%E6%98%8E/" class="md-tabs__link">
+        Java就业面试
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../../.." class="md-tabs__link">
+      学习文档
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="我的文档" class="md-nav__button md-logo" aria-label="我的文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    我的文档
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Java课程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Java课程" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Java课程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1" type="checkbox" id="__nav_1_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1">
+          Java基础
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Java基础" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Java基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1_1" type="checkbox" id="__nav_1_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1_1">
+          基础部分
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="基础部分" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          基础部分
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/01%20Java%E6%A6%82%E8%BF%B0/01%20-%20Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0/" class="md-nav__link">
+        Java概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/02%20%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/02%20%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" class="md-nav__link">
+        基本语法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/03%20%E6%95%B0%E7%BB%84/03%20%E6%95%B0%E7%BB%84/" class="md-nav__link">
+        数组
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/04%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/04%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="md-nav__link">
+        面向对象
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/05%20%E5%BC%82%E5%B8%B8/05%20%E5%BC%82%E5%B8%B8/" class="md-nav__link">
+        异常
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1_2" type="checkbox" id="__nav_1_1_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1_2">
+          高级部分
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="高级部分" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          高级部分
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06%20%E5%B8%B8%E7%94%A8%E7%B1%BBAPI/06%20%E5%B8%B8%E7%94%A8%E7%B1%BBAPI/" class="md-nav__link">
+        常用类API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07%20%E9%9B%86%E5%90%88/07%20%E9%9B%86%E5%90%88/" class="md-nav__link">
+        集合
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08%20%E6%B3%9B%E5%9E%8B/08%20%E6%B3%9B%E5%9E%8B/" class="md-nav__link">
+        泛型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          File类与IO流
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        File类与IO流
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-file" class="md-nav__link">
+    1. File概述
+  </a>
+  
+    <nav class="md-nav" aria-label="1. File概述">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-file" class="md-nav__link">
+    1.1 File类的构造方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    1.2 常用方法
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 常用方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121" class="md-nav__link">
+    1.2.1 获取文件和目录
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122" class="md-nav__link">
+    1.2.2 获取路径
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#123" class="md-nav__link">
+    1.2.3 判断功能
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#124" class="md-nav__link">
+    1.2.4 创建删除功能
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#125" class="md-nav__link">
+    1.2.5 目录操作
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-io" class="md-nav__link">
+    2. IO概述
+  </a>
+  
+    <nav class="md-nav" aria-label="2. IO概述">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 流的分类
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 流的分类">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#211" class="md-nav__link">
+    2.1.1 按数据流向：输入流和输出流
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#212" class="md-nav__link">
+    2.1.2 按数据类型：字节流和字符流
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#213-io" class="md-nav__link">
+    2.1.3 按IO流角色不同：节点流和处理流（包装流）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-io" class="md-nav__link">
+    2.2 IO流的基类
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    2.3 字节流
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 字节流">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231-outputstream" class="md-nav__link">
+    2.3.1 字节输出流【OutputStream】
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#232-inputstream" class="md-nav__link">
+    2.3.2 字节输入流【InputStream】
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#233" class="md-nav__link">
+    2.3.3 图片复制案例
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    2.4 字符流
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 字符流">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#241-reader" class="md-nav__link">
+    2.4.1 字符输入流【Reader】
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#242-writer" class="md-nav__link">
+    2.4.2 字符输出流【Writer】
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    2.5 关闭和刷新
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#26" class="md-nav__link">
+    2.6 缓冲流
+  </a>
+  
+    <nav class="md-nav" aria-label="2.6 缓冲流">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#261" class="md-nav__link">
+    2.6.1 字节缓冲流
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#262" class="md-nav__link">
+    2.6.2 字符缓冲流
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#27" class="md-nav__link">
+    2.7 转换流
+  </a>
+  
+    <nav class="md-nav" aria-label="2.7 转换流">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#271" class="md-nav__link">
+    2.7.1 编码简介
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#272" class="md-nav__link">
+    2.7.2 转换流
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#273-inputstreamreader" class="md-nav__link">
+    2.7.3 InputStreamReader类
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#274-outputstreamwriter" class="md-nav__link">
+    2.7.4 OutputStreamWriter类
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#28" class="md-nav__link">
+    2.8  对象流
+  </a>
+  
+    <nav class="md-nav" aria-label="2.8  对象流">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#281-objectoutputstream" class="md-nav__link">
+    2.8.1 ObjectOutputStream类
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#282-objectinputstream" class="md-nav__link">
+    2.8.2 ObjectInputStream类
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#29" class="md-nav__link">
+    2.9 数据流（了解）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#210" class="md-nav__link">
+    2.10 打印流与标准输入输出流
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#211_1" class="md-nav__link">
+    2.11 标准输入/输出流
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../10%20%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/10%20%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" class="md-nav__link">
+        网络编程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../11%20%E5%A4%9A%E7%BA%BF%E7%A8%8B/11%20%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="md-nav__link">
+        多线程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../12%20%E5%8F%8D%E5%B0%84/12%20%E5%8F%8D%E5%B0%84/" class="md-nav__link">
+        反射
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../13%20Java8%E6%96%B0%E7%89%B9%E6%80%A7/Java8%E6%96%B0%E7%89%B9%E6%80%A7/" class="md-nav__link">
+        Java8新特性
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2" type="checkbox" id="__nav_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_2">
+          MySQL数据库
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="MySQL数据库" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          MySQL数据库
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/14%20MySQL/MySQL5.7%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/" class="md-nav__link">
+        MySQL5.7安装文档
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/14%20MySQL/MySQL%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        MySQL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/14%20MySQL/JDBC%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        JDBC
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_3" type="checkbox" id="__nav_1_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_3">
+          JavaWeb阶段
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="JavaWeb阶段" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          JavaWeb阶段
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day01/day01_HTML%26CSS/" class="md-nav__link">
+        HTML&CSS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day02/day02_JS%26%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="md-nav__link">
+        JS&正则表达式
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day03/day03_VUE%26%E4%B9%A6%E5%9F%8E%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        VUE&书城第一阶段
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day04/day04_XML%26Tomcat%26Http%E5%8D%8F%E8%AE%AE/" class="md-nav__link">
+        XML&Tomcat&Http协议
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day05/day05_Servlet/" class="md-nav__link">
+        Servlet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day06/day06_Request%26Response/" class="md-nav__link">
+        Request&Response
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day07/day07_%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        书城项目第二阶
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day08/day08_Thymeleaf/" class="md-nav__link">
+        Thymeleaf
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day09/day09_%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        书城项目第三阶段
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day10/day10_%E4%BC%9A%E8%AF%9D%26%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5%281%29/" class="md-nav__link">
+        会话&书城项目第四阶段1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day11/day11_%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        书城项目第四阶段2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day12/day12_Filter%26Listener%26%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%BA%94%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        Filter&Listener&书城项目第五阶段1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day13/day13_%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%BA%94%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        书城项目第五阶段2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day14/day14_Ajax%26Axios%26%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E5%85%AD%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        Ajax&Axios&书城项目第六阶段
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4" type="checkbox" id="__nav_1_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4">
+          经典框架
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="经典框架" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          经典框架
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/Spring%20%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        Spring
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/SpringMVC%20%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        SpringMVC
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/MyBatis%20%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        MyBatis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/SSM%20%E6%95%B4%E5%90%88%E9%85%8D%E7%BD%AE/" class="md-nav__link">
+        SSM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/Maven%20%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        Maven
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/%E6%A1%86%E6%9E%B6%E9%AB%98%E7%BA%A7%E8%AF%BE%E7%A8%8B%E7%B3%BB%E5%88%97%E4%B9%8BLinuxCentOS7/" class="md-nav__link">
+        Linux
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/Redis/" class="md-nav__link">
+        Redis
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_5" type="checkbox" id="__nav_1_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_5">
+          微服务相关
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="微服务相关" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_5">
+          <span class="md-nav__icon md-icon"></span>
+          微服务相关
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/Docker/Docker/" class="md-nav__link">
+        Docker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/ElasticSearch/ElasticSearch/" class="md-nav__link">
+        ElasticSearch
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/RabbitMQ/RabbitMQ/" class="md-nav__link">
+        RabbitMQ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/SpringBoot/SpringBoot/" class="md-nav__link">
+        SpringBoot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/SpringCloud/SpringCloud/" class="md-nav__link">
+        SpringCloud
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_6" type="checkbox" id="__nav_1_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_6">
+          高级技术
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="高级技术" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_6">
+          <span class="md-nav__icon md-icon"></span>
+          高级技术
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/git/Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        git
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/juc/JUC/" class="md-nav__link">
+        JUC
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/jvm/jvm/" class="md-nav__link">
+        jvm
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/mysql%E9%AB%98%E7%BA%A7/MySQL%E9%AB%98%E7%BA%A7/" class="md-nav__link">
+        mysql高级
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/mysql%E9%AB%98%E7%BA%A7/MySQL%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/" class="md-nav__link">
+        MySQL主从复制
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/MyCat/Mycat/" class="md-nav__link">
+        MyCat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/nginx/Nginx/" class="md-nav__link">
+        Nginx
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7" type="checkbox" id="__nav_1_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7">
+          项目文档
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="项目文档" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_7">
+          <span class="md-nav__icon md-icon"></span>
+          项目文档
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_1" type="checkbox" id="__nav_1_7_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7_1">
+          美年旅游
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="美年旅游" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_7_1">
+          <span class="md-nav__icon md-icon"></span>
+          美年旅游
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%BE%8E%E5%B9%B4/day01/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC1%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游01
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%BE%8E%E5%B9%B4/day02/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC2%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游02
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%BE%8E%E5%B9%B4/day03/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC3%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游03
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%BE%8E%E5%B9%B4/day04/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC4%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游04
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%BE%8E%E5%B9%B4/day05/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC5%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游05
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%BE%8E%E5%B9%B4/day06/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC6%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游06
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%BE%8E%E5%B9%B4/day07/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC7%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游07
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%BE%8E%E5%B9%B4/day08/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC8%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游08
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%BE%8E%E5%B9%B4/day09/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC9%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游09
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%BE%8E%E5%B9%B4/day10/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC10%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游10
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%BE%8E%E5%B9%B4/day11/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC11%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游11
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_2" type="checkbox" id="__nav_1_7_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7_2">
+          尚邻网
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="尚邻网" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_7_2">
+          <span class="md-nav__icon md-icon"></span>
+          尚邻网
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E9%82%BB%E7%BD%91/1.%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83/" class="md-nav__link">
+        搭建环境
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E9%82%BB%E7%BD%91/2.%E7%94%A8%E6%88%B7%E8%A7%92%E8%89%B2%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        用户角色管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E9%82%BB%E7%BD%91/3.Apache%20Dubbo/" class="md-nav__link">
+        Apache Dubbo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E9%82%BB%E7%BD%91/4.%E6%9C%8D%E5%8A%A1%E6%8B%86%E5%88%86/" class="md-nav__link">
+        服务拆分
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E9%82%BB%E7%BD%91/5.%E4%BA%8C%E6%89%8B%E6%88%BF%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        二手房管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E9%82%BB%E7%BD%91/6.%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/" class="md-nav__link">
+        图片上传
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E9%82%BB%E7%BD%91/7.%E5%89%8D%E7%AB%AF%E6%88%BF%E6%BA%90%E5%B1%95%E7%A4%BA/" class="md-nav__link">
+        前端房源展示
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E9%82%BB%E7%BD%91/8.%E5%89%8D%E7%AB%AF%E7%99%BB%E5%BD%95%E4%B8%8E%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%85%B3%E6%B3%A8/" class="md-nav__link">
+        前端登录与注册与关注
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E9%82%BB%E7%BD%91/9.%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        权限管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E9%82%BB%E7%BD%91/10.spring%20security/" class="md-nav__link">
+        spring security
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E9%82%BB%E7%BD%91/11.session%E5%85%B1%E4%BA%AB/" class="md-nav__link">
+        session共享
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_3" type="checkbox" id="__nav_1_7_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7_3">
+          谷粒商城
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="谷粒商城" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_7_3">
+          <span class="md-nav__icon md-icon"></span>
+          谷粒商城
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/1.%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%EF%BC%88nginx%E3%80%81cors%E3%80%81oss%EF%BC%89/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        谷粒商城01
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/2.%E5%88%86%E7%B1%BB%E3%80%81%E8%A7%84%E6%A0%BC%E3%80%81%E5%95%86%E5%93%81%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/%E8%A7%84%E6%A0%BC%E5%8F%82%E6%95%B0%E5%8F%8A%E5%95%86%E5%93%81%E6%96%B0%E5%A2%9E/" class="md-nav__link">
+        谷粒商城02
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/3.%E6%9C%AC%E5%9C%B0%E4%BA%8B%E5%8A%A1%E3%80%81%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E5%8F%8Aseata/%E6%9C%AC%E5%9C%B0%E4%BA%8B%E5%8A%A1%E3%80%81%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E5%8F%8Aseata/" class="md-nav__link">
+        谷粒商城03
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/4.elasticsearch%28DSL%E5%8F%8ASpringData-Elasticsearch%29/elasticsearch/" class="md-nav__link">
+        谷粒商城04
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/5.%E5%95%86%E5%93%81%E6%90%9C%E7%B4%A2/%E5%95%86%E5%93%81%E6%90%9C%E7%B4%A2/" class="md-nav__link">
+        谷粒商城05
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/6.%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%EF%BC%88Thymeleaf%EF%BC%89%E5%8F%8A%E6%90%9C%E7%B4%A2%E9%A1%B5%E6%B8%B2%E6%9F%93/%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E-Thymeleaf/" class="md-nav__link">
+        谷粒商城06
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/7.%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%EF%BC%88RabbitMQ%EF%BC%89/%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5/" class="md-nav__link">
+        谷粒商城07
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/8.%E5%95%86%E5%93%81%E5%88%86%E7%B1%BB%28%E7%BC%93%E5%AD%98%E3%80%81%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E3%80%81Redisson%E3%80%81%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8%29/%E9%A6%96%E9%A1%B5%E5%95%86%E5%93%81%E5%88%86%E7%B1%BB/" class="md-nav__link">
+        谷粒商城08
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/9.%E5%95%86%E5%93%81%E8%AF%A6%E6%83%85%E9%A1%B5%E5%8F%8A%E5%BC%82%E6%AD%A5%E7%BC%96%E6%8E%92%EF%BC%88CompletableFuture%EF%BC%89/%E5%95%86%E5%93%81%E8%AF%A6%E6%83%85%E9%A1%B5/" class="md-nav__link">
+        谷粒商城09
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/10.%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%EF%BC%88jwt%EF%BC%89/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%EF%BC%88jwt%EF%BC%89/" class="md-nav__link">
+        谷粒商城10
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/11.%E8%B4%AD%E7%89%A9%E8%BD%A6%EF%BC%88SpringTask%EF%BC%89/%E8%B4%AD%E7%89%A9%E8%BD%A6/" class="md-nav__link">
+        谷粒商城11
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/12.%E5%88%86%E5%B8%83%E5%BC%8F%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%EF%BC%88xxl-job%EF%BC%89/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%EF%BC%88xxl-job%EF%BC%89/" class="md-nav__link">
+        谷粒商城12
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/13.%E8%AE%A2%E5%8D%95%E3%80%81%E5%BA%93%E5%AD%98/%E8%AE%A2%E5%8D%95%E3%80%81%E5%BA%93%E5%AD%98/" class="md-nav__link">
+        谷粒商城13
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/14.%E6%94%AF%E4%BB%98%E3%80%81%E7%A7%92%E6%9D%80/%E6%94%AF%E4%BB%98%E3%80%81%E7%A7%92%E6%9D%80/" class="md-nav__link">
+        谷粒商城14
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_4" type="checkbox" id="__nav_1_7_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7_4">
+          尚融宝
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="尚融宝" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_7_4">
+          <span class="md-nav__icon md-icon"></span>
+          尚融宝
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part01-%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D/Part01-%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
+        项目介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part02-MyBatis-Plus/Part02-MyBatis-Plus/" class="md-nav__link">
+        MyBatis-Plus
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part03-%E5%90%8E%E7%AB%AF%E6%8E%A5%E5%8F%A3%E5%B7%A5%E7%A8%8B%E6%90%AD%E5%BB%BA/Part03-%E5%90%8E%E7%AB%AF%E6%8E%A5%E5%8F%A3%E5%B7%A5%E7%A8%8B%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        后端接口工程搭建
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part04-%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/Part04-%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/" class="md-nav__link">
+        前端知识
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part05-%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA/Part05-%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        管理平台前端搭建
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part06-Alibaba%20EasyExcel/Part06-Alibaba%20EasyExcel/" class="md-nav__link">
+        Alibaba EasyExcel
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part07-%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8/Part07-%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8/" class="md-nav__link">
+        数据字典
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part08-Redis%E7%BC%93%E5%AD%98/Part08-Redis%E7%BC%93%E5%AD%98/" class="md-nav__link">
+        Redis缓存
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part09-NuxtJS%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E6%B8%B2%E6%9F%93/Part09-NuxtJS%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E6%B8%B2%E6%9F%93/" class="md-nav__link">
+        NuxtJS服务器端渲染
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part10-%E9%98%BF%E9%87%8C%E4%BA%91%E7%9F%AD%E4%BF%A1/Part10-%E9%98%BF%E9%87%8C%E4%BA%91%E7%9F%AD%E4%BF%A1/" class="md-nav__link">
+        阿里云短信
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java课程/项目文档/尚融宝/Part11-分布式文件系统-阿里云OSS/分布式文件系统-阿里云OSS" class="md-nav__link">
+        阿里云OSS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part12-%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C/Part12-%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C/" class="md-nav__link">
+        用户注册
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part13-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%89%E5%85%A8-%E8%AE%BF%E9%97%AE%E4%BB%A4%E7%89%8C/Part13-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%89%E5%85%A8-%E8%AE%BF%E9%97%AE%E4%BB%A4%E7%89%8C/" class="md-nav__link">
+        访问令牌
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part14-%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81/Part14-%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81/" class="md-nav__link">
+        用户认证
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part15-%E4%BC%9A%E5%91%98%E7%AE%A1%E7%90%86/Part15-%E4%BC%9A%E5%91%98%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        会员管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part16-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%89%E5%85%A8-OAuth2/Part16-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%89%E5%85%A8-OAuth2/" class="md-nav__link">
+        OAuth2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part17-%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/Part17-%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" class="md-nav__link">
+        内网穿透
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part18-%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95/Part18-%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95/" class="md-nav__link">
+        微信登录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part19-%20SpringCloud/Part19-%20SpringCloud/" class="md-nav__link">
+        SpringCloud
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part20-%E8%B4%A6%E6%88%B7%E7%BB%91%E5%AE%9A/Part20-%E8%B4%A6%E6%88%B7%E7%BB%91%E5%AE%9A/" class="md-nav__link">
+        账户绑定
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part21-%E7%94%B3%E8%AF%B7%E5%80%9F%E6%AC%BE%E9%A2%9D%E5%BA%A6/Part21-%E7%94%B3%E8%AF%B7%E5%80%9F%E6%AC%BE%E9%A2%9D%E5%BA%A6/" class="md-nav__link">
+        申请借款额度
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part22-%E5%80%9F%E6%AC%BE%E9%A2%9D%E5%BA%A6%E5%AE%A1%E6%A0%B8/Part22-%E5%80%9F%E6%AC%BE%E9%A2%9D%E5%BA%A6%E5%AE%A1%E6%A0%B8/" class="md-nav__link">
+        借款额度审核
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part23-%E5%80%9F%E6%AC%BE%E7%94%B3%E8%AF%B7/Part23-%E5%80%9F%E6%AC%BE%E7%94%B3%E8%AF%B7/" class="md-nav__link">
+        借款申请
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part24-%E5%80%9F%E6%AC%BE%E5%AE%A1%E6%A0%B8/Part24-%E5%80%9F%E6%AC%BE%E5%AE%A1%E6%A0%B8/" class="md-nav__link">
+        借款审核
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part25-%E6%A0%87%E7%9A%84%E7%AE%A1%E7%90%86/Part25-%E6%A0%87%E7%9A%84%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        标的管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part26-%E6%88%91%E8%A6%81%E6%8A%95%E8%B5%84/Part26-%E6%88%91%E8%A6%81%E6%8A%95%E8%B5%84/" class="md-nav__link">
+        我要投资
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part27-%E5%85%85%E5%80%BC/Part27-%E5%85%85%E5%80%BC/" class="md-nav__link">
+        充值
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part28-%E6%8A%95%E6%A0%87/Part28-%E6%8A%95%E6%A0%87/" class="md-nav__link">
+        投标
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part29-%E6%94%BE%E6%AC%BE/Part29-%E6%94%BE%E6%AC%BE/" class="md-nav__link">
+        放款
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part30-%E6%8A%95%E8%B5%84%E5%88%97%E8%A1%A8%E5%B1%95%E7%A4%BA/Part30-%E6%8A%95%E8%B5%84%E5%88%97%E8%A1%A8%E5%B1%95%E7%A4%BA/" class="md-nav__link">
+        投资列表展示
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part31-%E6%8F%90%E7%8E%B0%E5%92%8C%E8%BF%98%E6%AC%BE/Part31-%E6%8F%90%E7%8E%B0%E5%92%8C%E8%BF%98%E6%AC%BE/" class="md-nav__link">
+        提现和还款
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part32-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83/Part32-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83/" class="md-nav__link">
+        个人中心
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part33-%E7%BD%91%E5%85%B3/Part33-%E7%BD%91%E5%85%B3/" class="md-nav__link">
+        网关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part34-%E8%A1%A5%E5%85%85/Part34-%E8%A1%A5%E5%85%85/" class="md-nav__link">
+        补充
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part35-%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/Part35-%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/" class="md-nav__link">
+        微信支付
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_5" type="checkbox" id="__nav_1_7_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7_5">
+          尚医通
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="尚医通" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_7_5">
+          <span class="md-nav__icon md-icon"></span>
+          尚医通
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day01%20%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%E4%B8%8EMyBatis%20Plus/day01%20%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%E4%B8%8E%20Mybatis%20Plus/" class="md-nav__link">
+        项目介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day02%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E5%92%8C%E5%8C%BB%E9%99%A2%E8%AE%BE%E7%BD%AE/day02%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E5%92%8C%E5%8C%BB%E9%99%A2%E8%AE%BE%E7%BD%AE/" class="md-nav__link">
+        搭建环境和医院设置
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day03%20%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89/day03%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89/" class="md-nav__link">
+        前端基础知识（一）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day04%20%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%BA%8C%EF%BC%89/day04%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="md-nav__link">
+        前端基础知识（二）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day05%E5%B9%B3%E5%8F%B0%E7%AE%A1%E7%90%86%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA/day05%E5%B9%B3%E5%8F%B0%E7%AE%A1%E7%90%86%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        平台管理前端搭建
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day06%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8/day06%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8/" class="md-nav__link">
+        数据字典
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day07mongodb/day07mongodb/" class="md-nav__link">
+        mongodb
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day08%E5%8C%BB%E9%99%A2%E4%B8%8A%E4%BC%A0%E6%8E%A5%E5%8F%A3/day08%E5%8C%BB%E9%99%A2%E4%B8%8A%E4%BC%A0%E6%8E%A5%E5%8F%A3/" class="md-nav__link">
+        医院上传接口
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day09%E5%8C%BB%E9%99%A2%E7%AE%A1%E7%90%86/day09%E5%8C%BB%E9%99%A2%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        医院管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day10%E6%8E%92%E7%8F%AD%E7%AE%A1%E7%90%86%E5%92%8C%E7%BD%91%E5%85%B3/day10%E6%8E%92%E7%8F%AD%E7%AE%A1%E7%90%86%E5%92%8C%E7%BD%91%E5%85%B3/" class="md-nav__link">
+        排班管理和网关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day11%E5%B9%B3%E5%8F%B0%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA%E4%B8%8E%E9%A6%96%E9%A1%B5/day11%E5%B9%B3%E5%8F%B0%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA%E4%B8%8E%E9%A6%96%E9%A1%B5/" class="md-nav__link">
+        平台前端搭建与首页
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day12%E6%89%8B%E6%9C%BA%E7%99%BB%E5%BD%95/day12%E6%89%8B%E6%9C%BA%E7%99%BB%E5%BD%95/" class="md-nav__link">
+        手机登录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day13%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95/day13%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95/" class="md-nav__link">
+        微信登录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day14%E9%98%BF%E9%87%8C%E4%BA%91OSS%E3%80%81%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81%E4%B8%8E%E5%B0%B1%E8%AF%8A%E4%BA%BA/day14%E9%98%BF%E9%87%8C%E4%BA%91OSS%E3%80%81%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81%E4%B8%8E%E5%B0%B1%E8%AF%8A%E4%BA%BA/" class="md-nav__link">
+        阿里云OSS、用户认证与就诊人
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day15%E9%A2%84%E7%BA%A6%E6%8C%82%E5%8F%B7/day15%E9%A2%84%E7%BA%A6%E6%8C%82%E5%8F%B7/" class="md-nav__link">
+        预约挂号
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day16%E9%A2%84%E7%BA%A6%E4%B8%8B%E5%8D%95/day16%E9%A2%84%E7%BA%A6%E4%B8%8B%E5%8D%95/" class="md-nav__link">
+        预约下单
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day17%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/day17%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/" class="md-nav__link">
+        微信支付
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day18%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E4%B8%8E%E7%BB%9F%E8%AE%A1/day18%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E4%B8%8E%E7%BB%9F%E8%AE%A1/" class="md-nav__link">
+        定时任务与统计
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Java就业面试
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Java就业面试" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Java就业面试
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC1%E7%AB%A0%20%E9%9D%A2%E8%AF%95%E8%AF%B4%E6%98%8E/" class="md-nav__link">
+        第1章 面试说明
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC2%E7%AB%A0%20%E6%89%8B%E5%86%99%E4%BB%A3%E7%A0%81/" class="md-nav__link">
+        第2章 手写代码
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC3%E7%AB%A0%20JavaSE/" class="md-nav__link">
+        第3章 JavaSE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC4%E7%AB%A0%20JVM/" class="md-nav__link">
+        第4章 JVM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC5%E7%AB%A0%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="md-nav__link">
+        第5章 设计模式
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC6%E7%AB%A0%20MySql/" class="md-nav__link">
+        第6章 MySql
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC7%E7%AB%A0%20Java%20Web/" class="md-nav__link">
+        第7章 Java Web
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC8%E7%AB%A0%20SSM%E6%A1%86%E6%9E%B6/" class="md-nav__link">
+        第8章 SSM框架
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC9%E7%AB%A0%20SpringBoot/" class="md-nav__link">
+        第9章 SpringBoot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC10%E7%AB%A0%20SpringCloud/" class="md-nav__link">
+        第10章 SpringCloud
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC11%E7%AB%A0%20Redis/" class="md-nav__link">
+        第11章 Redis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC12%E7%AB%A0%20MQ/" class="md-nav__link">
+        第12章 MQ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC13%E7%AB%A0%20ElasticSearch/" class="md-nav__link">
+        第13章 ElasticSearch
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC14%E7%AB%A0%20Dubbo/" class="md-nav__link">
+        第14章 Dubbo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC15%E7%AB%A0%20Zookeeper/" class="md-nav__link">
+        第15章 Zookeeper
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC16%E7%AB%A0%20Git/" class="md-nav__link">
+        第16章 Git
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC17%E7%AB%A0%20Linux/" class="md-nav__link">
+        第17章 Linux
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        学习文档
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-file" class="md-nav__link">
+    1. File概述
+  </a>
+  
+    <nav class="md-nav" aria-label="1. File概述">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-file" class="md-nav__link">
+    1.1 File类的构造方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    1.2 常用方法
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 常用方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121" class="md-nav__link">
+    1.2.1 获取文件和目录
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122" class="md-nav__link">
+    1.2.2 获取路径
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#123" class="md-nav__link">
+    1.2.3 判断功能
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#124" class="md-nav__link">
+    1.2.4 创建删除功能
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#125" class="md-nav__link">
+    1.2.5 目录操作
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-io" class="md-nav__link">
+    2. IO概述
+  </a>
+  
+    <nav class="md-nav" aria-label="2. IO概述">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 流的分类
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 流的分类">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#211" class="md-nav__link">
+    2.1.1 按数据流向：输入流和输出流
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#212" class="md-nav__link">
+    2.1.2 按数据类型：字节流和字符流
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#213-io" class="md-nav__link">
+    2.1.3 按IO流角色不同：节点流和处理流（包装流）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-io" class="md-nav__link">
+    2.2 IO流的基类
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    2.3 字节流
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 字节流">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231-outputstream" class="md-nav__link">
+    2.3.1 字节输出流【OutputStream】
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#232-inputstream" class="md-nav__link">
+    2.3.2 字节输入流【InputStream】
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#233" class="md-nav__link">
+    2.3.3 图片复制案例
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    2.4 字符流
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 字符流">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#241-reader" class="md-nav__link">
+    2.4.1 字符输入流【Reader】
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#242-writer" class="md-nav__link">
+    2.4.2 字符输出流【Writer】
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    2.5 关闭和刷新
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#26" class="md-nav__link">
+    2.6 缓冲流
+  </a>
+  
+    <nav class="md-nav" aria-label="2.6 缓冲流">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#261" class="md-nav__link">
+    2.6.1 字节缓冲流
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#262" class="md-nav__link">
+    2.6.2 字符缓冲流
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#27" class="md-nav__link">
+    2.7 转换流
+  </a>
+  
+    <nav class="md-nav" aria-label="2.7 转换流">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#271" class="md-nav__link">
+    2.7.1 编码简介
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#272" class="md-nav__link">
+    2.7.2 转换流
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#273-inputstreamreader" class="md-nav__link">
+    2.7.3 InputStreamReader类
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#274-outputstreamwriter" class="md-nav__link">
+    2.7.4 OutputStreamWriter类
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#28" class="md-nav__link">
+    2.8  对象流
+  </a>
+  
+    <nav class="md-nav" aria-label="2.8  对象流">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#281-objectoutputstream" class="md-nav__link">
+    2.8.1 ObjectOutputStream类
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#282-objectinputstream" class="md-nav__link">
+    2.8.2 ObjectInputStream类
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#29" class="md-nav__link">
+    2.9 数据流（了解）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#210" class="md-nav__link">
+    2.10 打印流与标准输入输出流
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#211_1" class="md-nav__link">
+    2.11 标准输入/输出流
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+<h1 id="file">File类与流的概述<a class="headerlink" href="#file" title="Permanent link">&para;</a></h1>
+<h2 id="1-file">1. File概述<a class="headerlink" href="#1-file" title="Permanent link">&para;</a></h2>
+<p>File类位于java.io.包下，用于操作文件和目录。File类能新建、删除、重命名文件和目录。</p>
+<p>在API中File的解释是文件和目录路径名的抽象表示形式，即File类是文件或目录的路径，而不是文件本
+身，因此File类不能直接访问文件内容本身，如果需要访问文件内容本身，则需要使用输入/输出流。</p>
+<h3 id="11-file">1.1 File类的构造方法<a class="headerlink" href="#11-file" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>方法说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>public File(String pathname)</td>
+<td>通过将给定的路径名字符串转换为抽象路径名来创建新的File实例。</td>
+</tr>
+<tr>
+<td>public File(String parent, String child)</td>
+<td>从父路径名字符串和子路径名字符串创建新的 File实例。</td>
+</tr>
+<tr>
+<td>public File(File parent, String child)</td>
+<td>从父抽象路径名和子路径名字符串创建新的File实例。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>代码示例，有4中创建File类的方式</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 文件路径名</span>
+<span class="n">String</span> <span class="n">pathname</span> <span class="o">=</span> <span class="s">&quot;D:\\aaa.txt&quot;</span><span class="p">;</span>
+<span class="n">File</span> <span class="n">file1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="n">pathname</span><span class="p">);</span>
+
+<span class="c1">// 文件路径名</span>
+<span class="n">String</span> <span class="n">pathname2</span> <span class="o">=</span> <span class="s">&quot;D:\\aaa\\bbb.txt&quot;</span><span class="p">;</span>
+<span class="n">File</span> <span class="n">file2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="n">pathname2</span><span class="p">);</span>
+
+<span class="c1">// 通过父路径和子路径字符串</span>
+<span class="n">String</span> <span class="n">parent</span> <span class="o">=</span> <span class="s">&quot;d:\\aaa&quot;</span><span class="p">;</span>
+<span class="n">String</span> <span class="n">child</span> <span class="o">=</span> <span class="s">&quot;bbb.txt&quot;</span><span class="p">;</span>
+<span class="n">File</span> <span class="n">file3</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">child</span><span class="p">);</span>
+
+<span class="c1">// 通过父级File对象和子路径字符串</span>
+<span class="n">File</span> <span class="n">parentDir</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="s">&quot;d:\\aaa&quot;</span><span class="p">);</span>
+<span class="n">String</span> <span class="n">child</span> <span class="o">=</span> <span class="s">&quot;bbb.txt&quot;</span><span class="p">;</span>
+<span class="n">File</span> <span class="n">file4</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="n">parentDir</span><span class="p">,</span> <span class="n">child</span><span class="p">);</span>
+</code></pre></div>
+<blockquote>
+<p>一个File对象代表硬盘中实际存在的一个文件或者目录。</p>
+<p>无论该路径下是否存在文件或者目录，都不影响File对象的创建。</p>
+</blockquote>
+<h3 id="12">1.2 常用方法<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
+<h4 id="121">1.2.1 获取文件和目录<a class="headerlink" href="#121" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>方法说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>public String getName()</td>
+<td>返回由此File表示的文件或目录的名称。</td>
+</tr>
+<tr>
+<td>public long length()</td>
+<td>返回由此File表示的文件的长度。</td>
+</tr>
+<tr>
+<td>public String getPath()</td>
+<td>将此File转换为路径名字符串。</td>
+</tr>
+<tr>
+<td>public long lastModified()</td>
+<td>返回File对象对应的文件或目录的最后修改时间（毫秒值）</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestFile</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">File</span> <span class="n">f</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="s">&quot;d:/aaa/bbb.txt&quot;</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;文件构造路径:&quot;</span><span class="o">+</span><span class="n">f</span><span class="p">.</span><span class="na">getPath</span><span class="p">());</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;文件名称:&quot;</span><span class="o">+</span><span class="n">f</span><span class="p">.</span><span class="na">getName</span><span class="p">());</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;文件长度:&quot;</span><span class="o">+</span><span class="n">f</span><span class="p">.</span><span class="na">length</span><span class="p">()</span><span class="o">+</span><span class="s">&quot;字节&quot;</span><span class="p">);</span>
+
+        <span class="n">File</span> <span class="n">f2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="s">&quot;d:/aaa&quot;</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;目录构造路径:&quot;</span><span class="o">+</span><span class="n">f2</span><span class="p">.</span><span class="na">getPath</span><span class="p">());</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;目录名称:&quot;</span><span class="o">+</span><span class="n">f2</span><span class="p">.</span><span class="na">getName</span><span class="p">());</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;目录长度:&quot;</span><span class="o">+</span><span class="n">f2</span><span class="p">.</span><span class="na">length</span><span class="p">()</span><span class="o">+</span><span class="s">&quot;字节&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cm">/*输出结果</span>
+<span class="cm">文件构造路径:d:\aaa\bbb.java</span>
+<span class="cm">文件名称:bbb.java</span>
+<span class="cm">文件长度:636字节</span>
+<span class="cm">文件最后修改时间：2019-07-23T22:01:32.065</span>
+<span class="cm">目录构造路径:d:\aaa</span>
+<span class="cm">目录名称:aaa</span>
+<span class="cm">目录长度:4096字节</span>
+<span class="cm">文件最后修改时间：2019-07-23T22:01:32.065</span>
+<span class="cm">*/</span>
+</code></pre></div>
+<blockquote>
+<p>API中说明：length()，表示文件的长度。但是File对象表示目录，则返回值未指定。</p>
+</blockquote>
+<h4 id="122">1.2.2 获取路径<a class="headerlink" href="#122" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>方法说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>public String getPath()</td>
+<td>将此File转换为路径名字符串。</td>
+</tr>
+<tr>
+<td>public String getAbsolutePath()</td>
+<td>返回此File的绝对路径名字符串。</td>
+</tr>
+<tr>
+<td>String getCanonicalPath()</td>
+<td>返回此File对象所对应的规范路径名。</td>
+</tr>
+</tbody>
+</table>
+<p>File类可以使用文件路径字符串来创建File实例，该文件路径字符串既可以是绝对路径，也可以是相对路径。
+默认情况下，系统总是依据用户的工作路径来解释相对路径，这个路径由系统属性“user.dir”指定，通常也就是运行Java虚拟机时所作的路径。</p>
+<ul>
+<li>绝对路径：从盘符开始的路径，这是一个完整的路径。</li>
+<li>相对路径：相对于项目目录的路径，这是一个便捷的路径，开发中经常使用。<ul>
+<li>IDEA中 单元测试的相对路径的根路径是 <strong>模块</strong>；main方法的相对路径是 <strong>当前项目</strong></li>
+</ul>
+</li>
+<li>规范路径：所谓规范路径名，即对路径中的“..”等进行解析后的路径名</li>
+</ul>
+<blockquote>
+<p>Windows中 路径的分隔符为 <code>\</code> ，因此再String字符串中使用 <code>\\</code> 转译成 <code>\</code></p>
+<p>Java程序支持将“/”当成平台无关的路径分隔符。或者直接使用File.separator常量值表示。</p>
+</blockquote>
+<h4 id="123">1.2.3 判断功能<a class="headerlink" href="#123" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>方法说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>public boolean exists()</td>
+<td>此File表示的文件或目录是否实际存在。</td>
+</tr>
+<tr>
+<td>public boolean isDirectory()</td>
+<td>此File表示的是否为目录。</td>
+</tr>
+<tr>
+<td>public boolean isFile()</td>
+<td>此File表示的是否为文件。</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>如果文件或目录不存在，那么exists()、isFile()和isDirectory()都是返回true</p>
+</blockquote>
+<h4 id="124">1.2.4 创建删除功能<a class="headerlink" href="#124" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>方法说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>public boolean createNewFile()</td>
+<td>当且仅当具有该名称的文件尚不存在时，创建一个新的空文件。</td>
+</tr>
+<tr>
+<td>public boolean delete()</td>
+<td>删除由此File表示的文件或目录。 只能删除空目录。</td>
+</tr>
+<tr>
+<td>public boolean mkdir()</td>
+<td>创建由此File表示的目录。</td>
+</tr>
+<tr>
+<td>public boolean mkdirs()</td>
+<td>创建由此File表示的目录，包括任何必需但不存在的父目录。</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>API中说明：delete方法，如果此File表示目录，则目录必须为空才能删除。</p>
+</blockquote>
+<h4 id="125">1.2.5 目录操作<a class="headerlink" href="#125" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>方法说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>public String[] list()</td>
+<td>返回一个String数组，表示该File目录中的所有子文件或目录。</td>
+</tr>
+<tr>
+<td>public File[] listFiles()</td>
+<td>返回一个File数组，表示该File目录中的所有的子文件或目录。</td>
+</tr>
+<tr>
+<td>public File[] listFiles(FileFilter filter)</td>
+<td>返回所有满足指定过滤器的文件和目录。</td>
+</tr>
+</tbody>
+</table>
+<p>过滤器方法说明：</p>
+<p>如果给定 filter 为 null，则接受所有路径名。否则，当且仅当在路径名上调用过滤器的FileFilter.accept(java.io.File) 方法返回 true 时，该路径名才满足过滤器。如果当前File对象不表示一个目录，或者发生 I/O 错误，则返回 null。</p>
+<p><strong>输出文件夹下所有文件夹及其行数示例</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">IOTest01</span> <span class="p">{</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">test1</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">IOException</span><span class="p">,</span> <span class="n">ExecutionException</span><span class="p">,</span> <span class="n">InterruptedException</span> <span class="p">{</span>
+
+        <span class="c1">//15683</span>
+
+        <span class="c1">//      File file = new File(&quot;E:\\_Code_&quot;);//78719</span>
+        <span class="n">File</span> <span class="n">file</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="s">&quot;E:\\&quot;</span><span class="p">);</span><span class="c1">//78719 78768</span>
+        <span class="kt">long</span> <span class="n">start</span> <span class="o">=</span> <span class="n">System</span><span class="p">.</span><span class="na">currentTimeMillis</span><span class="p">();</span>
+        <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">getAllFile</span><span class="p">(</span><span class="n">file</span><span class="p">);</span>
+        <span class="kt">long</span> <span class="n">end</span> <span class="o">=</span> <span class="n">System</span><span class="p">.</span><span class="na">currentTimeMillis</span><span class="p">();</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;总长度为：&quot;</span> <span class="o">+</span> <span class="n">sum</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;耗时：&quot;</span> <span class="o">+</span> <span class="p">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getAllFile</span><span class="p">(</span><span class="n">File</span> <span class="n">file</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IOException</span><span class="p">,</span> <span class="n">ExecutionException</span><span class="p">,</span> <span class="n">InterruptedException</span> <span class="p">{</span>
+        <span class="n">File</span><span class="o">[]</span> <span class="n">files</span> <span class="o">=</span> <span class="n">file</span><span class="p">.</span><span class="na">listFiles</span><span class="p">();</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">files</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">files</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">files</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">.</span><span class="na">isDirectory</span><span class="p">())</span> <span class="p">{</span>
+
+                <span class="n">sum</span> <span class="o">+=</span> <span class="n">getAllFile</span><span class="p">(</span><span class="n">files</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">);</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">files</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">.</span><span class="na">getAbsolutePath</span><span class="p">().</span><span class="na">endsWith</span><span class="p">(</span><span class="s">&quot;.java&quot;</span><span class="p">))</span> <span class="p">{</span>
+                    <span class="n">String</span> <span class="n">path</span> <span class="o">=</span> <span class="n">files</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">.</span><span class="na">getAbsolutePath</span><span class="p">();</span>
+
+                    <span class="c1">//                  sum += getLineCount(path);</span>
+
+                    <span class="n">GetLineCount</span> <span class="n">count</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GetLineCount</span><span class="p">(</span><span class="n">path</span><span class="p">);</span>
+                    <span class="c1">//                  int lineCount = count.getLineCount();</span>
+
+                    <span class="n">FutureTask</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">futureTask</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FutureTask</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">count</span><span class="p">);</span>
+                    <span class="c1">// 需要先run，然后再通过 get 获取结果</span>
+                    <span class="n">futureTask</span><span class="p">.</span><span class="na">run</span><span class="p">();</span>
+                    <span class="n">Integer</span> <span class="n">lineCount</span> <span class="o">=</span> <span class="n">futureTask</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+
+                    <span class="n">sum</span> <span class="o">+=</span> <span class="n">lineCount</span><span class="p">;</span>
+
+                    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="s">&quot;\t文件行数为：&quot;</span> <span class="o">+</span> <span class="n">lineCount</span><span class="p">);</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">sum</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getLineCount</span><span class="p">(</span><span class="n">String</span> <span class="n">path</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="p">{</span>
+        <span class="n">BufferedReader</span> <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedReader</span><span class="p">(</span><span class="k">new</span> <span class="n">FileReader</span><span class="p">(</span><span class="n">path</span><span class="p">));</span>
+        <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">reader</span><span class="p">.</span><span class="na">readLine</span><span class="p">()</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">sum</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">sum</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="kd">class</span> <span class="nc">GetLineCount</span> <span class="kd">implements</span> <span class="n">Callable</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="p">{</span>
+
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">path</span><span class="p">;</span>
+
+    <span class="kd">private</span> <span class="n">Integer</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">GetLineCount</span><span class="p">(</span><span class="n">String</span> <span class="n">path</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">path</span> <span class="o">=</span> <span class="n">path</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getLineCount</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="p">{</span>
+        <span class="n">BufferedReader</span> <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedReader</span><span class="p">(</span><span class="k">new</span> <span class="n">FileReader</span><span class="p">(</span><span class="n">path</span><span class="p">));</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">reader</span><span class="p">.</span><span class="na">readLine</span><span class="p">()</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">count</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="n">Integer</span> <span class="nf">getCount</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">count</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">Integer</span> <span class="nf">call</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="p">{</span>
+        <span class="n">BufferedReader</span> <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedReader</span><span class="p">(</span><span class="k">new</span> <span class="n">FileReader</span><span class="p">(</span><span class="n">path</span><span class="p">));</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">reader</span><span class="p">.</span><span class="na">readLine</span><span class="p">()</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">count</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="2-io">2. IO概述<a class="headerlink" href="#2-io" title="Permanent link">&para;</a></h2>
+<h3 id="21">2.1 流的分类<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<h4 id="211">2.1.1 按数据流向：输入流和输出流<a class="headerlink" href="#211" title="Permanent link">&para;</a></h4>
+<ul>
+<li>输入流 ：把数据从 其他设备 上读取到 内存 中的流。<ul>
+<li>以InputStream,Reader结尾</li>
+</ul>
+</li>
+<li>输出流 ：把数据从 内存 中写出到 其他设备 上的流。<ul>
+<li>以OutputStream、Writer结尾</li>
+</ul>
+</li>
+</ul>
+<h4 id="212">2.1.2 按数据类型：字节流和字符流<a class="headerlink" href="#212" title="Permanent link">&para;</a></h4>
+<ul>
+<li>字节流 ：以字节为单位，读写数据的流。<ul>
+<li>以InputStream和OutputStream结尾</li>
+</ul>
+</li>
+<li>字符流 ：以字符为单位，读写数据的流。<ul>
+<li>以Reader和Writer结尾</li>
+</ul>
+</li>
+</ul>
+<h4 id="213-io">2.1.3 按IO流角色不同：节点流和处理流（包装流）<a class="headerlink" href="#213-io" title="Permanent link">&para;</a></h4>
+<ul>
+<li>节点流：可以从或向一个特定的地方（节点）读写数据。如FileReader.</li>
+<li>处理流：是对一个已存在的流进行连接和封装，通过所封装的流的功能调用实现数据读写。如BufferedReader.处理流的构造方法总是要带一个其他的流对象做参数。一个流对象经过其他流的多次包装，称为流的链接。</li>
+</ul>
+<blockquote>
+<p>这种设计是装饰模式（Decorator Pattern）也称为包装模式（Wrapper Pattern），其使用一种对客户端透明的方式来动态地扩展对象的功能，它是通过继承扩展功能的替代方案之一。在现实生活中你也有很多装饰者的例子，例如：人需要各种各样的衣着，不管你穿着怎样，但是，对于你个人本质来说是不变的，充其量只是在外面加上了一些装饰，有，“遮羞的”、“保暖的”、“好看的”、“防雨的”....</p>
+</blockquote>
+<p><strong>常用的节点流：</strong></p>
+<ul>
+<li>文 件 FileInputStream FileOutputStrean FileReader FileWriter 文件进行处理的节点流。</li>
+<li>字符串 StringReader StringWriter 对字符串进行处理的节点流。</li>
+<li>数 组 ByteArrayInputStream ByteArrayOutputStream CharArrayReader CharArrayWriter 对数</li>
+<li>组进行处理的节点流（对应的不再是文件，而是内存中的一个数组）。</li>
+<li>管 道 PipedInputStream、PipedOutputStream、PipedReader、PipedWriter对管道进行处理的节点流。</li>
+</ul>
+<p><strong>常用处理流：</strong></p>
+<ul>
+<li>缓冲流：BufferedInputStream、BufferedOutputStream、BufferedReader、BufferedWriter---增加缓冲功能，避免频繁读写硬盘。</li>
+<li>转换流：InputStreamReader、OutputStreamReader---实现字节流和字符流之间的转换。</li>
+<li>数据流：DataInputStream、DataOutputStream -提供读写Java基础数据类型功能</li>
+<li>对象流：ObjectInputStream、ObjectOutputStream--提供直接读写Java对象功能</li>
+</ul>
+<h2 id="22-io">2.2 IO流的基类<a class="headerlink" href="#22-io" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>输入流</th>
+<th>输出流</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>字节流</td>
+<td>字节输入流InputStream</td>
+<td>字节输出流OutputStream</td>
+</tr>
+<tr>
+<td>字符流</td>
+<td>字符输入流Reader</td>
+<td>字符输出流Writer</td>
+</tr>
+</tbody>
+</table>
+<h2 id="23">2.3 字节流<a class="headerlink" href="#23" title="Permanent link">&para;</a></h2>
+<p>一切文件数据(文本、图片、视频等)在存储时，都是以二进制数字的形式保存，都一个一个的字节，那么传输时一样如此。所以，字节流可以传输任意文件数据。在操作流的时候，我们要时刻明确，无论使用什么样的流对象，底层传输的始终为二进制数据。</p>
+<h3 id="231-outputstream">2.3.1 字节输出流【OutputStream】<a class="headerlink" href="#231-outputstream" title="Permanent link">&para;</a></h3>
+<p>java.io.OutputStream 抽象类是表示字节输出流的所有类的超类，将指定的字节信息写出到目的地。它定义了字节输出流的基本共性功能方法。</p>
+<p><strong>常用API</strong></p>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>方法简述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>public void close()</td>
+<td>关闭此输出流并释放与此流相关联的任何系统资源。</td>
+</tr>
+<tr>
+<td>public void flush()</td>
+<td>刷新此输出流并强制任何缓冲的输出字节被写出。</td>
+</tr>
+<tr>
+<td>public void write(byte[] b)</td>
+<td>将 b.length字节从指定的字节数组写入此输出流。</td>
+</tr>
+<tr>
+<td>public void write(byte[] b, int off, int len)</td>
+<td>从指定的字节数组写入 len字节，从偏移量 off开始输出到此输出流。</td>
+</tr>
+<tr>
+<td>public abstract void write(int b)</td>
+<td>将指定的字节输出流。</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>注意：当流操作完毕时必须关闭资源 close()方法</p>
+</blockquote>
+<p><strong>FileOutputStream</strong></p>
+<p>OutputStream 有很多子类，我们从最简单的一个子类开始。java.io.FileOutputStream 类是文件输出流，用于将数据写出到文件。</p>
+<p><strong>构造方法</strong></p>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>方法简述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>public FileOutputStream(File file[,boolean append])</td>
+<td>创建文件输出流以写入由指定的 File对象表示的文件。第二个参数为是否续写</td>
+</tr>
+<tr>
+<td>public FileOutputStream(String name[,boolean append])</td>
+<td>创建文件输出流以指定的名称写入文件。第二个参数为是否续写</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>当你创建一个流对象时，必须传入一个文件路径。该路径下，如果没有这个文件，会创建该文件。如果有这个文件，会清空这个文件的数据。</p>
+</blockquote>
+<p><strong>代码示例：FileOutputStream的各种操作</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 写出字节 </span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">test1</span><span class="p">(){</span>
+    <span class="c1">// 使用文件名称创建流对象</span>
+    <span class="n">FileOutputStream</span> <span class="n">fos</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileOutputStream</span><span class="p">(</span><span class="s">&quot;fos.txt&quot;</span><span class="p">);</span>
+    <span class="c1">// 写出数据</span>
+    <span class="n">fos</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="mi">97</span><span class="p">);</span> <span class="c1">// 写出第1个字节</span>
+    <span class="n">fos</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="mi">98</span><span class="p">);</span> <span class="c1">// 写出第2个字节</span>
+    <span class="n">fos</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="mi">99</span><span class="p">);</span> <span class="c1">// 写出第3个字节</span>
+    <span class="c1">// 关闭资源</span>
+    <span class="n">fos</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+
+    <span class="cm">/*输出结果：</span>
+<span class="cm">        abc</span>
+<span class="cm">        */</span>
+<span class="p">}</span>
+
+<span class="c1">// 写出字节数组</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">test2</span><span class="p">(){</span>
+    <span class="c1">// 使用文件名称创建流对象</span>
+    <span class="n">FileOutputStream</span> <span class="n">fos</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileOutputStream</span><span class="p">(</span><span class="s">&quot;fos.txt&quot;</span><span class="p">);</span>
+    <span class="c1">// 字符串转换为字节数组</span>
+    <span class="kt">byte</span><span class="o">[]</span> <span class="n">b</span> <span class="o">=</span> <span class="s">&quot;尚硅谷&quot;</span><span class="p">.</span><span class="na">getBytes</span><span class="p">();</span>
+    <span class="c1">// 写出字节数组数据</span>
+    <span class="n">fos</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+    <span class="c1">// 关闭资源</span>
+    <span class="n">fos</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+
+    <span class="cm">/*</span>
+<span class="cm">        输出结果：</span>
+<span class="cm">        尚硅谷</span>
+<span class="cm">        */</span>
+<span class="p">}</span>
+
+<span class="c1">// 数据追加续写</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">test4</span><span class="p">(){</span>
+    <span class="c1">// 使用文件名称创建流对象</span>
+    <span class="n">FileOutputStream</span> <span class="n">fos</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileOutputStream</span><span class="p">(</span><span class="s">&quot;fos.txt&quot;</span><span class="err">，</span><span class="kc">true</span><span class="p">);</span>
+    <span class="c1">// 字符串转换为字节数组</span>
+    <span class="kt">byte</span><span class="o">[]</span> <span class="n">b</span> <span class="o">=</span> <span class="s">&quot;abcde&quot;</span><span class="p">.</span><span class="na">getBytes</span><span class="p">();</span>
+    <span class="c1">// 写出从索引2开始，2个字节。索引2是c，两个字节，也就是cd。</span>
+    <span class="n">fos</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+    <span class="c1">// 关闭资源</span>
+    <span class="n">fos</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+
+    <span class="cm">/*</span>
+<span class="cm">        文件操作前：cd</span>
+<span class="cm">        文件操作后：cdabcde</span>
+<span class="cm">        */</span>
+
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="232-inputstream">2.3.2 字节输入流【InputStream】<a class="headerlink" href="#232-inputstream" title="Permanent link">&para;</a></h3>
+<p>java.io.InputStream 抽象类是表示字节输入流的所有类的超类，可以读取字节信息到内存中。它定义了字节输入流的基本共性功能方法。</p>
+<p><strong>常用方法</strong></p>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>方法简述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>public void close()</td>
+<td>关闭此输入流并释放与此流相关联的任何系统资源。</td>
+</tr>
+<tr>
+<td>public abstract int read()</td>
+<td>从输入流读取数据的下一个字节。</td>
+</tr>
+<tr>
+<td>public int read(byte[] b)</td>
+<td>从输入流中读取一些字节数，并将它们存储到字节数组 b中 。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>FileInputStream</strong></p>
+<p><code>java.io.FileInputStream</code> 类是文件输入流，从文件中读取字节。</p>
+<p><strong>构造方法</strong></p>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>方法简述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FileInputStream(File file)</td>
+<td>通过打开与实际文件的连接来创建一个 FileInputStream，该文件由文件系统中的 File对象 file命名。</td>
+</tr>
+<tr>
+<td>FileInputStream(String name)</td>
+<td>通过打开与实际文件的连接来创建一个</td>
+</tr>
+<tr>
+<td>FileInputStream</td>
+<td>该文件由文件系统中的路径名 name命名。</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>当你创建一个流对象时，必须传入一个文件路径。该路径下，如果没有该文件,会抛出FileNotFoundException 。</p>
+</blockquote>
+<p><strong>代码示例FileInputStream的各种操作</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 读取字节： read 方法，每次可以读取一个字节的数据，提升为int类型，读取到文件末尾则返回 -1</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">test1</span><span class="p">(){</span>
+    <span class="c1">// 使用文件名称创建流对象</span>
+    <span class="n">FileInputStream</span> <span class="n">fis</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileInputStream</span><span class="p">(</span><span class="s">&quot;read.txt&quot;</span><span class="p">);</span>
+    <span class="c1">// 定义变量，保存数据</span>
+    <span class="kt">int</span> <span class="n">b</span> <span class="p">;</span>
+    <span class="c1">// 循环读取</span>
+    <span class="k">while</span> <span class="p">((</span><span class="n">b</span> <span class="o">=</span> <span class="n">fis</span><span class="p">.</span><span class="na">read</span><span class="p">())</span><span class="o">!=-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">((</span><span class="kt">char</span><span class="p">)</span><span class="n">b</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="c1">// 关闭资源</span>
+    <span class="n">fis</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="c1">//使用字节数组读取： read(byte[] b) ，每次读取b的长度个字节到数组中，返回读取到的有效字节个数，读取到末尾时，返回 -1</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">test2</span><span class="p">(){</span>
+    <span class="c1">// 使用文件名称创建流对象.</span>
+    <span class="n">FileInputStream</span> <span class="n">fis</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileInputStream</span><span class="p">(</span><span class="s">&quot;read.txt&quot;</span><span class="p">);</span> <span class="c1">// 文件中为abcde</span>
+    <span class="c1">// 定义变量，作为有效个数</span>
+    <span class="kt">int</span> <span class="n">len</span> <span class="p">;</span>
+    <span class="c1">// 定义字节数组，作为装字节数据的容器</span>
+    <span class="kt">byte</span><span class="o">[]</span> <span class="n">b</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span><span class="p">;</span>
+    <span class="c1">// 循环读取</span>
+    <span class="k">while</span> <span class="p">((</span> <span class="n">len</span><span class="o">=</span> <span class="n">fis</span><span class="p">.</span><span class="na">read</span><span class="p">(</span><span class="n">b</span><span class="p">))</span><span class="o">!=-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 每次读取后,把数组变成字符串打印</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="k">new</span> <span class="n">String</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">len</span><span class="p">));</span>
+    <span class="p">}</span>
+    <span class="c1">// 关闭资源</span>
+    <span class="n">fis</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="233">2.3.3 图片复制案例<a class="headerlink" href="#233" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20200914185258285" src="../imgs/image-20200914185258285.png" /></p>
+<p><strong>代码</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Copy</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="p">{</span>
+        <span class="c1">// 1.创建流对象</span>
+        <span class="c1">// 1.1 指定数据源</span>
+        <span class="n">FileInputStream</span> <span class="n">fis</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileInputStream</span><span class="p">(</span><span class="s">&quot;D:\\test.jpg&quot;</span><span class="p">);</span>
+        <span class="c1">// 1.2 指定目的地</span>
+        <span class="n">FileOutputStream</span> <span class="n">fos</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileOutputStream</span><span class="p">(</span><span class="s">&quot;test_copy.jpg&quot;</span><span class="p">);</span>
+        <span class="c1">// 2.读写数据</span>
+        <span class="c1">// 2.1 定义数组</span>
+        <span class="kt">byte</span><span class="o">[]</span> <span class="n">b</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="o">[</span><span class="mi">1024</span><span class="o">]</span><span class="p">;</span>
+        <span class="c1">// 2.2 定义长度</span>
+        <span class="kt">int</span> <span class="n">len</span><span class="p">;</span>
+        <span class="c1">// 2.3 循环读取</span>
+        <span class="k">while</span> <span class="p">((</span><span class="n">len</span> <span class="o">=</span> <span class="n">fis</span><span class="p">.</span><span class="na">read</span><span class="p">(</span><span class="n">b</span><span class="p">))</span><span class="o">!=-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// 2.4 写出数据</span>
+            <span class="n">fos</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="mi">0</span> <span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="c1">// 3.关闭资源</span>
+        <span class="n">fos</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+        <span class="n">fis</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="24">2.4 字符流<a class="headerlink" href="#24" title="Permanent link">&para;</a></h2>
+<p>Java提供一些字符流类，以字符为单位读写数据，专门用于处理文本文件。以防止字节流读取时无法读取完整的字符数据。</p>
+<h3 id="241-reader">2.4.1 字符输入流【Reader】<a class="headerlink" href="#241-reader" title="Permanent link">&para;</a></h3>
+<p>java.io.Reader 抽象类是表示用于读取字符流的所有类的超类，<strong>可以读取字符信息到内存中</strong>。它定义了字符输入流的基本共性功能方法。</p>
+<p><strong>常用API</strong></p>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>方法简述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>public void close()</td>
+<td>关闭此流并释放与此流相关联的任何系统资源。</td>
+</tr>
+<tr>
+<td>public int read()</td>
+<td>从输入流读取一个字符。</td>
+</tr>
+<tr>
+<td>public int read(char[] cbuf)</td>
+<td>从输入流中读取一些字符，并将它们存储到字符数组 cbuf中 。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>FileReader类</strong></p>
+<p>java.io.FileReader 类是读取字符文件的便利类。构造时使用系统默认的字符编码和默认字节缓冲区。</p>
+<blockquote>
+<p>字符编码：字节与字符的对应规则。Windows系统的中文编码默认是GBK编码表。
+  eclipse中默认GBK，idea中默认UTF-8。</p>
+<p>字节缓冲区：一个字节数组，用来临时存储字节数据。</p>
+</blockquote>
+<p><strong>构造方法</strong></p>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>方法简述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FileReader(File file)</td>
+<td>创建一个新的 FileReader ，给定要读取的File对象。</td>
+</tr>
+<tr>
+<td>FileReader(String fileName)</td>
+<td>创建一个新的 FileReader ，给定要读取的文件的名称。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>代码示例：FileReader的各种操作</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1">//读取字符： read 方法，每次可以读取一个字符的数据，提升为int类型，读取到文件末尾，返回 -1</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">test1</span><span class="p">(){</span>
+    <span class="c1">// 使用文件名称创建流对象</span>
+    <span class="n">FileReader</span> <span class="n">fr</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileReader</span><span class="p">(</span><span class="s">&quot;read.txt&quot;</span><span class="p">);</span>
+    <span class="c1">// 定义变量，保存数据; </span>
+    <span class="kt">int</span> <span class="n">b</span><span class="p">;</span>
+    <span class="c1">// 循环读取</span>
+    <span class="k">while</span> <span class="p">((</span><span class="n">b</span> <span class="o">=</span> <span class="n">fr</span><span class="p">.</span><span class="na">read</span><span class="p">())</span><span class="o">!=-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 虽然每次只读一个字符，但是会自动提升为int类型。</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">((</span><span class="kt">char</span><span class="p">)</span><span class="n">b</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="c1">// 关闭资源</span>
+    <span class="n">fr</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="c1">//使用字符数组读取： read(char[] cbuf) ，每次读取b的长度个字符到数组中，返回读取到的有效字符个数，读取到末尾时，返回 -1</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">test2</span><span class="p">(){</span>
+    <span class="c1">// 使用文件名称创建流对象</span>
+    <span class="n">FileReader</span> <span class="n">fr</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileReader</span><span class="p">(</span><span class="s">&quot;read.txt&quot;</span><span class="p">);</span>
+    <span class="c1">// 定义变量，保存有效字符个数</span>
+    <span class="kt">int</span> <span class="n">len</span> <span class="p">;</span>
+    <span class="c1">// 定义字符数组，作为装字符数据的容器</span>
+    <span class="kt">char</span><span class="o">[]</span> <span class="n">cbuf</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span><span class="p">;</span>
+    <span class="c1">// 循环读取</span>
+    <span class="k">while</span> <span class="p">((</span><span class="n">len</span> <span class="o">=</span> <span class="n">fr</span><span class="p">.</span><span class="na">read</span><span class="p">(</span><span class="n">cbuf</span><span class="p">))</span><span class="o">!=-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="k">new</span> <span class="n">String</span><span class="p">(</span><span class="n">cbuf</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">len</span><span class="p">));</span>
+    <span class="p">}</span>
+    <span class="c1">// 关闭资源</span>
+    <span class="n">fr</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="242-writer">2.4.2 字符输出流【Writer】<a class="headerlink" href="#242-writer" title="Permanent link">&para;</a></h3>
+<p>java.io.Writer 抽象类是表示用于写出字符流的所有类的超类，<strong>将指定的字符信息写出到目的地</strong>。它定义了字节输出流的基本共性功能方法。</p>
+<p><strong>常用API</strong></p>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>方法简述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>void write(int c)</td>
+<td>写入单个字符。</td>
+</tr>
+<tr>
+<td>void write(char[] cbuf)</td>
+<td>写入字符数组。</td>
+</tr>
+<tr>
+<td>abstract void write(char[] cbuf, int off, int len)</td>
+<td>写入字符数组的某一部分,off数组的开始索引,len写的字符个数。</td>
+</tr>
+<tr>
+<td>void write(String str)</td>
+<td>写入字符串。</td>
+</tr>
+<tr>
+<td>void write(String str, int off, int len)</td>
+<td>写入字符串的某一部分,off字符串的开始索引,len写的字符个数。</td>
+</tr>
+<tr>
+<td>void flush()</td>
+<td>刷新该流的缓冲。</td>
+</tr>
+<tr>
+<td>void close()</td>
+<td>关闭此流，但要先刷新它。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>FileWriter类</strong></p>
+<p>java.io.FileWriter 类是写出字符到文件的便利类。构造时使用系统默认的字符编码和默认字节缓冲区。</p>
+<p><strong>构造方法</strong></p>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>方法简述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FileWriter(File file)</td>
+<td>创建一个新的 FileWriter，给定要读取的File对象。</td>
+</tr>
+<tr>
+<td>FileWriter(String fileName)</td>
+<td>创建一个新的 FileWriter，给定要读取的文件的名称。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>代码示例：FileWriter的各种操作</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1">//写出字符： write(int b) 方法，每次可以写出一个字符数据，代码使用演示：</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">test1</span><span class="p">(){</span>
+    <span class="n">FileWriter</span> <span class="n">fw</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileWriter</span><span class="p">(</span><span class="s">&quot;fw.txt&quot;</span><span class="p">);</span>
+    <span class="c1">// 写出数据</span>
+    <span class="n">fw</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="mi">97</span><span class="p">);</span> <span class="c1">// 写出第1个字符</span>
+    <span class="n">fw</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="sc">&#39;b&#39;</span><span class="p">);</span> <span class="c1">// 写出第2个字符</span>
+    <span class="n">fw</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p>虽然参数为int类型四个字节，但是只会保留一个字符的信息写出。</p>
+<p>未调用close方法，数据只是保存到了缓冲区，并未写出到文件中。</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="c1">// 写出字符数组 ： write(char[] cbuf) 和 write(char[] cbuf, int off, int len) ，每次可以写出字符数组中的数据</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">test2</span><span class="p">(){</span>
+    <span class="c1">// 使用文件名称创建流对象</span>
+    <span class="n">FileWriter</span> <span class="n">fw</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileWriter</span><span class="p">(</span><span class="s">&quot;fw.txt&quot;</span><span class="p">);</span>
+    <span class="c1">// 字符串转换为字节数组</span>
+    <span class="kt">char</span><span class="o">[]</span> <span class="n">chars</span> <span class="o">=</span> <span class="s">&quot;尚硅谷&quot;</span><span class="p">.</span><span class="na">toCharArray</span><span class="p">();</span>
+    <span class="c1">// 写出字符数组</span>
+    <span class="n">fw</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">chars</span><span class="p">);</span> <span class="c1">// 尚硅谷</span>
+    <span class="c1">// 写出从索引1开始，2个字节。索引1是&#39;硅&#39; ，两个字节，也就是&#39;硅谷&#39;。</span>
+    <span class="n">fw</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span> <span class="c1">// 硅谷</span>
+    <span class="c1">// 关闭资源</span>
+    <span class="n">fos</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+
+<span class="p">}</span>
+
+<span class="c1">//写出字符串： write(String str) 和 write(String str, int off, int len) ，每次可以写出字符串中的数据</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">test3</span><span class="p">(){</span>
+    <span class="c1">// 使用文件名称创建流对象</span>
+    <span class="n">FileWriter</span> <span class="n">fw</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileWriter</span><span class="p">(</span><span class="s">&quot;fw.txt&quot;</span><span class="p">);</span>
+    <span class="c1">// 字符串</span>
+    <span class="n">String</span> <span class="n">msg</span> <span class="o">=</span>
+        <span class="s">&quot;尚硅谷&quot;</span><span class="p">;</span>
+    <span class="c1">// 写出字符数组</span>
+    <span class="n">fw</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span> <span class="c1">//尚硅谷</span>
+    <span class="c1">// 写出从索引1开始，2个字节。索引1是&#39;硅&#39;，两个字节，也就是&#39;硅谷&#39;。</span>
+    <span class="n">fw</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span> <span class="c1">// 尚硅谷</span>
+    <span class="c1">// 关闭资源</span>
+    <span class="n">fos</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="25">2.5 关闭和刷新<a class="headerlink" href="#25" title="Permanent link">&para;</a></h2>
+<p>因为内置缓冲区的原因，如果不关闭输出流，无法写出字符到文件中。但是关闭的流对象，是无法继续写出数据的。如果我们既想写出数据，又想继续使用流，就需要 flush 方法了。</p>
+<ul>
+<li>flush ：刷新缓冲区，流对象可以继续使用。</li>
+<li>close :先刷新缓冲区，然后通知系统释放资源。流对象不可以再被使用了。</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">test4</span><span class="p">(){</span>
+    <span class="c1">// 使用文件名称创建流对象</span>
+    <span class="n">FileWriter</span> <span class="n">fw</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileWriter</span><span class="p">(</span><span class="s">&quot;fw.txt&quot;</span><span class="p">);</span>
+    <span class="c1">// 写出数据，通过flush</span>
+    <span class="n">fw</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="sc">&#39;刷&#39;</span><span class="p">);</span> <span class="c1">// 写出第1个字符</span>
+    <span class="n">fw</span><span class="p">.</span><span class="na">flush</span><span class="p">();</span>
+    <span class="n">fw</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="sc">&#39;新&#39;</span><span class="p">);</span> <span class="c1">// 继续写出第2个字符，写出成功</span>
+    <span class="n">fw</span><span class="p">.</span><span class="na">flush</span><span class="p">();</span>
+    <span class="c1">// 写出数据，通过close</span>
+    <span class="n">fw</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="sc">&#39;关&#39;</span><span class="p">);</span> <span class="c1">// 写出第1个字符</span>
+    <span class="n">fw</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+    <span class="n">fw</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="sc">&#39;闭&#39;</span><span class="p">);</span> <span class="c1">// 继续写出第2个字符,【报错】java.io.IOException: Streamclosed</span>
+    <span class="n">fw</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p>注意：即便是flush方法写出了数据，操作的最后还是要调用close方法，释放系统资源。</p>
+</blockquote>
+<h2 id="26">2.6 缓冲流<a class="headerlink" href="#26" title="Permanent link">&para;</a></h2>
+<p>缓冲流,也叫高效流，按照数据类型分类：</p>
+<ul>
+<li>字节缓冲流： BufferedInputStream ， BufferedOutputStream</li>
+<li>字符缓冲流： BufferedReader ， BufferedWriter</li>
+</ul>
+<p>缓冲流的基本原理：在创建流对象时，会创建一个内置的默认大小的缓冲区数组，通过缓冲区读写，减少系统IO次数，从而提高读写的效率。</p>
+<h3 id="261">2.6.1 字节缓冲流<a class="headerlink" href="#261" title="Permanent link">&para;</a></h3>
+<p><strong>构造方法</strong></p>
+<table>
+<thead>
+<tr>
+<th>构造器名称</th>
+<th>构造器说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>public BufferedInputStream(InputStream in)</td>
+<td>创建一个 新的缓冲输入流。</td>
+</tr>
+<tr>
+<td>public BufferedOutputStream(OutputStream out)</td>
+<td>创建一个新的缓冲输出流。</td>
+</tr>
+</tbody>
+</table>
+<p>构造方法相当于给输入输出流包装了一层（设计模式之包装模式）</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 创建字节缓冲输入流</span>
+<span class="n">BufferedInputStream</span> <span class="n">bis</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedInputStream</span><span class="p">(</span><span class="k">new</span> <span class="n">FileInputStream</span><span class="p">(</span><span class="s">&quot;bis.txt&quot;</span><span class="p">));</span>
+<span class="c1">// 创建字节缓冲输出流</span>
+<span class="n">BufferedOutputStream</span> <span class="n">bos</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedOutputStream</span><span class="p">(</span><span class="k">new</span> <span class="n">FileOutputStream</span><span class="p">(</span><span class="s">&quot;bos.txt&quot;</span><span class="p">));</span>
+</code></pre></div>
+<p><strong>缓冲流效率测试</strong></p>
+<p>经过效率的是，缓冲流的读取/写入速度使远快于基本流的。</p>
+<p><strong>基本流，代码如下</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">BufferedDemo</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="p">{</span>
+        <span class="c1">// 记录开始时间</span>
+        <span class="kt">long</span> <span class="n">start</span> <span class="o">=</span> <span class="n">System</span><span class="p">.</span><span class="na">currentTimeMillis</span><span class="p">();</span>
+        <span class="c1">// 创建流对象</span>
+        <span class="n">FileInputStream</span> <span class="n">fis</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileInputStream</span><span class="p">(</span><span class="s">&quot;jdk9.exe&quot;</span><span class="p">);</span>
+        <span class="n">FileOutputStream</span> <span class="n">fos</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileOutputStream</span><span class="p">(</span><span class="s">&quot;copy.exe&quot;</span><span class="p">);</span>
+        <span class="c1">// 读写数据</span>
+        <span class="kt">int</span> <span class="n">b</span><span class="p">;</span>
+        <span class="k">while</span> <span class="p">((</span><span class="n">b</span> <span class="o">=</span> <span class="n">fis</span><span class="p">.</span><span class="na">read</span><span class="p">())</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">fos</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">fos</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+        <span class="n">fis</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+        <span class="c1">// 记录结束时间</span>
+        <span class="kt">long</span> <span class="n">end</span> <span class="o">=</span> <span class="n">System</span><span class="p">.</span><span class="na">currentTimeMillis</span><span class="p">();</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;普通流复制时间:&quot;</span><span class="o">+</span><span class="p">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span><span class="o">+</span><span class="s">&quot; 毫秒&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="c1">// 十几分钟还没好</span>
+</code></pre></div>
+<p><strong>缓冲流，代码如下：</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">BufferedDemo</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="p">{</span>
+        <span class="c1">// 记录开始时间</span>
+        <span class="kt">long</span> <span class="n">start</span> <span class="o">=</span> <span class="n">System</span><span class="p">.</span><span class="na">currentTimeMillis</span><span class="p">();</span>
+        <span class="c1">// 创建流对象</span>
+        <span class="n">BufferedInputStream</span> <span class="n">bis</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedInputStream</span><span class="p">(</span><span class="k">new</span> <span class="n">FileInputStream</span><span class="p">(</span><span class="s">&quot;jdk9.exe&quot;</span><span class="p">));</span>
+        <span class="n">BufferedOutputStream</span> <span class="n">bos</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedOutputStream</span><span class="p">(</span><span class="k">new</span> <span class="n">FileOutputStream</span><span class="p">(</span><span class="s">&quot;copy.exe&quot;</span><span class="p">));</span>
+        <span class="c1">// 读写数据</span>
+        <span class="kt">int</span> <span class="n">b</span><span class="p">;</span>
+        <span class="k">while</span> <span class="p">((</span><span class="n">b</span> <span class="o">=</span> <span class="n">bis</span><span class="p">.</span><span class="na">read</span><span class="p">())</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">bos</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">bos</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+        <span class="n">bis</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+        <span class="c1">// 记录结束时间</span>
+        <span class="kt">long</span> <span class="n">end</span> <span class="o">=</span> <span class="n">System</span><span class="p">.</span><span class="na">currentTimeMillis</span><span class="p">();</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;缓冲流复制时间:&quot;</span><span class="o">+</span><span class="p">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span><span class="o">+</span><span class="s">&quot; 毫秒&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="c1">// 8016ms</span>
+</code></pre></div>
+<p><strong>使用数组配合缓冲流</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">BufferedDemo</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="p">{</span>
+        <span class="c1">// 记录开始时间</span>
+        <span class="kt">long</span> <span class="n">start</span> <span class="o">=</span> <span class="n">System</span><span class="p">.</span><span class="na">currentTimeMillis</span><span class="p">();</span>
+        <span class="c1">// 创建流对象</span>
+        <span class="n">BufferedInputStream</span> <span class="n">bis</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedInputStream</span><span class="p">(</span><span class="k">new</span> <span class="n">FileInputStream</span><span class="p">(</span><span class="s">&quot;jdk9.exe&quot;</span><span class="p">));</span>
+        <span class="n">BufferedOutputStream</span> <span class="n">bos</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedOutputStream</span><span class="p">(</span><span class="k">new</span> <span class="n">FileOutputStream</span><span class="p">(</span><span class="s">&quot;copy.exe&quot;</span><span class="p">));</span>
+        <span class="c1">// 读写数据</span>
+        <span class="kt">int</span> <span class="n">len</span><span class="p">;</span>
+        <span class="kt">byte</span><span class="o">[]</span> <span class="n">bytes</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="o">[</span><span class="mi">8</span><span class="o">*</span><span class="mi">1024</span><span class="o">]</span><span class="p">;</span>
+        <span class="k">while</span> <span class="p">((</span><span class="n">len</span> <span class="o">=</span> <span class="n">bis</span><span class="p">.</span><span class="na">read</span><span class="p">(</span><span class="n">bytes</span><span class="p">))</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">bos</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">bytes</span><span class="p">,</span> <span class="mi">0</span> <span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">bos</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+        <span class="n">bis</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+        <span class="c1">// 记录结束时间</span>
+        <span class="kt">long</span> <span class="n">end</span> <span class="o">=</span> <span class="n">System</span><span class="p">.</span><span class="na">currentTimeMillis</span><span class="p">();</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;缓冲流使用数组复制时间:&quot;</span><span class="o">+</span><span class="p">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span><span class="o">+</span><span class="s">&quot; 毫秒&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="c1">// 缓冲流使用数组复制时间:666 毫秒</span>
+</code></pre></div>
+<h3 id="262">2.6.2 字符缓冲流<a class="headerlink" href="#262" title="Permanent link">&para;</a></h3>
+<p><strong>构造方法</strong></p>
+<table>
+<thead>
+<tr>
+<th>构造器名称</th>
+<th>构造器说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>public BufferedReader(Reader in)</td>
+<td>创建一个 新的缓冲输入流。</td>
+</tr>
+<tr>
+<td>public BufferedWriter(Writer out)</td>
+<td>创建一个新的缓冲输出流。</td>
+</tr>
+</tbody>
+</table>
+<p>一般可以写成如下形式</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 创建字符缓冲输入流</span>
+<span class="n">BufferedReader</span> <span class="n">br</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedReader</span><span class="p">(</span><span class="k">new</span> <span class="n">FileReader</span><span class="p">(</span><span class="s">&quot;br.txt&quot;</span><span class="p">));</span>
+<span class="c1">// 创建字符缓冲输出流</span>
+<span class="n">BufferedWriter</span> <span class="n">bw</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedWriter</span><span class="p">(</span><span class="k">new</span> <span class="n">FileWriter</span><span class="p">(</span><span class="s">&quot;bw.txt&quot;</span><span class="p">));</span>
+</code></pre></div>
+<p><strong>特有方法</strong></p>
+<table>
+<thead>
+<tr>
+<th>类名</th>
+<th>方法名称</th>
+<th>方法说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BufferedReader</td>
+<td>public String readLine()</td>
+<td>读一行文字。</td>
+</tr>
+<tr>
+<td>BufferedWriter</td>
+<td>public void newLine()</td>
+<td>写一行行分隔符,由系统属性定义符号。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>特有方法演示</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1">// readLine方法</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">test1</span><span class="p">(){</span>
+    <span class="c1">// 创建流对象</span>
+    <span class="n">BufferedReader</span> <span class="n">br</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedReader</span><span class="p">(</span><span class="k">new</span> <span class="n">FileReader</span><span class="p">(</span><span class="s">&quot;in.txt&quot;</span><span class="p">));</span>
+    <span class="c1">// 定义字符串,保存读取的一行文字</span>
+    <span class="n">String</span> <span class="n">line</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="c1">// 循环读取,读取到最后返回null</span>
+    <span class="k">while</span> <span class="p">((</span><span class="n">line</span> <span class="o">=</span> <span class="n">br</span><span class="p">.</span><span class="na">readLine</span><span class="p">())</span><span class="o">!=</span><span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">line</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot; ------ &quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="c1">// 释放资源</span>
+    <span class="n">br</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="c1">// newLine方法</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">test2</span><span class="p">(){</span>
+    <span class="c1">// 创建流对象</span>
+    <span class="n">BufferedWriter</span> <span class="n">bw</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedWriter</span><span class="p">(</span><span class="k">new</span> <span class="n">FileWriter</span><span class="p">(</span><span class="s">&quot;out.txt&quot;</span><span class="p">));</span>
+    <span class="c1">// 写出数据</span>
+    <span class="n">bw</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="s">&quot;尚&quot;</span><span class="p">);</span>
+    <span class="c1">// 写出换行</span>
+    <span class="n">bw</span><span class="p">.</span><span class="na">newLine</span><span class="p">();</span>
+    <span class="n">bw</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="s">&quot;硅&quot;</span><span class="p">);</span>
+    <span class="n">bw</span><span class="p">.</span><span class="na">newLine</span><span class="p">();</span>
+    <span class="n">bw</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="s">&quot;谷&quot;</span><span class="p">);</span>
+    <span class="n">bw</span><span class="p">.</span><span class="na">newLine</span><span class="p">();</span>
+    <span class="c1">// 释放资源</span>
+    <span class="n">bw</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="27">2.7 转换流<a class="headerlink" href="#27" title="Permanent link">&para;</a></h2>
+<h3 id="271">2.7.1 编码简介<a class="headerlink" href="#271" title="Permanent link">&para;</a></h3>
+<p>编码：按照某种规则，将字符存储到计算机中。</p>
+<p>解码：将存储在计算机中的二进制数按照某种规则解析显示出来。</p>
+<p>编码:字符(能看懂的)--字节(看不懂的)</p>
+<p>解码:字节(看不懂的)&rarr;字符(能看懂的)</p>
+<h3 id="272">2.7.2 转换流<a class="headerlink" href="#272" title="Permanent link">&para;</a></h3>
+<p><strong>转换流简单示意图</strong></p>
+<p><img alt="image-20200914192502108" src="../imgs/image-20200914192502108.png" /></p>
+<h3 id="273-inputstreamreader">2.7.3 InputStreamReader类<a class="headerlink" href="#273-inputstreamreader" title="Permanent link">&para;</a></h3>
+<p>转换流 java.io.InputStreamReader ，是Reader的子类，是<strong>从字节流到字符流</strong>的桥梁。它读取字节，并使用指定的字符集将其解码为字符。它的字符集可以由名称指定，也可以接受平台的默认字符集。</p>
+<p><strong>构造方法</strong></p>
+<table>
+<thead>
+<tr>
+<th>构造器名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>InputStreamReader(InputStream in)</td>
+<td>创建一个使用默认字符集的字符流。</td>
+</tr>
+<tr>
+<td>InputStreamReader(InputStream in, String charsetName)</td>
+<td>创建一个指定字符集的字符流。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>构造举例，代码如下：</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">InputStreamReader</span> <span class="n">isr</span> <span class="o">=</span> <span class="k">new</span> <span class="n">InputStreamReader</span><span class="p">(</span><span class="k">new</span> <span class="n">FileInputStream</span><span class="p">(</span><span class="s">&quot;in.txt&quot;</span><span class="p">));</span>
+<span class="n">InputStreamReader</span> <span class="n">isr2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">InputStreamReader</span><span class="p">(</span><span class="k">new</span> <span class="n">FileInputStream</span><span class="p">(</span><span class="s">&quot;in.txt&quot;</span><span class="p">),</span><span class="s">&quot;GBK&quot;</span><span class="p">);</span>
+</code></pre></div>
+<p><strong>指定编码读取</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ReaderDemo2</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="p">{</span>
+        <span class="c1">// 定义文件路径,文件为gbk编码</span>
+        <span class="n">String</span> <span class="n">FileName</span> <span class="o">=</span> <span class="s">&quot;E:\\file_gbk.txt&quot;</span><span class="p">;</span>
+        <span class="c1">// 创建流对象,默认UTF8编码</span>
+        <span class="n">InputStreamReader</span> <span class="n">isr</span> <span class="o">=</span> <span class="k">new</span> <span class="n">InputStreamReader</span><span class="p">(</span><span class="k">new</span> <span class="n">FileInputStream</span><span class="p">(</span><span class="n">FileName</span><span class="p">));</span>
+        <span class="c1">// 创建流对象,指定GBK编码</span>
+        <span class="n">InputStreamReader</span> <span class="n">isr2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">InputStreamReader</span><span class="p">(</span><span class="k">new</span> <span class="n">FileInputStream</span><span class="p">(</span><span class="n">FileName</span><span class="p">)</span> <span class="p">,</span><span class="s">&quot;GBK&quot;</span><span class="p">);</span>
+        <span class="c1">// 定义变量,保存字符</span>
+        <span class="kt">int</span> <span class="n">read</span><span class="p">;</span>
+
+        <span class="c1">// 使用默认编码字符流读取,乱码</span>
+        <span class="k">while</span> <span class="p">((</span><span class="n">read</span> <span class="o">=</span> <span class="n">isr</span><span class="p">.</span><span class="na">read</span><span class="p">())</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">((</span><span class="kt">char</span><span class="p">)</span><span class="n">read</span><span class="p">);</span> <span class="c1">// ��Һ�</span>
+        <span class="p">}</span>
+        <span class="n">isr</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+
+        <span class="c1">// 使用指定编码字符流读取,正常解析</span>
+        <span class="k">while</span> <span class="p">((</span><span class="n">read</span> <span class="o">=</span> <span class="n">isr2</span><span class="p">.</span><span class="na">read</span><span class="p">())</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">((</span><span class="kt">char</span><span class="p">)</span><span class="n">read</span><span class="p">);</span><span class="c1">// 大家好</span>
+        <span class="p">}</span>
+        <span class="n">isr2</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="274-outputstreamwriter">2.7.4 OutputStreamWriter类<a class="headerlink" href="#274-outputstreamwriter" title="Permanent link">&para;</a></h3>
+<p>转换流 java.io.OutputStreamWriter ，是Writer的子类，是从<strong>字符流到字节流的桥梁</strong>。使用指定的字符集将字符编码为字节。它的字符集可以由名称指定，也可以接受平台的默认字符集。</p>
+<p><strong>构造方法</strong></p>
+<table>
+<thead>
+<tr>
+<th>构造器名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OutputStreamWriter(OutputStream in)</td>
+<td>创建一个使用默认字符集的字符流。</td>
+</tr>
+<tr>
+<td>OutputStreamWriter(OutputStream in, String charsetName)</td>
+<td>创建一个指定字符集的字符流。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>构造器代码示例</strong>：相当于装修模式</p>
+<div class="highlight"><pre><span></span><code><span class="n">OutputStreamWriter</span> <span class="n">isr</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OutputStreamWriter</span><span class="p">(</span><span class="k">new</span> <span class="n">FileOutputStream</span><span class="p">(</span><span class="s">&quot;out.txt&quot;</span><span class="p">));</span>
+<span class="n">OutputStreamWriter</span> <span class="n">isr2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OutputStreamWriter</span><span class="p">(</span><span class="k">new</span> <span class="n">FileOutputStream</span><span class="p">(</span><span class="s">&quot;out.txt&quot;</span><span class="p">),</span> <span class="s">&quot;GBK&quot;</span><span class="p">);</span>
+</code></pre></div>
+<p><strong>指定编码写出</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">OutputDemo</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="p">{</span>
+        <span class="c1">// 定义文件路径</span>
+        <span class="n">String</span> <span class="n">FileName</span> <span class="o">=</span> <span class="s">&quot;E:\\out.txt&quot;</span><span class="p">;</span>
+        <span class="c1">// 创建流对象,默认UTF8编码</span>
+        <span class="n">OutputStreamWriter</span> <span class="n">osw</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OutputStreamWriter</span><span class="p">(</span><span class="k">new</span> <span class="n">FileOutputStream</span><span class="p">(</span><span class="n">FileName</span><span class="p">));</span>
+        <span class="c1">// 写出数据</span>
+        <span class="n">osw</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="s">&quot;你好&quot;</span><span class="p">);</span> <span class="c1">// 保存为6个字节</span>
+        <span class="n">osw</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+
+        <span class="c1">// 定义文件路径</span>
+        <span class="n">String</span> <span class="n">FileName2</span> <span class="o">=</span> <span class="s">&quot;E:\\out2.txt&quot;</span><span class="p">;</span>
+        <span class="c1">// 创建流对象,指定GBK编码</span>
+        <span class="n">OutputStreamWriter</span> <span class="n">osw2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OutputStreamWriter</span><span class="p">(</span><span class="k">new</span> <span class="n">FileOutputStream</span><span class="p">(</span><span class="n">FileName2</span><span class="p">),</span> <span class="s">&quot;GBK&quot;</span><span class="p">);</span>
+        <span class="c1">// 写出数据</span>
+        <span class="n">osw2</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="s">&quot;你好&quot;</span><span class="p">);</span><span class="c1">// 保存为4个字节</span>
+        <span class="n">osw2</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="28">2.8  对象流<a class="headerlink" href="#28" title="Permanent link">&para;</a></h2>
+<p>Java 提供了一种<strong>对象序列化</strong>的机制。用字节序列可以表示一个对象，该字节序列包含该 <strong>对象的类型</strong> 和 <strong>对象中存储的属性</strong>等信息。字节序列写出到文件之后，相当于文件中持久保存了一个对象的信息。</p>
+<p>反之，该字节序列还可以从文件中读取回来，重构对象，对它进行<strong>反序列化</strong>。 对象的数据 、 对象的类型和 对象中存储的数据 信息，都可以用来在内存中创建对象。看图理解序列化：</p>
+<p><img alt="image-20200915105040659" src="../imgs/image-20200915105040659.png" /></p>
+<h3 id="281-objectoutputstream">2.8.1 ObjectOutputStream类<a class="headerlink" href="#281-objectoutputstream" title="Permanent link">&para;</a></h3>
+<p><code>java.io.ObjectOutputStream</code> 类，将<strong>Java对象的原始数据类型写出到文件</strong>,实现对象的持久存储</p>
+<p><strong>构造方法</strong></p>
+<table>
+<thead>
+<tr>
+<th>方法名称</th>
+<th>方法说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>public ObjectOutputStream(OutputStream out)</td>
+<td>创建一个指定OutputStream的ObjectOutputStream。</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="n">FileOutputStream</span> <span class="n">fileOut</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileOutputStream</span><span class="p">(</span><span class="s">&quot;employee.txt&quot;</span><span class="p">);</span>
+<span class="n">ObjectOutputStream</span> <span class="n">out</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ObjectOutputStream</span><span class="p">(</span><span class="n">fileOut</span><span class="p">);</span>
+</code></pre></div>
+<p><strong>序列化操作</strong></p>
+<ol>
+<li>该类必须实现 java.io.Serializable 接口</li>
+<li>
+<p>如果对象的某个属性也是引用数据类型，那么如果该属性也要序列化的话，也要实现Serializable 接口</p>
+</li>
+<li>
+<p>该类的所有属性必须是可序列化的。如果有一个属性不需要可序列化的，则该属性必须注明是瞬态的，使用 transient 关键字修饰。（比如网络中传输时，考虑安全因素银行卡字段可以使用transient不进行序列化）</p>
+</li>
+<li>
+<p>静态变量的值不会序列化</p>
+</li>
+</ol>
+<p><strong>写出对象方法</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 实现了Serializable接口的类</span>
+<span class="kd">class</span> <span class="nc">Employee</span> <span class="kd">implements</span> <span class="n">Serializable</span> <span class="p">{</span>
+
+    <span class="n">String</span> <span class="n">name</span><span class="p">;</span>
+
+    <span class="n">Integer</span> <span class="n">age</span><span class="p">;</span>
+
+    <span class="n">String</span> <span class="n">address</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><code>public final void writeObject (Object obj)</code>  将指定的对象写出。</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">testOutput</span><span class="p">(){</span>
+    <span class="n">Employee</span> <span class="n">e</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Employee</span><span class="p">();</span>
+    <span class="n">e</span><span class="p">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">&quot;zhangsan&quot;</span><span class="p">;</span>
+    <span class="n">e</span><span class="p">.</span><span class="na">address</span> <span class="o">=</span> <span class="s">&quot;beiqinglu&quot;</span><span class="p">;</span>
+    <span class="n">e</span><span class="p">.</span><span class="na">age</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+    <span class="k">try</span> <span class="p">{</span>
+        <span class="c1">// 创建序列化流对象</span>
+        <span class="n">ObjectOutputStream</span> <span class="n">out</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ObjectOutputStream</span><span class="p">(</span><span class="k">new</span> <span class="n">FileOutputStream</span><span class="p">(</span><span class="s">&quot;employee.txt&quot;</span><span class="p">));</span>
+        <span class="c1">// 写出对象</span>
+        <span class="n">out</span><span class="p">.</span><span class="na">writeObject</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+        <span class="c1">// 释放资源</span>
+        <span class="n">out</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+        <span class="c1">// fileOut.close();</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Serialized data is saved&quot;</span><span class="p">);</span> <span class="c1">// 姓名，地址被序列化，年龄没有被序列化。</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">IOException</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">i</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="282-objectinputstream">2.8.2 ObjectInputStream类<a class="headerlink" href="#282-objectinputstream" title="Permanent link">&para;</a></h3>
+<p><code>ObjectInputStream</code>反序列化流，将之前使用ObjectOutputStream<strong>序列化的原始数据恢复为对象<strong>。</p>
+<p><strong>构造方法</strong></p>
+<table>
+<thead>
+<tr>
+<th>方法名称</th>
+<th>方法简述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>public ObjectInputStream(InputStream in)</td>
+<td>创建一个指定InputStream的ObjectInputStream。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>反序列化操作</strong></p>
+<p>若JVM能找到一个对象的class文件，我们可以进行反序列化操作，调用 ObjectInputStream 读取对象的方法</p>
+<p><code>public final Object readObject ()</code> 读取一个对象。</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">DeserializeDemo</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span> <span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Employee</span> <span class="n">e</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="c1">// 创建反序列化流</span>
+            <span class="n">FileInputStream</span> <span class="n">fileIn</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileInputStream</span><span class="p">(</span><span class="s">&quot;employee.txt&quot;</span><span class="p">);</span>
+            <span class="n">ObjectInputStream</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ObjectInputStream</span><span class="p">(</span><span class="n">fileIn</span><span class="p">);</span>
+            <span class="c1">// 读取一个对象</span>
+            <span class="n">e</span> <span class="o">=</span> <span class="p">(</span><span class="n">Employee</span><span class="p">)</span> <span class="n">in</span><span class="p">.</span><span class="na">readObject</span><span class="p">();</span>
+            <span class="c1">// 释放资源</span>
+            <span class="n">in</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+            <span class="n">fileIn</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+        <span class="p">}</span><span class="k">catch</span><span class="p">(</span><span class="n">IOException</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// 捕获其他异常</span>
+            <span class="n">i</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span><span class="k">catch</span><span class="p">(</span><span class="n">ClassNotFoundException</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// 捕获类找不到异常</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Employee class not found&quot;</span><span class="p">);</span>
+            <span class="n">c</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="c1">// 无异常,直接打印输出</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Name: &quot;</span> <span class="o">+</span> <span class="n">e</span><span class="p">.</span><span class="na">name</span><span class="p">);</span> <span class="c1">// zhangsan</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Address: &quot;</span> <span class="o">+</span> <span class="n">e</span><span class="p">.</span><span class="na">address</span><span class="p">);</span> <span class="c1">// beiqinglu</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;age: &quot;</span> <span class="o">+</span> <span class="n">e</span><span class="p">.</span><span class="na">age</span><span class="p">);</span> <span class="c1">// 0</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>注意点</strong></p>
+<p>当JVM反序列化对象时，能找到class文件，但是class文件在序列化对象之后发生了修改，那么反序列化操作也会失败，抛出一个 InvalidClassException 异常。有以下两个原因（序列化前后被修改）：</p>
+<ul>
+<li>该类的序列版本号与从流中读取的类描述符的版本号不匹配</li>
+<li>该类包含未知数据类型</li>
+</ul>
+<p>Serializable 接口给需要序列化的类，提供了一个序列版本号。 serialVersionUID 该版本号的目的在于验证序列化的对象和对应类是否版本匹配。</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Employee</span> <span class="kd">implements</span> <span class="n">java</span><span class="p">.</span><span class="na">io</span><span class="p">.</span><span class="na">Serializable</span> <span class="p">{</span>
+    <span class="c1">// 加入序列版本号</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">long</span> <span class="n">serialVersionUID</span> <span class="o">=</span> <span class="mi">1L</span><span class="p">;</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="n">name</span><span class="p">;</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="n">address</span><span class="p">;</span>
+    <span class="c1">// 添加新的属性 ,重新编译, 可以反序列化,该属性赋为默认值.</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="n">eid</span><span class="p">;</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addressCheck</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Address check : &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s">&quot;--&quot;</span> <span class="o">+</span> <span class="n">address</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>2.8 IDEA自动生成 serialVersionUID</strong></p>
+<p><img alt="image-20200915112809132" src="../imgs/image-20200915112809132.png" /></p>
+<p><img alt="image-20200915112814747" src="../imgs/image-20200915112814747.png" /></p>
+<h2 id="29">2.9 数据流（了解）<a class="headerlink" href="#29" title="Permanent link">&para;</a></h2>
+<p>数据流可以在程序中直接处理<strong>Java的基础数据类型</strong>。</p>
+<div class="highlight"><pre><span></span><code><span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="err">“</span><span class="n">巫师</span><span class="err">”</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>
+<span class="kt">char</span> <span class="n">gender</span> <span class="o">=</span> <span class="err">‘</span><span class="n">男</span><span class="err">’</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">energy</span> <span class="o">=</span> <span class="mi">5000</span><span class="p">;</span>
+<span class="kt">double</span> <span class="n">price</span> <span class="o">=</span> <span class="mf">75.5</span><span class="p">;</span>
+<span class="kt">boolean</span> <span class="n">relive</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</code></pre></div>
+<p>使用DataOutputStream进行写</p>
+<p>使用DataInputStream进行读取</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">save</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="p">{</span>
+   <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;巫师&quot;</span><span class="p">;</span>
+   <span class="kt">int</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>
+   <span class="kt">char</span> <span class="n">gender</span> <span class="o">=</span> <span class="sc">&#39;男&#39;</span><span class="p">;</span>
+   <span class="kt">int</span> <span class="n">energy</span> <span class="o">=</span> <span class="mi">5000</span><span class="p">;</span>
+   <span class="kt">double</span> <span class="n">price</span> <span class="o">=</span> <span class="mf">75.5</span><span class="p">;</span>
+   <span class="kt">boolean</span> <span class="n">relive</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+    <span class="c1">// 将数据流写出</span>
+   <span class="n">DataOutputStream</span> <span class="n">dos</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DataOutputStream</span><span class="p">(</span><span class="k">new</span> <span class="n">FileOutputStream</span><span class="p">(</span><span class="s">&quot;game.dat&quot;</span><span class="p">));</span>
+   <span class="n">dos</span><span class="p">.</span><span class="na">writeUTF</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
+   <span class="n">dos</span><span class="p">.</span><span class="na">writeInt</span><span class="p">(</span><span class="n">age</span><span class="p">);</span>
+   <span class="n">dos</span><span class="p">.</span><span class="na">writeChar</span><span class="p">(</span><span class="n">gender</span><span class="p">);</span>
+   <span class="n">dos</span><span class="p">.</span><span class="na">writeInt</span><span class="p">(</span><span class="n">energy</span><span class="p">);</span>
+   <span class="n">dos</span><span class="p">.</span><span class="na">writeDouble</span><span class="p">(</span><span class="n">price</span><span class="p">);</span>
+   <span class="n">dos</span><span class="p">.</span><span class="na">writeBoolean</span><span class="p">(</span><span class="n">relive</span><span class="p">);</span>
+   <span class="n">dos</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">reload</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="p">{</span>
+    <span class="c1">// 读取数据流</span>
+   <span class="n">DataInputStream</span> <span class="n">dis</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DataInputStream</span><span class="p">(</span><span class="k">new</span> <span class="n">FileInputStream</span><span class="p">(</span><span class="s">&quot;game.dat&quot;</span><span class="p">));</span>
+   <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="n">dis</span><span class="p">.</span><span class="na">readUTF</span><span class="p">();</span>
+   <span class="kt">int</span> <span class="n">age</span> <span class="o">=</span> <span class="n">dis</span><span class="p">.</span><span class="na">readInt</span><span class="p">();</span>
+   <span class="kt">char</span> <span class="n">gender</span> <span class="o">=</span> <span class="n">dis</span><span class="p">.</span><span class="na">readChar</span><span class="p">();</span>
+   <span class="kt">int</span> <span class="n">energy</span> <span class="o">=</span> <span class="n">dis</span><span class="p">.</span><span class="na">readInt</span><span class="p">();</span>
+   <span class="kt">double</span> <span class="n">price</span> <span class="o">=</span> <span class="n">dis</span><span class="p">.</span><span class="na">readDouble</span><span class="p">();</span>
+   <span class="kt">boolean</span> <span class="n">relive</span> <span class="o">=</span> <span class="n">dis</span><span class="p">.</span><span class="na">readBoolean</span><span class="p">();</span>
+
+   <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">name</span> <span class="o">+</span> <span class="s">&quot;,&quot;</span> <span class="o">+</span> <span class="n">age</span> <span class="o">+</span> <span class="s">&quot;,&quot;</span> <span class="o">+</span> <span class="n">gender</span> <span class="o">+</span> <span class="s">&quot;,&quot;</span> <span class="o">+</span> <span class="n">energy</span> <span class="o">+</span> <span class="s">&quot;,&quot;</span> <span class="o">+</span> <span class="n">price</span> <span class="o">+</span> <span class="s">&quot;,&quot;</span> <span class="o">+</span> <span class="n">relive</span><span class="p">);</span>
+
+   <span class="n">dis</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p>注意，读取顺序必须与存的顺序一致，否则会导致数据都不准确的现象</p>
+</blockquote>
+<h2 id="210">2.10 打印流与标准输入输出流<a class="headerlink" href="#210" title="Permanent link">&para;</a></h2>
+<p><strong>打印流PrintStream与PrintWriter</strong></p>
+<p>打印流<strong>只有输出</strong>没有输入</p>
+<p><strong>构造方法</strong></p>
+<table>
+<thead>
+<tr>
+<th>构造方法名</th>
+<th>方法说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>public PrintStream(String fileName)</td>
+<td>使用指定的文件名创建一个新的字节打印流。</td>
+</tr>
+<tr>
+<td>public PrintWriter(String fileName)</td>
+<td>使用指定的文件名创建一个新的字符打印流。</td>
+</tr>
+<tr>
+<td>PrintWriter(OutputStream out, boolean autoFlush)</td>
+<td>基于字符输出流创建一个自动刷新的字符打印流</td>
+</tr>
+</tbody>
+</table>
+<p><strong>构造器示例</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">PrintStream</span> <span class="n">ps</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PrintStream</span><span class="p">(</span><span class="s">&quot;ps.txt&quot;</span><span class="p">);</span>
+<span class="n">PrintWriter</span> <span class="n">pw</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PrintWriter</span><span class="p">(</span><span class="s">&quot;pw.txt&quot;</span><span class="p">);</span>
+<span class="n">PrintWriter</span> <span class="n">pw2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PrintWriter</span><span class="p">(</span><span class="k">new</span> <span class="n">FileOutputStream</span><span class="p">(</span><span class="s">&quot;pw2.txt&quot;</span><span class="p">),</span><span class="kc">true</span><span class="p">);</span>
+</code></pre></div>
+<p><strong>输出流代码示例</strong></p>
+<div class="highlight"><pre><span></span><code><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">test1</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="p">{</span>
+    <span class="n">PrintStream</span> <span class="n">printStream</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PrintStream</span><span class="p">(</span><span class="k">new</span> <span class="n">FileOutputStream</span><span class="p">(</span><span class="s">&quot;text2.txt&quot;</span><span class="p">,</span><span class="kc">true</span><span class="p">));</span>
+    <span class="n">printStream</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="mi">97</span><span class="p">);</span>
+    <span class="n">printStream</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="s">&quot;abaaba&quot;</span><span class="p">.</span><span class="na">getBytes</span><span class="p">());</span>
+    <span class="n">printStream</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="211_1">2.11 标准输入/输出流<a class="headerlink" href="#211_1" title="Permanent link">&para;</a></h2>
+<p>System类中有三个属性字段：</p>
+<table>
+<thead>
+<tr>
+<th>修饰符和类型</th>
+<th>属性和描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>static PrintStream</td>
+<td><code>err</code> The "standard" error output stream.</td>
+</tr>
+<tr>
+<td>static InputStream</td>
+<td><code>in</code> The "standard" input stream.</td>
+</tr>
+<tr>
+<td>static PrintStream</td>
+<td><code>out</code> The "standard" output stream.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>System.in 标准输入流，本质是一个字节输入流，默认接受键盘录入的数据。</li>
+<li>System.out 标准输出流，本质是一个字节输出流，默认输出数据到控制台。</li>
+<li>System.out 标准错误提示流，本质是一个字节输出流，默认输出到控制台。</li>
+</ul>
+<p>既然是流对象，就可以改变标准输出流的流向。</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PrintDemo</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="p">{</span>
+        <span class="c1">// 调用系统的打印流,控制台直接输出97</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="mi">97</span><span class="p">);</span>
+        <span class="c1">// 创建字节打印流,指定文件的名称</span>
+        <span class="n">PrintStream</span> <span class="n">ps</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PrintStream</span><span class="p">(</span><span class="s">&quot;ps.txt&quot;</span><span class="p">);</span>
+        <span class="c1">// 设置系统的打印流流向,输出到ps.txt</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">setOut</span><span class="p">(</span><span class="n">ps</span><span class="p">);</span>
+        <span class="c1">// 调用系统的打印流,ps.txt中输出97</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="mi">97</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+              
+			  <hr><span id="busuanzi_container_page_pv"><font size="3" color="grey">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</font></span><br/>
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../../08%20%E6%B3%9B%E5%9E%8B/08%20%E6%B3%9B%E5%9E%8B/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 泛型" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              泛型
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../10%20%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/10%20%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" class="md-footer__link md-footer__link--next" aria-label="Next: 网络编程" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              网络编程
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 尚硅谷
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.tabs", "navigation.tabs.sticky"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.1514a9a0.min.js"></script>
+      
+        <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+      
+    
+  </body>
+</html>

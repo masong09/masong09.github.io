@@ -1,0 +1,5407 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.6">
+    
+    
+      
+        <title>搭建环境和医院设置 - 我的文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.cd566b2a.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="我的文档" class="md-header__button md-logo" aria-label="我的文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            我的文档
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              搭建环境和医院设置
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/01%20Java%E6%A6%82%E8%BF%B0/01%20-%20Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0/" class="md-tabs__link md-tabs__link--active">
+        Java课程
+      </a>
+    </li>
+  
+
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC1%E7%AB%A0%20%E9%9D%A2%E8%AF%95%E8%AF%B4%E6%98%8E/" class="md-tabs__link">
+        Java就业面试
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../../.." class="md-tabs__link">
+      学习文档
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="我的文档" class="md-nav__button md-logo" aria-label="我的文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    我的文档
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Java课程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Java课程" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Java课程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1" type="checkbox" id="__nav_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1">
+          Java基础
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Java基础" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Java基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1_1" type="checkbox" id="__nav_1_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1_1">
+          基础部分
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="基础部分" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          基础部分
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/01%20Java%E6%A6%82%E8%BF%B0/01%20-%20Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0/" class="md-nav__link">
+        Java概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/02%20%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/02%20%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" class="md-nav__link">
+        基本语法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/03%20%E6%95%B0%E7%BB%84/03%20%E6%95%B0%E7%BB%84/" class="md-nav__link">
+        数组
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/04%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/04%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="md-nav__link">
+        面向对象
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/05%20%E5%BC%82%E5%B8%B8/05%20%E5%BC%82%E5%B8%B8/" class="md-nav__link">
+        异常
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1_2" type="checkbox" id="__nav_1_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1_2">
+          高级部分
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="高级部分" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          高级部分
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/06%20%E5%B8%B8%E7%94%A8%E7%B1%BBAPI/06%20%E5%B8%B8%E7%94%A8%E7%B1%BBAPI/" class="md-nav__link">
+        常用类API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/07%20%E9%9B%86%E5%90%88/07%20%E9%9B%86%E5%90%88/" class="md-nav__link">
+        集合
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/08%20%E6%B3%9B%E5%9E%8B/08%20%E6%B3%9B%E5%9E%8B/" class="md-nav__link">
+        泛型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/09%20File%E7%B1%BB%E4%B8%8EIO%E6%B5%81/09%20File%E7%B1%BB%E4%B8%8EIO%E6%B5%81/" class="md-nav__link">
+        File类与IO流
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/10%20%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/10%20%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" class="md-nav__link">
+        网络编程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/11%20%E5%A4%9A%E7%BA%BF%E7%A8%8B/11%20%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="md-nav__link">
+        多线程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/12%20%E5%8F%8D%E5%B0%84/12%20%E5%8F%8D%E5%B0%84/" class="md-nav__link">
+        反射
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/13%20Java8%E6%96%B0%E7%89%B9%E6%80%A7/Java8%E6%96%B0%E7%89%B9%E6%80%A7/" class="md-nav__link">
+        Java8新特性
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2" type="checkbox" id="__nav_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_2">
+          MySQL数据库
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="MySQL数据库" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          MySQL数据库
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/14%20MySQL/MySQL5.7%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/" class="md-nav__link">
+        MySQL5.7安装文档
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/14%20MySQL/MySQL%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        MySQL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/14%20MySQL/JDBC%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        JDBC
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_3" type="checkbox" id="__nav_1_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_3">
+          JavaWeb阶段
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="JavaWeb阶段" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          JavaWeb阶段
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day01/day01_HTML%26CSS/" class="md-nav__link">
+        HTML&CSS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day02/day02_JS%26%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="md-nav__link">
+        JS&正则表达式
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day03/day03_VUE%26%E4%B9%A6%E5%9F%8E%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        VUE&书城第一阶段
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day04/day04_XML%26Tomcat%26Http%E5%8D%8F%E8%AE%AE/" class="md-nav__link">
+        XML&Tomcat&Http协议
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day05/day05_Servlet/" class="md-nav__link">
+        Servlet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day06/day06_Request%26Response/" class="md-nav__link">
+        Request&Response
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day07/day07_%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        书城项目第二阶
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day08/day08_Thymeleaf/" class="md-nav__link">
+        Thymeleaf
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day09/day09_%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        书城项目第三阶段
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day10/day10_%E4%BC%9A%E8%AF%9D%26%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5%281%29/" class="md-nav__link">
+        会话&书城项目第四阶段1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day11/day11_%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        书城项目第四阶段2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day12/day12_Filter%26Listener%26%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%BA%94%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        Filter&Listener&书城项目第五阶段1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day13/day13_%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%BA%94%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        书城项目第五阶段2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../JavaWeb%E9%98%B6%E6%AE%B5/day14/day14_Ajax%26Axios%26%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E5%85%AD%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        Ajax&Axios&书城项目第六阶段
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4" type="checkbox" id="__nav_1_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4">
+          经典框架
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="经典框架" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          经典框架
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/Spring%20%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        Spring
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/SpringMVC%20%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        SpringMVC
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/MyBatis%20%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        MyBatis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/SSM%20%E6%95%B4%E5%90%88%E9%85%8D%E7%BD%AE/" class="md-nav__link">
+        SSM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/Maven%20%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        Maven
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/%E6%A1%86%E6%9E%B6%E9%AB%98%E7%BA%A7%E8%AF%BE%E7%A8%8B%E7%B3%BB%E5%88%97%E4%B9%8BLinuxCentOS7/" class="md-nav__link">
+        Linux
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/Redis/" class="md-nav__link">
+        Redis
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_5" type="checkbox" id="__nav_1_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_5">
+          微服务相关
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="微服务相关" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_5">
+          <span class="md-nav__icon md-icon"></span>
+          微服务相关
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/Docker/Docker/" class="md-nav__link">
+        Docker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/ElasticSearch/ElasticSearch/" class="md-nav__link">
+        ElasticSearch
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/RabbitMQ/RabbitMQ/" class="md-nav__link">
+        RabbitMQ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/SpringBoot/SpringBoot/" class="md-nav__link">
+        SpringBoot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/SpringCloud/SpringCloud/" class="md-nav__link">
+        SpringCloud
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_6" type="checkbox" id="__nav_1_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_6">
+          高级技术
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="高级技术" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_6">
+          <span class="md-nav__icon md-icon"></span>
+          高级技术
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/git/Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        git
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/juc/JUC/" class="md-nav__link">
+        JUC
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/jvm/jvm/" class="md-nav__link">
+        jvm
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/mysql%E9%AB%98%E7%BA%A7/MySQL%E9%AB%98%E7%BA%A7/" class="md-nav__link">
+        mysql高级
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/mysql%E9%AB%98%E7%BA%A7/MySQL%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/" class="md-nav__link">
+        MySQL主从复制
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/MyCat/Mycat/" class="md-nav__link">
+        MyCat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E9%AB%98%E7%BA%A7%E6%8A%80%E6%9C%AF/nginx/Nginx/" class="md-nav__link">
+        Nginx
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7" type="checkbox" id="__nav_1_7" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7">
+          项目文档
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="项目文档" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_7">
+          <span class="md-nav__icon md-icon"></span>
+          项目文档
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_1" type="checkbox" id="__nav_1_7_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7_1">
+          美年旅游
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="美年旅游" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_7_1">
+          <span class="md-nav__icon md-icon"></span>
+          美年旅游
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BE%8E%E5%B9%B4/day01/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC1%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游01
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BE%8E%E5%B9%B4/day02/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC2%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游02
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BE%8E%E5%B9%B4/day03/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC3%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游03
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BE%8E%E5%B9%B4/day04/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC4%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游04
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BE%8E%E5%B9%B4/day05/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC5%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游05
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BE%8E%E5%B9%B4/day06/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC6%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游06
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BE%8E%E5%B9%B4/day07/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC7%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游07
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BE%8E%E5%B9%B4/day08/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC8%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游08
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BE%8E%E5%B9%B4/day09/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC9%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游09
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BE%8E%E5%B9%B4/day10/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC10%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游10
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BE%8E%E5%B9%B4/day11/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC11%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游11
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_2" type="checkbox" id="__nav_1_7_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7_2">
+          尚邻网
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="尚邻网" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_7_2">
+          <span class="md-nav__icon md-icon"></span>
+          尚邻网
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E9%82%BB%E7%BD%91/1.%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83/" class="md-nav__link">
+        搭建环境
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E9%82%BB%E7%BD%91/2.%E7%94%A8%E6%88%B7%E8%A7%92%E8%89%B2%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        用户角色管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E9%82%BB%E7%BD%91/3.Apache%20Dubbo/" class="md-nav__link">
+        Apache Dubbo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E9%82%BB%E7%BD%91/4.%E6%9C%8D%E5%8A%A1%E6%8B%86%E5%88%86/" class="md-nav__link">
+        服务拆分
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E9%82%BB%E7%BD%91/5.%E4%BA%8C%E6%89%8B%E6%88%BF%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        二手房管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E9%82%BB%E7%BD%91/6.%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/" class="md-nav__link">
+        图片上传
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E9%82%BB%E7%BD%91/7.%E5%89%8D%E7%AB%AF%E6%88%BF%E6%BA%90%E5%B1%95%E7%A4%BA/" class="md-nav__link">
+        前端房源展示
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E9%82%BB%E7%BD%91/8.%E5%89%8D%E7%AB%AF%E7%99%BB%E5%BD%95%E4%B8%8E%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%85%B3%E6%B3%A8/" class="md-nav__link">
+        前端登录与注册与关注
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E9%82%BB%E7%BD%91/9.%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        权限管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E9%82%BB%E7%BD%91/10.spring%20security/" class="md-nav__link">
+        spring security
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E9%82%BB%E7%BD%91/11.session%E5%85%B1%E4%BA%AB/" class="md-nav__link">
+        session共享
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_3" type="checkbox" id="__nav_1_7_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7_3">
+          谷粒商城
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="谷粒商城" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_7_3">
+          <span class="md-nav__icon md-icon"></span>
+          谷粒商城
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/1.%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%EF%BC%88nginx%E3%80%81cors%E3%80%81oss%EF%BC%89/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        谷粒商城01
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/2.%E5%88%86%E7%B1%BB%E3%80%81%E8%A7%84%E6%A0%BC%E3%80%81%E5%95%86%E5%93%81%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/%E8%A7%84%E6%A0%BC%E5%8F%82%E6%95%B0%E5%8F%8A%E5%95%86%E5%93%81%E6%96%B0%E5%A2%9E/" class="md-nav__link">
+        谷粒商城02
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/3.%E6%9C%AC%E5%9C%B0%E4%BA%8B%E5%8A%A1%E3%80%81%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E5%8F%8Aseata/%E6%9C%AC%E5%9C%B0%E4%BA%8B%E5%8A%A1%E3%80%81%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E5%8F%8Aseata/" class="md-nav__link">
+        谷粒商城03
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/4.elasticsearch%28DSL%E5%8F%8ASpringData-Elasticsearch%29/elasticsearch/" class="md-nav__link">
+        谷粒商城04
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/5.%E5%95%86%E5%93%81%E6%90%9C%E7%B4%A2/%E5%95%86%E5%93%81%E6%90%9C%E7%B4%A2/" class="md-nav__link">
+        谷粒商城05
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/6.%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%EF%BC%88Thymeleaf%EF%BC%89%E5%8F%8A%E6%90%9C%E7%B4%A2%E9%A1%B5%E6%B8%B2%E6%9F%93/%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E-Thymeleaf/" class="md-nav__link">
+        谷粒商城06
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/7.%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%EF%BC%88RabbitMQ%EF%BC%89/%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5/" class="md-nav__link">
+        谷粒商城07
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/8.%E5%95%86%E5%93%81%E5%88%86%E7%B1%BB%28%E7%BC%93%E5%AD%98%E3%80%81%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E3%80%81Redisson%E3%80%81%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8%29/%E9%A6%96%E9%A1%B5%E5%95%86%E5%93%81%E5%88%86%E7%B1%BB/" class="md-nav__link">
+        谷粒商城08
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/9.%E5%95%86%E5%93%81%E8%AF%A6%E6%83%85%E9%A1%B5%E5%8F%8A%E5%BC%82%E6%AD%A5%E7%BC%96%E6%8E%92%EF%BC%88CompletableFuture%EF%BC%89/%E5%95%86%E5%93%81%E8%AF%A6%E6%83%85%E9%A1%B5/" class="md-nav__link">
+        谷粒商城09
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/10.%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%EF%BC%88jwt%EF%BC%89/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%EF%BC%88jwt%EF%BC%89/" class="md-nav__link">
+        谷粒商城10
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/11.%E8%B4%AD%E7%89%A9%E8%BD%A6%EF%BC%88SpringTask%EF%BC%89/%E8%B4%AD%E7%89%A9%E8%BD%A6/" class="md-nav__link">
+        谷粒商城11
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/12.%E5%88%86%E5%B8%83%E5%BC%8F%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%EF%BC%88xxl-job%EF%BC%89/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%EF%BC%88xxl-job%EF%BC%89/" class="md-nav__link">
+        谷粒商城12
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/13.%E8%AE%A2%E5%8D%95%E3%80%81%E5%BA%93%E5%AD%98/%E8%AE%A2%E5%8D%95%E3%80%81%E5%BA%93%E5%AD%98/" class="md-nav__link">
+        谷粒商城13
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%94%B5%E5%95%86/14.%E6%94%AF%E4%BB%98%E3%80%81%E7%A7%92%E6%9D%80/%E6%94%AF%E4%BB%98%E3%80%81%E7%A7%92%E6%9D%80/" class="md-nav__link">
+        谷粒商城14
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_4" type="checkbox" id="__nav_1_7_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7_4">
+          尚融宝
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="尚融宝" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_7_4">
+          <span class="md-nav__icon md-icon"></span>
+          尚融宝
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part01-%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D/Part01-%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
+        项目介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part02-MyBatis-Plus/Part02-MyBatis-Plus/" class="md-nav__link">
+        MyBatis-Plus
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part03-%E5%90%8E%E7%AB%AF%E6%8E%A5%E5%8F%A3%E5%B7%A5%E7%A8%8B%E6%90%AD%E5%BB%BA/Part03-%E5%90%8E%E7%AB%AF%E6%8E%A5%E5%8F%A3%E5%B7%A5%E7%A8%8B%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        后端接口工程搭建
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part04-%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/Part04-%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/" class="md-nav__link">
+        前端知识
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part05-%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA/Part05-%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        管理平台前端搭建
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part06-Alibaba%20EasyExcel/Part06-Alibaba%20EasyExcel/" class="md-nav__link">
+        Alibaba EasyExcel
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part07-%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8/Part07-%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8/" class="md-nav__link">
+        数据字典
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part08-Redis%E7%BC%93%E5%AD%98/Part08-Redis%E7%BC%93%E5%AD%98/" class="md-nav__link">
+        Redis缓存
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part09-NuxtJS%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E6%B8%B2%E6%9F%93/Part09-NuxtJS%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E6%B8%B2%E6%9F%93/" class="md-nav__link">
+        NuxtJS服务器端渲染
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part10-%E9%98%BF%E9%87%8C%E4%BA%91%E7%9F%AD%E4%BF%A1/Part10-%E9%98%BF%E9%87%8C%E4%BA%91%E7%9F%AD%E4%BF%A1/" class="md-nav__link">
+        阿里云短信
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java课程/项目文档/尚融宝/Part11-分布式文件系统-阿里云OSS/分布式文件系统-阿里云OSS" class="md-nav__link">
+        阿里云OSS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part12-%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C/Part12-%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C/" class="md-nav__link">
+        用户注册
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part13-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%89%E5%85%A8-%E8%AE%BF%E9%97%AE%E4%BB%A4%E7%89%8C/Part13-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%89%E5%85%A8-%E8%AE%BF%E9%97%AE%E4%BB%A4%E7%89%8C/" class="md-nav__link">
+        访问令牌
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part14-%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81/Part14-%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81/" class="md-nav__link">
+        用户认证
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part15-%E4%BC%9A%E5%91%98%E7%AE%A1%E7%90%86/Part15-%E4%BC%9A%E5%91%98%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        会员管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part16-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%89%E5%85%A8-OAuth2/Part16-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%89%E5%85%A8-OAuth2/" class="md-nav__link">
+        OAuth2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part17-%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/Part17-%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" class="md-nav__link">
+        内网穿透
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part18-%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95/Part18-%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95/" class="md-nav__link">
+        微信登录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part19-%20SpringCloud/Part19-%20SpringCloud/" class="md-nav__link">
+        SpringCloud
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part20-%E8%B4%A6%E6%88%B7%E7%BB%91%E5%AE%9A/Part20-%E8%B4%A6%E6%88%B7%E7%BB%91%E5%AE%9A/" class="md-nav__link">
+        账户绑定
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part21-%E7%94%B3%E8%AF%B7%E5%80%9F%E6%AC%BE%E9%A2%9D%E5%BA%A6/Part21-%E7%94%B3%E8%AF%B7%E5%80%9F%E6%AC%BE%E9%A2%9D%E5%BA%A6/" class="md-nav__link">
+        申请借款额度
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part22-%E5%80%9F%E6%AC%BE%E9%A2%9D%E5%BA%A6%E5%AE%A1%E6%A0%B8/Part22-%E5%80%9F%E6%AC%BE%E9%A2%9D%E5%BA%A6%E5%AE%A1%E6%A0%B8/" class="md-nav__link">
+        借款额度审核
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part23-%E5%80%9F%E6%AC%BE%E7%94%B3%E8%AF%B7/Part23-%E5%80%9F%E6%AC%BE%E7%94%B3%E8%AF%B7/" class="md-nav__link">
+        借款申请
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part24-%E5%80%9F%E6%AC%BE%E5%AE%A1%E6%A0%B8/Part24-%E5%80%9F%E6%AC%BE%E5%AE%A1%E6%A0%B8/" class="md-nav__link">
+        借款审核
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part25-%E6%A0%87%E7%9A%84%E7%AE%A1%E7%90%86/Part25-%E6%A0%87%E7%9A%84%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        标的管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part26-%E6%88%91%E8%A6%81%E6%8A%95%E8%B5%84/Part26-%E6%88%91%E8%A6%81%E6%8A%95%E8%B5%84/" class="md-nav__link">
+        我要投资
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part27-%E5%85%85%E5%80%BC/Part27-%E5%85%85%E5%80%BC/" class="md-nav__link">
+        充值
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part28-%E6%8A%95%E6%A0%87/Part28-%E6%8A%95%E6%A0%87/" class="md-nav__link">
+        投标
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part29-%E6%94%BE%E6%AC%BE/Part29-%E6%94%BE%E6%AC%BE/" class="md-nav__link">
+        放款
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part30-%E6%8A%95%E8%B5%84%E5%88%97%E8%A1%A8%E5%B1%95%E7%A4%BA/Part30-%E6%8A%95%E8%B5%84%E5%88%97%E8%A1%A8%E5%B1%95%E7%A4%BA/" class="md-nav__link">
+        投资列表展示
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part31-%E6%8F%90%E7%8E%B0%E5%92%8C%E8%BF%98%E6%AC%BE/Part31-%E6%8F%90%E7%8E%B0%E5%92%8C%E8%BF%98%E6%AC%BE/" class="md-nav__link">
+        提现和还款
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part32-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83/Part32-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83/" class="md-nav__link">
+        个人中心
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part33-%E7%BD%91%E5%85%B3/Part33-%E7%BD%91%E5%85%B3/" class="md-nav__link">
+        网关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part34-%E8%A1%A5%E5%85%85/Part34-%E8%A1%A5%E5%85%85/" class="md-nav__link">
+        补充
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part35-%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/Part35-%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/" class="md-nav__link">
+        微信支付
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_5" type="checkbox" id="__nav_1_7_5" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7_5">
+          尚医通
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="尚医通" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_7_5">
+          <span class="md-nav__icon md-icon"></span>
+          尚医通
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../day01%20%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%E4%B8%8EMyBatis%20Plus/day01%20%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%E4%B8%8E%20Mybatis%20Plus/" class="md-nav__link">
+        项目介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          搭建环境和医院设置
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        搭建环境和医院设置
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    一、预约挂号微服务模块搭建
+  </a>
+  
+    <nav class="md-nav" aria-label="一、预约挂号微服务模块搭建">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sql" class="md-nav__link">
+    sql资源
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    项目模块构建
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-yygh-parent" class="md-nav__link">
+    1 构建父工程（yygh-parent）
+  </a>
+  
+    <nav class="md-nav" aria-label="1 构建父工程（yygh-parent）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-pomxml" class="md-nav__link">
+    1.1 添加配置pom.xml
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-common" class="md-nav__link">
+    2 搭建common父模块
+  </a>
+  
+    <nav class="md-nav" aria-label="2 搭建common父模块">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-common" class="md-nav__link">
+    2.1 搭建common
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-pomxml" class="md-nav__link">
+    2.2 修改配置pom.xml
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-common-util" class="md-nav__link">
+    3 搭建common-util模块
+  </a>
+  
+    <nav class="md-nav" aria-label="3 搭建common-util模块">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-common-util" class="md-nav__link">
+    3.1 搭建common-util
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-pomxml" class="md-nav__link">
+    3.2 修改配置pom.xml
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    3.3 添加公共工具类
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4service-util" class="md-nav__link">
+    4搭建service-util模块
+  </a>
+  
+    <nav class="md-nav" aria-label="4搭建service-util模块">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-service-util" class="md-nav__link">
+    4.1 搭建service-util
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-pomxml" class="md-nav__link">
+    4.2 修改配置pom.xml
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-service-util" class="md-nav__link">
+    4.3 添加service-util公共类
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5model" class="md-nav__link">
+    5搭建model模块
+  </a>
+  
+    <nav class="md-nav" aria-label="5搭建model模块">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-model" class="md-nav__link">
+    5.1 搭建model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-pomxml" class="md-nav__link">
+    5.2 修改配置pom.xml
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" class="md-nav__link">
+    5.3 引入实体类
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6service" class="md-nav__link">
+    6搭建service父模块
+  </a>
+  
+    <nav class="md-nav" aria-label="6搭建service父模块">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#62-pomxml" class="md-nav__link">
+    6.2 修改配置pom.xml
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gitee" class="md-nav__link">
+    二、gitee使用
+  </a>
+  
+    <nav class="md-nav" aria-label="二、gitee使用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 创建仓库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 点击创建
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3giteehttps" class="md-nav__link">
+    3.复制gitee码云的HttpS连接
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4.提交上传
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    三、医院设置需求
+  </a>
+  
+    <nav class="md-nav" aria-label="三、医院设置需求">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    1、需求
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    2、表结构
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    四、医院模块开发
+  </a>
+  
+    <nav class="md-nav" aria-label="四、医院模块开发">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-service-hosp" class="md-nav__link">
+    1、 搭建医院模块service-hosp
+  </a>
+  
+    <nav class="md-nav" aria-label="1、 搭建医院模块service-hosp">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-service-hosp" class="md-nav__link">
+    1.1 搭建service-hosp
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    1.2 修改配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    1.3 添加启动类
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2curd" class="md-nav__link">
+    2添加医院设置CURD
+  </a>
+  
+    <nav class="md-nav" aria-label="2添加医院设置CURD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-model" class="md-nav__link">
+    2.1 添加model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-mapper" class="md-nav__link">
+    2.2 添加Mapper
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-service" class="md-nav__link">
+    2.3 添加service接口及实现类
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-controller" class="md-nav__link">
+    2.4 添加controller
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-crud" class="md-nav__link">
+    2.5 医院设置CRUD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-controller" class="md-nav__link">
+    2.6 添加controller方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3swagger2" class="md-nav__link">
+    3、Swagger2介绍与集成
+  </a>
+  
+    <nav class="md-nav" aria-label="3、Swagger2介绍与集成">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-swagger2" class="md-nav__link">
+    3.1 swagger2介绍
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-swagger2" class="md-nav__link">
+    3.2 swagger2集成
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 swagger2集成">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321-swagger2" class="md-nav__link">
+    3.2.1 项目整合swagger2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322-swagger2" class="md-nav__link">
+    3.2.2 添加swagger2配置类
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-swagger2" class="md-nav__link">
+    3.3 使用swagger2测试
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    4、医院锁定与解锁
+  </a>
+  
+    <nav class="md-nav" aria-label="4、医院锁定与解锁">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-controller" class="md-nav__link">
+    4.1 添加controller方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5key" class="md-nav__link">
+    5、发送签名key
+  </a>
+  
+    <nav class="md-nav" aria-label="5、发送签名key">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-controller" class="md-nav__link">
+    5.1 添加controller方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    6、全局异常处理
+  </a>
+  
+    <nav class="md-nav" aria-label="6、全局异常处理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    6.1 自定义异常类
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    6.2 添加全局异常处理类
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63" class="md-nav__link">
+    6.3 集成测试
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    7、日志
+  </a>
+  
+    <nav class="md-nav" aria-label="7、日志">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71" class="md-nav__link">
+    7.1配置日志级别
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-logback" class="md-nav__link">
+    7.2 Logback日志
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73" class="md-nav__link">
+    7.3 配置日志
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../day03%20%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89/day03%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89/" class="md-nav__link">
+        前端基础知识（一）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../day04%20%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%BA%8C%EF%BC%89/day04%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="md-nav__link">
+        前端基础知识（二）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../day05%E5%B9%B3%E5%8F%B0%E7%AE%A1%E7%90%86%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA/day05%E5%B9%B3%E5%8F%B0%E7%AE%A1%E7%90%86%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        平台管理前端搭建
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../day06%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8/day06%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8/" class="md-nav__link">
+        数据字典
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../day07mongodb/day07mongodb/" class="md-nav__link">
+        mongodb
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../day08%E5%8C%BB%E9%99%A2%E4%B8%8A%E4%BC%A0%E6%8E%A5%E5%8F%A3/day08%E5%8C%BB%E9%99%A2%E4%B8%8A%E4%BC%A0%E6%8E%A5%E5%8F%A3/" class="md-nav__link">
+        医院上传接口
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../day09%E5%8C%BB%E9%99%A2%E7%AE%A1%E7%90%86/day09%E5%8C%BB%E9%99%A2%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        医院管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../day10%E6%8E%92%E7%8F%AD%E7%AE%A1%E7%90%86%E5%92%8C%E7%BD%91%E5%85%B3/day10%E6%8E%92%E7%8F%AD%E7%AE%A1%E7%90%86%E5%92%8C%E7%BD%91%E5%85%B3/" class="md-nav__link">
+        排班管理和网关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../day11%E5%B9%B3%E5%8F%B0%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA%E4%B8%8E%E9%A6%96%E9%A1%B5/day11%E5%B9%B3%E5%8F%B0%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA%E4%B8%8E%E9%A6%96%E9%A1%B5/" class="md-nav__link">
+        平台前端搭建与首页
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../day12%E6%89%8B%E6%9C%BA%E7%99%BB%E5%BD%95/day12%E6%89%8B%E6%9C%BA%E7%99%BB%E5%BD%95/" class="md-nav__link">
+        手机登录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../day13%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95/day13%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95/" class="md-nav__link">
+        微信登录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../day14%E9%98%BF%E9%87%8C%E4%BA%91OSS%E3%80%81%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81%E4%B8%8E%E5%B0%B1%E8%AF%8A%E4%BA%BA/day14%E9%98%BF%E9%87%8C%E4%BA%91OSS%E3%80%81%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81%E4%B8%8E%E5%B0%B1%E8%AF%8A%E4%BA%BA/" class="md-nav__link">
+        阿里云OSS、用户认证与就诊人
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../day15%E9%A2%84%E7%BA%A6%E6%8C%82%E5%8F%B7/day15%E9%A2%84%E7%BA%A6%E6%8C%82%E5%8F%B7/" class="md-nav__link">
+        预约挂号
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../day16%E9%A2%84%E7%BA%A6%E4%B8%8B%E5%8D%95/day16%E9%A2%84%E7%BA%A6%E4%B8%8B%E5%8D%95/" class="md-nav__link">
+        预约下单
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../day17%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/day17%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/" class="md-nav__link">
+        微信支付
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../day18%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E4%B8%8E%E7%BB%9F%E8%AE%A1/day18%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E4%B8%8E%E7%BB%9F%E8%AE%A1/" class="md-nav__link">
+        定时任务与统计
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Java就业面试
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Java就业面试" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Java就业面试
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC1%E7%AB%A0%20%E9%9D%A2%E8%AF%95%E8%AF%B4%E6%98%8E/" class="md-nav__link">
+        第1章 面试说明
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC2%E7%AB%A0%20%E6%89%8B%E5%86%99%E4%BB%A3%E7%A0%81/" class="md-nav__link">
+        第2章 手写代码
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC3%E7%AB%A0%20JavaSE/" class="md-nav__link">
+        第3章 JavaSE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC4%E7%AB%A0%20JVM/" class="md-nav__link">
+        第4章 JVM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC5%E7%AB%A0%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="md-nav__link">
+        第5章 设计模式
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC6%E7%AB%A0%20MySql/" class="md-nav__link">
+        第6章 MySql
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC7%E7%AB%A0%20Java%20Web/" class="md-nav__link">
+        第7章 Java Web
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC8%E7%AB%A0%20SSM%E6%A1%86%E6%9E%B6/" class="md-nav__link">
+        第8章 SSM框架
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC9%E7%AB%A0%20SpringBoot/" class="md-nav__link">
+        第9章 SpringBoot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC10%E7%AB%A0%20SpringCloud/" class="md-nav__link">
+        第10章 SpringCloud
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC11%E7%AB%A0%20Redis/" class="md-nav__link">
+        第11章 Redis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC12%E7%AB%A0%20MQ/" class="md-nav__link">
+        第12章 MQ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC13%E7%AB%A0%20ElasticSearch/" class="md-nav__link">
+        第13章 ElasticSearch
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC14%E7%AB%A0%20Dubbo/" class="md-nav__link">
+        第14章 Dubbo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC15%E7%AB%A0%20Zookeeper/" class="md-nav__link">
+        第15章 Zookeeper
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC16%E7%AB%A0%20Git/" class="md-nav__link">
+        第16章 Git
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC17%E7%AB%A0%20Linux/" class="md-nav__link">
+        第17章 Linux
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        学习文档
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    一、预约挂号微服务模块搭建
+  </a>
+  
+    <nav class="md-nav" aria-label="一、预约挂号微服务模块搭建">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sql" class="md-nav__link">
+    sql资源
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    项目模块构建
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-yygh-parent" class="md-nav__link">
+    1 构建父工程（yygh-parent）
+  </a>
+  
+    <nav class="md-nav" aria-label="1 构建父工程（yygh-parent）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-pomxml" class="md-nav__link">
+    1.1 添加配置pom.xml
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-common" class="md-nav__link">
+    2 搭建common父模块
+  </a>
+  
+    <nav class="md-nav" aria-label="2 搭建common父模块">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-common" class="md-nav__link">
+    2.1 搭建common
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-pomxml" class="md-nav__link">
+    2.2 修改配置pom.xml
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-common-util" class="md-nav__link">
+    3 搭建common-util模块
+  </a>
+  
+    <nav class="md-nav" aria-label="3 搭建common-util模块">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-common-util" class="md-nav__link">
+    3.1 搭建common-util
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-pomxml" class="md-nav__link">
+    3.2 修改配置pom.xml
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    3.3 添加公共工具类
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4service-util" class="md-nav__link">
+    4搭建service-util模块
+  </a>
+  
+    <nav class="md-nav" aria-label="4搭建service-util模块">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-service-util" class="md-nav__link">
+    4.1 搭建service-util
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-pomxml" class="md-nav__link">
+    4.2 修改配置pom.xml
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-service-util" class="md-nav__link">
+    4.3 添加service-util公共类
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5model" class="md-nav__link">
+    5搭建model模块
+  </a>
+  
+    <nav class="md-nav" aria-label="5搭建model模块">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-model" class="md-nav__link">
+    5.1 搭建model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-pomxml" class="md-nav__link">
+    5.2 修改配置pom.xml
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" class="md-nav__link">
+    5.3 引入实体类
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6service" class="md-nav__link">
+    6搭建service父模块
+  </a>
+  
+    <nav class="md-nav" aria-label="6搭建service父模块">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#62-pomxml" class="md-nav__link">
+    6.2 修改配置pom.xml
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gitee" class="md-nav__link">
+    二、gitee使用
+  </a>
+  
+    <nav class="md-nav" aria-label="二、gitee使用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 创建仓库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 点击创建
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3giteehttps" class="md-nav__link">
+    3.复制gitee码云的HttpS连接
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4.提交上传
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    三、医院设置需求
+  </a>
+  
+    <nav class="md-nav" aria-label="三、医院设置需求">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    1、需求
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    2、表结构
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    四、医院模块开发
+  </a>
+  
+    <nav class="md-nav" aria-label="四、医院模块开发">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-service-hosp" class="md-nav__link">
+    1、 搭建医院模块service-hosp
+  </a>
+  
+    <nav class="md-nav" aria-label="1、 搭建医院模块service-hosp">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-service-hosp" class="md-nav__link">
+    1.1 搭建service-hosp
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    1.2 修改配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    1.3 添加启动类
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2curd" class="md-nav__link">
+    2添加医院设置CURD
+  </a>
+  
+    <nav class="md-nav" aria-label="2添加医院设置CURD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-model" class="md-nav__link">
+    2.1 添加model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-mapper" class="md-nav__link">
+    2.2 添加Mapper
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-service" class="md-nav__link">
+    2.3 添加service接口及实现类
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-controller" class="md-nav__link">
+    2.4 添加controller
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-crud" class="md-nav__link">
+    2.5 医院设置CRUD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-controller" class="md-nav__link">
+    2.6 添加controller方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3swagger2" class="md-nav__link">
+    3、Swagger2介绍与集成
+  </a>
+  
+    <nav class="md-nav" aria-label="3、Swagger2介绍与集成">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-swagger2" class="md-nav__link">
+    3.1 swagger2介绍
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-swagger2" class="md-nav__link">
+    3.2 swagger2集成
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 swagger2集成">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321-swagger2" class="md-nav__link">
+    3.2.1 项目整合swagger2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322-swagger2" class="md-nav__link">
+    3.2.2 添加swagger2配置类
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-swagger2" class="md-nav__link">
+    3.3 使用swagger2测试
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    4、医院锁定与解锁
+  </a>
+  
+    <nav class="md-nav" aria-label="4、医院锁定与解锁">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-controller" class="md-nav__link">
+    4.1 添加controller方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5key" class="md-nav__link">
+    5、发送签名key
+  </a>
+  
+    <nav class="md-nav" aria-label="5、发送签名key">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-controller" class="md-nav__link">
+    5.1 添加controller方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    6、全局异常处理
+  </a>
+  
+    <nav class="md-nav" aria-label="6、全局异常处理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    6.1 自定义异常类
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    6.2 添加全局异常处理类
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63" class="md-nav__link">
+    6.3 集成测试
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    7、日志
+  </a>
+  
+    <nav class="md-nav" aria-label="7、日志">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71" class="md-nav__link">
+    7.1配置日志级别
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-logback" class="md-nav__link">
+    7.2 Logback日志
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73" class="md-nav__link">
+    7.3 配置日志
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+  <h1>搭建环境和医院设置</h1>
+
+<h2 id="_1">一、预约挂号微服务模块搭建<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="sql">sql资源<a class="headerlink" href="#sql" title="Permanent link">&para;</a></h3>
+<p>导入sql：资料/sql/*.sql</p>
+<h3 id="_2">项目模块构建<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>hospital-manage：医院接口模拟端（已开发，直接使用）</p>
+</li>
+<li>
+<p>yygh-parent：根目录，管理子模块：</p>
+</li>
+<li>
+<p>common：公共模块父节点</p>
+</li>
+<li>
+<p>common-util：工具类模块，所有模块都可以依赖于它</p>
+</li>
+<li>
+<p>rabbit-util：rabbitmq业务封装</p>
+</li>
+<li>
+<p>service-util：service服务的工具包，包含service服务的公共配置类，所有               service模块依赖于它</p>
+</li>
+<li>
+<p>server-gateway：服务网关</p>
+</li>
+<li>
+<p>model：实体类模块</p>
+</li>
+<li>
+<p>service：api接口服务父节点</p>
+</li>
+<li>
+<p>service-hosp：医院api接口服务</p>
+</li>
+<li>
+<p>service-cmn：公共api接口服务</p>
+</li>
+<li>
+<p>service-user：用户api接口服务</p>
+</li>
+<li>
+<p>service-order：订单api接口服务</p>
+</li>
+<li>
+<p>service-oss：文件api接口服务</p>
+</li>
+<li>
+<p>service-sms：短信 api接口服务</p>
+</li>
+<li>
+<p>service-task：定时任务服务</p>
+</li>
+<li>
+<p>service-statistics：统计api接口服务</p>
+</li>
+<li>
+<p>service-client：feign服务调用父节点</p>
+</li>
+<li>
+<p>service-cmn-client：公共api接口</p>
+</li>
+<li>
+<p>service-hosp-client：医院api接口</p>
+</li>
+<li>
+<p>service-order-client：订单api接口</p>
+</li>
+<li>
+<p>service-user：用户api接口</p>
+</li>
+</ul>
+<p><img src="day02 搭建环境和医院设置.assets/image-20220321184020130.png" alt="image-20220321184020130" style="zoom:50%;" align="left" /></p>
+<h3 id="1-yygh-parent">1 构建父工程（yygh-parent）<a class="headerlink" href="#1-yygh-parent" title="Permanent link">&para;</a></h3>
+<p>父工程目录我们已经通过git引入</p>
+<p><img src="day02 搭建环境和医院设置.assets/image-20220321184332143.png" alt="image-20220321184332143" style="zoom:50%;" align="left"/></p>
+<h4 id="11-pomxml">1.1 添加配置pom.xml<a class="headerlink" href="#11-pomxml" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+         <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+    <span class="nt">&lt;modules&gt;</span>
+        <span class="nt">&lt;module&gt;</span>common<span class="nt">&lt;/module&gt;</span>
+        <span class="nt">&lt;module&gt;</span>model<span class="nt">&lt;/module&gt;</span>
+        <span class="nt">&lt;module&gt;</span>service<span class="nt">&lt;/module&gt;</span>
+        <span class="nt">&lt;module&gt;</span>server-gateway<span class="nt">&lt;/module&gt;</span>
+        <span class="nt">&lt;module&gt;</span>service-client<span class="nt">&lt;/module&gt;</span>
+        <span class="nt">&lt;module&gt;</span>hospital-manage<span class="nt">&lt;/module&gt;</span>
+    <span class="nt">&lt;/modules&gt;</span>
+
+    <span class="nt">&lt;parent&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-parent<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;version&gt;</span>2.2.1.RELEASE<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/parent&gt;</span>
+
+    <span class="nt">&lt;groupId&gt;</span>com.atguigu.yygh<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>yygh-parent<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>1.0<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;packaging&gt;</span>pom<span class="nt">&lt;/packaging&gt;</span>
+
+    <span class="nt">&lt;properties&gt;</span>
+        <span class="nt">&lt;java.version&gt;</span>1.8<span class="nt">&lt;/java.version&gt;</span>
+        <span class="nt">&lt;cloud.version&gt;</span>Hoxton.RELEASE<span class="nt">&lt;/cloud.version&gt;</span>
+        <span class="nt">&lt;alibaba.version&gt;</span>2.2.0.RELEASE<span class="nt">&lt;/alibaba.version&gt;</span>
+        <span class="nt">&lt;mybatis-plus.version&gt;</span>3.3.1<span class="nt">&lt;/mybatis-plus.version&gt;</span>
+        <span class="nt">&lt;mysql.version&gt;</span>5.1.46<span class="nt">&lt;/mysql.version&gt;</span>
+        <span class="nt">&lt;swagger.version&gt;</span>2.7.0<span class="nt">&lt;/swagger.version&gt;</span>
+        <span class="nt">&lt;jwt.version&gt;</span>0.7.0<span class="nt">&lt;/jwt.version&gt;</span>
+        <span class="nt">&lt;fastjson.version&gt;</span>1.2.29<span class="nt">&lt;/fastjson.version&gt;</span>
+        <span class="nt">&lt;httpclient.version&gt;</span>4.5.1<span class="nt">&lt;/httpclient.version&gt;</span>
+        <span class="nt">&lt;easyexcel.version&gt;</span>2.2.0-beta2<span class="nt">&lt;/easyexcel.version&gt;</span>
+        <span class="nt">&lt;aliyun.version&gt;</span>4.1.1<span class="nt">&lt;/aliyun.version&gt;</span>
+        <span class="nt">&lt;oss.version&gt;</span>3.9.1<span class="nt">&lt;/oss.version&gt;</span>
+        <span class="nt">&lt;jodatime.version&gt;</span>2.10.1<span class="nt">&lt;/jodatime.version&gt;</span>
+    <span class="nt">&lt;/properties&gt;</span>
+
+    <span class="cm">&lt;!--配置dependencyManagement锁定依赖的版本--&gt;</span>
+    <span class="nt">&lt;dependencyManagement&gt;</span>
+        <span class="nt">&lt;dependencies&gt;</span>
+            <span class="nt">&lt;dependency&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>org.springframework.cloud<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>spring-cloud-dependencies<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>${cloud.version}<span class="nt">&lt;/version&gt;</span>
+                <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+                <span class="nt">&lt;scope&gt;</span>import<span class="nt">&lt;/scope&gt;</span>
+            <span class="nt">&lt;/dependency&gt;</span>
+
+            <span class="nt">&lt;dependency&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>com.alibaba.cloud<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>spring-cloud-alibaba-dependencies<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>${alibaba.version}<span class="nt">&lt;/version&gt;</span>
+                <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+                <span class="nt">&lt;scope&gt;</span>import<span class="nt">&lt;/scope&gt;</span>
+            <span class="nt">&lt;/dependency&gt;</span>
+
+            <span class="cm">&lt;!--mybatis-plus 持久层--&gt;</span>
+            <span class="nt">&lt;dependency&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>com.baomidou<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>mybatis-plus-boot-starter<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>${mybatis-plus.version}<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;/dependency&gt;</span>
+
+            <span class="nt">&lt;dependency&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>mysql<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>mysql-connector-java<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>${mysql.version}<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;/dependency&gt;</span>
+
+            <span class="cm">&lt;!--swagger--&gt;</span>
+            <span class="nt">&lt;dependency&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>io.springfox<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>springfox-swagger2<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>${swagger.version}<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;/dependency&gt;</span>
+            <span class="cm">&lt;!--swagger ui--&gt;</span>
+            <span class="nt">&lt;dependency&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>io.springfox<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>springfox-swagger-ui<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>${swagger.version}<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;/dependency&gt;</span>
+
+            <span class="nt">&lt;dependency&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>io.jsonwebtoken<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>jjwt<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>${jwt.version}<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;/dependency&gt;</span>
+
+            <span class="nt">&lt;dependency&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>org.apache.httpcomponents<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>httpclient<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>${httpclient.version}<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;/dependency&gt;</span>
+
+            <span class="nt">&lt;dependency&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>com.alibaba<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>fastjson<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>${fastjson.version}<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;/dependency&gt;</span>
+
+            <span class="nt">&lt;dependency&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>com.alibaba<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>easyexcel<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>${easyexcel.version}<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;/dependency&gt;</span>
+
+            <span class="nt">&lt;dependency&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>com.aliyun<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>aliyun-java-sdk-core<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>${aliyun.version}<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;/dependency&gt;</span>
+
+            <span class="nt">&lt;dependency&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>com.aliyun.oss<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>aliyun-sdk-oss<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>${oss.version}<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;/dependency&gt;</span>
+
+            <span class="cm">&lt;!--日期时间工具--&gt;</span>
+            <span class="nt">&lt;dependency&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>joda-time<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>joda-time<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>${jodatime.version}<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;/dependencies&gt;</span>
+    <span class="nt">&lt;/dependencyManagement&gt;</span>
+<span class="nt">&lt;/project&gt;</span>
+</code></pre></div>
+<h3 id="2-common">2 搭建common父模块<a class="headerlink" href="#2-common" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>common：公共模块父节点</p>
+</li>
+<li>
+<p>common-util：工具类模块，所有模块都可以依赖于它</p>
+</li>
+<li>
+<p>service-util：service服务的工具包，包含service服务的公共配置类，所有service模块依赖于它</p>
+</li>
+</ul>
+<h4 id="21-common">2.1 搭建common<a class="headerlink" href="#21-common" title="Permanent link">&para;</a></h4>
+<p>点击yygh-parent，选择New–&gt;Module,操作如下</p>
+<p><img alt="image-20220321184501029" src="../day02%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E5%92%8C%E5%8C%BB%E9%99%A2%E8%AE%BE%E7%BD%AE.assets/image-20220321184501029.png" /></p>
+<p><strong>选择下一步</strong></p>
+<p><img alt="image-20220321184723172" src="../day02%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E5%92%8C%E5%8C%BB%E9%99%A2%E8%AE%BE%E7%BD%AE.assets/image-20220321184723172.png" /></p>
+<p><strong>选择下一步</strong></p>
+<p><img alt="image-20220321184741823" src="../day02%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E5%92%8C%E5%8C%BB%E9%99%A2%E8%AE%BE%E7%BD%AE.assets/image-20220321184741823.png" /></p>
+<p><strong>完成，删除src目录，结构如下</strong></p>
+<p><img alt="image-20220321184804782" src="../day02%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E5%92%8C%E5%8C%BB%E9%99%A2%E8%AE%BE%E7%BD%AE.assets/image-20220321184804782.png" /></p>
+<h4 id="22-pomxml">2.2 修改配置pom.xml<a class="headerlink" href="#22-pomxml" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+         <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+
+    <span class="nt">&lt;parent&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>com.atguigu.yygh<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>yygh-parent<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;version&gt;</span>1.0<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/parent&gt;</span>
+
+    <span class="nt">&lt;artifactId&gt;</span>common<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;packaging&gt;</span>pom<span class="nt">&lt;/packaging&gt;</span>
+    <span class="nt">&lt;version&gt;</span>1.0<span class="nt">&lt;/version&gt;</span>
+
+    <span class="nt">&lt;dependencies&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-web<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;scope&gt;</span>provided <span class="nt">&lt;/scope&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!--mybatis-plus--&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>com.baomidou<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>mybatis-plus-boot-starter<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;scope&gt;</span>provided <span class="nt">&lt;/scope&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!--lombok用来简化实体类：需要安装lombok插件--&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.projectlombok<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>lombok<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!--swagger--&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>io.springfox<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>springfox-swagger2<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>io.springfox<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>springfox-swagger-ui<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+    <span class="nt">&lt;/dependencies&gt;</span>
+<span class="nt">&lt;/project&gt;</span>
+</code></pre></div>
+<h3 id="3-common-util">3 搭建common-util模块<a class="headerlink" href="#3-common-util" title="Permanent link">&para;</a></h3>
+<h4 id="31-common-util">3.1 搭建common-util<a class="headerlink" href="#31-common-util" title="Permanent link">&para;</a></h4>
+<p><strong>点击common，选择New–&gt;Module,操作如下</strong></p>
+<p><img alt="image-20220321184942768" src="../day02%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E5%92%8C%E5%8C%BB%E9%99%A2%E8%AE%BE%E7%BD%AE.assets/image-20220321184942768.png" /></p>
+<p><strong>选择下一步</strong></p>
+<p><img alt="image-20220321185003076" src="../day02%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E5%92%8C%E5%8C%BB%E9%99%A2%E8%AE%BE%E7%BD%AE.assets/image-20220321185003076.png" /></p>
+<p><strong>选择下一步</strong></p>
+<p><img alt="image-20220321185017257" src="../day02%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E5%92%8C%E5%8C%BB%E9%99%A2%E8%AE%BE%E7%BD%AE.assets/image-20220321185017257.png" /></p>
+<p><strong>完成，结构如下</strong></p>
+<p><img src="day02 搭建环境和医院设置.assets/image-20220321185033582.png" alt="image-20220321185033582" style="zoom:50%;" align="left" /></p>
+<h4 id="32-pomxml">3.2 修改配置pom.xml<a class="headerlink" href="#32-pomxml" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+         <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+    <span class="nt">&lt;parent&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>com.atguigu.yygh<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>common<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;version&gt;</span>1.0<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/parent&gt;</span>
+
+    <span class="nt">&lt;artifactId&gt;</span>common-util<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>1.0<span class="nt">&lt;/version&gt;</span>
+
+    <span class="nt">&lt;packaging&gt;</span>jar<span class="nt">&lt;/packaging&gt;</span>
+    <span class="nt">&lt;name&gt;</span>common-util<span class="nt">&lt;/name&gt;</span>
+    <span class="nt">&lt;description&gt;</span>common-util<span class="nt">&lt;/description&gt;</span>
+
+    <span class="nt">&lt;dependencies&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.apache.httpcomponents<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>httpclient<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>com.alibaba<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>fastjson<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>io.jsonwebtoken<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>jjwt<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>com.alibaba<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>easyexcel<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- 日期工具栏依赖 --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>joda-time<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>joda-time<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+    <span class="nt">&lt;/dependencies&gt;</span>
+
+<span class="nt">&lt;/project&gt;</span>
+</code></pre></div>
+<h4 id="33">3.3 添加公共工具类<a class="headerlink" href="#33" title="Permanent link">&para;</a></h4>
+<p><img src="day02 搭建环境和医院设置.assets/image-20220321185152129.png" alt="image-20220321185152129" style="zoom:50%;" align="left"/></p>
+<table>
+<thead>
+<tr>
+<th>YyghException</th>
+<th>自定义全局异常</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Result</strong></td>
+<td>API统一返回结果封装类</td>
+</tr>
+<tr>
+<td><strong>ResultCodeEnum</strong></td>
+<td>API统一返回结果状态信息</td>
+</tr>
+<tr>
+<td><strong>BeanUtils</strong></td>
+<td>实体bean copy工具类</td>
+</tr>
+<tr>
+<td><strong>MD5</strong></td>
+<td>MD5加密工具类</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4service-util">4搭建service-util模块<a class="headerlink" href="#4service-util" title="Permanent link">&para;</a></h3>
+<h4 id="41-service-util">4.1 搭建service-util<a class="headerlink" href="#41-service-util" title="Permanent link">&para;</a></h4>
+<p>搭建过程同common-util</p>
+<h4 id="42-pomxml">4.2 修改配置pom.xml<a class="headerlink" href="#42-pomxml" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+         <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+    <span class="nt">&lt;parent&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>com.atguigu.yygh<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>common<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;version&gt;</span>1.0<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/parent&gt;</span>
+
+    <span class="nt">&lt;artifactId&gt;</span>service-util<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>1.0<span class="nt">&lt;/version&gt;</span>
+
+    <span class="nt">&lt;packaging&gt;</span>jar<span class="nt">&lt;/packaging&gt;</span>
+    <span class="nt">&lt;name&gt;</span>service-util<span class="nt">&lt;/name&gt;</span>
+    <span class="nt">&lt;description&gt;</span>service-util<span class="nt">&lt;/description&gt;</span>
+    <span class="nt">&lt;dependencies&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>com.atguigu.yygh<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>common-util<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>1.0<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="cm">&lt;!-- redis --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-data-redis<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="cm">&lt;!-- spring2.X集成redis所需common-pool2--&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.apache.commons<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>commons-pool2<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>2.6.0<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+    <span class="nt">&lt;/dependencies&gt;</span>
+<span class="nt">&lt;/project&gt;</span>
+</code></pre></div>
+<h4 id="43-service-util">4.3 添加service-util公共类<a class="headerlink" href="#43-service-util" title="Permanent link">&para;</a></h4>
+<p><img src="day02 搭建环境和医院设置.assets/image-20220321185736664.png" alt="image-20220321185736664" style="zoom:50%;" align="left"/></p>
+<table>
+<thead>
+<tr>
+<th>MybatisPlusConfig</th>
+<th>MybatisPlus配置类</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CommonMetaObjectHandler</strong></td>
+<td><strong>Mybatis  plus Handler配置类</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">com.atguigu.yygh.common.config</span><span class="p">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * MybatisPlus配置类</span>
+<span class="cm"> */</span>
+<span class="nd">@EnableTransactionManagement</span> <span class="c1">//事务处理</span>
+<span class="nd">@Configuration</span>
+<span class="nd">@MapperScan</span><span class="p">(</span><span class="s">&quot;com.atguigu.yygh.*.mapper&quot;</span><span class="p">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MybatisPlusConfig</span> <span class="p">{</span>
+
+    <span class="cm">/**</span>
+<span class="cm">         * 分页插件</span>
+<span class="cm">         */</span>
+    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="n">PaginationInterceptor</span> <span class="nf">paginationInterceptor</span><span class="p">()</span> <span class="p">{</span>
+            <span class="n">PaginationInterceptor</span> <span class="n">paginationInterceptor</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PaginationInterceptor</span><span class="p">();</span>
+            <span class="c1">// paginationInterceptor.setLimit(你的最大单页限制数量，默认 500 条，小于 0 如 -1 不受限制);</span>
+            <span class="k">return</span> <span class="n">paginationInterceptor</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">         * 乐观锁配置</span>
+<span class="cm">    */</span>
+    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="n">OptimisticLockerInterceptor</span> <span class="nf">optimisticLockerInterceptor</span><span class="p">()</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="n">OptimisticLockerInterceptor</span><span class="p">();</span>
+    <span class="p">}</span>
+
+
+<span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">com.atguigu.yygh.common.handler</span><span class="p">;</span>
+    <span class="cm">/**</span>
+<span class="cm">     * Mybatis plus Handler配置类</span>
+<span class="cm">     */</span>
+<span class="nd">@Component</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CommonMetaObjectHandler</span> <span class="kd">implements</span> <span class="n">MetaObjectHandler</span> <span class="p">{</span>
+          <span class="nd">@Override</span>
+          <span class="kd">public</span> <span class="kt">void</span> <span class="nf">insertFill</span><span class="p">(</span><span class="n">MetaObject</span> <span class="n">metaObject</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">this</span><span class="p">.</span><span class="na">setFieldValByName</span><span class="p">(</span><span class="s">&quot;createTime&quot;</span><span class="p">,</span> <span class="k">new</span> <span class="n">Date</span><span class="p">(),</span> <span class="n">metaObject</span><span class="p">);</span>
+          <span class="k">this</span><span class="p">.</span><span class="na">setFieldValByName</span><span class="p">(</span><span class="s">&quot;updateTime&quot;</span><span class="p">,</span> <span class="k">new</span> <span class="n">Date</span><span class="p">(),</span> <span class="n">metaObject</span><span class="p">);</span>
+     <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">updateFill</span><span class="p">(</span><span class="n">MetaObject</span> <span class="n">metaObject</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">setFieldValByName</span><span class="p">(</span><span class="s">&quot;updateTime&quot;</span><span class="p">,</span> <span class="k">new</span> <span class="n">Date</span><span class="p">(),</span> <span class="n">metaObject</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="5model">5搭建model模块<a class="headerlink" href="#5model" title="Permanent link">&para;</a></h3>
+<h4 id="51-model">5.1 搭建model<a class="headerlink" href="#51-model" title="Permanent link">&para;</a></h4>
+<p>搭建过程同common-util父模块</p>
+<h4 id="52-pomxml">5.2 修改配置pom.xml<a class="headerlink" href="#52-pomxml" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span>
+         <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+         <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+
+    <span class="nt">&lt;parent&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>com.atguigu.yygh<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>yygh-parent<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;version&gt;</span>1.0<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/parent&gt;</span>
+
+    <span class="nt">&lt;artifactId&gt;</span>model<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>1.0<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;packaging&gt;</span>jar<span class="nt">&lt;/packaging&gt;</span>
+    <span class="nt">&lt;name&gt;</span>model<span class="nt">&lt;/name&gt;</span>
+    <span class="nt">&lt;description&gt;</span>model<span class="nt">&lt;/description&gt;</span>
+    <span class="nt">&lt;dependencies&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.projectlombok<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>lombok<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="cm">&lt;!--mybatis-plus--&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>com.baomidou<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>mybatis-plus-boot-starter<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;scope&gt;</span>provided <span class="nt">&lt;/scope&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="cm">&lt;!--swagger--&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>io.springfox<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>springfox-swagger2<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;scope&gt;</span>provided <span class="nt">&lt;/scope&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>com.alibaba<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>easyexcel<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;scope&gt;</span>provided <span class="nt">&lt;/scope&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-data-mongodb<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;scope&gt;</span>provided <span class="nt">&lt;/scope&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>com.alibaba<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>fastjson<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;scope&gt;</span>provided <span class="nt">&lt;/scope&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+    <span class="nt">&lt;/dependencies&gt;</span>
+<span class="nt">&lt;/project&gt;</span>
+</code></pre></div>
+<h4 id="53">5.3 引入实体类<a class="headerlink" href="#53" title="Permanent link">&para;</a></h4>
+<p>将实体类都引入进来，后续不再单独引入，实体类没有业务逻辑，提前引入，方便后续开发。</p>
+<h3 id="6service">6搭建service父模块<a class="headerlink" href="#6service" title="Permanent link">&para;</a></h3>
+<p>搭建过程同common父模块</p>
+<h4 id="62-pomxml">6.2 修改配置pom.xml<a class="headerlink" href="#62-pomxml" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span>
+         <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+         <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;parent&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>yygh-parent<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>com.atguigu.yygh<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;version&gt;</span>1.0<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/parent&gt;</span>
+    <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+
+    <span class="nt">&lt;artifactId&gt;</span>service<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;packaging&gt;</span>pom<span class="nt">&lt;/packaging&gt;</span>
+    <span class="nt">&lt;version&gt;</span>1.0<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;dependencies&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>com.atguigu.yygh<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>service-util<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>1.0<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>com.atguigu.yygh<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>model<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>1.0<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="cm">&lt;!--web--&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-web<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="cm">&lt;!--mybatis-plus--&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>com.baomidou<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>mybatis-plus-boot-starter<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="cm">&lt;!--mysql--&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>mysql<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>mysql-connector-java<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="cm">&lt;!--开发者工具--&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-boot-devtools<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;optional&gt;</span>true<span class="nt">&lt;/optional&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="cm">&lt;!-- 服务调用feign --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.cloud<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-cloud-starter-openfeign<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="cm">&lt;!-- 服务注册 --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>com.alibaba.cloud<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-cloud-starter-alibaba-nacos-discovery<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="cm">&lt;!-- 流量控制 --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>com.alibaba.cloud<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-cloud-starter-alibaba-sentinel<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+    <span class="nt">&lt;/dependencies&gt;</span>
+    <span class="nt">&lt;build&gt;</span>
+        <span class="nt">&lt;plugins&gt;</span>
+            <span class="nt">&lt;plugin&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>spring-boot-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;/plugin&gt;</span>
+        <span class="nt">&lt;/plugins&gt;</span>
+        <span class="nt">&lt;resources&gt;</span>
+            <span class="nt">&lt;resource&gt;</span>
+                <span class="nt">&lt;directory&gt;</span>src/main/java<span class="nt">&lt;/directory&gt;</span>
+                <span class="nt">&lt;includes&gt;</span>
+                    <span class="nt">&lt;include&gt;</span>**/*.yml<span class="nt">&lt;/include&gt;</span>
+                    <span class="nt">&lt;include&gt;</span>**/*.properties<span class="nt">&lt;/include&gt;</span>
+                    <span class="nt">&lt;include&gt;</span>**/*.xml<span class="nt">&lt;/include&gt;</span>
+                <span class="nt">&lt;/includes&gt;</span>
+                <span class="nt">&lt;filtering&gt;</span>false<span class="nt">&lt;/filtering&gt;</span>
+            <span class="nt">&lt;/resource&gt;</span>
+            <span class="nt">&lt;resource&gt;</span>
+                <span class="nt">&lt;directory&gt;</span>src/main/resources<span class="nt">&lt;/directory&gt;</span>
+                <span class="nt">&lt;includes&gt;</span> <span class="nt">&lt;include&gt;</span>**/*.yml<span class="nt">&lt;/include&gt;</span>
+                    <span class="nt">&lt;include&gt;</span>**/*.properties<span class="nt">&lt;/include&gt;</span>
+                    <span class="nt">&lt;include&gt;</span>**/*.xml<span class="nt">&lt;/include&gt;</span>
+                <span class="nt">&lt;/includes&gt;</span>
+                <span class="nt">&lt;filtering&gt;</span>false<span class="nt">&lt;/filtering&gt;</span>
+            <span class="nt">&lt;/resource&gt;</span>
+        <span class="nt">&lt;/resources&gt;</span>
+    <span class="nt">&lt;/build&gt;</span>
+<span class="nt">&lt;/project&gt;</span>
+</code></pre></div>
+<h2 id="gitee">二、gitee使用<a class="headerlink" href="#gitee" title="Permanent link">&para;</a></h2>
+<h3 id="1">1. 创建仓库<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20220321190528050" src="../day02%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E5%92%8C%E5%8C%BB%E9%99%A2%E8%AE%BE%E7%BD%AE.assets/image-20220321190528050.png" /></p>
+<h3 id="2">2. 点击创建<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20220321190552382" src="../day02%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E5%92%8C%E5%8C%BB%E9%99%A2%E8%AE%BE%E7%BD%AE.assets/image-20220321190552382.png" /></p>
+<h3 id="3giteehttps">3.复制gitee码云的HttpS连接<a class="headerlink" href="#3giteehttps" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20220321190903250" src="../day02%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E5%92%8C%E5%8C%BB%E9%99%A2%E8%AE%BE%E7%BD%AE.assets/image-20220321190903250.png" /></p>
+<h3 id="4">4.提交上传<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<p>打开项目并点击菜单栏上的【CVS】--》【Import into version control】--》【Create Git Repository】创建本地仓库</p>
+<p><img alt="image-20220321190932264" src="../day02%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E5%92%8C%E5%8C%BB%E9%99%A2%E8%AE%BE%E7%BD%AE.assets/image-20220321190932264.png" /></p>
+<p>在打开的【Create Git Repository】对话框内选择本地仓库的位置，这里我选择项目的根目录。</p>
+<p><img alt="image-20220321191037929" src="../day02%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E5%92%8C%E5%8C%BB%E9%99%A2%E8%AE%BE%E7%BD%AE.assets/image-20220321191037929.png" /></p>
+<p>右击项目点击【Git】--》【Add】，接着点击【Git】--》【Commit Directory】在打开的窗口中选择要上传到本地仓库的代码并添加注释后提交到本地仓库内。</p>
+<p><img alt="image-20220321191054810" src="../day02%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E5%92%8C%E5%8C%BB%E9%99%A2%E8%AE%BE%E7%BD%AE.assets/image-20220321191054810.png" /></p>
+<p>右击项目点击【Git】--》【Repository】--》【Remotes...】。在打开的【Git Remotes】窗口中添加码云的远程仓库。</p>
+<p><img alt="image-20220321191114214" src="../day02%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E5%92%8C%E5%8C%BB%E9%99%A2%E8%AE%BE%E7%BD%AE.assets/image-20220321191114214.png" /></p>
+<p><img alt="image-20220321191125181" src="../day02%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E5%92%8C%E5%8C%BB%E9%99%A2%E8%AE%BE%E7%BD%AE.assets/image-20220321191125181.png" /></p>
+<p>点击【OK】后接着输入码云的账号密码。</p>
+<p><img alt="image-20220321191139479" src="../day02%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E5%92%8C%E5%8C%BB%E9%99%A2%E8%AE%BE%E7%BD%AE.assets/image-20220321191139479.png" /></p>
+<p>上传代码到码云，右击项目点击【Git】--》【Repository】--》【Push...】在打开的【Push commits】内可以看到已提交到本地仓库的提交信息。点击【Push】按钮将本地仓库的代码上传到码云上，上传成功后就可以在码云上看到。</p>
+<p><img alt="image-20220321191158037" src="../day02%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E5%92%8C%E5%8C%BB%E9%99%A2%E8%AE%BE%E7%BD%AE.assets/image-20220321191158037.png" /></p>
+<h2 id="_3">三、医院设置需求<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="1_1">1、需求<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
+<p>医院设置主要是用来保存开通医院的一些基本信息，每个医院一条信息，保存了医院编号（平台分配，全局唯一）和接口调用相关的签名key等信息，是整个流程的第一步，只有开通了医院设置信息，才可以上传医院相关信息。</p>
+<p>我们所开发的功能就是基于单表的一个CRUD、锁定/解锁和发送签名信息这些基本功能。</p>
+<h3 id="2_1">2、表结构<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20220321191534966" src="../day02%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E5%92%8C%E5%8C%BB%E9%99%A2%E8%AE%BE%E7%BD%AE.assets/image-20220321191534966.png" /></p>
+<p>hosname：医院名称</p>
+<p>hoscode：医院编号（平台分配，全局唯一，api接口必填信息）</p>
+<p>api_url：医院回调的基础url（如：预约下单，我们要调用该地址去医院下单）</p>
+<p>sign_key：双方api接口调用的签名key，有平台生成</p>
+<p>contacts_name：医院联系人姓名</p>
+<p>contacts_phone：医院联系人手机</p>
+<p>status：状态（锁定/解锁）</p>
+<h2 id="_4">四、医院模块开发<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="1-service-hosp">1、 搭建医院模块service-hosp<a class="headerlink" href="#1-service-hosp" title="Permanent link">&para;</a></h3>
+<h4 id="11-service-hosp">1.1 搭建service-hosp<a class="headerlink" href="#11-service-hosp" title="Permanent link">&para;</a></h4>
+<p>点击service，选择New–&gt;Module,操作如下</p>
+<p><img alt="image-20220321191828231" src="../day02%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E5%92%8C%E5%8C%BB%E9%99%A2%E8%AE%BE%E7%BD%AE.assets/image-20220321191828231.png" /></p>
+<p><strong>选择下一步</strong></p>
+<p><img alt="image-20220321191852382" src="../day02%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E5%92%8C%E5%8C%BB%E9%99%A2%E8%AE%BE%E7%BD%AE.assets/image-20220321191852382.png" /></p>
+<p><strong>选择下一步</strong></p>
+<p><img alt="image-20220321191908981" src="../day02%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E5%92%8C%E5%8C%BB%E9%99%A2%E8%AE%BE%E7%BD%AE.assets/image-20220321191908981.png" /></p>
+<p><strong>完成，结构如下：</strong></p>
+<p><img src="day02 搭建环境和医院设置.assets/image-20220321192056768.png" alt="image-20220321192056768" style="zoom:50%;" align="left"/></p>
+<h4 id="12">1.2 修改配置<a class="headerlink" href="#12" title="Permanent link">&para;</a></h4>
+<p>1、修改pom.xml</p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot;encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span>
+<span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+<span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;parent&gt;</span>
+<span class="nt">&lt;artifactId&gt;</span>service<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;groupId&gt;</span>com.atguigu.yygh<span class="nt">&lt;/groupId&gt;</span>
+<span class="nt">&lt;version&gt;</span>1.0<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/parent&gt;</span>
+<span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+
+<span class="nt">&lt;version&gt;</span>1.0<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;artifactId&gt;</span>service-hosp<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;packaging&gt;</span>jar<span class="nt">&lt;/packaging&gt;</span>
+<span class="nt">&lt;name&gt;</span>service-hosp<span class="nt">&lt;/name&gt;</span>
+<span class="nt">&lt;description&gt;</span>service-hosp<span class="nt">&lt;/description&gt;</span>
+
+<span class="nt">&lt;dependencies&gt;</span>
+<span class="nt">&lt;/dependencies&gt;</span>
+
+<span class="nt">&lt;build&gt;</span>
+<span class="nt">&lt;finalName&gt;</span>service-hosp<span class="nt">&lt;/finalName&gt;</span>
+<span class="nt">&lt;plugins&gt;</span>
+<span class="nt">&lt;plugin&gt;</span>
+<span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+<span class="nt">&lt;artifactId&gt;</span>spring-boot-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+<span class="nt">&lt;/plugins&gt;</span>
+<span class="nt">&lt;/build&gt;</span>
+
+<span class="nt">&lt;/project&gt;</span>
+</code></pre></div>
+<p>2、添加配置文件application.properties</p>
+<div class="highlight"><pre><span></span><code><span class="c"># 服务端口</span><span class="w"></span>
+<span class="na">server.port</span><span class="o">=</span><span class="s">8201</span><span class="w"></span>
+<span class="c"># 服务名</span><span class="w"></span>
+<span class="na">spring.application.name</span><span class="o">=</span><span class="s">service-hosp</span><span class="w"></span>
+
+<span class="c"># 环境设置：dev、test、prod</span><span class="w"></span>
+<span class="na">spring.profiles.active</span><span class="o">=</span><span class="s">dev</span><span class="w"></span>
+
+<span class="c"># mysql数据库连接</span><span class="w"></span>
+<span class="na">spring.datasource.driver-class-name</span><span class="o">=</span><span class="s">com.mysql.jdbc.Driver</span><span class="w"></span>
+<span class="na">spring.datasource.url</span><span class="o">=</span><span class="s">jdbc:mysql://192.168.44.163:3306/yygh_hosp?characterEncoding=utf-8&amp;useSSL=false</span><span class="w"></span>
+<span class="na">spring.datasource.username</span><span class="o">=</span><span class="s">root</span><span class="w"></span>
+<span class="na">spring.datasource.password</span><span class="o">=</span><span class="s">root123</span><span class="w"></span>
+
+<span class="c">#返回json的全局时间格式</span><span class="w"></span>
+<span class="na">spring.jackson.date-format</span><span class="o">=</span><span class="s">yyyy-MM-dd HH:mm:ss</span><span class="w"></span>
+<span class="na">spring.jackson.time-zone</span><span class="o">=</span><span class="s">GMT+8</span><span class="w"></span>
+
+<span class="c">#配置mapper xml文件的路径</span><span class="w"></span>
+<span class="c">#mybatis-plus.mapper-locations=classpath:com/atguigu/yygh/mapper/xml/*.xml</span><span class="w"></span>
+<span class="na">mybatis-plus.mapper-locations</span><span class="o">=</span><span class="s">classpath:com/atguigu/yygh/mapper/xml/*.xml</span><span class="w"></span>
+<span class="c"># nacos服务地址</span><span class="w"></span>
+<span class="na">spring.cloud.nacos.discovery.server-addr</span><span class="o">=</span><span class="s">127.0.0.1:8848</span><span class="w"></span>
+
+<span class="c">#开启sentinel</span><span class="w"></span>
+<span class="na">feign.sentinel.enabled</span><span class="o">=</span><span class="s">true</span><span class="w"></span>
+<span class="c">#设置sentinel地址</span><span class="w"></span>
+<span class="na">spring.cloud.sentinel.transport.dashboard</span><span class="o">=</span><span class="s">http://127.0.0.1:8858</span><span class="w"></span>
+
+<span class="c">#mongodb地址</span><span class="w"></span>
+<span class="na">spring.data.mongodb.host</span><span class="o">=</span><span class="s">192.168.44.163</span><span class="w"></span>
+<span class="na">spring.data.mongodb.port</span><span class="o">=</span><span class="s">27017</span><span class="w"></span>
+<span class="na">spring.data.mongodb.database</span><span class="o">=</span><span class="s">yygh_hosp</span><span class="w"></span>
+
+<span class="c">#rabbitmq地址</span><span class="w"></span>
+<span class="na">spring.rabbitmq.host</span><span class="o">=</span><span class="s">127.0.0.1</span><span class="w"></span>
+<span class="na">spring.rabbitmq.port</span><span class="o">=</span><span class="s">5672</span><span class="w"></span>
+<span class="na">spring.rabbitmq.username</span><span class="o">=</span><span class="s">guest</span><span class="w"></span>
+<span class="na">spring.rabbitmq.password</span><span class="o">=</span><span class="s">guest</span><span class="w"></span>
+</code></pre></div>
+<h4 id="13">1.3 添加启动类<a class="headerlink" href="#13" title="Permanent link">&para;</a></h4>
+<p>添加com.atguigu.yygh.ServiceHospApplication类</p>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">com.atguigu.yygh</span><span class="p">;</span>
+<span class="nd">@SpringBootApplication</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ServiceHospApplication</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">SpringApplication</span><span class="p">.</span><span class="na">run</span><span class="p">(</span><span class="n">ServiceHospApplication</span><span class="p">.</span><span class="na">class</span><span class="p">,</span> <span class="n">args</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="2curd">2添加医院设置CURD<a class="headerlink" href="#2curd" title="Permanent link">&para;</a></h3>
+<h4 id="21-model">2.1 添加model<a class="headerlink" href="#21-model" title="Permanent link">&para;</a></h4>
+<p>说明：由于实体对象没有逻辑，我们已经统一导入</p>
+<p>com.atguigu.yygh.model.hosp.HospitalSet</p>
+<h4 id="22-mapper">2.2 添加Mapper<a class="headerlink" href="#22-mapper" title="Permanent link">&para;</a></h4>
+<p>添加com.atguigu.yygh.hosp.mapper.HospitalSetMapper</p>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">com.atguigu.yygh.hosp.mapper</span><span class="p">;</span>
+
+<span class="nd">@Mapper</span>
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">HospitalSetMapper</span> <span class="kd">extends</span> <span class="n">BaseMapper</span><span class="o">&lt;</span><span class="n">HospitalSet</span><span class="o">&gt;</span> <span class="p">{</span>
+
+<span class="p">}</span>
+</code></pre></div>
+<p>在mapper/xml下添加HospitalSetMapper.xml</p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="cp">&lt;!DOCTYPE mapper PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;</span>
+<span class="cp">      &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;</span>
+<span class="nt">&lt;mapper</span> <span class="na">namespace=</span><span class="s">&quot;com.atguigu.yygh.hosp.mapper.HospitalSetMapper&quot;</span><span class="nt">&gt;</span>
+
+<span class="nt">&lt;/mapper&gt;</span>
+</code></pre></div>
+<h4 id="23-service">2.3 添加service接口及实现类<a class="headerlink" href="#23-service" title="Permanent link">&para;</a></h4>
+<p>1、添加com.atguigu.yygh.hosp.service.HospitalSetService接口</p>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">com.atguigu.yygh.hosp.service</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">HospitalSetService</span> <span class="kd">extends</span> <span class="n">IService</span><span class="o">&lt;</span><span class="n">HospitalSetService</span><span class="o">&gt;</span> <span class="p">{</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>2、添加com.atguigu.yygh.hosp.service.impl.HospitalSetServiceImpl接口实现</p>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">com.atguigu.yygh.hosp.service.impl</span><span class="p">;</span>
+
+<span class="nd">@Service</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HospitalSetServiceImpl</span> <span class="kd">extends</span> <span class="n">ServiceImpl</span><span class="o">&lt;</span><span class="n">HospitalSetMapper</span><span class="p">,</span> <span class="n">HospitalSet</span><span class="o">&gt;</span><span class="kd">implements</span> <span class="n">HospitalSetService</span> <span class="p">{</span>
+
+<span class="nd">@Autowired</span>
+<span class="kd">private</span> <span class="n">HospitalSetMapper</span> <span class="n">hospitalSetMapper</span><span class="p">;</span>
+
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="24-controller">2.4 添加controller<a class="headerlink" href="#24-controller" title="Permanent link">&para;</a></h4>
+<p>添加com.atguigu.yygh.hosp.controller.HospitalSetController类</p>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">com.atguigu.yygh.hosp.controller</span><span class="p">;</span>
+
+
+<span class="nd">@RestController</span>
+<span class="nd">@RequestMapping</span><span class="p">(</span><span class="s">&quot;/admin/hosp/hospitalSet&quot;</span><span class="p">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HospitalSetController</span> <span class="p">{</span>
+
+<span class="nd">@Autowired</span>
+<span class="kd">private</span> <span class="n">HospitalSetService</span> <span class="n">hospitalSetService</span><span class="p">;</span>
+
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="25-crud">2.5 医院设置CRUD<a class="headerlink" href="#25-crud" title="Permanent link">&para;</a></h4>
+<p>由于com.baomidou.mybatisplus.extension.service.impl.ServiceImpl类已经默认实现 了单表的CRUD，分页查询也有默认实现，能够更加灵活和代码简洁把分页查询功能实现。</p>
+<h4 id="26-controller">2.6 添加controller方法<a class="headerlink" href="#26-controller" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nd">@Api</span><span class="p">(</span><span class="n">tags</span> <span class="o">=</span> <span class="s">&quot;医院设置管理&quot;</span><span class="p">)</span>
+<span class="nd">@RestController</span>
+<span class="nd">@RequestMapping</span><span class="p">(</span><span class="s">&quot;/admin/hosp/hospitalSet&quot;</span><span class="p">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HospitalSetController</span> <span class="p">{</span>
+
+    <span class="c1">//注入service</span>
+    <span class="nd">@Autowired</span>
+    <span class="kd">private</span> <span class="n">HospitalSetService</span> <span class="n">hospitalSetService</span><span class="p">;</span>
+
+    <span class="c1">//1 查询医院设置表所有信息</span>
+    <span class="nd">@ApiOperation</span><span class="p">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&quot;获取所有医院设置&quot;</span><span class="p">)</span>
+    <span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;findAll&quot;</span><span class="p">)</span>
+    <span class="kd">public</span> <span class="n">Result</span> <span class="nf">findAllHospitalSet</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">//调用service的方法</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">HospitalSet</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="n">hospitalSetService</span><span class="p">.</span><span class="na">list</span><span class="p">();</span>
+        <span class="k">return</span> <span class="n">Result</span><span class="p">.</span><span class="na">ok</span><span class="p">(</span><span class="n">list</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">//2 逻辑删除医院设置</span>
+    <span class="nd">@ApiOperation</span><span class="p">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&quot;逻辑删除医院设置&quot;</span><span class="p">)</span>
+    <span class="nd">@DeleteMapping</span><span class="p">(</span><span class="s">&quot;{id}&quot;</span><span class="p">)</span>
+    <span class="kd">public</span> <span class="n">Result</span> <span class="nf">removeHospSet</span><span class="p">(</span><span class="nd">@PathVariable</span> <span class="n">Long</span> <span class="n">id</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">boolean</span> <span class="n">flag</span> <span class="o">=</span> <span class="n">hospitalSetService</span><span class="p">.</span><span class="na">removeById</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">flag</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">Result</span><span class="p">.</span><span class="na">ok</span><span class="p">();</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">Result</span><span class="p">.</span><span class="na">fail</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">//3 条件查询带分页</span>
+    <span class="nd">@PostMapping</span><span class="p">(</span><span class="s">&quot;findPageHospSet/{current}/{limit}&quot;</span><span class="p">)</span>
+    <span class="kd">public</span> <span class="n">Result</span> <span class="nf">findPageHospSet</span><span class="p">(</span><span class="nd">@PathVariable</span> <span class="kt">long</span> <span class="n">current</span><span class="p">,</span>
+                                  <span class="nd">@PathVariable</span> <span class="kt">long</span> <span class="n">limit</span><span class="p">,</span>
+                                  <span class="nd">@RequestBody</span>
+<span class="p">(</span><span class="n">required</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="n">HospitalSetQueryVo</span> <span class="n">hospitalSetQueryVo</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">//创建page对象，传递当前页，每页记录数</span>
+        <span class="n">Page</span><span class="o">&lt;</span><span class="n">HospitalSet</span><span class="o">&gt;</span> <span class="n">page</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Page</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">current</span><span class="p">,</span><span class="n">limit</span><span class="p">);</span>
+        <span class="c1">//构建条件</span>
+        <span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">HospitalSet</span><span class="o">&gt;</span> <span class="n">wrapper</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueryWrapper</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="n">String</span> <span class="n">hosname</span> <span class="o">=</span> <span class="n">hospitalSetQueryVo</span><span class="p">.</span><span class="na">getHosname</span><span class="p">();</span><span class="c1">//医院名称</span>
+        <span class="n">String</span> <span class="n">hoscode</span> <span class="o">=</span> <span class="n">hospitalSetQueryVo</span><span class="p">.</span><span class="na">getHoscode</span><span class="p">();</span><span class="c1">//医院编号</span>
+        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">StringUtils</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">(</span><span class="n">hosname</span><span class="p">))</span> <span class="p">{</span>
+            <span class="n">wrapper</span><span class="p">.</span><span class="na">like</span><span class="p">(</span><span class="s">&quot;hosname&quot;</span><span class="p">,</span><span class="n">hospitalSetQueryVo</span><span class="p">.</span><span class="na">getHosname</span><span class="p">());</span>
+        <span class="p">}</span>
+        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">StringUtils</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">(</span><span class="n">hoscode</span><span class="p">))</span> <span class="p">{</span>
+            <span class="n">wrapper</span><span class="p">.</span><span class="na">eq</span><span class="p">(</span><span class="s">&quot;hoscode&quot;</span><span class="p">,</span><span class="n">hospitalSetQueryVo</span><span class="p">.</span><span class="na">getHoscode</span><span class="p">());</span>
+        <span class="p">}</span>
+        <span class="c1">//调用方法实现分页查询</span>
+        <span class="n">Page</span><span class="o">&lt;</span><span class="n">HospitalSet</span><span class="o">&gt;</span> <span class="n">pageHospitalSet</span> <span class="o">=</span> <span class="n">hospitalSetService</span><span class="p">.</span><span class="na">page</span><span class="p">(</span><span class="n">page</span><span class="p">,</span> <span class="n">wrapper</span><span class="p">);</span>
+        <span class="c1">//返回结果</span>
+        <span class="k">return</span> <span class="n">Result</span><span class="p">.</span><span class="na">ok</span><span class="p">(</span><span class="n">pageHospitalSet</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">//4 添加医院设置</span>
+    <span class="nd">@PostMapping</span><span class="p">(</span><span class="s">&quot;saveHospitalSet&quot;</span><span class="p">)</span>
+    <span class="kd">public</span> <span class="n">Result</span> <span class="nf">saveHospitalSet</span><span class="p">(</span><span class="nd">@RequestBody</span> <span class="n">HospitalSet</span> <span class="n">hospitalSet</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">//设置状态 1 使用 0 不能使用</span>
+        <span class="n">hospitalSet</span><span class="p">.</span><span class="na">setStatus</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="c1">//签名秘钥</span>
+        <span class="n">Random</span> <span class="n">random</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Random</span><span class="p">();</span>
+        <span class="n">hospitalSet</span><span class="p">.</span><span class="na">setSignKey</span><span class="p">(</span><span class="n">MD5</span><span class="p">.</span><span class="na">encrypt</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">currentTimeMillis</span><span class="p">()</span><span class="o">+</span><span class="s">&quot;&quot;</span><span class="o">+</span><span class="n">random</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="mi">1000</span><span class="p">)));</span>
+        <span class="c1">//调用service</span>
+        <span class="kt">boolean</span> <span class="n">save</span> <span class="o">=</span> <span class="n">hospitalSetService</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">hospitalSet</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">save</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">Result</span><span class="p">.</span><span class="na">ok</span><span class="p">();</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">Result</span><span class="p">.</span><span class="na">fail</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">//5 根据id获取医院设置</span>
+    <span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;getHospSet/{id}&quot;</span><span class="p">)</span>
+    <span class="kd">public</span> <span class="n">Result</span> <span class="nf">getHospSet</span><span class="p">(</span><span class="nd">@PathVariable</span> <span class="n">Long</span> <span class="n">id</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">HospitalSet</span> <span class="n">hospitalSet</span> <span class="o">=</span> <span class="n">hospitalSetService</span><span class="p">.</span><span class="na">getById</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">Result</span><span class="p">.</span><span class="na">ok</span><span class="p">(</span><span class="n">hospitalSet</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">//6 修改医院设置</span>
+    <span class="nd">@PostMapping</span><span class="p">(</span><span class="s">&quot;updateHospitalSet&quot;</span><span class="p">)</span>
+    <span class="kd">public</span> <span class="n">Result</span> <span class="nf">updateHospitalSet</span><span class="p">(</span><span class="nd">@RequestBody</span> <span class="n">HospitalSet</span> <span class="n">hospitalSet</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">boolean</span> <span class="n">flag</span> <span class="o">=</span> <span class="n">hospitalSetService</span><span class="p">.</span><span class="na">updateById</span><span class="p">(</span><span class="n">hospitalSet</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">flag</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">Result</span><span class="p">.</span><span class="na">ok</span><span class="p">();</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">Result</span><span class="p">.</span><span class="na">fail</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">//7 批量删除医院设置</span>
+    <span class="nd">@DeleteMapping</span><span class="p">(</span><span class="s">&quot;batchRemove&quot;</span><span class="p">)</span>
+    <span class="kd">public</span> <span class="n">Result</span> <span class="nf">batchRemoveHospitalSet</span><span class="p">(</span><span class="nd">@RequestBody</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Long</span><span class="o">&gt;</span> <span class="n">idList</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">hospitalSetService</span><span class="p">.</span><span class="na">removeByIds</span><span class="p">(</span><span class="n">idList</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">Result</span><span class="p">.</span><span class="na">ok</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>说明：一个完整的CRUD就实现了</p>
+<h3 id="3swagger2">3、Swagger2介绍与集成<a class="headerlink" href="#3swagger2" title="Permanent link">&para;</a></h3>
+<h4 id="31-swagger2">3.1 swagger2介绍<a class="headerlink" href="#31-swagger2" title="Permanent link">&para;</a></h4>
+<p>什么是swagger2</p>
+<p>编写和维护接口文档是每个程序员的职责，根据Swagger2可以快速帮助我们编写最新的API接口文档，再也不用担心开会前仍忙于整理各种资料了，间接提升了团队开发的沟通效率。</p>
+<p>常用注解</p>
+<p>swagger通过注解表明该接口会生成文档，包括接口名、请求方法、参数、返回信息的等等。</p>
+<ul>
+<li>
+<p>@Api：修饰整个类，描述Controller的作用</p>
+</li>
+<li>
+<p>@ApiOperation：描述一个类的一个方法，或者说一个接口</p>
+</li>
+<li>
+<p>@ApiParam：单个参数描述</p>
+</li>
+<li>
+<p>@ApiModel：用对象来接收参数</p>
+</li>
+<li>
+<p>@ ApiModelProperty：用对象接收参数时，描述对象的一个字段</p>
+</li>
+<li>
+<p>@ApiImplicitParam：一个请求参数</p>
+</li>
+<li>
+<p>@ApiImplicitParams：多个请求参数</p>
+</li>
+</ul>
+<h4 id="32-swagger2">3.2 swagger2集成<a class="headerlink" href="#32-swagger2" title="Permanent link">&para;</a></h4>
+<h5 id="321-swagger2">3.2.1 项目整合swagger2<a class="headerlink" href="#321-swagger2" title="Permanent link">&para;</a></h5>
+<p>在common模块pom.xml引入依赖</p>
+<div class="highlight"><pre><span></span><code><span class="cm">&lt;!--swagger--&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>io.springfox<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>springfox-swagger2<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>io.springfox<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>springfox-swagger-ui<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div>
+<p>说明：我们在yygh-parent中的pom.xml中添加了版本控制，这里不需要添加版本，已引入就忽略</p>
+<h5 id="322-swagger2">3.2.2 添加swagger2配置类<a class="headerlink" href="#322-swagger2" title="Permanent link">&para;</a></h5>
+<p>在service-util模块添加配置类：</p>
+<p>com.atguigu.yygh.common.config.Swagger2Config类</p>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * Swagger2配置信息</span>
+<span class="cm"> */</span>
+<span class="nd">@Configuration</span>
+<span class="nd">@EnableSwagger2</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Swagger2Config</span> <span class="p">{</span>
+    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="n">Docket</span> <span class="nf">webApiConfig</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">Docket</span><span class="p">(</span><span class="n">DocumentationType</span><span class="p">.</span><span class="na">SWAGGER_2</span><span class="p">)</span>
+                <span class="p">.</span><span class="na">groupName</span><span class="p">(</span><span class="s">&quot;webApi&quot;</span><span class="p">)</span>
+                <span class="p">.</span><span class="na">apiInfo</span><span class="p">(</span><span class="n">webApiInfo</span><span class="p">())</span>
+                <span class="p">.</span><span class="na">select</span><span class="p">()</span>
+                <span class="c1">//只显示api路径下的页面</span>
+                <span class="p">.</span><span class="na">paths</span><span class="p">(</span><span class="n">Predicates</span><span class="p">.</span><span class="na">and</span><span class="p">(</span><span class="n">PathSelectors</span><span class="p">.</span><span class="na">regex</span><span class="p">(</span><span class="s">&quot;/api/.*&quot;</span><span class="p">)))</span>
+                <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="n">Docket</span> <span class="nf">adminApiConfig</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">Docket</span><span class="p">(</span><span class="n">DocumentationType</span><span class="p">.</span><span class="na">SWAGGER_2</span><span class="p">)</span>
+                <span class="p">.</span><span class="na">groupName</span><span class="p">(</span><span class="s">&quot;adminApi&quot;</span><span class="p">)</span>
+                <span class="p">.</span><span class="na">apiInfo</span><span class="p">(</span><span class="n">adminApiInfo</span><span class="p">())</span>
+                <span class="p">.</span><span class="na">select</span><span class="p">()</span>
+                <span class="c1">//只显示admin路径下的页面</span>
+                <span class="p">.</span><span class="na">paths</span><span class="p">(</span><span class="n">Predicates</span><span class="p">.</span><span class="na">and</span><span class="p">(</span><span class="n">PathSelectors</span><span class="p">.</span><span class="na">regex</span><span class="p">(</span><span class="s">&quot;/admin/.*&quot;</span><span class="p">)))</span>
+                <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="n">ApiInfo</span> <span class="nf">webApiInfo</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">ApiInfoBuilder</span><span class="p">()</span>
+                <span class="p">.</span><span class="na">title</span><span class="p">(</span><span class="s">&quot;网站-API文档&quot;</span><span class="p">)</span>
+                <span class="p">.</span><span class="na">description</span><span class="p">(</span><span class="s">&quot;本文档描述了网站微服务接口定义&quot;</span><span class="p">)</span>
+                <span class="p">.</span><span class="na">version</span><span class="p">(</span><span class="s">&quot;1.0&quot;</span><span class="p">)</span>
+                <span class="p">.</span><span class="na">contact</span><span class="p">(</span><span class="k">new</span> <span class="n">Contact</span><span class="p">(</span><span class="s">&quot;atguigu&quot;</span><span class="p">,</span> <span class="s">&quot;http://atguigu.com&quot;</span><span class="p">,</span> <span class="s">&quot;493211102@qq.com&quot;</span><span class="p">))</span>
+                <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="n">ApiInfo</span> <span class="nf">adminApiInfo</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">ApiInfoBuilder</span><span class="p">()</span>
+                <span class="p">.</span><span class="na">title</span><span class="p">(</span><span class="s">&quot;后台管理系统-API文档&quot;</span><span class="p">)</span>
+                <span class="p">.</span><span class="na">description</span><span class="p">(</span><span class="s">&quot;本文档描述了后台管理系统微服务接口定义&quot;</span><span class="p">)</span>
+                <span class="p">.</span><span class="na">version</span><span class="p">(</span><span class="s">&quot;1.0&quot;</span><span class="p">)</span>
+                <span class="p">.</span><span class="na">contact</span><span class="p">(</span><span class="k">new</span> <span class="n">Contact</span><span class="p">(</span><span class="s">&quot;atguigu&quot;</span><span class="p">,</span> <span class="s">&quot;http://atguigu.com&quot;</span><span class="p">,</span> <span class="s">&quot;49321112@qq.com&quot;</span><span class="p">))</span>
+                <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="33-swagger2">3.3 使用swagger2测试<a class="headerlink" href="#33-swagger2" title="Permanent link">&para;</a></h4>
+<p><img alt="image-20220321193416250" src="../day02%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E5%92%8C%E5%8C%BB%E9%99%A2%E8%AE%BE%E7%BD%AE.assets/image-20220321193416250.png" /></p>
+<h3 id="4_1">4、医院锁定与解锁<a class="headerlink" href="#4_1" title="Permanent link">&para;</a></h3>
+<p>医院锁定后不能再上传数据</p>
+<h4 id="41-controller">4.1 添加controller方法<a class="headerlink" href="#41-controller" title="Permanent link">&para;</a></h4>
+<p>在HospitalSetController类添加方法</p>
+<div class="highlight"><pre><span></span><code><span class="c1">//8 医院设置锁定和解锁ho</span>
+<span class="nd">@PutMapping</span><span class="p">(</span><span class="s">&quot;lockHospitalSet/{id}/{status}&quot;</span><span class="p">)</span>
+<span class="kd">public</span> <span class="n">Result</span> <span class="nf">lockHospitalSet</span><span class="p">(</span><span class="nd">@PathVariable</span> <span class="n">Long</span> <span class="n">id</span><span class="p">,</span>
+                              <span class="nd">@PathVariable</span> <span class="n">Integer</span> <span class="n">status</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">//根据id查询医院设置信息</span>
+    <span class="n">HospitalSet</span> <span class="n">hospitalSet</span> <span class="o">=</span> <span class="n">hospitalSetService</span><span class="p">.</span><span class="na">getById</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+    <span class="c1">//设置状态</span>
+    <span class="n">hospitalSet</span><span class="p">.</span><span class="na">setStatus</span><span class="p">(</span><span class="n">status</span><span class="p">);</span>
+    <span class="c1">//调用方法</span>
+    <span class="n">hospitalSetService</span><span class="p">.</span><span class="na">updateById</span><span class="p">(</span><span class="n">hospitalSet</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">Result</span><span class="p">.</span><span class="na">ok</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="5key">5、发送签名key<a class="headerlink" href="#5key" title="Permanent link">&para;</a></h3>
+<p>医院信息配置后，可以通过短信的形式发送医院编号与签名key给联系人，联系人拿到该信息就可以参考《尚医通API接口文档.docx》对接接口了。</p>
+<h4 id="51-controller">5.1 添加controller方法<a class="headerlink" href="#51-controller" title="Permanent link">&para;</a></h4>
+<p>在HospitalSetController类添加方法</p>
+<div class="highlight"><pre><span></span><code><span class="c1">//9 发送签名秘钥</span>
+<span class="nd">@PutMapping</span><span class="p">(</span><span class="s">&quot;sendKey/{id}&quot;</span><span class="p">)</span>
+<span class="kd">public</span> <span class="n">Result</span> <span class="nf">sendKey</span><span class="p">(</span><span class="nd">@PathVariable</span> <span class="n">Long</span> <span class="n">id</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">HospitalSet</span> <span class="n">hospitalSet</span> <span class="o">=</span> <span class="n">hospitalSetService</span><span class="p">.</span><span class="na">getById</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+    <span class="n">String</span> <span class="n">signKey</span> <span class="o">=</span> <span class="n">hospitalSet</span><span class="p">.</span><span class="na">getSignKey</span><span class="p">();</span>
+    <span class="n">String</span> <span class="n">hoscode</span> <span class="o">=</span> <span class="n">hospitalSet</span><span class="p">.</span><span class="na">getHoscode</span><span class="p">();</span>
+    <span class="c1">//TODO 发送短信</span>
+    <span class="k">return</span> <span class="n">Result</span><span class="p">.</span><span class="na">ok</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="6">6、全局异常处理<a class="headerlink" href="#6" title="Permanent link">&para;</a></h3>
+<p>spring boot 默认情况下会映射到 /error 进行异常处理，但是提示并不十分友好，下面自定义异常处理，提供友好展示。</p>
+<h4 id="61">6.1 自定义异常类<a class="headerlink" href="#61" title="Permanent link">&para;</a></h4>
+<p>我们在搭建模块时在common-util模块已经添加了YyghException类，这里不做解释</p>
+<h4 id="62">6.2 添加全局异常处理类<a class="headerlink" href="#62" title="Permanent link">&para;</a></h4>
+<p>在service-util模块添加全局异常处理类</p>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">com.atguigu.yygh.common.handler</span><span class="p">;</span>
+
+
+<span class="cm">/**</span>
+<span class="cm"> * 全局异常处理类</span>
+<span class="cm"> *</span>
+<span class="cm"> */</span>
+<span class="nd">@ControllerAdvice</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">GlobalExceptionHandler</span> <span class="p">{</span>
+
+<span class="nd">@ExceptionHandler</span><span class="p">(</span><span class="n">Exception</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+<span class="nd">@ResponseBody</span>
+<span class="kd">public</span> <span class="n">Result</span> <span class="nf">error</span><span class="p">(</span><span class="n">Exception</span> <span class="n">e</span><span class="p">){</span>
+        <span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+<span class="k">return</span> <span class="n">Result</span><span class="p">.</span><span class="na">fail</span><span class="p">();</span>
+    <span class="p">}</span>
+
+<span class="cm">/**</span>
+<span class="cm">     * 自定义异常处理方法</span>
+<span class="cm">     * @param e</span>
+<span class="cm">* @return</span>
+<span class="cm">*/</span>
+<span class="nd">@ExceptionHandler</span><span class="p">(</span><span class="n">YyghException</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+<span class="nd">@ResponseBody</span>
+<span class="kd">public</span> <span class="n">Result</span> <span class="nf">error</span><span class="p">(</span><span class="n">YyghException</span> <span class="n">e</span><span class="p">){</span>
+<span class="k">return</span> <span class="n">Result</span><span class="p">.</span><span class="na">build</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="na">getCode</span><span class="p">(),</span> <span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="63">6.3 集成测试<a class="headerlink" href="#63" title="Permanent link">&para;</a></h4>
+<p>手动在controller任意方法制造异常（int i = 1/0），添加GlobalExceptionHandler类与不添加这个类区别</p>
+<h3 id="7">7、日志<a class="headerlink" href="#7" title="Permanent link">&para;</a></h3>
+<h4 id="71">7.1配置日志级别<a class="headerlink" href="#71" title="Permanent link">&para;</a></h4>
+<p>日志记录器（Logger）的行为是分等级的。如下表所示：</p>
+<p>分为：OFF、FATAL、ERROR、WARN、INFO、DEBUG、ALL</p>
+<p>默认情况下，spring boot从控制台打印出来的日志级别只有INFO及以上级别，可以配置日志级别</p>
+<p># 设置日志级别</p>
+<p>logging.level.root=WARN</p>
+<p>这印在控制台上种方式只能将日志打</p>
+<h4 id="72-logback">7.2 Logback日志<a class="headerlink" href="#72-logback" title="Permanent link">&para;</a></h4>
+<p>spring boot内部使用Logback作为日志实现的框架。</p>
+<p>Logback和log4j非常相似，如果你对log4j很熟悉，那对logback很快就会得心应手。</p>
+<h4 id="73">7.3 配置日志<a class="headerlink" href="#73" title="Permanent link">&para;</a></h4>
+<p>resources/logback-spring.xml</p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;configuration</span>  <span class="na">scan=</span><span class="s">&quot;true&quot;</span> <span class="na">scanPeriod=</span><span class="s">&quot;10 seconds&quot;</span><span class="nt">&gt;</span>
+    <span class="cm">&lt;!-- 日志级别从低到高分为TRACE &lt; DEBUG &lt; INFO &lt; WARN &lt; ERROR &lt; FATAL，如果设置为WARN，则低于WARN的信息都不会输出 --&gt;</span>
+    <span class="cm">&lt;!-- scan:当此属性设置为true时，配置文件如果发生改变，将会被重新加载，默认值为true --&gt;</span>
+    <span class="cm">&lt;!-- scanPeriod:设置监测配置文件是否有修改的时间间隔，如果没有给出时间单位，默认单位是毫秒。当scan为true时，此属性生效。默认的时间间隔为1分钟。 --&gt;</span>
+    <span class="cm">&lt;!-- debug:当此属性设置为true时，将打印出logback内部日志信息，实时查看logback运行状态。默认值为false。 --&gt;</span>
+    <span class="nt">&lt;contextName&gt;</span>logback<span class="nt">&lt;/contextName&gt;</span>
+    <span class="cm">&lt;!-- name的值是变量的名称，value的值时变量定义的值。通过定义的值会被插入到logger上下文中。定义变量后，可以使“${}”来使用变量。 --&gt;</span>
+    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;log.path&quot;</span> <span class="na">value=</span><span class="s">&quot;D:/yygh_log/edu&quot;</span> <span class="nt">/&gt;</span>
+    <span class="cm">&lt;!-- 彩色日志 --&gt;</span>
+    <span class="cm">&lt;!-- 配置格式变量：CONSOLE_LOG_PATTERN 彩色日志格式 --&gt;</span>
+    <span class="cm">&lt;!-- magenta:洋红 --&gt;</span>
+    <span class="cm">&lt;!-- boldMagenta:粗红--&gt;</span>
+    <span class="cm">&lt;!-- cyan:青色 --&gt;</span>
+    <span class="cm">&lt;!-- white:白色 --&gt;</span>
+    <span class="cm">&lt;!-- magenta:洋红 --&gt;</span>
+    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;CONSOLE_LOG_PATTERN&quot;</span>
+              <span class="na">value=</span><span class="s">&quot;%yellow(%date{yyyy-MM-dd HH:mm:ss}) |%highlight(%-5level) |%blue(%thread) |%blue(%file:%line) |%green(%logger) |%cyan(%msg%n)&quot;</span><span class="nt">/&gt;</span>
+    <span class="cm">&lt;!--输出到控制台--&gt;</span>
+    <span class="nt">&lt;appender</span> <span class="na">name=</span><span class="s">&quot;CONSOLE&quot;</span> <span class="na">class=</span><span class="s">&quot;ch.qos.logback.core.ConsoleAppender&quot;</span><span class="nt">&gt;</span>
+        <span class="cm">&lt;!--此日志appender是为开发使用，只配置最底级别，控制台输出的日志级别是大于或等于此级别的日志信息--&gt;</span>
+        <span class="cm">&lt;!-- 例如：如果此处配置了INFO级别，则后面其他位置即使配置了DEBUG级别的日志，也不会被输出 --&gt;</span>
+        <span class="nt">&lt;filter</span> <span class="na">class=</span><span class="s">&quot;ch.qos.logback.classic.filter.ThresholdFilter&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;level&gt;</span>INFO<span class="nt">&lt;/level&gt;</span>
+        <span class="nt">&lt;/filter&gt;</span>
+        <span class="nt">&lt;encoder&gt;</span>
+            <span class="nt">&lt;Pattern&gt;</span>${CONSOLE_LOG_PATTERN}<span class="nt">&lt;/Pattern&gt;</span>
+            <span class="cm">&lt;!-- 设置字符集 --&gt;</span>
+            <span class="nt">&lt;charset&gt;</span>UTF-8<span class="nt">&lt;/charset&gt;</span>
+        <span class="nt">&lt;/encoder&gt;</span>
+    <span class="nt">&lt;/appender&gt;</span>
+    <span class="cm">&lt;!--输出到文件--&gt;</span>
+    <span class="cm">&lt;!-- 时间滚动输出 level为 INFO 日志 --&gt;</span>
+    <span class="nt">&lt;appender</span> <span class="na">name=</span><span class="s">&quot;INFO_FILE&quot;</span> <span class="na">class=</span><span class="s">&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;</span><span class="nt">&gt;</span>
+        <span class="cm">&lt;!-- 正在记录的日志文件的路径及文件名 --&gt;</span>
+        <span class="nt">&lt;file&gt;</span>${log.path}/log_info.log<span class="nt">&lt;/file&gt;</span>
+        <span class="cm">&lt;!--日志文件输出格式--&gt;</span>
+        <span class="nt">&lt;encoder&gt;</span>
+            <span class="nt">&lt;pattern&gt;</span>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n<span class="nt">&lt;/pattern&gt;</span>
+            <span class="nt">&lt;charset&gt;</span>UTF-8<span class="nt">&lt;/charset&gt;</span>
+        <span class="nt">&lt;/encoder&gt;</span>
+        <span class="cm">&lt;!-- 日志记录器的滚动策略，按日期，按大小记录 --&gt;</span>
+        <span class="nt">&lt;rollingPolicy</span> <span class="na">class=</span><span class="s">&quot;ch.qos.logback.core.rolling.TimeBasedRollingPolicy&quot;</span><span class="nt">&gt;</span>
+            <span class="cm">&lt;!-- 每天日志归档路径以及格式 --&gt;</span>
+            <span class="nt">&lt;fileNamePattern&gt;</span>${log.path}/info/log-info-%d{yyyy-MM-dd}.%i.log<span class="nt">&lt;/fileNamePattern&gt;</span>
+            <span class="nt">&lt;timeBasedFileNamingAndTriggeringPolicy</span> <span class="na">class=</span><span class="s">&quot;ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;maxFileSize&gt;</span>100MB<span class="nt">&lt;/maxFileSize&gt;</span>
+            <span class="nt">&lt;/timeBasedFileNamingAndTriggeringPolicy&gt;</span>
+            <span class="cm">&lt;!--日志文件保留天数--&gt;</span>
+            <span class="nt">&lt;maxHistory&gt;</span>15<span class="nt">&lt;/maxHistory&gt;</span>
+        <span class="nt">&lt;/rollingPolicy&gt;</span>
+        <span class="cm">&lt;!-- 此日志文件只记录info级别的 --&gt;</span>
+        <span class="nt">&lt;filter</span> <span class="na">class=</span><span class="s">&quot;ch.qos.logback.classic.filter.LevelFilter&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;level&gt;</span>INFO<span class="nt">&lt;/level&gt;</span>
+            <span class="nt">&lt;onMatch&gt;</span>ACCEPT<span class="nt">&lt;/onMatch&gt;</span>
+            <span class="nt">&lt;onMismatch&gt;</span>DENY<span class="nt">&lt;/onMismatch&gt;</span>
+        <span class="nt">&lt;/filter&gt;</span>
+    <span class="nt">&lt;/appender&gt;</span>
+
+    <span class="cm">&lt;!-- 时间滚动输出 level为 WARN 日志 --&gt;</span>
+    <span class="nt">&lt;appender</span> <span class="na">name=</span><span class="s">&quot;WARN_FILE&quot;</span> <span class="na">class=</span><span class="s">&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;</span><span class="nt">&gt;</span>
+        <span class="cm">&lt;!-- 正在记录的日志文件的路径及文件名 --&gt;</span>
+        <span class="nt">&lt;file&gt;</span>${log.path}/log_warn.log<span class="nt">&lt;/file&gt;</span>
+        <span class="cm">&lt;!--日志文件输出格式--&gt;</span>
+        <span class="nt">&lt;encoder&gt;</span>
+            <span class="nt">&lt;pattern&gt;</span>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n<span class="nt">&lt;/pattern&gt;</span>
+            <span class="nt">&lt;charset&gt;</span>UTF-8<span class="nt">&lt;/charset&gt;</span> <span class="cm">&lt;!-- 此处设置字符集 --&gt;</span>
+        <span class="nt">&lt;/encoder&gt;</span>
+        <span class="cm">&lt;!-- 日志记录器的滚动策略，按日期，按大小记录 --&gt;</span>
+        <span class="nt">&lt;rollingPolicy</span> <span class="na">class=</span><span class="s">&quot;ch.qos.logback.core.rolling.TimeBasedRollingPolicy&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;fileNamePattern&gt;</span>${log.path}/warn/log-warn-%d{yyyy-MM-dd}.%i.log<span class="nt">&lt;/fileNamePattern&gt;</span>
+            <span class="nt">&lt;timeBasedFileNamingAndTriggeringPolicy</span> <span class="na">class=</span><span class="s">&quot;ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;maxFileSize&gt;</span>100MB<span class="nt">&lt;/maxFileSize&gt;</span>
+            <span class="nt">&lt;/timeBasedFileNamingAndTriggeringPolicy&gt;</span>
+            <span class="cm">&lt;!--日志文件保留天数--&gt;</span>
+            <span class="nt">&lt;maxHistory&gt;</span>15<span class="nt">&lt;/maxHistory&gt;</span>
+        <span class="nt">&lt;/rollingPolicy&gt;</span>
+        <span class="cm">&lt;!-- 此日志文件只记录warn级别的 --&gt;</span>
+        <span class="nt">&lt;filter</span> <span class="na">class=</span><span class="s">&quot;ch.qos.logback.classic.filter.LevelFilter&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;level&gt;</span>warn<span class="nt">&lt;/level&gt;</span>
+            <span class="nt">&lt;onMatch&gt;</span>ACCEPT<span class="nt">&lt;/onMatch&gt;</span>
+            <span class="nt">&lt;onMismatch&gt;</span>DENY<span class="nt">&lt;/onMismatch&gt;</span>
+        <span class="nt">&lt;/filter&gt;</span>
+    <span class="nt">&lt;/appender&gt;</span>
+
+
+    <span class="cm">&lt;!-- 时间滚动输出 level为 ERROR 日志 --&gt;</span>
+    <span class="nt">&lt;appender</span> <span class="na">name=</span><span class="s">&quot;ERROR_FILE&quot;</span> <span class="na">class=</span><span class="s">&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;</span><span class="nt">&gt;</span>
+        <span class="cm">&lt;!-- 正在记录的日志文件的路径及文件名 --&gt;</span>
+        <span class="nt">&lt;file&gt;</span>${log.path}/log_error.log<span class="nt">&lt;/file&gt;</span>
+        <span class="cm">&lt;!--日志文件输出格式--&gt;</span>
+        <span class="nt">&lt;encoder&gt;</span>
+            <span class="nt">&lt;pattern&gt;</span>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n<span class="nt">&lt;/pattern&gt;</span>
+            <span class="nt">&lt;charset&gt;</span>UTF-8<span class="nt">&lt;/charset&gt;</span> <span class="cm">&lt;!-- 此处设置字符集 --&gt;</span>
+        <span class="nt">&lt;/encoder&gt;</span>
+        <span class="cm">&lt;!-- 日志记录器的滚动策略，按日期，按大小记录 --&gt;</span>
+        <span class="nt">&lt;rollingPolicy</span> <span class="na">class=</span><span class="s">&quot;ch.qos.logback.core.rolling.TimeBasedRollingPolicy&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;fileNamePattern&gt;</span>${log.path}/error/log-error-%d{yyyy-MM-dd}.%i.log<span class="nt">&lt;/fileNamePattern&gt;</span>
+            <span class="nt">&lt;timeBasedFileNamingAndTriggeringPolicy</span> <span class="na">class=</span><span class="s">&quot;ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;maxFileSize&gt;</span>100MB<span class="nt">&lt;/maxFileSize&gt;</span>
+            <span class="nt">&lt;/timeBasedFileNamingAndTriggeringPolicy&gt;</span>
+            <span class="cm">&lt;!--日志文件保留天数--&gt;</span>
+            <span class="nt">&lt;maxHistory&gt;</span>15<span class="nt">&lt;/maxHistory&gt;</span>
+        <span class="nt">&lt;/rollingPolicy&gt;</span>
+        <span class="cm">&lt;!-- 此日志文件只记录ERROR级别的 --&gt;</span>
+        <span class="nt">&lt;filter</span> <span class="na">class=</span><span class="s">&quot;ch.qos.logback.classic.filter.LevelFilter&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;level&gt;</span>ERROR<span class="nt">&lt;/level&gt;</span>
+            <span class="nt">&lt;onMatch&gt;</span>ACCEPT<span class="nt">&lt;/onMatch&gt;</span>
+            <span class="nt">&lt;onMismatch&gt;</span>DENY<span class="nt">&lt;/onMismatch&gt;</span>
+        <span class="nt">&lt;/filter&gt;</span>
+    <span class="nt">&lt;/appender&gt;</span>
+
+    <span class="cm">&lt;!--</span>
+<span class="cm">        &lt;logger&gt;用来设置某一个包或者具体的某一个类的日志打印级别、以及指定&lt;appender&gt;。</span>
+<span class="cm">        &lt;logger&gt;仅有一个name属性，</span>
+<span class="cm">        一个可选的level和一个可选的addtivity属性。</span>
+<span class="cm">        name:用来指定受此logger约束的某一个包或者具体的某一个类。</span>
+<span class="cm">        level:用来设置打印级别，大小写无关：TRACE, DEBUG, INFO, WARN, ERROR, ALL 和 OFF，</span>
+<span class="cm">              如果未设置此属性，那么当前logger将会继承上级的级别。</span>
+<span class="cm">    --&gt;</span>
+    <span class="cm">&lt;!--</span>
+<span class="cm">        使用mybatis的时候，sql语句是debug下才会打印，而这里我们只配置了info，所以想要查看sql语句的话，有以下两种操作：</span>
+<span class="cm">        第一种把&lt;root level=&quot;INFO&quot;&gt;改成&lt;root level=&quot;DEBUG&quot;&gt;这样就会打印sql，不过这样日志那边会出现很多其他消息</span>
+<span class="cm">        第二种就是单独给mapper下目录配置DEBUG模式，代码如下，这样配置sql语句会打印，其他还是正常DEBUG级别：</span>
+<span class="cm">     --&gt;</span>
+    <span class="cm">&lt;!--开发环境:打印控制台--&gt;</span>
+    <span class="nt">&lt;springProfile</span> <span class="na">name=</span><span class="s">&quot;dev&quot;</span><span class="nt">&gt;</span>
+        <span class="cm">&lt;!--可以输出项目中的debug日志，包括mybatis的sql日志--&gt;</span>
+        <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&quot;com.guli&quot;</span> <span class="na">level=</span><span class="s">&quot;INFO&quot;</span> <span class="nt">/&gt;</span>
+
+        <span class="cm">&lt;!--</span>
+<span class="cm">            root节点是必选节点，用来指定最基础的日志输出级别，只有一个level属性</span>
+<span class="cm">            level:用来设置打印级别，大小写无关：TRACE, DEBUG, INFO, WARN, ERROR, ALL 和 OFF，默认是DEBUG</span>
+<span class="cm">            可以包含零个或多个appender元素。</span>
+<span class="cm">        --&gt;</span>
+        <span class="nt">&lt;root</span> <span class="na">level=</span><span class="s">&quot;INFO&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;appender-ref</span> <span class="na">ref=</span><span class="s">&quot;CONSOLE&quot;</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;appender-ref</span> <span class="na">ref=</span><span class="s">&quot;INFO_FILE&quot;</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;appender-ref</span> <span class="na">ref=</span><span class="s">&quot;WARN_FILE&quot;</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;appender-ref</span> <span class="na">ref=</span><span class="s">&quot;ERROR_FILE&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/root&gt;</span>
+    <span class="nt">&lt;/springProfile&gt;</span>
+
+
+    <span class="cm">&lt;!--生产环境:输出到文件--&gt;</span>
+    <span class="nt">&lt;springProfile</span> <span class="na">name=</span><span class="s">&quot;pro&quot;</span><span class="nt">&gt;</span>
+
+        <span class="nt">&lt;root</span> <span class="na">level=</span><span class="s">&quot;INFO&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;appender-ref</span> <span class="na">ref=</span><span class="s">&quot;CONSOLE&quot;</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;appender-ref</span> <span class="na">ref=</span><span class="s">&quot;DEBUG_FILE&quot;</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;appender-ref</span> <span class="na">ref=</span><span class="s">&quot;INFO_FILE&quot;</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;appender-ref</span> <span class="na">ref=</span><span class="s">&quot;ERROR_FILE&quot;</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;appender-ref</span> <span class="na">ref=</span><span class="s">&quot;WARN_FILE&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/root&gt;</span>
+    <span class="nt">&lt;/springProfile&gt;</span>
+<span class="nt">&lt;/configuration&gt;</span>
+</code></pre></div>
+
+              
+			  <hr><span id="busuanzi_container_page_pv"><font size="3" color="grey">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</font></span><br/>
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../../day01%20%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%E4%B8%8EMyBatis%20Plus/day01%20%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%E4%B8%8E%20Mybatis%20Plus/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 项目介绍" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              项目介绍
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../day03%20%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89/day03%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89/" class="md-footer__link md-footer__link--next" aria-label="Next: 前端基础知识（一）" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              前端基础知识（一）
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 尚硅谷
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.tabs", "navigation.tabs.sticky"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.1514a9a0.min.js"></script>
+      
+        <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+      
+    
+  </body>
+</html>

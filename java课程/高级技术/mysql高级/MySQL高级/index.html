@@ -1,0 +1,6579 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.6">
+    
+    
+      
+        <title>mysql高级 - 我的文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.cd566b2a.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#mysql" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="我的文档" class="md-header__button md-logo" aria-label="我的文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            我的文档
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              mysql高级
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/01%20Java%E6%A6%82%E8%BF%B0/01%20-%20Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0/" class="md-tabs__link md-tabs__link--active">
+        Java课程
+      </a>
+    </li>
+  
+
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC1%E7%AB%A0%20%E9%9D%A2%E8%AF%95%E8%AF%B4%E6%98%8E/" class="md-tabs__link">
+        Java就业面试
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../.." class="md-tabs__link">
+      学习文档
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="我的文档" class="md-nav__button md-logo" aria-label="我的文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    我的文档
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Java课程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Java课程" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Java课程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1" type="checkbox" id="__nav_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1">
+          Java基础
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Java基础" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Java基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1_1" type="checkbox" id="__nav_1_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1_1">
+          基础部分
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="基础部分" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          基础部分
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/01%20Java%E6%A6%82%E8%BF%B0/01%20-%20Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0/" class="md-nav__link">
+        Java概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/02%20%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/02%20%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" class="md-nav__link">
+        基本语法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/03%20%E6%95%B0%E7%BB%84/03%20%E6%95%B0%E7%BB%84/" class="md-nav__link">
+        数组
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/04%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/04%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="md-nav__link">
+        面向对象
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86/05%20%E5%BC%82%E5%B8%B8/05%20%E5%BC%82%E5%B8%B8/" class="md-nav__link">
+        异常
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1_2" type="checkbox" id="__nav_1_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1_2">
+          高级部分
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="高级部分" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          高级部分
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/06%20%E5%B8%B8%E7%94%A8%E7%B1%BBAPI/06%20%E5%B8%B8%E7%94%A8%E7%B1%BBAPI/" class="md-nav__link">
+        常用类API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/07%20%E9%9B%86%E5%90%88/07%20%E9%9B%86%E5%90%88/" class="md-nav__link">
+        集合
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/08%20%E6%B3%9B%E5%9E%8B/08%20%E6%B3%9B%E5%9E%8B/" class="md-nav__link">
+        泛型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/09%20File%E7%B1%BB%E4%B8%8EIO%E6%B5%81/09%20File%E7%B1%BB%E4%B8%8EIO%E6%B5%81/" class="md-nav__link">
+        File类与IO流
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/10%20%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/10%20%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" class="md-nav__link">
+        网络编程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/11%20%E5%A4%9A%E7%BA%BF%E7%A8%8B/11%20%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="md-nav__link">
+        多线程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/12%20%E5%8F%8D%E5%B0%84/12%20%E5%8F%8D%E5%B0%84/" class="md-nav__link">
+        反射
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java%E5%9F%BA%E7%A1%80/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/13%20Java8%E6%96%B0%E7%89%B9%E6%80%A7/Java8%E6%96%B0%E7%89%B9%E6%80%A7/" class="md-nav__link">
+        Java8新特性
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2" type="checkbox" id="__nav_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_2">
+          MySQL数据库
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="MySQL数据库" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          MySQL数据库
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/14%20MySQL/MySQL5.7%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/" class="md-nav__link">
+        MySQL5.7安装文档
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/14%20MySQL/MySQL%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        MySQL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/14%20MySQL/JDBC%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        JDBC
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_3" type="checkbox" id="__nav_1_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_3">
+          JavaWeb阶段
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="JavaWeb阶段" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          JavaWeb阶段
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../JavaWeb%E9%98%B6%E6%AE%B5/day01/day01_HTML%26CSS/" class="md-nav__link">
+        HTML&CSS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../JavaWeb%E9%98%B6%E6%AE%B5/day02/day02_JS%26%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="md-nav__link">
+        JS&正则表达式
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../JavaWeb%E9%98%B6%E6%AE%B5/day03/day03_VUE%26%E4%B9%A6%E5%9F%8E%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        VUE&书城第一阶段
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../JavaWeb%E9%98%B6%E6%AE%B5/day04/day04_XML%26Tomcat%26Http%E5%8D%8F%E8%AE%AE/" class="md-nav__link">
+        XML&Tomcat&Http协议
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../JavaWeb%E9%98%B6%E6%AE%B5/day05/day05_Servlet/" class="md-nav__link">
+        Servlet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../JavaWeb%E9%98%B6%E6%AE%B5/day06/day06_Request%26Response/" class="md-nav__link">
+        Request&Response
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../JavaWeb%E9%98%B6%E6%AE%B5/day07/day07_%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        书城项目第二阶
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../JavaWeb%E9%98%B6%E6%AE%B5/day08/day08_Thymeleaf/" class="md-nav__link">
+        Thymeleaf
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../JavaWeb%E9%98%B6%E6%AE%B5/day09/day09_%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        书城项目第三阶段
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../JavaWeb%E9%98%B6%E6%AE%B5/day10/day10_%E4%BC%9A%E8%AF%9D%26%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5%281%29/" class="md-nav__link">
+        会话&书城项目第四阶段1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../JavaWeb%E9%98%B6%E6%AE%B5/day11/day11_%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        书城项目第四阶段2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../JavaWeb%E9%98%B6%E6%AE%B5/day12/day12_Filter%26Listener%26%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%BA%94%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        Filter&Listener&书城项目第五阶段1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../JavaWeb%E9%98%B6%E6%AE%B5/day13/day13_%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%BA%94%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        书城项目第五阶段2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../JavaWeb%E9%98%B6%E6%AE%B5/day14/day14_Ajax%26Axios%26%E4%B9%A6%E5%9F%8E%E9%A1%B9%E7%9B%AE%E7%AC%AC%E5%85%AD%E9%98%B6%E6%AE%B5/" class="md-nav__link">
+        Ajax&Axios&书城项目第六阶段
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4" type="checkbox" id="__nav_1_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4">
+          经典框架
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="经典框架" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          经典框架
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/Spring%20%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        Spring
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/SpringMVC%20%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        SpringMVC
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/MyBatis%20%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        MyBatis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/SSM%20%E6%95%B4%E5%90%88%E9%85%8D%E7%BD%AE/" class="md-nav__link">
+        SSM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/Maven%20%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        Maven
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/%E6%A1%86%E6%9E%B6%E9%AB%98%E7%BA%A7%E8%AF%BE%E7%A8%8B%E7%B3%BB%E5%88%97%E4%B9%8BLinuxCentOS7/" class="md-nav__link">
+        Linux
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BB%8F%E5%85%B8%E6%A1%86%E6%9E%B6/Redis/" class="md-nav__link">
+        Redis
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_5" type="checkbox" id="__nav_1_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_5">
+          微服务相关
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="微服务相关" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_5">
+          <span class="md-nav__icon md-icon"></span>
+          微服务相关
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/Docker/Docker/" class="md-nav__link">
+        Docker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/ElasticSearch/ElasticSearch/" class="md-nav__link">
+        ElasticSearch
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/RabbitMQ/RabbitMQ/" class="md-nav__link">
+        RabbitMQ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/SpringBoot/SpringBoot/" class="md-nav__link">
+        SpringBoot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/SpringCloud/SpringCloud/" class="md-nav__link">
+        SpringCloud
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_6" type="checkbox" id="__nav_1_6" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_6">
+          高级技术
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="高级技术" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_6">
+          <span class="md-nav__icon md-icon"></span>
+          高级技术
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/Git%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        git
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../juc/JUC/" class="md-nav__link">
+        JUC
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jvm/jvm/" class="md-nav__link">
+        jvm
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          mysql高级
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        mysql高级
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-mysql" class="md-nav__link">
+    第1章 MySQL的架构介绍
+  </a>
+  
+    <nav class="md-nav" aria-label="第1章 MySQL的架构介绍">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-mysql" class="md-nav__link">
+    1.1 mysql的安装(提前上传文件)
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 mysql的安装(提前上传文件)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111" class="md-nav__link">
+    1.1.1 安装前的准备工作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112" class="md-nav__link">
+    1.1.2 正式安装
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113-mysql" class="md-nav__link">
+    1.1.3 查看MySQL版本号
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#114-mysql" class="md-nav__link">
+    1.1.4 mysql服务的初始化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#115-mysql" class="md-nav__link">
+    1.1.5 MySQL服务启动
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#116" class="md-nav__link">
+    1.1.6首次登录
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#117" class="md-nav__link">
+    1.1.7 退出登录验证
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#118-mysql" class="md-nav__link">
+    1.1.8 mysql是否自启动
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#119" class="md-nav__link">
+    1.1.9 修改字符集问题
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-mysql" class="md-nav__link">
+    1.2 Mysql的用户与权限管理
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 Mysql的用户与权限管理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121" class="md-nav__link">
+    1.2.1 测试
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122-user" class="md-nav__link">
+    1.2.2 了解USER表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#123" class="md-nav__link">
+    1.2.3 权限问题
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#124" class="md-nav__link">
+    1.2.4 授予权限
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-mysqlsql_mode" class="md-nav__link">
+    1.3 MySQL的sql_mode合理设置
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3 MySQL的sql_mode合理设置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#131" class="md-nav__link">
+    1.3.1 例子
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#132" class="md-nav__link">
+    1.3.2 例子解释
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#133-sql_mode" class="md-nav__link">
+    1.3.3 sql_mode的概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#134-sql_mode" class="md-nav__link">
+    1.3.4 sql_mode常用值如下
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-mysql" class="md-nav__link">
+    1.4 Mysql逻辑架构
+  </a>
+  
+    <nav class="md-nav" aria-label="1.4 Mysql逻辑架构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#141" class="md-nav__link">
+    1.4.1 相关概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#142" class="md-nav__link">
+    1.4.2 连接层
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#143" class="md-nav__link">
+    1.4.3  服务层
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#144" class="md-nav__link">
+    1.4.4 引擎层
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#145" class="md-nav__link">
+    1.4.5 存储层
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-show-profile-sql" class="md-nav__link">
+    1.5 利用show profile 看SQL执行过程(性能分析工具)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-sql" class="md-nav__link">
+    1.6 SQL执行顺序
+  </a>
+  
+    <nav class="md-nav" aria-label="1.6 SQL执行顺序">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#161-sql" class="md-nav__link">
+    1.6.1 手写SQL内容
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#162" class="md-nav__link">
+    1.6.2 机读内容
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17" class="md-nav__link">
+    1.7 存储引擎
+  </a>
+  
+    <nav class="md-nav" aria-label="1.7 存储引擎">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#171-myisaminnodb" class="md-nav__link">
+    1.7.1 MyISAM和InnoDB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#172" class="md-nav__link">
+    1.7.2 各个引擎介绍
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#173" class="md-nav__link">
+    1.7.3 常用命令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#174" class="md-nav__link">
+    1.7.4 淘宝阿里巴巴用哪个
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    第2章 索引优化分析
+  </a>
+  
+    <nav class="md-nav" aria-label="第2章 索引优化分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-sql" class="md-nav__link">
+    2.1 SQL出现以下问题
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2 连接类型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-sql" class="md-nav__link">
+    2.3 SQL预热建表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-sql7join" class="md-nav__link">
+    2.4 SQL预热7种join
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    2.5 额外需求
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26" class="md-nav__link">
+    2.6 额外需求答案
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27-sql" class="md-nav__link">
+    2.7 作业八个SQL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    第3章 索引
+  </a>
+  
+    <nav class="md-nav" aria-label="第3章 索引">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1 索引的概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2 二叉树结构
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    3.3 索引优势劣势
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 索引优势劣势">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#311" class="md-nav__link">
+    3.1.1 优势
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#312" class="md-nav__link">
+    3.1.2 劣势
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    3.4 平衡二叉树
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-b-tree" class="md-nav__link">
+    3.5 平衡多路查找树(B-Tree)面试
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-btree" class="md-nav__link">
+    3.6 B+Tree
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#37" class="md-nav__link">
+    3.7 时间复杂度
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#38" class="md-nav__link">
+    3.8 聚簇索引与非聚簇索引
+  </a>
+  
+    <nav class="md-nav" aria-label="3.8 聚簇索引与非聚簇索引">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#381" class="md-nav__link">
+    3.8.1 聚簇索引
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#382" class="md-nav__link">
+    3.8.2 非聚簇索引
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#39" class="md-nav__link">
+    3.9 索引分类
+  </a>
+  
+    <nav class="md-nav" aria-label="3.9 索引分类">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#391" class="md-nav__link">
+    3.9.1 基本语法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#392" class="md-nav__link">
+    3.9.2 单值索引
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#393" class="md-nav__link">
+    3.9.3 唯一索引
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#394" class="md-nav__link">
+    3.9.4 主键索引
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#395" class="md-nav__link">
+    3.9.5 复合索引
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#396" class="md-nav__link">
+    3.9.6 哪些情况需要创建索引
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#397" class="md-nav__link">
+    3.9.7 哪些情况不要创建索引
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#310" class="md-nav__link">
+    3.10 执行计划
+  </a>
+  
+    <nav class="md-nav" aria-label="3.10 执行计划">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3101" class="md-nav__link">
+    3.10.1 概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3102" class="md-nav__link">
+    3.10.2 能做啥
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3103" class="md-nav__link">
+    3.10.3 怎么用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3104" class="md-nav__link">
+    3.10.4 各字段解释
+  </a>
+  
+    <nav class="md-nav" aria-label="3.10.4 各字段解释">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31041-id" class="md-nav__link">
+    3.10.4.1 Id(重要)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#31042-select_type" class="md-nav__link">
+    3.10.4.2 select_type
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#31043-table" class="md-nav__link">
+    3.10.4.3 Table
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#31044-partitions" class="md-nav__link">
+    3.10.4.4 partitions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#31045-type" class="md-nav__link">
+    3.10.4.5 Type(重要)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#31046-possible_keys" class="md-nav__link">
+    3.10.4.6 possible_keys
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#31047-key" class="md-nav__link">
+    3.10.4.7 Key
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#31048-key_len" class="md-nav__link">
+    3.10.4.8 key_len(重要)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#31049-ref" class="md-nav__link">
+    3.10.4.9 Ref(了解)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#310410-rows" class="md-nav__link">
+    3.10.4.10 Rows(重要)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#310411-filtered" class="md-nav__link">
+    3.10.4.11 Filtered(了解)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#310412-extra" class="md-nav__link">
+    3.10.4.12 Extra(重要)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    第4章 批量添加数据
+  </a>
+  
+    <nav class="md-nav" aria-label="第4章 批量添加数据">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    4.1 建表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    4.2 设置参数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    4.3 创建函数和存储过程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44" class="md-nav__link">
+    4.4 删除索引
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    第5章 单表索引优化
+  </a>
+  
+    <nav class="md-nav" aria-label="第5章 单表索引优化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    5.1 全值匹配我最爱
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" class="md-nav__link">
+    5.3 范围查询
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54" class="md-nav__link">
+    5.4 索引失效的情况
+  </a>
+  
+    <nav class="md-nav" aria-label="5.4 索引失效的情况">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#541" class="md-nav__link">
+    5.4.1 索引列不要做任何操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#542" class="md-nav__link">
+    5.4.2 使用了不等于
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#543-is-not-null" class="md-nav__link">
+    5.4.3 使用了IS NOT NULL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#544-like" class="md-nav__link">
+    5.4.4 like通配符以%开头
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#545" class="md-nav__link">
+    5.4.5 类型转换
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55" class="md-nav__link">
+    5.5 总结习题
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#56" class="md-nav__link">
+    5.6 一般性建议
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    第6章 关联查询优化
+  </a>
+  
+    <nav class="md-nav" aria-label="第6章 关联查询优化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    6.1 建表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    6.2 案例分析一
+  </a>
+  
+    <nav class="md-nav" aria-label="6.2 案例分析一">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#621" class="md-nav__link">
+    6.2.1 第一次操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#622-inner-join" class="md-nav__link">
+    6.2.2 第二次操作:换成inner join
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63" class="md-nav__link">
+    6.3 案例分析二
+  </a>
+  
+    <nav class="md-nav" aria-label="6.3 案例分析二">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#631-sql" class="md-nav__link">
+    6.3.1 四个SQL分析语句
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#632" class="md-nav__link">
+    6.3.2 执行效果
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#633" class="md-nav__link">
+    6.3.3 总结
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    第7章  子查询优化
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    第8章 排序分组优化
+  </a>
+  
+    <nav class="md-nav" aria-label="第8章 排序分组优化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81" class="md-nav__link">
+    8.1 排序优化
+  </a>
+  
+    <nav class="md-nav" aria-label="8.1 排序优化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#811" class="md-nav__link">
+    8.1.1 无过滤不索引
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#812" class="md-nav__link">
+    8.1.2 顺序错，必排序
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#813" class="md-nav__link">
+    8.1.3 方向反必排序
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82" class="md-nav__link">
+    8.2 索引的选择
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83" class="md-nav__link">
+    8.3 排序和单路排序
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-group-by" class="md-nav__link">
+    8.4 GROUP BY关键字优化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#85" class="md-nav__link">
+    8.5 覆盖索引
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-8sql" class="md-nav__link">
+    第9章  8个SQL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    第10章  慢查询日志
+  </a>
+  
+    <nav class="md-nav" aria-label="第10章  慢查询日志">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101" class="md-nav__link">
+    10.1 概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102" class="md-nav__link">
+    10.2 使用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#103" class="md-nav__link">
+    10.3 慢查询时间
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#104" class="md-nav__link">
+    10.4 慢查询实战
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#105" class="md-nav__link">
+    10.5  慢查询日志分析工具
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#106-show-processlist" class="md-nav__link">
+    10.6 SHOW PROCESSLIST
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    第11章  视图
+  </a>
+  
+    <nav class="md-nav" aria-label="第11章  视图">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111_1" class="md-nav__link">
+    11.1 语法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-55" class="md-nav__link">
+    11.2 注意事项(适用5.5)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MySQL%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/" class="md-nav__link">
+        MySQL主从复制
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MyCat/Mycat/" class="md-nav__link">
+        MyCat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nginx/Nginx/" class="md-nav__link">
+        Nginx
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7" type="checkbox" id="__nav_1_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7">
+          项目文档
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="项目文档" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_7">
+          <span class="md-nav__icon md-icon"></span>
+          项目文档
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_1" type="checkbox" id="__nav_1_7_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7_1">
+          美年旅游
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="美年旅游" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_7_1">
+          <span class="md-nav__icon md-icon"></span>
+          美年旅游
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%BE%8E%E5%B9%B4/day01/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC1%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游01
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%BE%8E%E5%B9%B4/day02/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC2%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游02
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%BE%8E%E5%B9%B4/day03/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC3%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游03
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%BE%8E%E5%B9%B4/day04/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC4%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游04
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%BE%8E%E5%B9%B4/day05/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC5%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游05
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%BE%8E%E5%B9%B4/day06/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC6%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游06
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%BE%8E%E5%B9%B4/day07/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC7%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游07
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%BE%8E%E5%B9%B4/day08/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC8%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游08
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%BE%8E%E5%B9%B4/day09/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC9%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游09
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%BE%8E%E5%B9%B4/day10/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC10%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游10
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%BE%8E%E5%B9%B4/day11/%E7%BE%8E%E5%B9%B4%E5%9B%BD%E5%AE%BE%E9%A1%B9%E7%9B%AE%E8%AE%B2%E4%B9%89%EF%BC%88%E7%AC%AC11%E7%AB%A0%EF%BC%89/" class="md-nav__link">
+        美年旅游11
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_2" type="checkbox" id="__nav_1_7_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7_2">
+          尚邻网
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="尚邻网" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_7_2">
+          <span class="md-nav__icon md-icon"></span>
+          尚邻网
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E9%82%BB%E7%BD%91/1.%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83/" class="md-nav__link">
+        搭建环境
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E9%82%BB%E7%BD%91/2.%E7%94%A8%E6%88%B7%E8%A7%92%E8%89%B2%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        用户角色管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E9%82%BB%E7%BD%91/3.Apache%20Dubbo/" class="md-nav__link">
+        Apache Dubbo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E9%82%BB%E7%BD%91/4.%E6%9C%8D%E5%8A%A1%E6%8B%86%E5%88%86/" class="md-nav__link">
+        服务拆分
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E9%82%BB%E7%BD%91/5.%E4%BA%8C%E6%89%8B%E6%88%BF%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        二手房管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E9%82%BB%E7%BD%91/6.%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/" class="md-nav__link">
+        图片上传
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E9%82%BB%E7%BD%91/7.%E5%89%8D%E7%AB%AF%E6%88%BF%E6%BA%90%E5%B1%95%E7%A4%BA/" class="md-nav__link">
+        前端房源展示
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E9%82%BB%E7%BD%91/8.%E5%89%8D%E7%AB%AF%E7%99%BB%E5%BD%95%E4%B8%8E%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%85%B3%E6%B3%A8/" class="md-nav__link">
+        前端登录与注册与关注
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E9%82%BB%E7%BD%91/9.%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        权限管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E9%82%BB%E7%BD%91/10.spring%20security/" class="md-nav__link">
+        spring security
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E9%82%BB%E7%BD%91/11.session%E5%85%B1%E4%BA%AB/" class="md-nav__link">
+        session共享
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_3" type="checkbox" id="__nav_1_7_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7_3">
+          谷粒商城
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="谷粒商城" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_7_3">
+          <span class="md-nav__icon md-icon"></span>
+          谷粒商城
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/1.%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%EF%BC%88nginx%E3%80%81cors%E3%80%81oss%EF%BC%89/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        谷粒商城01
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/2.%E5%88%86%E7%B1%BB%E3%80%81%E8%A7%84%E6%A0%BC%E3%80%81%E5%95%86%E5%93%81%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/%E8%A7%84%E6%A0%BC%E5%8F%82%E6%95%B0%E5%8F%8A%E5%95%86%E5%93%81%E6%96%B0%E5%A2%9E/" class="md-nav__link">
+        谷粒商城02
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/3.%E6%9C%AC%E5%9C%B0%E4%BA%8B%E5%8A%A1%E3%80%81%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E5%8F%8Aseata/%E6%9C%AC%E5%9C%B0%E4%BA%8B%E5%8A%A1%E3%80%81%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E5%8F%8Aseata/" class="md-nav__link">
+        谷粒商城03
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/4.elasticsearch%28DSL%E5%8F%8ASpringData-Elasticsearch%29/elasticsearch/" class="md-nav__link">
+        谷粒商城04
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/5.%E5%95%86%E5%93%81%E6%90%9C%E7%B4%A2/%E5%95%86%E5%93%81%E6%90%9C%E7%B4%A2/" class="md-nav__link">
+        谷粒商城05
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/6.%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%EF%BC%88Thymeleaf%EF%BC%89%E5%8F%8A%E6%90%9C%E7%B4%A2%E9%A1%B5%E6%B8%B2%E6%9F%93/%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E-Thymeleaf/" class="md-nav__link">
+        谷粒商城06
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/7.%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%EF%BC%88RabbitMQ%EF%BC%89/%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5/" class="md-nav__link">
+        谷粒商城07
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/8.%E5%95%86%E5%93%81%E5%88%86%E7%B1%BB%28%E7%BC%93%E5%AD%98%E3%80%81%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E3%80%81Redisson%E3%80%81%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8%29/%E9%A6%96%E9%A1%B5%E5%95%86%E5%93%81%E5%88%86%E7%B1%BB/" class="md-nav__link">
+        谷粒商城08
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/9.%E5%95%86%E5%93%81%E8%AF%A6%E6%83%85%E9%A1%B5%E5%8F%8A%E5%BC%82%E6%AD%A5%E7%BC%96%E6%8E%92%EF%BC%88CompletableFuture%EF%BC%89/%E5%95%86%E5%93%81%E8%AF%A6%E6%83%85%E9%A1%B5/" class="md-nav__link">
+        谷粒商城09
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/10.%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%EF%BC%88jwt%EF%BC%89/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%EF%BC%88jwt%EF%BC%89/" class="md-nav__link">
+        谷粒商城10
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/11.%E8%B4%AD%E7%89%A9%E8%BD%A6%EF%BC%88SpringTask%EF%BC%89/%E8%B4%AD%E7%89%A9%E8%BD%A6/" class="md-nav__link">
+        谷粒商城11
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/12.%E5%88%86%E5%B8%83%E5%BC%8F%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%EF%BC%88xxl-job%EF%BC%89/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%EF%BC%88xxl-job%EF%BC%89/" class="md-nav__link">
+        谷粒商城12
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/13.%E8%AE%A2%E5%8D%95%E3%80%81%E5%BA%93%E5%AD%98/%E8%AE%A2%E5%8D%95%E3%80%81%E5%BA%93%E5%AD%98/" class="md-nav__link">
+        谷粒商城13
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E7%94%B5%E5%95%86/14.%E6%94%AF%E4%BB%98%E3%80%81%E7%A7%92%E6%9D%80/%E6%94%AF%E4%BB%98%E3%80%81%E7%A7%92%E6%9D%80/" class="md-nav__link">
+        谷粒商城14
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_4" type="checkbox" id="__nav_1_7_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7_4">
+          尚融宝
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="尚融宝" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_7_4">
+          <span class="md-nav__icon md-icon"></span>
+          尚融宝
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part01-%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D/Part01-%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
+        项目介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part02-MyBatis-Plus/Part02-MyBatis-Plus/" class="md-nav__link">
+        MyBatis-Plus
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part03-%E5%90%8E%E7%AB%AF%E6%8E%A5%E5%8F%A3%E5%B7%A5%E7%A8%8B%E6%90%AD%E5%BB%BA/Part03-%E5%90%8E%E7%AB%AF%E6%8E%A5%E5%8F%A3%E5%B7%A5%E7%A8%8B%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        后端接口工程搭建
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part04-%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/Part04-%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/" class="md-nav__link">
+        前端知识
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part05-%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA/Part05-%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        管理平台前端搭建
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part06-Alibaba%20EasyExcel/Part06-Alibaba%20EasyExcel/" class="md-nav__link">
+        Alibaba EasyExcel
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part07-%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8/Part07-%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8/" class="md-nav__link">
+        数据字典
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part08-Redis%E7%BC%93%E5%AD%98/Part08-Redis%E7%BC%93%E5%AD%98/" class="md-nav__link">
+        Redis缓存
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part09-NuxtJS%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E6%B8%B2%E6%9F%93/Part09-NuxtJS%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E6%B8%B2%E6%9F%93/" class="md-nav__link">
+        NuxtJS服务器端渲染
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part10-%E9%98%BF%E9%87%8C%E4%BA%91%E7%9F%AD%E4%BF%A1/Part10-%E9%98%BF%E9%87%8C%E4%BA%91%E7%9F%AD%E4%BF%A1/" class="md-nav__link">
+        阿里云短信
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java课程/项目文档/尚融宝/Part11-分布式文件系统-阿里云OSS/分布式文件系统-阿里云OSS" class="md-nav__link">
+        阿里云OSS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part12-%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C/Part12-%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C/" class="md-nav__link">
+        用户注册
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part13-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%89%E5%85%A8-%E8%AE%BF%E9%97%AE%E4%BB%A4%E7%89%8C/Part13-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%89%E5%85%A8-%E8%AE%BF%E9%97%AE%E4%BB%A4%E7%89%8C/" class="md-nav__link">
+        访问令牌
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part14-%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81/Part14-%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81/" class="md-nav__link">
+        用户认证
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part15-%E4%BC%9A%E5%91%98%E7%AE%A1%E7%90%86/Part15-%E4%BC%9A%E5%91%98%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        会员管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part16-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%89%E5%85%A8-OAuth2/Part16-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%89%E5%85%A8-OAuth2/" class="md-nav__link">
+        OAuth2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part17-%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/Part17-%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" class="md-nav__link">
+        内网穿透
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part18-%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95/Part18-%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95/" class="md-nav__link">
+        微信登录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part19-%20SpringCloud/Part19-%20SpringCloud/" class="md-nav__link">
+        SpringCloud
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part20-%E8%B4%A6%E6%88%B7%E7%BB%91%E5%AE%9A/Part20-%E8%B4%A6%E6%88%B7%E7%BB%91%E5%AE%9A/" class="md-nav__link">
+        账户绑定
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part21-%E7%94%B3%E8%AF%B7%E5%80%9F%E6%AC%BE%E9%A2%9D%E5%BA%A6/Part21-%E7%94%B3%E8%AF%B7%E5%80%9F%E6%AC%BE%E9%A2%9D%E5%BA%A6/" class="md-nav__link">
+        申请借款额度
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part22-%E5%80%9F%E6%AC%BE%E9%A2%9D%E5%BA%A6%E5%AE%A1%E6%A0%B8/Part22-%E5%80%9F%E6%AC%BE%E9%A2%9D%E5%BA%A6%E5%AE%A1%E6%A0%B8/" class="md-nav__link">
+        借款额度审核
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part23-%E5%80%9F%E6%AC%BE%E7%94%B3%E8%AF%B7/Part23-%E5%80%9F%E6%AC%BE%E7%94%B3%E8%AF%B7/" class="md-nav__link">
+        借款申请
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part24-%E5%80%9F%E6%AC%BE%E5%AE%A1%E6%A0%B8/Part24-%E5%80%9F%E6%AC%BE%E5%AE%A1%E6%A0%B8/" class="md-nav__link">
+        借款审核
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part25-%E6%A0%87%E7%9A%84%E7%AE%A1%E7%90%86/Part25-%E6%A0%87%E7%9A%84%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        标的管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part26-%E6%88%91%E8%A6%81%E6%8A%95%E8%B5%84/Part26-%E6%88%91%E8%A6%81%E6%8A%95%E8%B5%84/" class="md-nav__link">
+        我要投资
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part27-%E5%85%85%E5%80%BC/Part27-%E5%85%85%E5%80%BC/" class="md-nav__link">
+        充值
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part28-%E6%8A%95%E6%A0%87/Part28-%E6%8A%95%E6%A0%87/" class="md-nav__link">
+        投标
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part29-%E6%94%BE%E6%AC%BE/Part29-%E6%94%BE%E6%AC%BE/" class="md-nav__link">
+        放款
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part30-%E6%8A%95%E8%B5%84%E5%88%97%E8%A1%A8%E5%B1%95%E7%A4%BA/Part30-%E6%8A%95%E8%B5%84%E5%88%97%E8%A1%A8%E5%B1%95%E7%A4%BA/" class="md-nav__link">
+        投资列表展示
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part31-%E6%8F%90%E7%8E%B0%E5%92%8C%E8%BF%98%E6%AC%BE/Part31-%E6%8F%90%E7%8E%B0%E5%92%8C%E8%BF%98%E6%AC%BE/" class="md-nav__link">
+        提现和还款
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part32-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83/Part32-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83/" class="md-nav__link">
+        个人中心
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part33-%E7%BD%91%E5%85%B3/Part33-%E7%BD%91%E5%85%B3/" class="md-nav__link">
+        网关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part34-%E8%A1%A5%E5%85%85/Part34-%E8%A1%A5%E5%85%85/" class="md-nav__link">
+        补充
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E8%9E%8D%E5%AE%9D/Part35-%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/Part35-%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/" class="md-nav__link">
+        微信支付
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7_5" type="checkbox" id="__nav_1_7_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7_5">
+          尚医通
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="尚医通" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_7_5">
+          <span class="md-nav__icon md-icon"></span>
+          尚医通
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day01%20%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%E4%B8%8EMyBatis%20Plus/day01%20%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D%E4%B8%8E%20Mybatis%20Plus/" class="md-nav__link">
+        项目介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day02%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E5%92%8C%E5%8C%BB%E9%99%A2%E8%AE%BE%E7%BD%AE/day02%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E5%92%8C%E5%8C%BB%E9%99%A2%E8%AE%BE%E7%BD%AE/" class="md-nav__link">
+        搭建环境和医院设置
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day03%20%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89/day03%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89/" class="md-nav__link">
+        前端基础知识（一）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day04%20%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%BA%8C%EF%BC%89/day04%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="md-nav__link">
+        前端基础知识（二）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day05%E5%B9%B3%E5%8F%B0%E7%AE%A1%E7%90%86%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA/day05%E5%B9%B3%E5%8F%B0%E7%AE%A1%E7%90%86%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        平台管理前端搭建
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day06%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8/day06%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8/" class="md-nav__link">
+        数据字典
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day07mongodb/day07mongodb/" class="md-nav__link">
+        mongodb
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day08%E5%8C%BB%E9%99%A2%E4%B8%8A%E4%BC%A0%E6%8E%A5%E5%8F%A3/day08%E5%8C%BB%E9%99%A2%E4%B8%8A%E4%BC%A0%E6%8E%A5%E5%8F%A3/" class="md-nav__link">
+        医院上传接口
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day09%E5%8C%BB%E9%99%A2%E7%AE%A1%E7%90%86/day09%E5%8C%BB%E9%99%A2%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        医院管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day10%E6%8E%92%E7%8F%AD%E7%AE%A1%E7%90%86%E5%92%8C%E7%BD%91%E5%85%B3/day10%E6%8E%92%E7%8F%AD%E7%AE%A1%E7%90%86%E5%92%8C%E7%BD%91%E5%85%B3/" class="md-nav__link">
+        排班管理和网关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day11%E5%B9%B3%E5%8F%B0%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA%E4%B8%8E%E9%A6%96%E9%A1%B5/day11%E5%B9%B3%E5%8F%B0%E5%89%8D%E7%AB%AF%E6%90%AD%E5%BB%BA%E4%B8%8E%E9%A6%96%E9%A1%B5/" class="md-nav__link">
+        平台前端搭建与首页
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day12%E6%89%8B%E6%9C%BA%E7%99%BB%E5%BD%95/day12%E6%89%8B%E6%9C%BA%E7%99%BB%E5%BD%95/" class="md-nav__link">
+        手机登录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day13%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95/day13%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95/" class="md-nav__link">
+        微信登录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day14%E9%98%BF%E9%87%8C%E4%BA%91OSS%E3%80%81%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81%E4%B8%8E%E5%B0%B1%E8%AF%8A%E4%BA%BA/day14%E9%98%BF%E9%87%8C%E4%BA%91OSS%E3%80%81%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81%E4%B8%8E%E5%B0%B1%E8%AF%8A%E4%BA%BA/" class="md-nav__link">
+        阿里云OSS、用户认证与就诊人
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day15%E9%A2%84%E7%BA%A6%E6%8C%82%E5%8F%B7/day15%E9%A2%84%E7%BA%A6%E6%8C%82%E5%8F%B7/" class="md-nav__link">
+        预约挂号
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day16%E9%A2%84%E7%BA%A6%E4%B8%8B%E5%8D%95/day16%E9%A2%84%E7%BA%A6%E4%B8%8B%E5%8D%95/" class="md-nav__link">
+        预约下单
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day17%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/day17%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/" class="md-nav__link">
+        微信支付
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/%E5%B0%9A%E5%8C%BB%E9%80%9A/day18%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E4%B8%8E%E7%BB%9F%E8%AE%A1/day18%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E4%B8%8E%E7%BB%9F%E8%AE%A1/" class="md-nav__link">
+        定时任务与统计
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Java就业面试
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Java就业面试" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Java就业面试
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC1%E7%AB%A0%20%E9%9D%A2%E8%AF%95%E8%AF%B4%E6%98%8E/" class="md-nav__link">
+        第1章 面试说明
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC2%E7%AB%A0%20%E6%89%8B%E5%86%99%E4%BB%A3%E7%A0%81/" class="md-nav__link">
+        第2章 手写代码
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC3%E7%AB%A0%20JavaSE/" class="md-nav__link">
+        第3章 JavaSE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC4%E7%AB%A0%20JVM/" class="md-nav__link">
+        第4章 JVM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC5%E7%AB%A0%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="md-nav__link">
+        第5章 设计模式
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC6%E7%AB%A0%20MySql/" class="md-nav__link">
+        第6章 MySql
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC7%E7%AB%A0%20Java%20Web/" class="md-nav__link">
+        第7章 Java Web
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC8%E7%AB%A0%20SSM%E6%A1%86%E6%9E%B6/" class="md-nav__link">
+        第8章 SSM框架
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC9%E7%AB%A0%20SpringBoot/" class="md-nav__link">
+        第9章 SpringBoot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC10%E7%AB%A0%20SpringCloud/" class="md-nav__link">
+        第10章 SpringCloud
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC11%E7%AB%A0%20Redis/" class="md-nav__link">
+        第11章 Redis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC12%E7%AB%A0%20MQ/" class="md-nav__link">
+        第12章 MQ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC13%E7%AB%A0%20ElasticSearch/" class="md-nav__link">
+        第13章 ElasticSearch
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC14%E7%AB%A0%20Dubbo/" class="md-nav__link">
+        第14章 Dubbo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC15%E7%AB%A0%20Zookeeper/" class="md-nav__link">
+        第15章 Zookeeper
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC16%E7%AB%A0%20Git/" class="md-nav__link">
+        第16章 Git
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../java%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%AC%AC17%E7%AB%A0%20Linux/" class="md-nav__link">
+        第17章 Linux
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        学习文档
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-mysql" class="md-nav__link">
+    第1章 MySQL的架构介绍
+  </a>
+  
+    <nav class="md-nav" aria-label="第1章 MySQL的架构介绍">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-mysql" class="md-nav__link">
+    1.1 mysql的安装(提前上传文件)
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 mysql的安装(提前上传文件)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111" class="md-nav__link">
+    1.1.1 安装前的准备工作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112" class="md-nav__link">
+    1.1.2 正式安装
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113-mysql" class="md-nav__link">
+    1.1.3 查看MySQL版本号
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#114-mysql" class="md-nav__link">
+    1.1.4 mysql服务的初始化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#115-mysql" class="md-nav__link">
+    1.1.5 MySQL服务启动
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#116" class="md-nav__link">
+    1.1.6首次登录
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#117" class="md-nav__link">
+    1.1.7 退出登录验证
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#118-mysql" class="md-nav__link">
+    1.1.8 mysql是否自启动
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#119" class="md-nav__link">
+    1.1.9 修改字符集问题
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-mysql" class="md-nav__link">
+    1.2 Mysql的用户与权限管理
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 Mysql的用户与权限管理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121" class="md-nav__link">
+    1.2.1 测试
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122-user" class="md-nav__link">
+    1.2.2 了解USER表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#123" class="md-nav__link">
+    1.2.3 权限问题
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#124" class="md-nav__link">
+    1.2.4 授予权限
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-mysqlsql_mode" class="md-nav__link">
+    1.3 MySQL的sql_mode合理设置
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3 MySQL的sql_mode合理设置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#131" class="md-nav__link">
+    1.3.1 例子
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#132" class="md-nav__link">
+    1.3.2 例子解释
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#133-sql_mode" class="md-nav__link">
+    1.3.3 sql_mode的概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#134-sql_mode" class="md-nav__link">
+    1.3.4 sql_mode常用值如下
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-mysql" class="md-nav__link">
+    1.4 Mysql逻辑架构
+  </a>
+  
+    <nav class="md-nav" aria-label="1.4 Mysql逻辑架构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#141" class="md-nav__link">
+    1.4.1 相关概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#142" class="md-nav__link">
+    1.4.2 连接层
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#143" class="md-nav__link">
+    1.4.3  服务层
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#144" class="md-nav__link">
+    1.4.4 引擎层
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#145" class="md-nav__link">
+    1.4.5 存储层
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-show-profile-sql" class="md-nav__link">
+    1.5 利用show profile 看SQL执行过程(性能分析工具)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-sql" class="md-nav__link">
+    1.6 SQL执行顺序
+  </a>
+  
+    <nav class="md-nav" aria-label="1.6 SQL执行顺序">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#161-sql" class="md-nav__link">
+    1.6.1 手写SQL内容
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#162" class="md-nav__link">
+    1.6.2 机读内容
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17" class="md-nav__link">
+    1.7 存储引擎
+  </a>
+  
+    <nav class="md-nav" aria-label="1.7 存储引擎">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#171-myisaminnodb" class="md-nav__link">
+    1.7.1 MyISAM和InnoDB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#172" class="md-nav__link">
+    1.7.2 各个引擎介绍
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#173" class="md-nav__link">
+    1.7.3 常用命令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#174" class="md-nav__link">
+    1.7.4 淘宝阿里巴巴用哪个
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    第2章 索引优化分析
+  </a>
+  
+    <nav class="md-nav" aria-label="第2章 索引优化分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-sql" class="md-nav__link">
+    2.1 SQL出现以下问题
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2 连接类型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-sql" class="md-nav__link">
+    2.3 SQL预热建表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-sql7join" class="md-nav__link">
+    2.4 SQL预热7种join
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    2.5 额外需求
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26" class="md-nav__link">
+    2.6 额外需求答案
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27-sql" class="md-nav__link">
+    2.7 作业八个SQL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    第3章 索引
+  </a>
+  
+    <nav class="md-nav" aria-label="第3章 索引">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1 索引的概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2 二叉树结构
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    3.3 索引优势劣势
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 索引优势劣势">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#311" class="md-nav__link">
+    3.1.1 优势
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#312" class="md-nav__link">
+    3.1.2 劣势
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    3.4 平衡二叉树
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-b-tree" class="md-nav__link">
+    3.5 平衡多路查找树(B-Tree)面试
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-btree" class="md-nav__link">
+    3.6 B+Tree
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#37" class="md-nav__link">
+    3.7 时间复杂度
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#38" class="md-nav__link">
+    3.8 聚簇索引与非聚簇索引
+  </a>
+  
+    <nav class="md-nav" aria-label="3.8 聚簇索引与非聚簇索引">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#381" class="md-nav__link">
+    3.8.1 聚簇索引
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#382" class="md-nav__link">
+    3.8.2 非聚簇索引
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#39" class="md-nav__link">
+    3.9 索引分类
+  </a>
+  
+    <nav class="md-nav" aria-label="3.9 索引分类">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#391" class="md-nav__link">
+    3.9.1 基本语法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#392" class="md-nav__link">
+    3.9.2 单值索引
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#393" class="md-nav__link">
+    3.9.3 唯一索引
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#394" class="md-nav__link">
+    3.9.4 主键索引
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#395" class="md-nav__link">
+    3.9.5 复合索引
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#396" class="md-nav__link">
+    3.9.6 哪些情况需要创建索引
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#397" class="md-nav__link">
+    3.9.7 哪些情况不要创建索引
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#310" class="md-nav__link">
+    3.10 执行计划
+  </a>
+  
+    <nav class="md-nav" aria-label="3.10 执行计划">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3101" class="md-nav__link">
+    3.10.1 概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3102" class="md-nav__link">
+    3.10.2 能做啥
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3103" class="md-nav__link">
+    3.10.3 怎么用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3104" class="md-nav__link">
+    3.10.4 各字段解释
+  </a>
+  
+    <nav class="md-nav" aria-label="3.10.4 各字段解释">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31041-id" class="md-nav__link">
+    3.10.4.1 Id(重要)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#31042-select_type" class="md-nav__link">
+    3.10.4.2 select_type
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#31043-table" class="md-nav__link">
+    3.10.4.3 Table
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#31044-partitions" class="md-nav__link">
+    3.10.4.4 partitions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#31045-type" class="md-nav__link">
+    3.10.4.5 Type(重要)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#31046-possible_keys" class="md-nav__link">
+    3.10.4.6 possible_keys
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#31047-key" class="md-nav__link">
+    3.10.4.7 Key
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#31048-key_len" class="md-nav__link">
+    3.10.4.8 key_len(重要)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#31049-ref" class="md-nav__link">
+    3.10.4.9 Ref(了解)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#310410-rows" class="md-nav__link">
+    3.10.4.10 Rows(重要)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#310411-filtered" class="md-nav__link">
+    3.10.4.11 Filtered(了解)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#310412-extra" class="md-nav__link">
+    3.10.4.12 Extra(重要)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    第4章 批量添加数据
+  </a>
+  
+    <nav class="md-nav" aria-label="第4章 批量添加数据">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    4.1 建表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    4.2 设置参数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    4.3 创建函数和存储过程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44" class="md-nav__link">
+    4.4 删除索引
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    第5章 单表索引优化
+  </a>
+  
+    <nav class="md-nav" aria-label="第5章 单表索引优化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    5.1 全值匹配我最爱
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" class="md-nav__link">
+    5.3 范围查询
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54" class="md-nav__link">
+    5.4 索引失效的情况
+  </a>
+  
+    <nav class="md-nav" aria-label="5.4 索引失效的情况">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#541" class="md-nav__link">
+    5.4.1 索引列不要做任何操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#542" class="md-nav__link">
+    5.4.2 使用了不等于
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#543-is-not-null" class="md-nav__link">
+    5.4.3 使用了IS NOT NULL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#544-like" class="md-nav__link">
+    5.4.4 like通配符以%开头
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#545" class="md-nav__link">
+    5.4.5 类型转换
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55" class="md-nav__link">
+    5.5 总结习题
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#56" class="md-nav__link">
+    5.6 一般性建议
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    第6章 关联查询优化
+  </a>
+  
+    <nav class="md-nav" aria-label="第6章 关联查询优化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    6.1 建表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    6.2 案例分析一
+  </a>
+  
+    <nav class="md-nav" aria-label="6.2 案例分析一">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#621" class="md-nav__link">
+    6.2.1 第一次操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#622-inner-join" class="md-nav__link">
+    6.2.2 第二次操作:换成inner join
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63" class="md-nav__link">
+    6.3 案例分析二
+  </a>
+  
+    <nav class="md-nav" aria-label="6.3 案例分析二">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#631-sql" class="md-nav__link">
+    6.3.1 四个SQL分析语句
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#632" class="md-nav__link">
+    6.3.2 执行效果
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#633" class="md-nav__link">
+    6.3.3 总结
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    第7章  子查询优化
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    第8章 排序分组优化
+  </a>
+  
+    <nav class="md-nav" aria-label="第8章 排序分组优化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81" class="md-nav__link">
+    8.1 排序优化
+  </a>
+  
+    <nav class="md-nav" aria-label="8.1 排序优化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#811" class="md-nav__link">
+    8.1.1 无过滤不索引
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#812" class="md-nav__link">
+    8.1.2 顺序错，必排序
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#813" class="md-nav__link">
+    8.1.3 方向反必排序
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82" class="md-nav__link">
+    8.2 索引的选择
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83" class="md-nav__link">
+    8.3 排序和单路排序
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-group-by" class="md-nav__link">
+    8.4 GROUP BY关键字优化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#85" class="md-nav__link">
+    8.5 覆盖索引
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-8sql" class="md-nav__link">
+    第9章  8个SQL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    第10章  慢查询日志
+  </a>
+  
+    <nav class="md-nav" aria-label="第10章  慢查询日志">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101" class="md-nav__link">
+    10.1 概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102" class="md-nav__link">
+    10.2 使用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#103" class="md-nav__link">
+    10.3 慢查询时间
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#104" class="md-nav__link">
+    10.4 慢查询实战
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#105" class="md-nav__link">
+    10.5  慢查询日志分析工具
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#106-show-processlist" class="md-nav__link">
+    10.6 SHOW PROCESSLIST
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    第11章  视图
+  </a>
+  
+    <nav class="md-nav" aria-label="第11章  视图">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111_1" class="md-nav__link">
+    11.1 语法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-55" class="md-nav__link">
+    11.2 注意事项(适用5.5)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+<h1 id="mysql">MySQL高级<a class="headerlink" href="#mysql" title="Permanent link">&para;</a></h1>
+<h2 id="1-mysql">第1章 MySQL的架构介绍<a class="headerlink" href="#1-mysql" title="Permanent link">&para;</a></h2>
+<h3 id="11-mysql">1.1 mysql的安装(提前上传文件)<a class="headerlink" href="#11-mysql" title="Permanent link">&para;</a></h3>
+<h4 id="111">1.1.1 安装前的准备工作<a class="headerlink" href="#111" title="Permanent link">&para;</a></h4>
+<ol>
+<li>执行安装命令前，检查CentOS7会看到 默认安装MariaDB而不是MySQL</li>
+</ol>
+<p>CentOS6</p>
+<div class="highlight"><pre><span></span><code>rpm -qa|grep mysql
+</code></pre></div>
+<p>如果存在mysql-libs的旧版本包如下：</p>
+<p>请先执行卸载命令</p>
+<div class="highlight"><pre><span></span><code>rpm -e --nodeps  mysql-libs
+</code></pre></div>
+<p>CentOS7</p>
+<div class="highlight"><pre><span></span><code>rpm -qa|grep mariadb
+</code></pre></div>
+<p>如果存在如下：</p>
+<p>请先执行卸载命令：</p>
+<div class="highlight"><pre><span></span><code>rpm -e --nodeps mariadb-libs-5.5.52-1.el7.x86_64
+</code></pre></div>
+<ol>
+<li>检查以下两项依赖</li>
+</ol>
+<div class="highlight"><pre><span></span><code>rpm -qa|grep libaio
+
+yum install libaio -y
+
+rpm -qa|grep net-tools
+</code></pre></div>
+<ol>
+<li>检查tmp目录权限</li>
+</ol>
+<p>由于mysql安装过程中，会通过mysql用户在/tmp目录下</p>
+<p>新建tmp_db文件，所以请给/tmp较大的权限</p>
+<p>执行 ：</p>
+<div class="highlight"><pre><span></span><code>chmod -R 777 /tmp
+
+ll /
+</code></pre></div>
+<p><img alt="1607936563812" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1607936563812.png" /></p>
+<h4 id="112">1.1.2 正式安装<a class="headerlink" href="#112" title="Permanent link">&para;</a></h4>
+<p>上传以下文件分别执行安装</p>
+<p>在mysql的安装文件目录下执行：(必须按照顺序执行)</p>
+<div class="highlight"><pre><span></span><code>rpm -ivh mysql-community-common-5.7.16-1.el7.x86_64.rpm 
+
+rpm -ivh mysql-community-libs-5.7.16-1.el7.x86_64.rpm
+
+rpm -ivh mysql-community-client-5.7.16-1.el7.x86_64.rpm 
+
+rpm -ivh mysql-community-server-5.7.16-1.el7.x86_64.rpm
+</code></pre></div>
+<p><img alt="1607936599828" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1607936599828.png" /></p>
+<p>如在检查工作时，没有检查mysql依赖环境在安装mysql-community-server会报错</p>
+<h4 id="113-mysql">1.1.3 查看MySQL版本号<a class="headerlink" href="#113-mysql" title="Permanent link">&para;</a></h4>
+<p>执行mysqladmin --version命令，类似java -version打出消息，即为成功。</p>
+<h4 id="114-mysql">1.1.4 mysql服务的初始化<a class="headerlink" href="#114-mysql" title="Permanent link">&para;</a></h4>
+<p>为了保证数据库目录为与文件的所有者为 mysql 登陆用户，如果你是以     root 身份运行 mysql 服务，需要执行下面的命令初始化</p>
+<div class="highlight"><pre><span></span><code>mysqld --initialize --user=mysql
+</code></pre></div>
+<p>另外--initialize选项默认以“安全”模式来初始化，则会为 root 用    户生成一个密码并将该密码标记为过期，登陆后你需要设置一个新密码</p>
+<p>查看密码：</p>
+<div class="highlight"><pre><span></span><code>cat /var/log/mysqld.log
+</code></pre></div>
+<p><img alt="1607936619548" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1607936619548.png" /></p>
+<h4 id="115-mysql">1.1.5 MySQL服务启动<a class="headerlink" href="#115-mysql" title="Permanent link">&para;</a></h4>
+<p>启动：</p>
+<div class="highlight"><pre><span></span><code>systemctl start mysqld 
+</code></pre></div>
+<p>状态: </p>
+<div class="highlight"><pre><span></span><code>systemctl status mysqld
+</code></pre></div>
+<p>关闭：</p>
+<div class="highlight"><pre><span></span><code>systemctl stop mysqld
+</code></pre></div>
+<h4 id="116">1.1.6首次登录<a class="headerlink" href="#116" title="Permanent link">&para;</a></h4>
+<p>首次登陆通过需要录入初始化密码</p>
+<p>因为初始化密码默认是过期的，所以查看数据库会报错</p>
+<p>首先执行 mysql -uroot -p 进行登录，在Enter password：</p>
+<p>修改密码：</p>
+<div class="highlight"><pre><span></span><code>ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;123&#39;; 
+</code></pre></div>
+<p>设置完密码就可以用新密码登陆，正常使用数据库了</p>
+<h4 id="117">1.1.7 退出登录验证<a class="headerlink" href="#117" title="Permanent link">&para;</a></h4>
+<p>在mysql窗口输入quit，然后重新执行</p>
+<div class="highlight"><pre><span></span><code>mysql -uroot -p 
+</code></pre></div>
+<p>输入新密码</p>
+<div class="highlight"><pre><span></span><code>show databases;
+
+create database mydb;
+
+use mydb
+
+create table mytbl(id int,name varchar(20));
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>路径</th>
+<th>解释</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--basedir</td>
+<td>/usr/bin</td>
+<td>相关命令目录</td>
+<td>mysqladmin mysqldump等命令</td>
+</tr>
+<tr>
+<td>--datadir</td>
+<td>/var/lib/mysql/</td>
+<td>mysql数据库文件的存放路径</td>
+<td></td>
+</tr>
+<tr>
+<td>--plugin-dir</td>
+<td>/usr/lib64/mysql/plugin</td>
+<td>mysql插件存放路径</td>
+<td></td>
+</tr>
+<tr>
+<td>--log-error</td>
+<td>/var/lib/mysql/jack.atguigu.err</td>
+<td>mysql错误日志路径</td>
+<td></td>
+</tr>
+<tr>
+<td>--pid-file/</td>
+<td>var/run/mysqld/mysqld.pid</td>
+<td>进程pid文件</td>
+<td></td>
+</tr>
+<tr>
+<td>--socket</td>
+<td>/var/lib/mysql/mysql.sock</td>
+<td>本地连接时用的unix套接字文件</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>/usr/share/mysql</td>
+<td>配置文件目录</td>
+<td>mysql脚本及配置文件</td>
+</tr>
+<tr>
+<td></td>
+<td>/etc/systemd/system/multi-user.target.wants/mysqld.service</td>
+<td>服务启停相关脚本</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="118-mysql">1.1.8 mysql是否自启动<a class="headerlink" href="#118-mysql" title="Permanent link">&para;</a></h4>
+<p>查看mysql是否自启动(默认自启动)</p>
+<div class="highlight"><pre><span></span><code>systemctl list-unit-files|grep mysqld.service 
+</code></pre></div>
+<p>如不是enabled可以运行如下命令设置自启动</p>
+<div class="highlight"><pre><span></span><code>systemctl enable mysqld
+</code></pre></div>
+<h4 id="119">1.1.9 修改字符集问题<a class="headerlink" href="#119" title="Permanent link">&para;</a></h4>
+<p><img alt="1607936668509" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1607936668509.png" /></p>
+<div class="highlight"><pre><span></span><code>insert into mytbl values(1,&#39;张三&#39;);
+</code></pre></div>
+<p>1.修改配置文件(步骤一)</p>
+<div class="highlight"><pre><span></span><code>vim /etc/my.cnf
+</code></pre></div>
+<p>在最后加上中文字符集配置</p>
+<div class="highlight"><pre><span></span><code>character_set_server=utf8
+</code></pre></div>
+<p>2.重新启动mysql</p>
+<div class="highlight"><pre><span></span><code>systemctl restart mysqld 
+
+systemctl status mysqld 
+</code></pre></div>
+<p>3.再次执行insert语句的时候依然报错</p>
+<p>4.show create database mydb; </p>
+<p><img alt="1607936686304" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1607936686304.png" /></p>
+<p>5.已生成的库表字符集如何变更(步骤二)</p>
+<div class="codehilite"><pre><span></span><code>修改数据库的字符集
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>alter database mydb character set &#39;utf8&#39;;
+</code></pre></div>
+<p>修改数据表的字符集</p>
+<div class="highlight"><pre><span></span><code>alter table mytbl convert to character set &#39;utf8&#39;;
+</code></pre></div>
+<p>6.如果数据库已经存储乱码数据(步骤三)</p>
+<p>更新数据或者删除数据</p>
+<h3 id="12-mysql">1.2 Mysql的用户与权限管理<a class="headerlink" href="#12-mysql" title="Permanent link">&para;</a></h3>
+<h4 id="121">1.2.1 测试<a class="headerlink" href="#121" title="Permanent link">&para;</a></h4>
+<p>root用户远程连接的时候连接不上</p>
+<p><img alt="1607936708963" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1607936708963.png" /></p>
+<p><img alt="1607936717755" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1607936717755.png" /></p>
+<div class="highlight"><pre><span></span><code>use mysql
+
+select * from user;
+
+select * from user\G;格式化
+</code></pre></div>
+<p><img alt="1607936732761" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1607936732761.png" /></p>
+<h4 id="122-user">1.2.2 了解USER表<a class="headerlink" href="#122-user" title="Permanent link">&para;</a></h4>
+<p>查看用户</p>
+<div class="highlight"><pre><span></span><code>select host,user,authentication_string,select_priv,
+
+insert_priv,drop_priv from mysql.user;
+</code></pre></div>
+<p>Host: 表示连接类型</p>
+<p>​        % 表示所有远程通过 TCP方式的连接</p>
+<p>​        IP 地址 如(192.168.1.2,127.0.0.1)通过制定ip地址进行的TCP方式的连接</p>
+<p>​       机器名通过制定i网络中的机器名进行的TCP方式的连接</p>
+<p>​        ::1 IPv6的本地ip地址  等同于IPv4的 127.0.0.1</p>
+<p>​        localhost本地方式通过命令行方式的连接,比如mysql -u xxx -p 123xx方式</p>
+<p>User:表示用户名</p>
+<p>​       同一用户通过不同方式链接的权限是不一样的。</p>
+<p>password:密码</p>
+<p>​       所有密码串通过password(明文字符串)生成的密文字符串加密算法为</p>
+<p>MYSQLSHA1,不可逆。</p>
+<p>​       mysql 5.7的密码保存到 authentication_string字段中不再使用password字段. select_priv , insert_priv等为该用户所拥有的权限。</p>
+<h4 id="123">1.2.3 权限问题<a class="headerlink" href="#123" title="Permanent link">&para;</a></h4>
+<p>只看其中几项数据</p>
+<div class="highlight"><pre><span></span><code>select Host,user,authentication_string from user;
+</code></pre></div>
+<p>创建用户</p>
+<div class="highlight"><pre><span></span><code>create user zhang3 identified by &#39;123&#39;;
+</code></pre></div>
+<p>表示创建名称为zhang3的用户,密码设为123；</p>
+<div class="highlight"><pre><span></span><code>select Host,user,authentication_string from user;
+</code></pre></div>
+<p>使用Zhang3用户连接 看到只能看到一个数据库---&gt;权限</p>
+<p><img alt="1607936750536" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1607936750536.png" /></p>
+<h4 id="124">1.2.4 授予权限<a class="headerlink" href="#124" title="Permanent link">&para;</a></h4>
+<p>授权命令： </p>
+<p>grant 权限1,权限2,…权限n on 数据库名称.表名称 to 用户名@用户地址 identified by ‘连接口令’;</p>
+<p>该权限如果发现没有该用户，则会直接新建一个用户。</p>
+<p>比如  </p>
+<div class="highlight"><pre><span></span><code>grant select,insert,delete,drop on atguigudb.* to li4@localhost;
+</code></pre></div>
+<p>#给li4用户用本地命令行方式下，授予atguigudb这个库下的所有表的插删改查的权限。</p>
+<div class="highlight"><pre><span></span><code>grant all privileges on *.* to root@&#39;%&#39; identified by &#39;123&#39;;
+</code></pre></div>
+<p>#授予通过网络方式登录的的root用户 ，对所有库所有表的全部权限，密码设为</p>
+<p>123最后需要刷新权限才能生效</p>
+<div class="highlight"><pre><span></span><code>flush privileges; 
+</code></pre></div>
+<h3 id="13-mysqlsql_mode">1.3 MySQL的sql_mode合理设置<a class="headerlink" href="#13-mysqlsql_mode" title="Permanent link">&para;</a></h3>
+<h4 id="131">1.3.1 例子<a class="headerlink" href="#131" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>CREATE TABLE mytbl2 (id INT,NAME VARCHAR(200),age INT,dept INT);
+
+INSERT INTO mytbl2 VALUES(1,&#39;zhang3&#39;,33,101);
+
+INSERT INTO mytbl2 VALUES(2,&#39;li4&#39;,34,101);
+
+INSERT INTO mytbl2 VALUES(3,&#39;wang5&#39;,34,102);
+
+INSERT INTO mytbl2 VALUES(4,&#39;zhao6&#39;,34,102);
+
+INSERT INTO mytbl2 VALUES(5,&#39;tian7&#39;,36,102);
+</code></pre></div>
+<p>每个机构年龄最大的人</p>
+<div class="highlight"><pre><span></span><code>SELECT NAME,dept,MAX(age) FROM mytbl2 GROUP BY dept;
+</code></pre></div>
+<p><img alt="1607940069529" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1607940069529.png" /></p>
+<h4 id="132">1.3.2 例子解释<a class="headerlink" href="#132" title="Permanent link">&para;</a></h4>
+<p>上面语句是错的(mysql5.5不会报错 但是数据是不对的)</p>
+<div class="codehilite"><pre><span></span><code>group by使用原则：select 后面只能放 函数 和group by后的字段
+</code></pre></div>
+
+<p>正确写法: 每个机构最大年龄的人</p>
+<div class="highlight"><pre><span></span><code>SELECT * FROM mytbl2 m INNER JOIN(
+
+SELECT dept,MAX(age)maxage FROM mytbl2 GROUP BY dept
+
+)ab ON ab.dept=m.dept AND m.age=ab.maxage
+</code></pre></div>
+<h4 id="133-sql_mode">1.3.3 sql_mode的概念<a class="headerlink" href="#133-sql_mode" title="Permanent link">&para;</a></h4>
+<p>sql_mode是个很容易被忽视的变量，默认值是空值，在这种设置下是可以允许一些非法操作的，比如允许一些非法数据的插入。在生产环境必须将这个值设置为严格模式，所以开发、测试环境的数据库也必须要设置，这样在开发测试阶段就可以发现问题。</p>
+<div class="highlight"><pre><span></span><code>show variables like &#39;sql_mode&#39;; 
+</code></pre></div>
+<p>(mysql5.5没有这些校验数据为空)</p>
+<p>建议:大家以后在公司的时候 把公司的sql_mode从测试环境原封不动到拷贝到开发数据库</p>
+<p>好处就在于以后开发的所有语法检查就和公司一样的</p>
+<p>开发时候没有测出bug，到测试环境也不会测出BUG</p>
+<h4 id="134-sql_mode">1.3.4 sql_mode常用值如下<a class="headerlink" href="#134-sql_mode" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>set sql_mode=&#39;ONLY_FULL_GROUP_BY&#39;;
+</code></pre></div>
+<p><strong>ONLY_FULL_GROUP_BY：</strong></p>
+<p>对于GROUP BY聚合操作，如果在SELECT中的列，没有在GROUP BY中出现，那么这个SQL是不合法的，因为列不在GROUP BY从句中</p>
+<p><strong>NO_AUTO_VALUE_ON_ZERO：</strong></p>
+<p>该值影响自增长列的插入。默认设置下，插入0或NULL代表生成下一个自增长值。如果用户 希望插入的值为0，而该列不是自增长的，那么这个选项就有用了。</p>
+<p><strong>STRICT_TRANS_TABLES：</strong></p>
+<p>在该模式下，如果一个值不能插入到一个事务表中，则中断当前的操作，对非事务表不做限制</p>
+<p><strong>NO_ZERO_IN_DATE：</strong></p>
+<p>在严格模式下，不允许日期和月份为零</p>
+<p><strong>NO_ZERO_DATE：</strong></p>
+<p>设置该值，mysql数据库不允许插入零日期，插入零日期会抛出错误而不是警告。</p>
+<p><strong>ERROR_FOR_DIVISION_BY_ZERO：</strong></p>
+<p>在INSERT或UPDATE过程中，如果数据被零除，则产生错误而非警告。如 果未给出该模式，那么数据被零除时MySQL返回NULL</p>
+<p><strong>NO_AUTO_CREATE_USER：</strong></p>
+<p>禁止GRANT创建密码为空的用户</p>
+<p><strong>NO_ENGINE_SUBSTITUTION：</strong></p>
+<p>如果需要的存储引擎被禁用或未编译，那么抛出错误。不设置此值时，用默认的存储引擎替代，并抛出一个异常</p>
+<p><strong>PIPES_AS_CONCAT：</strong></p>
+<p>将"||"视为字符串的连接操作符而非或运算符，这和Oracle数据库是一样的，也和字符串的拼接函数Concat相类似 </p>
+<p><strong>ANSI_QUOTES：</strong></p>
+<p>启用ANSI_QUOTES后，不能用双引号来引用字符串，因为它被解释为识别符</p>
+<p><strong>ORACLE：</strong></p>
+<p>设置等同：PIPES_AS_CONCAT, ANSI_QUOTES, IGNORE_SPACE, NO_KEY_OPTIONS, NO_TABLE_OPTIONS, NO_FIELD_OPTIONS, NO_AUTO_CREATE_USER.</p>
+<p>ORACLE遵从的语法MySQL也同样遵循 这样我们MySQL的语法就很标准</p>
+<p>无论你是什么数据库，我们写的SQL语法都很通用</p>
+<h3 id="14-mysql">1.4 Mysql逻辑架构<a class="headerlink" href="#14-mysql" title="Permanent link">&para;</a></h3>
+<p><a href="https://blog.csdn.net/z_ryan/article/details/82260663">https://blog.csdn.net/z_ryan/article/details/82260663</a></p>
+<p><img alt="1607940112540" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1607940112540.png" /></p>
+<h4 id="141">1.4.1 相关概念<a class="headerlink" href="#141" title="Permanent link">&para;</a></h4>
+<p>​   和其它数据库相比，MySQL有点与众不同，它的架构可以在多种不同场景中应用并发挥良好作用。主要体现在存储引擎的架构上，插件式的存储引擎架构将查询处理和其它的系统任务以及数据的存储提取相分离。这种架构可以根据业务的需求和实际需要选择合适的存储引擎。</p>
+<h4 id="142">1.4.2 连接层<a class="headerlink" href="#142" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code>最上层是一些客户端和连接服务，包含本地sock通信和大多数基于客户端/服务端工具    实现的类似于tcp/ip的通信。主要完成一些类似于连接处理、授权认证、及相关的安全   方案。在该层上引入了线程池的概念，为通过认证安全接入的客户端提供线程。同样在  该层上可以实现基于SSL的安全链接。服务器也会为安全接入的每个客户端验证它所具有的操作权限。
+</code></pre></div>
+
+<h4 id="143">1.4.3  服务层<a class="headerlink" href="#143" title="Permanent link">&para;</a></h4>
+<p><strong>Management Serveices &amp; Utilities</strong>： 系统管理和控制工具  </p>
+<p><strong>SQL Interface</strong>:SQL接口</p>
+<p>​      接受用户的SQL命令，并且返回用户需要查询的结果。比如select from</p>
+<p>就是调用SQL Interface</p>
+<p><strong>Parser</strong>:解析器</p>
+<p>​       SQL命令传递到解析器的时候会被解析器验证和解析。 </p>
+<p><strong>Optimizer</strong>:查询优化器。</p>
+<p>​     SQL语句在查询之前会使用查询优化器对查询进行优化。 </p>
+<p>​     用一个例子就可以理解： select uid,name from user where  gender= 1;</p>
+<p>​     优化器来决定先投影还是先过滤。</p>
+<p><strong>Cache和Buffer</strong>:查询缓存。</p>
+<p>​      如果查询缓存有命中的查询结果，查询语句就可以直接去查询缓存中取数据。这个缓存机制是由一系列小缓存组成的。比如表缓存，记录缓存，</p>
+<p>key缓存，权限缓存等</p>
+<h4 id="144">1.4.4 引擎层<a class="headerlink" href="#144" title="Permanent link">&para;</a></h4>
+<p>存储引擎层，存储引擎真正的负责了MySQL中数据的存储和提取，服务器通过API与存储引擎进行通信。不同的存储引擎具有的功能不同，这样我们可以根据自己的实际需要进行选取。后面介绍MyISAM和InnoDB</p>
+<h4 id="145">1.4.5 存储层<a class="headerlink" href="#145" title="Permanent link">&para;</a></h4>
+<p>数据存储层，主要是将数据存储在运行于裸设备的文件系统之上，并完成与</p>
+<p>存储引擎的交互。</p>
+<h3 id="15-show-profile-sql">1.5 利用show profile 看SQL执行过程(性能分析工具)<a class="headerlink" href="#15-show-profile-sql" title="Permanent link">&para;</a></h3>
+<p>修改配置文件</p>
+<div class="highlight"><pre><span></span><code>vim /etc/my.cnf
+</code></pre></div>
+<p>新增一行：</p>
+<div class="highlight"><pre><span></span><code>query_cache_type=1(开启查询缓存0时表示关闭，1时表示打开)
+</code></pre></div>
+<p>重启mysql </p>
+<div class="highlight"><pre><span></span><code>systemctl restart mysqld
+</code></pre></div>
+<p>使用指定数据库</p>
+<div class="highlight"><pre><span></span><code>use mydb
+</code></pre></div>
+<p>看状态</p>
+<div class="highlight"><pre><span></span><code>show variables like &#39;%profiling%&#39;;
+</code></pre></div>
+<p>开启执行周期 (开启profiling) 在xshell执行</p>
+<div class="highlight"><pre><span></span><code>set profiling=1;
+
+show variables like &#39;%profiling%&#39;;
+</code></pre></div>
+<p>编写一条SQL查询语句</p>
+<div class="highlight"><pre><span></span><code>select * from mytbl2 where id=2; 
+</code></pre></div>
+<p>显示最近的几次查询</p>
+<div class="highlight"><pre><span></span><code>show profiles;  
+</code></pre></div>
+<p>更加详细的信息</p>
+<div class="highlight"><pre><span></span><code>show profile cpu,block io for query 2; #编号
+</code></pre></div>
+<p>再一次执行上面已经查询的语句会看到</p>
+<p><code>select * from mytbl2 where id=2;</code></p>
+<p>消耗的时间少很多 说明命中缓存</p>
+<p><img alt="1607940133419" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1607940133419.png" /></p>
+<p>查询编号为3也就是上面重复执行的语句 执行流程信息会少很多(说明确实命中缓存)</p>
+<p><img alt="1607940153223" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1607940153223.png" /></p>
+<p>执行一条新的SQL语句发现没有命中缓存(改写id&gt;2 and id&lt;4)</p>
+<p><img alt="1607940172938" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1607940172938.png" /></p>
+<p>想要命中缓存可以把缓存理解为Key Value键值对</p>
+<p>必须要key一模一样才能命中缓存</p>
+<h3 id="16-sql">1.6 SQL执行顺序<a class="headerlink" href="#16-sql" title="Permanent link">&para;</a></h3>
+<h4 id="161-sql">1.6.1 手写SQL内容<a class="headerlink" href="#161-sql" title="Permanent link">&para;</a></h4>
+<p><img alt="1607940238099" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1607940238099.png" /></p>
+<h4 id="162">1.6.2 机读内容<a class="headerlink" href="#162" title="Permanent link">&para;</a></h4>
+<p><img alt="1607940258462" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1607940258462.png" /></p>
+<h3 id="17">1.7 存储引擎<a class="headerlink" href="#17" title="Permanent link">&para;</a></h3>
+<h4 id="171-myisaminnodb">1.7.1 MyISAM和InnoDB<a class="headerlink" href="#171-myisaminnodb" title="Permanent link">&para;</a></h4>
+<p><img alt="1607940277387" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1607940277387.png" /></p>
+<p>MyISAM经常作为系统表的引擎</p>
+<h4 id="172">1.7.2 各个引擎介绍<a class="headerlink" href="#172" title="Permanent link">&para;</a></h4>
+<p>1、InnoDB存储引擎</p>
+<p>InnoDB是MySQL的默认事务型引擎，它被设计用来处理大量的短期(short-lived)事务。除非有非常特别的原因需要使用其他的存储引擎，否则应该优先考虑InnoDB引擎。</p>
+<p>2、MyISAM存储引擎</p>
+<p>MyISAM提供了大量的特性，包括全文索引、压缩、空间函数(GIS)等，但MyISAM不支持事务和行级锁，有一个毫无疑问的缺陷就是崩溃后无法安全恢复。</p>
+<p>3、Archive引擎</p>
+<p>Archive档案存储引擎只支持INSERT和SELECT操作，在MySQL5.1之前不支持索引。</p>
+<p>Archive表适合日志和数据采集类应用。</p>
+<p>根据英文的测试结论来看，Archive表比MyISAM表要小大约75%，比支持事务处理的InnoDB表小大约83%。</p>
+<p><strong>(不支撑update delete 类比个人档案)</strong></p>
+<p>4、Blackhole引擎</p>
+<p>Blackhole引擎没有实现任何存储机制，它会丢弃所有插入的数据，不做任何保存。但服务器会记录Blackhole表的日志，所以可以用于复制数据到备库，或者简单地记录到日志。但这种应用方式会碰到很多问题，因此并不推荐。 </p>
+<p><strong>(黑洞 可以往这里写操作 只会记录不会真正的保持)</strong></p>
+<p>5、CSV引擎 </p>
+<p>CSV引擎可以将普通的CSV文件作为MySQL的表来处理，但不支持索引。</p>
+<p>CSV引擎可以作为一种数据交换的机制，非常有用。</p>
+<p>CSV存储的数据直接可以在操作系统里，用文本编辑器，或者excel读取。</p>
+<p><strong>(名字是CSV后缀的文件，可以直接复制然后用Excel等工具打开，方便不懂MySQL的人</strong></p>
+<p><strong>进行操作 操作之后直接放到数据库相当于就更新数据了，不用写SQL)</strong></p>
+<p>6、Memory引擎</p>
+<p>如果需要快速地访问数据，并且这些数据不会被修改，重启以后丢失也没有关系，那么使用Memory表是非常有用。Memory表至少比MyISAM表要快一个数量级。</p>
+<p><strong>(有了redis等内存框架 这个就显得鸡肋引擎)</strong></p>
+<p>7、Federated引擎</p>
+<p>Federated引擎是访问其他MySQL服务器的一个代理，尽管该引擎看起来提供了一种很好的跨服务器的灵活性，但也经常带来问题，因此默认是禁用的。</p>
+<p><img alt="1607940300618" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1607940300618.png" /></p>
+<h4 id="173">1.7.3 常用命令<a class="headerlink" href="#173" title="Permanent link">&para;</a></h4>
+<p>mysql现在已提供什么存储引擎:</p>
+<p>mysql当前默认的存储引擎:</p>
+<div class="highlight"><pre><span></span><code>show variables like &#39;%storage_engine%&#39;;
+</code></pre></div>
+<h4 id="174">1.7.4 淘宝阿里巴巴用哪个<a class="headerlink" href="#174" title="Permanent link">&para;</a></h4>
+<p><img alt="1607940323605" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1607940323605.png" /></p>
+<h2 id="2">第2章 索引优化分析<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<h3 id="21-sql">2.1 SQL出现以下问题<a class="headerlink" href="#21-sql" title="Permanent link">&para;</a></h3>
+<p>性能下降SQL慢 执行时间长 等待时间长</p>
+<p>有可能由以下问题导致 </p>
+<p>数据过多                        分库分表</p>
+<p>关联了太多的表，太多join  SQL优化</p>
+<p>没有充分利用到索引           索引建立</p>
+<p>服务器调优及各个参数设置        调整my.cnf</p>
+<h3 id="22">2.2 连接类型<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<p><img alt="1607940359952" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1607940359952.png" /></p>
+<p><a href="https://blog.csdn.net/weixin_41963657/article/details/89644716">https://blog.csdn.net/weixin_41963657/article/details/89644716</a></p>
+<p>必须知道</p>
+<p><strong>内链接</strong> </p>
+<div class="highlight"><pre><span></span><code>select * from a inner join b on a.key=b.key
+</code></pre></div>
+<p>​   两张表的交集</p>
+<p><img alt="1607940376876" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1607940376876.png" /></p>
+<p><strong>左外连接</strong></p>
+<div class="highlight"><pre><span></span><code>select * from a left join b on a.key=b.key
+</code></pre></div>
+<p>包含左边表的全部行，和右边表中全部匹配的行</p>
+<p><img alt="1607940392008" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1607940392008.png" /></p>
+<p><strong>右外连接</strong></p>
+<div class="highlight"><pre><span></span><code>select * from a right join b on a.key=b.key
+</code></pre></div>
+<p>包含右边表的全部行，和左边表中全部匹配的行</p>
+<p><img alt="1607940405360" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1607940405360.png" /></p>
+<p><strong>左连接</strong></p>
+<p>左表独有</p>
+<div class="highlight"><pre><span></span><code>select * from a left join b on a.key=b.key where b.key is null
+</code></pre></div>
+<p>其实上图就是在左外连接的基础上进行的，左外连接得到了左表，但是左表里还包含了一部分左右表都具有相同数据的区域，这时需要将这部分相同数据去掉，去除的条件就是B.key IS NULL</p>
+<p><img alt="1607940438968" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1607940438968.png" /></p>
+<p><strong>右连接</strong></p>
+<p>右表独有</p>
+<div class="highlight"><pre><span></span><code>select * from a right join b on a.key=b.key where a.key is null
+</code></pre></div>
+<p><img alt="1607940455426" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1607940455426.png" /></p>
+<p><strong>全连接</strong></p>
+<p>查询出左右两表的所有数据 </p>
+<div class="highlight"><pre><span></span><code>select * from a full outer join b on a.key=b.key
+</code></pre></div>
+<p><img alt="1607940472339" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1607940472339.png" /></p>
+<p>(Mysql中不支持下图写法)</p>
+<p>A、B的所有也就是A的独有、B的独有 和A、B的共同拥有的数据</p>
+<div class="highlight"><pre><span></span><code>select * from a left join b on a.key=b.key(找出A的所有)
+union(去重)
+select * from a right join b on a.key=b.key(找出B的所有)
+</code></pre></div>
+<p><strong>全外连接</strong></p>
+<p>其实全外连接也就是A的独有+B的独有</p>
+<div class="highlight"><pre><span></span><code>select * from a full outer join b on a.key=b.key where a.key is null or b.key is null
+</code></pre></div>
+<p><img alt="1607940489320" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1607940489320.png" /></p>
+<div class="highlight"><pre><span></span><code>select * from Table A left join Table B on A.Key = B.Key where B.Key is null        (找出A的独有)
+
+union           (去重)
+
+select * from Table A right join Table B on A.Key = B.Key where     A.Key is null   (找出B的独有)
+</code></pre></div>
+<h3 id="23-sql">2.3 SQL预热建表<a class="headerlink" href="#23-sql" title="Permanent link">&para;</a></h3>
+<p><img alt="1607940519572" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1607940519572.png" /></p>
+<div class="highlight"><pre><span></span><code>CREATE TABLE `t_dept` (
+
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+
+  `deptName` varchar(30) DEFAULT NULL,
+
+  `address` varchar(40) DEFAULT NULL,
+
+  PRIMARY KEY (`id`)
+
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `t_emp` (
+
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+
+  `name` varchar(255) DEFAULT NULL,
+
+  `age` int(3) DEFAULT NULL,
+
+  `deptId` int(11) DEFAULT NULL,
+
+  `empno` int(11) NOT NULL,
+
+  PRIMARY KEY (`id`),
+
+  KEY `idx_dept_id` (`deptId`)
+
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+INSERT INTO t_dept(deptName,address) VALUES(&#39;华山&#39;,&#39;华山&#39;);
+
+INSERT INTO t_dept(deptName,address) VALUES(&#39;丐帮&#39;,&#39;洛阳&#39;);
+
+INSERT INTO t_dept(deptName,address) VALUES(&#39;峨眉&#39;,&#39;峨眉山&#39;);
+
+INSERT INTO t_dept(deptName,address) VALUES(&#39;武当&#39;,&#39;武当山&#39;);
+
+INSERT INTO t_dept(deptName,address) VALUES(&#39;明教&#39;,&#39;光明顶&#39;);
+
+INSERT INTO t_dept(deptName,address) VALUES(&#39;少林&#39;,&#39;少林寺&#39;);
+
+INSERT INTO t_emp(NAME,age,deptId,empno) VALUES(&#39;风清扬&#39;,90,1,100001);
+
+INSERT INTO t_emp(NAME,age,deptId,empno) VALUES(&#39;岳不群&#39;,50,1,100002);
+
+INSERT INTO t_emp(NAME,age,deptId,empno) VALUES(&#39;令狐冲&#39;,24,1,100003);
+
+INSERT INTO t_emp(NAME,age,deptId,empno) VALUES(&#39;洪七公&#39;,70,2,100004);
+
+INSERT INTO t_emp(NAME,age,deptId,empno) VALUES(&#39;乔峰&#39;,35,2,100005);
+
+INSERT INTO t_emp(NAME,age,deptId,empno) VALUES(&#39;灭绝师太&#39;,70,3,100006);
+
+INSERT INTO t_emp(NAME,age,deptId,empno) VALUES(&#39;周芷若&#39;,20,3,100007);
+
+INSERT INTO t_emp(NAME,age,deptId,empno) VALUES(&#39;张三丰&#39;,100,4,100008);
+
+INSERT INTO t_emp(NAME,age,deptId,empno) VALUES(&#39;张无忌&#39;,25,5,100009);
+
+INSERT INTO t_emp(NAME,age,deptId,empno) VALUES(&#39;韦小宝&#39;,18,null,100010);
+</code></pre></div>
+<h3 id="24-sql7join">2.4 SQL预热7种join<a class="headerlink" href="#24-sql7join" title="Permanent link">&para;</a></h3>
+<p>1.所有有门派的人员信息 <strong>(A、B两表共有)  </strong></p>
+<div class="highlight"><pre><span></span><code>select * from t_emp a inner join t_dept b on a.deptId=b.id
+</code></pre></div>
+<p>2.列出所有用户，并显示其门派信息 <strong>(A的全集)</strong></p>
+<div class="highlight"><pre><span></span><code>select * from t_emp a left join t_dept b on a.deptId = b.id
+</code></pre></div>
+<p>3.列出所有门派 <strong>(B的全集) </strong></p>
+<div class="highlight"><pre><span></span><code>select * from t_dept b 
+</code></pre></div>
+<p>4.所有不入门派的人员 <strong>(A的独有)  </strong></p>
+<div class="highlight"><pre><span></span><code>select * from t_emp a left join t_dept b on a.deptId = b.id where b.id is null; 
+</code></pre></div>
+<p>5.所有没人入的门派 <strong>(B的独有)</strong></p>
+<div class="highlight"><pre><span></span><code>select * from t_dept b left join t_emp a on a.deptId= b.id where a.deptId is null; 
+</code></pre></div>
+<p>6.列出所有人员和门派的对照关系<strong>(AB全有)</strong> </p>
+<p>MySQL Full Join的实现 因为MySQL不支持FULL JOIN,下面是替代方法  left join + union(可去除重复数据)+ right join  </p>
+<div class="highlight"><pre><span></span><code>SELECT * FROM t_emp A LEFT JOIN t_dept B ON A.deptId = B.idUNIONSELECT * FROM t_emp A RIGHT JOIN t_dept B ON A.deptId = B.id
+</code></pre></div>
+<p>7.列出所有没入派的人员和没人入的门派<strong>(A的独有+B的独有)</strong></p>
+<div class="highlight"><pre><span></span><code>SELECT * FROM t_emp A LEFT JOIN t_dept B ON A.deptId = B.id WHERE B.`id` IS NULLUNIONSELECT * FROM t_emp A RIGHT JOIN t_dept B ON A.deptId = B.id WHERE A.`deptId` IS NULL;
+</code></pre></div>
+<h3 id="25">2.5 额外需求<a class="headerlink" href="#25" title="Permanent link">&para;</a></h3>
+<p><img alt="1608011851619" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608011851619.png" /></p>
+<p>修改表结构</p>
+<div class="highlight"><pre><span></span><code>ALTER TABLE `t_dept` add  CEO  INT(11)  ;
+
+update t_dept set CEO=2 where id=1;
+
+update t_dept set CEO=4 where id=2;
+
+update t_dept set CEO=6 where id=3;
+
+update t_dept set CEO=8 where id=4;
+
+update t_dept set CEO=9 where id=5;
+</code></pre></div>
+<p><strong>求各个门派对应的掌门人名称:</strong></p>
+<div class="highlight"><pre><span></span><code>select * from t_dept b left join t_emp a on b.CEO=a.id;
+</code></pre></div>
+<p><strong>求所有当上掌门人的平均年龄:</strong></p>
+<div class="highlight"><pre><span></span><code>select avg(a.age) from t_emp a inner join t_dept b on a.id=b.CEO;
+</code></pre></div>
+<p><strong>作业: 求所有人物对应的掌门名称</strong></p>
+<h3 id="26">2.6 额外需求答案<a class="headerlink" href="#26" title="Permanent link">&para;</a></h3>
+<p><img alt="1608011952450" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608011952450.png" /></p>
+<p><strong>求所有人物对应的掌门名称:</strong></p>
+<p><strong>答案一:</strong></p>
+<p>a.根据dept字段里面的ceo把该部门ceo名称查出来</p>
+<div class="highlight"><pre><span></span><code>SELECT a.`name`,b.`id` FROM t_emp a INNER JOIN t_dept b ON b.ceo = a.id
+</code></pre></div>
+<p>b.然后再查所有人物对应的门派是什么</p>
+<div class="highlight"><pre><span></span><code>SELECT c.`name`,ab.name ceoname FROM t_emp c INNER JOIN (中间表) ab ON c.`deptId`= ab.id;
+</code></pre></div>
+<p><strong>答案二:</strong></p>
+<p>a.利用t_emp和t_dept查所有人物对应CEO的Id是什么</p>
+<div class="highlight"><pre><span></span><code>SELECT a.`name`,b.`CEO` FROMt_emp a INNER JOIN t_dept b ON a.`deptId`= b.`id`
+</code></pre></div>
+<p>b.在根据第一步的CEO查CEO名称</p>
+<div class="highlight"><pre><span></span><code>SELECT ab.name,c.`name` ceoname FROM(中间表)ab INNER JOIN t_emp c ON ab.ceo=c.`id`;
+</code></pre></div>
+<p><strong>答案三:</strong></p>
+<p>a.前两种方式我们发现其实用的就是t_dept和t_emp两张表不过t_emp</p>
+<p>用了2次，直接一次查询</p>
+<div class="highlight"><pre><span></span><code>SELECT a.`name`,c.`name` ceonameFROM t_emp a INNER JOIN t_dept b ON a.`deptId`= b.`id`INNER JOIN t_emp c ON b.`CEO`= c.`id`;
+</code></pre></div>
+<p><strong>答案四:</strong></p>
+<p>a.利用t_emp和t_dept查所有人物对应CEO的Id是什么</p>
+<div class="highlight"><pre><span></span><code>SELECT a.`name`,b.`CEO` FROMt_emp a INNER JOIN t_dept b ON a.`deptId`= b.`id`
+</code></pre></div>
+<p>b.在这一步的时候我们直接利用子查询</p>
+<div class="highlight"><pre><span></span><code>SELECT a.`name`,(SELECT c.name FROM t_emp c WHERE c.id=b.`CEO`) ceoname FROM t_emp a INNER JOIN t_dept b ON a.`deptId`= b.`id`
+</code></pre></div>
+<p><strong>完整SQL</strong></p>
+<p>1.先查出所有人物对于的ceo</p>
+<div class="highlight"><pre><span></span><code>select ab.name,c.name ceoName from (select a.name,b.CEO from t_emp a inner join t_dept b on a.deptId=b.id) abinner join t_emp c on ab.ceo=c.id
+</code></pre></div>
+<p>2.所有部门ceo的名称查出来</p>
+<div class="highlight"><pre><span></span><code>select c.name,ab.name ceoName from t_emp c inner join (select a.name,b.id from t_emp a inner join t_dept b on a.id=b.ceo) ab on c.deptId=ab.id
+</code></pre></div>
+<p>3.一次性查两次emp</p>
+<div class="highlight"><pre><span></span><code>select a.name,c.name ceoName from t_emp a inner join t_dept b on a.deptId=b.idinner join t_emp c on b.ceo=c.id select a.name,c.name ceoName from t_emp a,t_dept b,t_emp c where a.deptId=b.id and b.ceo=c.id
+</code></pre></div>
+<p>4.对第一种进行改写成子查询</p>
+<div class="highlight"><pre><span></span><code>select a.name,(select c.name from t_emp c where c.id=b.CEO) ceoName from t_emp a inner join t_dept b on a.deptId=b.id
+</code></pre></div>
+<h3 id="27-sql">2.7 作业八个SQL<a class="headerlink" href="#27-sql" title="Permanent link">&para;</a></h3>
+<p>1、列出自己的掌门比自己年龄小的人员</p>
+<p>2、列出所有年龄低于自己门派平均年龄的人员</p>
+<p>3、列出至少有2个年龄大于40岁的成员的门派</p>
+<p>4、至少有2位非掌门人成员的门派</p>
+<p>5、列出全部人员，并增加一列备注“是否为掌门”，如果是掌门人显示是，不是掌门人显示否 </p>
+<p>6、列出全部门派，并增加一列备注“老鸟or菜鸟”，若门派的平均值年龄&gt;50显示“老鸟”，否则显示“菜鸟”</p>
+<p>7、显示每个门派年龄最大的人</p>
+<p>8、显示每个门派年龄第二大的人</p>
+<p>思考题:面试真题</p>
+<p>mysql单表500W行数据</p>
+<p>100W行数据插入表里更快一些(结合SQL+Java等)</p>
+<h2 id="3">第3章 索引<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<h3 id="31">3.1 索引的概念<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<p>MySQL官方对索引的定义为：索引(Index)是帮助MySQL高效获取数据的数据结构。可以得到索引的本质索引是数据结构，你可以简单理解为“排好序的快速查找数据结构”。</p>
+<p>索引的目的在于提高查询效率，可以类比<strong>字典</strong>，如果要查“mysql”这个单词，我们肯定需要定位到m字母，然后从下往下找到y字母，再找到剩下的sql。如果没有索引，那么你可能需要a----z，如果我想找到Java开头的单词呢？或者Oracle开头的单词呢？是不是觉得如果没有索引，这个事情根本无法完成？</p>
+<h3 id="32">3.2 二叉树结构<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
+<p>找数字23的过程对比</p>
+<p><img alt="1608012226139" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608012226139.png" /></p>
+<p>数据本身之外，数据库还维护着一个满足特定查找算法的数据结构，这些数   据结构以某种方式指向数据，这样就可以在这些数据结构的基础上实现高级   查找算法，这种数据结构就是索引。</p>
+<p><strong>一般来说索引本身也很大，不可能全部存储在内存中，因此索引往往以索引文件的形式存储的磁盘上</strong></p>
+<h3 id="33">3.3 索引优势劣势<a class="headerlink" href="#33" title="Permanent link">&para;</a></h3>
+<h4 id="311">3.1.1 优势<a class="headerlink" href="#311" title="Permanent link">&para;</a></h4>
+<p>1.类似大学图书馆书目索引，<strong>提高数据检索的效率</strong>，降低数据库的IO成本</p>
+<p>2.通过索引列对数据进行排序，降低数据排序的成本，降低了CPU的消耗</p>
+<h4 id="312">3.1.2 劣势<a class="headerlink" href="#312" title="Permanent link">&para;</a></h4>
+<p>1.虽然索引大大提高了查询速度，同时却会<strong>降低更新表的速度</strong>，如对表进行 INSERT、UPDATE和DELETE。因为更新表时，MySQL不仅要保存数据，   还要保存一下索引文件每次更新添加了索引列的字段，都会调整因为更新所   2.带来的键值变化后的索引信息实际上索引也是一张表，该表保存了主键与  索引字段，并指向实体表的记录，所以索引列也是要<strong>额外占用空间</strong>的</p>
+<h3 id="34">3.4 平衡二叉树<a class="headerlink" href="#34" title="Permanent link">&para;</a></h3>
+<p>那我们数据库的索引会是这种二叉树结构吗？</p>
+<p><img alt="1608012247199" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608012247199.png" /></p>
+<p>二叉查找树可以任意地构造，同样是2,3,5,6,7,8这六个数字，也可以按照上图的方式来构造，但是这棵二叉树的查询效率就低了。因此若想二叉树的查询效率尽可能高，需要这棵二叉树是平衡的，从而引出新的定义——平衡二叉树</p>
+<p>平衡二叉树在符合二叉查找树的条件下，还满足<strong>任何节点的两个子树的高度最大差为1</strong>。下面的两张图片，左边是平衡二叉树，它的任何节点的两个子树的高度差&lt;=1；右边的不是平衡二叉树，其根节点的左子树高度为3，而右子树高度为1</p>
+<p><img alt="1608012264232" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608012264232.png" /></p>
+<p><strong>我们MySQL采用的就是类似的这种平衡树</strong></p>
+<h3 id="35-b-tree">3.5 平衡多路查找树(B-Tree)面试<a class="headerlink" href="#35-b-tree" title="Permanent link">&para;</a></h3>
+<p>B-Tree是为磁盘等外存储设备设计的一种平衡查找树，因此在讲B-Tree之前先了解下磁盘的相关知识</p>
+<p>系统从磁盘读取数据到内存时是以磁盘块(block)为基本单位的</p>
+<p>InnoDB存储引擎中默认每个页的大小为16KB</p>
+<div class="highlight"><pre><span></span><code>show variables like &#39;innodb_page_size&#39;;
+</code></pre></div>
+<p><img alt="1608012279778" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608012279778.png" /></p>
+<p>一个磁盘块包含多个节点，在这里我们就比方说一个节点占用一个磁盘快，一个节点上有两个升序排序的关键字和三个指向子树根节点的指针，指针存储的是子节点所在磁盘块的地址。两个关键词划分成的三个范围域对应三个指针指向的子树的数据的范围域。以根节点为例，关键字为17和35，P1指针指向的子树的数据范围为小于17，P2指针指向的子树的数据范围为17~35，P3指针指向的子树的数据范围为大于35。</p>
+<p>模拟查找关键字29的过程：</p>
+<ol>
+<li>
+<p>根据根节点找到磁盘块1，读入内存。【磁盘I/O操作第1次】</p>
+</li>
+<li>
+<p>比较关键字29在区间(17,35)，找到磁盘块1的指针P2。</p>
+</li>
+<li>
+<p>根据P2指针找到磁盘块3，读入内存。【磁盘I/O操作第2次】</p>
+</li>
+<li>
+<p>比较关键字29在区间(26,30)，找到磁盘块3的指针P2。</p>
+</li>
+<li>
+<p>根据P2指针找到磁盘块8，读入内存。【磁盘I/O操作第3次】</p>
+</li>
+<li>
+<p>在磁盘块8中的关键字列表中找到关键字29。</p>
+</li>
+</ol>
+<p>分析上面过程，发现需要3次磁盘I/O操作，和3次内存查找操作</p>
+<h3 id="36-btree">3.6 B+Tree<a class="headerlink" href="#36-btree" title="Permanent link">&para;</a></h3>
+<p>B+Tree是在B-Tree基础上的一种优化，从上一节中的B-Tree结构图中可以看到每个节点中不仅包含数据的key值，还有data值。而每一个页的存储空间是有限的，如果data数据较大时将会导致每个节点(即一个页)能存储的key的数量很小，当存储的数据量很大时同样会导致B-Tree的深度较大，增大查询时的磁盘I/O次数，而非叶子节点上只存储key值信息，这样可以大大加大每个节点存储的key值数量，降低B+Tree的高度</p>
+<p><img alt="1608012298903" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608012298903.png" /></p>
+<p>InnoDB存储引擎中页的大小为16KB，一般表的主键类型为INT(占用4个字节)或BIGINT(占用8个字节)，指针类型也一般为4或8个字节，也就是说一个页(B+Tree中的一个节点)中大概存储16KB/(8B+8B)=1K个键值(因为是估值，为方便计算，这里的K取值为〖10〗<sup>3)。也就是说一个深度为3的B+Tree索引可以维护10</sup>3 * 10^3 * 10^3 = 10亿 条记录</p>
+<p><strong>也就是说查找某一键值的行记录时最多只需要1~3次磁盘I/O操作</strong></p>
+<p><a href="https://blog.csdn.net/qq_21993785/article/details/80576642">https://blog.csdn.net/qq_21993785/article/details/80576642</a></p>
+<h3 id="37">3.7 时间复杂度<a class="headerlink" href="#37" title="Permanent link">&para;</a></h3>
+<p>时间复杂度:随着N数据量级的增加，在时间维度的复杂程度</p>
+<p>空间复杂度:随着N数据量级的增加，在空间维度的复杂程度</p>
+<p><img alt="1608012317361" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608012317361.png" /></p>
+<p>有序数组:二分查找</p>
+<h3 id="38">3.8 聚簇索引与非聚簇索引<a class="headerlink" href="#38" title="Permanent link">&para;</a></h3>
+<p><img alt="1608012459136" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608012459136.png" /></p>
+<h4 id="381">3.8.1 聚簇索引<a class="headerlink" href="#381" title="Permanent link">&para;</a></h4>
+<p>聚拢到一块儿，主键用的是聚簇索引，按照一定的顺序排好</p>
+<p>如果要查1-6 只需要把1-6索引取出来不用扫整个索引</p>
+<h4 id="382">3.8.2 非聚簇索引<a class="headerlink" href="#382" title="Permanent link">&para;</a></h4>
+<p>分散到四周，不是按照顺序拍的，得扫描整个索引</p>
+<p>在字典查 猫或狗 我们先查反犬旁 再分别找</p>
+<p>非主键用的是非聚簇索引</p>
+<h3 id="39">3.9 索引分类<a class="headerlink" href="#39" title="Permanent link">&para;</a></h3>
+<h4 id="391">3.9.1 基本语法<a class="headerlink" href="#391" title="Permanent link">&para;</a></h4>
+<p>查看 </p>
+<div class="highlight"><pre><span></span><code>SHOW INDEX FROM t_emp
+</code></pre></div>
+<p>创建</p>
+<div class="highlight"><pre><span></span><code>CREATE  [UNIQUE ]  INDEX [indexName] ON table_name(column)
+
+create index index_name on t_emp(name)
+</code></pre></div>
+<p>删除 </p>
+<div class="highlight"><pre><span></span><code>DROP INDEX [indexName] ON mytable; 
+</code></pre></div>
+<p>修改</p>
+<div class="highlight"><pre><span></span><code>ALTER TABLE tbl_name ADD PRIMARY KEY (column_list)
+</code></pre></div>
+<p>一般不去修改索引</p>
+<p><img alt="1608012494715" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608012494715.png" /></p>
+<h4 id="392">3.9.2 单值索引<a class="headerlink" href="#392" title="Permanent link">&para;</a></h4>
+<p>即一个索引只包含单个列，一个表可以有多个单列索引</p>
+<p>随表一起建索引：</p>
+<p><img alt="1608012507936" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608012507936.png" /></p>
+<h4 id="393">3.9.3 唯一索引<a class="headerlink" href="#393" title="Permanent link">&para;</a></h4>
+<p>索引列的值必须唯一，但允许有空值</p>
+<div class="highlight"><pre><span></span><code>create unique index index_empno on t_emp(empno)
+</code></pre></div>
+<h4 id="394">3.9.4 主键索引<a class="headerlink" href="#394" title="Permanent link">&para;</a></h4>
+<p>设定为主键后数据库会自动建立索引，innodb为聚簇索引</p>
+<h4 id="395">3.9.5 复合索引<a class="headerlink" href="#395" title="Permanent link">&para;</a></h4>
+<p>即一个索引包含多个列</p>
+<div class="highlight"><pre><span></span><code>create index index_age_deptid_name on t_emp(age,deptId,name)
+</code></pre></div>
+<h4 id="396">3.9.6 哪些情况需要创建索引<a class="headerlink" href="#396" title="Permanent link">&para;</a></h4>
+<p>主键自动建立唯一索引</p>
+<p>频繁作为查询条件的字段应该创建索引</p>
+<p>两个表之间存在外键关联，那这个外键也应该建立索引</p>
+<p>单键索引与组合索引相对比，组合索引性价比更高</p>
+<p>查询中排序的字段，排序字段若通过索引去访问将大大提高排序速度</p>
+<p>查询中统计或者分组字段</p>
+<h4 id="397">3.9.7 哪些情况不要创建索引<a class="headerlink" href="#397" title="Permanent link">&para;</a></h4>
+<p>1.表记录太少</p>
+<p>2.经常增删改的表或者字段</p>
+<p>3.Where条件里用不到的字段不创建索引</p>
+<p>4.过滤性不好的不适合建索引</p>
+<p>性别 就男 女 未知</p>
+<h3 id="310">3.10 执行计划<a class="headerlink" href="#310" title="Permanent link">&para;</a></h3>
+<h4 id="3101">3.10.1 概念<a class="headerlink" href="#3101" title="Permanent link">&para;</a></h4>
+<p>使用EXPLAIN关键字可以模拟优化器执行SQL查询语句，从而知道MySQL是如何处理你的SQL语句的。分析你的查询语句或是表结构的性能瓶颈</p>
+<p>官网介绍</p>
+<p><a href="http://dev.mysql.com/doc/refman/5.5/en/explain-output.html">http://dev.mysql.com/doc/refman/5.5/en/explain-output.html</a></p>
+<h4 id="3102">3.10.2 能做啥<a class="headerlink" href="#3102" title="Permanent link">&para;</a></h4>
+<p>表的读取顺序</p>
+<p>哪些索引可以使用</p>
+<p>数据读取操作的操作类型</p>
+<p>哪些索引被实际使用</p>
+<p>表之间的引用</p>
+<p>每张表有多少行被物理查询</p>
+<h4 id="3103">3.10.3 怎么用<a class="headerlink" href="#3103" title="Permanent link">&para;</a></h4>
+<p>Explain + SQL语句</p>
+<h4 id="3104">3.10.4 各字段解释<a class="headerlink" href="#3104" title="Permanent link">&para;</a></h4>
+<h5 id="31041-id">3.10.4.1 Id(重要)<a class="headerlink" href="#31041-id" title="Permanent link">&para;</a></h5>
+<p>select查询序列号,包含一组数字,表示查询中执行select子句或操作表的 顺序,存在三种情况。</p>
+<p><strong>id相同</strong>：执行顺序由上至下</p>
+<p><img alt="1608012560615" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608012560615.png" /></p>
+<p><strong>id不同</strong>：</p>
+<p>如果是子查询id的序号会递增,id值越大优先级越高,越先被执行</p>
+<p><img alt="1608012574004" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608012574004.png" /></p>
+<p><strong>id相同/不同，同时存在</strong></p>
+<p>id如果相同，可以认为是一组，从上往下顺序执行；</p>
+<p>在所有组中，id值越大，优先级越高，越先执行 </p>
+<p>衍生 = DERIVED</p>
+<p><img alt="1608012586327" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608012586327.png" /></p>
+<p><strong>id号每个号码，表示一趟独立的查询。一个sql 的查询趟数越少越好？</strong></p>
+<h5 id="31042-select_type">3.10.4.2 select_type<a class="headerlink" href="#31042-select_type" title="Permanent link">&para;</a></h5>
+<p>查询的类型，主要用于区别普通查询、联合查询、子查询等的复杂查询</p>
+<p><strong>SIMPLE</strong></p>
+<p>简单的 select 查询,查询中不包含子查询或者UNION</p>
+<p><img alt="1608012608245" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608012608245.png" /></p>
+<p><strong>PRIMARY</strong></p>
+<p>查询中若包含任何复杂的子部分，最外层查询则被标记为Primary</p>
+<p><img alt="1608012618882" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608012618882.png" /></p>
+<p><strong>DERIVED</strong></p>
+<p>在FROM列表中包含的子查询被标记为DERIVED(衍生)</p>
+<p>MySQL会递归执行这些子查询, 把结果放在临时表里。</p>
+<p>上面已经有了</p>
+<p><strong>SUBQUERY</strong></p>
+<p>在SELECT或WHERE列表中包含了子查</p>
+<p><img alt="1608012630101" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608012630101.png" /></p>
+<p><strong>DEPENDENT SUBQUERY</strong></p>
+<p>依赖查询，在SELECT或WHERE列表中包含了子查询,子查询基于外层，和上面最大的不同就在于上面是= 这里是in</p>
+<p><img alt="1608012641115" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608012641115.png" /></p>
+<p><strong>UNCACHEABLE SUBQUREY</strong></p>
+<p>不可用缓存子查询@@sort是系统变量 随时都可能会变化 缓存不可用</p>
+<p><img alt="1608012651283" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608012651283.png" /></p>
+<p>SHOW VARIABLES LIKE '%lower_case_table_names%';</p>
+<p>SELECT @@lower_case_table_names FROM DUAL;</p>
+<p><strong>UNION</strong></p>
+<p>若第二个SELECT出现在UNION之后，则被标记为UNION；</p>
+<p>若UNION包含在FROM子句的子查询中,外层SELECT将被标记为：DERIVED</p>
+<p><img alt="1608012677154" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608012677154.png" /></p>
+<p><strong>UNION RESULT</strong></p>
+<p>从UNION表获取结果的SELECT</p>
+<p><img alt="1608012686882" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608012686882.png" /></p>
+<h5 id="31043-table">3.10.4.3 Table<a class="headerlink" href="#31043-table" title="Permanent link">&para;</a></h5>
+<p>显示这一行的数据是关于哪张表的</p>
+<h5 id="31044-partitions">3.10.4.4 partitions<a class="headerlink" href="#31044-partitions" title="Permanent link">&para;</a></h5>
+<p>代表分区表中的命中情况，非分区表，该项为null</p>
+<h5 id="31045-type">3.10.4.5 Type(重要)<a class="headerlink" href="#31045-type" title="Permanent link">&para;</a></h5>
+<p>表示表的连接类型。</p>
+<p>以下的连接类型的顺序是从最佳类型到最差类型：</p>
+<p><strong>1、 system</strong>
+    表仅有一行，这是const类型的特列(等于系统表)，平时不会出现，这个也可以忽略不计。</p>
+<p><strong>2、 const</strong></p>
+<p>表示通过索引一次就找到了,const用于比较primary key或者unique索引。因为只匹配一行数据，所以很快如。将主键置于where列表中，MySQL就能   </p>
+<p>将该查询转换为一个常量</p>
+<p><img alt="1608012714203" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608012714203.png" /></p>
+<p><strong>3、eq_ref</strong></p>
+<p><strong>唯一性索引</strong>扫描，对于每个索引键，表中只有一条记录与之匹配。常见于主键或唯一索引扫描</p>
+<p><img alt="1608012732641" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608012732641.png" /></p>
+<p><strong>4、 Ref</strong></p>
+<p><strong>非唯一性索引</strong>扫描，返回匹配某个单独值的所有行.本质上也是一种索引访问，它返回所有匹配某个单独值的行，然而它可能会找到多个符合条件的行，所以他应该属于查找和扫描的混合体</p>
+<p><img alt="1608012745848" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608012745848.png" /></p>
+<p><img alt="1608012753997" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608012753997.png" /></p>
+<p><strong>5、 ref_or_null</strong>
+对于某个字段要么为空要么为某个值</p>
+<p><img alt="1608012764500" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608012764500.png" /></p>
+<p><strong>上面这五种情况都是很理想的索引使用情况。<strong></p>
+<p><strong>6、 index_merge</strong>
+在查询过程中需要多个索引组合使用，通常出现在有 or 的关键字的sql中。</p>
+<p><img alt="1608012784113" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608012784113.png" /></p>
+<p><strong>7、 unique_subquery</strong>
+该联接类型类似于index_subquery。 子查询中的唯一索引</p>
+<p><img alt="1608012793987" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608012793987.png" /></p>
+<p><strong>8、 index_subquery</strong>
+利用索引来关联子查询，不再全表扫描。</p>
+<p><img alt="1608012808412" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608012808412.png" /></p>
+<p><img alt="1608012811913" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608012811913.png" /></p>
+<p><img alt="1608012816145" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608012816145.png" /></p>
+<p><strong>9、 range</strong></p>
+<p><strong>只检索给定范围的行,使用一个索引来选择行</strong>。key 列显示使用了哪个索引</p>
+<p>一般就是在你的where语句中出现了between、&lt;、&gt;、in等的查询</p>
+<p>这种范围扫描索引扫描比全表扫描要好，因为它只需要开始于索引的某一点，而结束语另一点，不用扫描全部索引。</p>
+<p><img alt="1608012841070" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608012841070.png" /></p>
+<p><img alt="1608012845443" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608012845443.png" /></p>
+<p><strong>10、ndex</strong>
+出现index是<strong>sql使用了索引</strong>但是<strong>没有通过索引进行过滤</strong>，一般是使用了覆盖索引或者是利用索引进行了排序分组</p>
+<p><img alt="1608012859257" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608012859257.png" /></p>
+<p><strong>11、ALL</strong></p>
+<p>Full Table Scan，将遍历全表以找到匹配的行(性能最差)</p>
+<p><img alt="1608012870257" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608012870257.png" /></p>
+<p>备注：一般来说，得保证查询至少达到range级别，最好能达到ref。</p>
+<h5 id="31046-possible_keys">3.10.4.6 possible_keys<a class="headerlink" href="#31046-possible_keys" title="Permanent link">&para;</a></h5>
+<p>显示可能应用在这张表中的索引，一个或多个。查询涉及到的字段上若存在索引，则该索引将被列出，但不一定被查询实际使用</p>
+<h5 id="31047-key">3.10.4.7 Key<a class="headerlink" href="#31047-key" title="Permanent link">&para;</a></h5>
+<p>实际使用的索引。如果为NULL，则没有使用索引</p>
+<p>查询中若使用了覆盖索引，则该索引和查询的select字段重叠</p>
+<h5 id="31048-key_len">3.10.4.8 key_len(重要)<a class="headerlink" href="#31048-key_len" title="Permanent link">&para;</a></h5>
+<p>Where条件后面的筛选条件命中的索引长度</p>
+<p><img alt="1608012891078" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608012891078.png" /></p>
+<p><img alt="1608012895246" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608012895246.png" /></p>
+<p>如何计算</p>
+<p>A. 先看索引上字段的类型+长度比如 int=4 ;  varchar(20=20 ; char(20) =20  </p>
+<p>B. 如果是varchar或者char这种字符串字段，视字符集要乘不同的值，比 如utf-8 要乘 3,GBK要乘2，</p>
+<p>C.varchar这种动态字符串要加2个字节</p>
+<p>D.允许为空的字段要加1个字节  </p>
+<p>第一组</p>
+<p>key_len=age的字节长度+name的字节长度=4+1  + ( 20*3+2)=5+62=67</p>
+<p>第二组</p>
+<p>key_len=age的字节长度=4+1=5</p>
+<p><img alt="1608012909038" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608012909038.png" /></p>
+<h5 id="31049-ref">3.10.4.9 Ref(了解)<a class="headerlink" href="#31049-ref" title="Permanent link">&para;</a></h5>
+<p>显示索引的哪一列被使用了，如果可能的话，是一个常数。哪些列或常量被用于查找索引列上的值</p>
+<h5 id="310410-rows">3.10.4.10 Rows(重要)<a class="headerlink" href="#310410-rows" title="Permanent link">&para;</a></h5>
+<p>rows列显示MySQL认为它执行查询时必须检查的行数,越少越好</p>
+<h5 id="310411-filtered">3.10.4.11 Filtered(了解)<a class="headerlink" href="#310411-filtered" title="Permanent link">&para;</a></h5>
+<p>这个字段表示存储引擎返回的数据在server层过滤后，剩下多少满足查询的记录数量的比例，注意是百分比，不是具体记录数</p>
+<h5 id="310412-extra">3.10.4.12 Extra(重要)<a class="headerlink" href="#310412-extra" title="Permanent link">&para;</a></h5>
+<p>包含不适合在其他列中显示但十分重要的额外信息</p>
+<p><strong>Using filesort</strong></p>
+<p>说明mysql会对数据使用一个外部的索引排序，而不是按照表内的索引顺序进行读取。MySQL中无法利用索引完成的排序操作称为“文件排序”</p>
+<p><img alt="1608012930813" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608012930813.png" /></p>
+<p>优化后不在出现filesort</p>
+<p><img alt="1608012941849" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608012941849.png" /></p>
+<p><strong>Using temporary</strong> </p>
+<p>使了用临时表保存中间结果,MySQL在对查询结果排序时使用临时表。常见于排序 order by 和分组查询 group by。</p>
+<p>优化前存在 using  temporary 和 using  filesort</p>
+<p><img alt="1608012952863" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608012952863.png" /></p>
+<p>优化后</p>
+<p><img alt="1608012965731" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608012965731.png" /></p>
+<p><strong>using join buffer</strong></p>
+<p><img alt="1608012977814" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608012977814.png" /></p>
+<p>impossible where</p>
+<p>where子句的值总是false，不能用来获取任何元组</p>
+<p><img alt="1608012989321" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608012989321.png" /></p>
+<p><strong>USING index</strong></p>
+<p>表示相应的select操作中使用了覆盖索引(Covering Index)，避免访问了表的数据行，<strong>用上了索引</strong>效率不错！如果同时出现using where，表明索引被用来执行索引键值的查找;</p>
+<p>如果没有同时出现using where，表明索引只是用来读取数据而非利用索引执行查找。利用索引进行了排序或分组</p>
+<p><strong>Using where</strong></p>
+<p>表明使用了where过滤</p>
+<p><strong>select tables optimized away</strong>←</p>
+<p>在没有GROUPBY子句的情况下，基于索引优化MIN/MAX操作或者</p>
+<p>对于MyISAM存储引擎优化COUNT(*)操作，不必等到执行阶段再进行计算，</p>
+<p>查询执行计划生成的阶段即完成优化。</p>
+<p>在innodb中</p>
+<p><img alt="1608013003224" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608013003224.png" /></p>
+<p>在myisam中</p>
+<p><img alt="1608013011695" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608013011695.png" /></p>
+<h2 id="4">第4章 批量添加数据<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<h3 id="41">4.1 建表<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>CREATE TABLE `dept` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `deptName` varchar(30) DEFAULT NULL,
+  `address` varchar(40) DEFAULT NULL,
+  ceo INT NULL ,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE `emp` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) DEFAULT NULL,
+  `age` int(3) DEFAULT NULL,
+  `deptId` int(11) DEFAULT NULL,
+  `empno` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+</code></pre></div>
+<h3 id="42">4.2 设置参数<a class="headerlink" href="#42" title="Permanent link">&para;</a></h3>
+<p>设置参数log_bin_trust_function_creators</p>
+<div class="highlight"><pre><span></span><code>show variables like &#39;log_bin_trust_function_creators&#39;;
+
+set global log_bin_trust_function_creators=1;
+</code></pre></div>
+<h3 id="43">4.3 创建函数和存储过程<a class="headerlink" href="#43" title="Permanent link">&para;</a></h3>
+<p>步骤一: 随机产生字符串</p>
+<div class="highlight"><pre><span></span><code>DELIMITER $$
+create FUNCTION rand_string(n int) RETURNS VARCHAR(255)BEGINDECLARE chars_str VARCHAR(100) DEFAULT &#39;abcdefghijklmnopqrstuvwxyzABCDEFJHIJKLMNOPQRSTUVWXYZ&#39;;DECLARE return_str VARCHAR(255) DEFAULT &#39;&#39;;DECLARE i INT DEFAULT 0;WHILE i &lt; n DOSET return_str =CONCAT(return_str,SUBSTRING(chars_str,FLOOR(1+RAND()*52),1));SET i = i + 1;END WHILE;RETURN return_str;
+END $$ 
+#假如要删除
+#drop function rand_string;
+</code></pre></div>
+<p>步骤二: 随机产生员工多少到多少的编号</p>
+<div class="highlight"><pre><span></span><code>DELIMITER $$
+CREATE FUNCTION rand_num(from_num INT, to_num INT) RETURNS INT(11)
+BEGIN
+DECLARE i INT DEFAULT 0;
+SET i = FLOOR(from_num + RAND() * (to_num - from_num + 1));
+RETURN i;
+END $$
+
+#假如要删除
+#drop function rand_num;
+</code></pre></div>
+<p>步骤三: 创建存储过程，往emp表中插入数据</p>
+<div class="highlight"><pre><span></span><code>DELIMITER $$
+CREATE PROCEDURE insert_emp(START INT,max_num INT)
+BEGIN
+DECLARE i INT DEFAULT 0;
+SET autocommit = 0;
+REPEAT
+SET i = i + 1;
+INSERT INTO emp(empno,NAME ,age,deptid) VALUES ((START+i) ,rand_string(6), rand_num(30,50),rand_num(1,10000));
+UNTIL i = max_num
+END REPEAT;
+COMMIT;
+END$$
+
+#删除
+#DELIMITER ;
+#drop PROCEDURE insert_emp;
+</code></pre></div>
+<p>步骤四: 创建存储过程，往dept表添加随机数据</p>
+<div class="highlight"><pre><span></span><code>DELIMITER $$
+CREATE PROCEDURE `insert_dept`(max_num INT)
+BEGIN
+DECLARE i INT DEFAULT 0;
+SET autocommit = 0;
+REPEAT
+SET i = i + 1;
+INSERT INTO dept(deptname,address,ceo) VALUES (rand_string(8),rand_string(10),rand_num(1,500000));
+UNTIL i = max_num
+END REPEAT;
+COMMIT;
+END$$
+#删除
+# DELIMITER ;
+# drop PROCEDURE insert_dept;
+</code></pre></div>
+<p>步骤五: 调用存储过程</p>
+<div class="highlight"><pre><span></span><code>#执行存储过程，往dept表添加1万条数据
+DELIMITER ;
+CALL insert_dept(10000);
+#执行存储过程，往emp表添加50万条数据
+DELIMITER ;
+CALL insert_emp(100000,500000);
+
+验证
+select count(id) from emp
+select count(id) from dept
+</code></pre></div>
+<h3 id="44">4.4 删除索引<a class="headerlink" href="#44" title="Permanent link">&para;</a></h3>
+<p><a href="https://baijiahao.baidu.com/s?id=1623330631696670504&amp;wfr=spider&amp;for=pc"><strong>https://baijiahao.baidu.com/s?id=1623330631696670504&amp;wfr=spider&amp;for=pc</strong></a></p>
+<p>创建批量删除索引的存储过程</p>
+<div class="highlight"><pre><span></span><code>DELIMITER $$
+CREATE PROCEDURE proc_drop_index (dbname VARCHAR(200),tablename VARCHAR(200))
+BEGIN
+  DECLARE done INT DEFAULT 0;
+  DECLARE ct INT DEFAULT 0;
+  DECLARE _index VARCHAR(200) DEFAULT &#39;&#39;;
+  DECLARE _cur CURSOR FOR SELECT index_name FROM information_schema.STATISTICS WHERE table_schema=dbname AND table_name=tablename AND seq_in_index=1 AND index_name &lt;&gt;&#39;PRIMARY&#39;;
+  DECLARE CONTINUE HANDLER FOR NOT FOUND set done=2;
+   OPEN _cur;
+   FETCH _cur INTO _index;
+   WHILE _index&lt;&gt;&#39;&#39; DO
+        SET @str = CONCAT(&quot;drop index &quot;,_index,&quot; on &quot;,tablename);
+        PREPARE sql_str FROM @str;
+        EXECUTE sql_str;
+        DEALLOCATE PREPARE sql_str;
+        SET _index=&#39;&#39;;
+        FETCH _cur INTO _index;
+    END WHILE;
+  CLOSE _cur;
+END$$
+
+CALL proc_drop_index(&quot;dbname&quot;,&quot;tablename&quot;);
+
+删除案例
+CALL proc_drop_index(&quot;mydb&quot;,&quot;t_emp&quot;);
+
+SELECT index_name FROM information_schema.STATISTICS WHERE table_schema=&#39;mydb&#39; AND table_name=&#39;t_emp&#39; AND seq_in_index=1 AND index_name &lt;&gt;&#39;PRIMARY&#39;
+</code></pre></div>
+<h2 id="5">第5章 单表索引优化<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<h3 id="51">5.1 全值匹配我最爱<a class="headerlink" href="#51" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>EXPLAIN SELECT SQL_NO_CACHE * FROM emp WHERE emp.age=30
+
+EXPLAIN SELECT SQL_NO_CACHE * FROM emp WHERE emp.age=30 and deptid=4 
+
+EXPLAIN SELECT SQL_NO_CACHE * FROM emp WHERE emp.age=30 and deptid=4 AND emp.name = &#39;acew&#39;
+</code></pre></div>
+<p>有多少个条件就创建多少个条件的索引</p>
+<p>5.2 最佳左前缀法则</p>
+<p>如果索引了多列，要遵守最左前缀法则。指的是查询从索引的最左前列开始并且不跳过索引中的列。</p>
+<div class="highlight"><pre><span></span><code>EXPLAIN SELECT SQL_NO_CACHE * FROM emp WHERE emp.age=30 and emp.name=&#39;abcd&#39;;
+</code></pre></div>
+<p>虽然可以正常使用，但是只有部分被使用到了。</p>
+<div class="highlight"><pre><span></span><code>EXPLAIN SELECT SQL_NO_CACHE * FROM emp WHERE deptid=4 AND emp.name = &#39;acew&#39;
+</code></pre></div>
+<p>完全没有使用上索引。</p>
+<p>结论：过滤条件要使用索引必须按照索引建立时的顺序，依次满足，一旦跳过某个字段，索引后面的字段都无法被使用。</p>
+<h3 id="53">5.3 范围查询<a class="headerlink" href="#53" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>EXPLAIN SELECT SQL_NO_CACHE * FROM emp WHERE emp.age=30 AND emp.deptId&gt;20 AND emp.name = &#39;abc&#39; ;  
+</code></pre></div>
+<p>创建索引create index idx_age_name_deptid on emp(age,deptId,name)</p>
+<p>存储引擎不能使用索引中范围条件右边的列</p>
+<div class="highlight"><pre><span></span><code>create index idx_age_deptid_name on emp(age,name,deptId)
+</code></pre></div>
+<h3 id="54">5.4 索引失效的情况<a class="headerlink" href="#54" title="Permanent link">&para;</a></h3>
+<h4 id="541">5.4.1 索引列不要做任何操作<a class="headerlink" href="#541" title="Permanent link">&para;</a></h4>
+<p>不在索引列上做任何操作（计算、函数、(自动or手动)类型转换），会导致索引失效而转向全表扫描</p>
+<p>这两条sql哪种写法更好</p>
+<div class="highlight"><pre><span></span><code>EXPLAIN SELECT SQL_NO_CACHE * FROM emp WHERE emp.name LIKE &#39;abc%&#39; 
+
+EXPLAIN SELECT SQL_NO_CACHE * FROM emp WHERE LEFT(emp.name,3) = &#39;abc&#39;
+</code></pre></div>
+<h4 id="542">5.4.2 使用了不等于<a class="headerlink" href="#542" title="Permanent link">&para;</a></h4>
+<p>mysql 在使用不等于(!= 或者&lt;&gt;)的时候无法使用索引会导致全表扫描</p>
+<div class="highlight"><pre><span></span><code>EXPLAIN SELECT SQL_NO_CACHE * FROM emp WHERE emp.name &lt;&gt; &#39;abc&#39;
+
+CREATE INDEX idx_name ON emp(NAME)
+</code></pre></div>
+<h4 id="543-is-not-null">5.4.3 使用了IS NOT NULL<a class="headerlink" href="#543-is-not-null" title="Permanent link">&para;</a></h4>
+<p>下列哪个sql语句可以用到索引</p>
+<div class="highlight"><pre><span></span><code>EXPLAIN SELECT * FROM emp WHERE age IS NULL
+
+EXPLAIN SELECT * FROM emp WHERE age IS NOT NULL
+
+CREATE INDEX index_age ON emp(age)
+</code></pre></div>
+<h4 id="544-like">5.4.4 like通配符以%开头<a class="headerlink" href="#544-like" title="Permanent link">&para;</a></h4>
+<p>like以通配符开头('%abc...') mysql索引失效会变成全表扫描的操作</p>
+<div class="highlight"><pre><span></span><code>EXPLAIN SELECT * FROM emp WHERE name like &#39;abc%&#39;
+
+CREATE INDEX index_name ON emp(name)
+
+EXPLAIN SELECT * FROM emp WHERE name like &#39;%abc%&#39;
+</code></pre></div>
+<p>首字母都不能确定这个索引肯定用不上</p>
+<p>字符串不加单引号索引失效</p>
+<h4 id="545">5.4.5 类型转换<a class="headerlink" href="#545" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>CALL proc_drop_index(&quot;mydb&quot;,&quot;emp&quot;);
+
+EXPLAIN SELECT * FROM emp WHERE name =123
+
+CREATE INDEX index_name ON emp(name)
+</code></pre></div>
+<h3 id="55">5.5 总结习题<a class="headerlink" href="#55" title="Permanent link">&para;</a></h3>
+<p><img alt="1608013011695" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608020656735.png" /></p>
+<h3 id="56">5.6 一般性建议<a class="headerlink" href="#56" title="Permanent link">&para;</a></h3>
+<p>1.对于单键索引，尽量选择针对当前query过滤性更好的索引(身份证号，        手机号)</p>
+<p>2.在选择组合索引的时候，当前Query中过滤性最好的字段在索引字段顺序        中，位置越靠前越好。这样过滤后面数据就会更少</p>
+<p>3.在选择组合索引的时候，尽量选择可以能够包含当前query中的where字      句中更多字段的索引----全值匹配我最爱</p>
+<p>4.在选择组合索引的时候，如果某个字段可能出现范围查询时，尽量把这个      字段放在索   引次序的最后面</p>
+<p>5.书写sql语句时，尽量避免造成索引失效的情况</p>
+<h2 id="6">第6章 关联查询优化<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<h3 id="61">6.1 建表<a class="headerlink" href="#61" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>CREATE TABLE IF NOT EXISTS `class` (
+`id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+`card` INT(10) UNSIGNED NOT NULL,
+PRIMARY KEY (`id`)
+);
+CREATE TABLE IF NOT EXISTS `book` (
+`bookid` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+`card` INT(10) UNSIGNED NOT NULL,
+PRIMARY KEY (`bookid`)
+);
+
+INSERT INTO class(card) VALUES(FLOOR(1 + (RAND() * 20)));
+INSERT INTO class(card) VALUES(FLOOR(1 + (RAND() * 20)));
+INSERT INTO class(card) VALUES(FLOOR(1 + (RAND() * 20)));
+INSERT INTO class(card) VALUES(FLOOR(1 + (RAND() * 20)));
+INSERT INTO class(card) VALUES(FLOOR(1 + (RAND() * 20)));
+INSERT INTO class(card) VALUES(FLOOR(1 + (RAND() * 20)));
+INSERT INTO class(card) VALUES(FLOOR(1 + (RAND() * 20)));
+INSERT INTO class(card) VALUES(FLOOR(1 + (RAND() * 20)));
+INSERT INTO class(card) VALUES(FLOOR(1 + (RAND() * 20)));
+INSERT INTO class(card) VALUES(FLOOR(1 + (RAND() * 20)));
+INSERT INTO class(card) VALUES(FLOOR(1 + (RAND() * 20)));
+INSERT INTO class(card) VALUES(FLOOR(1 + (RAND() * 20)));
+INSERT INTO class(card) VALUES(FLOOR(1 + (RAND() * 20)));
+INSERT INTO class(card) VALUES(FLOOR(1 + (RAND() * 20)));
+INSERT INTO class(card) VALUES(FLOOR(1 + (RAND() * 20)));
+INSERT INTO class(card) VALUES(FLOOR(1 + (RAND() * 20)));
+INSERT INTO class(card) VALUES(FLOOR(1 + (RAND() * 20)));
+INSERT INTO class(card) VALUES(FLOOR(1 + (RAND() * 20)));
+INSERT INTO class(card) VALUES(FLOOR(1 + (RAND() * 20)));
+INSERT INTO class(card) VALUES(FLOOR(1 + (RAND() * 20)));
+
+INSERT INTO book(card) VALUES(FLOOR(1 + (RAND() * 20)));
+INSERT INTO book(card) VALUES(FLOOR(1 + (RAND() * 20)));
+INSERT INTO book(card) VALUES(FLOOR(1 + (RAND() * 20)));
+INSERT INTO book(card) VALUES(FLOOR(1 + (RAND() * 20)));
+INSERT INTO book(card) VALUES(FLOOR(1 + (RAND() * 20)));
+INSERT INTO book(card) VALUES(FLOOR(1 + (RAND() * 20)));
+INSERT INTO book(card) VALUES(FLOOR(1 + (RAND() * 20)));
+INSERT INTO book(card) VALUES(FLOOR(1 + (RAND() * 20)));
+INSERT INTO book(card) VALUES(FLOOR(1 + (RAND() * 20)));
+INSERT INTO book(card) VALUES(FLOOR(1 + (RAND() * 20)));
+INSERT INTO book(card) VALUES(FLOOR(1 + (RAND() * 20)));
+INSERT INTO book(card) VALUES(FLOOR(1 + (RAND() * 20)));
+INSERT INTO book(card) VALUES(FLOOR(1 + (RAND() * 20)));
+INSERT INTO book(card) VALUES(FLOOR(1 + (RAND() * 20)));
+INSERT INTO book(card) VALUES(FLOOR(1 + (RAND() * 20)));
+INSERT INTO book(card) VALUES(FLOOR(1 + (RAND() * 20)));
+INSERT INTO book(card) VALUES(FLOOR(1 + (RAND() * 20)));
+INSERT INTO book(card) VALUES(FLOOR(1 + (RAND() * 20)));
+INSERT INTO book(card) VALUES(FLOOR(1 + (RAND() * 20)));
+INSERT INTO book(card) VALUES(FLOOR(1 + (RAND() * 20)));
+commit
+</code></pre></div>
+<h3 id="62">6.2 案例分析一<a class="headerlink" href="#62" title="Permanent link">&para;</a></h3>
+<h4 id="621">6.2.1 第一次操作<a class="headerlink" href="#621" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>EXPLAIN SELECT * FROM class LEFT JOIN book ON class.card = book.card;
+
+ALTER TABLE `class` ADD INDEX X (`card`);
+
+ALTER TABLE `book` ADD INDEX Y (`card`);
+</code></pre></div>
+<p><img alt="1608012841070" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608020686429.png" /></p>
+<h4 id="622-inner-join">6.2.2 第二次操作:换成inner join<a class="headerlink" href="#622-inner-join" title="Permanent link">&para;</a></h4>
+<p>DROP INDEX Y ON book;(把被驱动表索引删除)</p>
+<p>EXPLAIN SELECT * FROM class INNER JOIN book ON class.card = book.card;</p>
+<p>发现book变成驱动表了，class变成被驱动表了</p>
+<p>所以只要是inner join MySQL可以自己选择有索引的表作为被驱动表</p>
+<h3 id="63">6.3 案例分析二<a class="headerlink" href="#63" title="Permanent link">&para;</a></h3>
+<h4 id="631-sql">6.3.1 四个SQL分析语句<a class="headerlink" href="#631-sql" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>CALL proc_drop_index(&quot;mydb&quot;,&quot;emp&quot;);
+CALL proc_drop_index(&quot;mydb&quot;,&quot;dept&quot;);
+#第1个SQL
+EXPLAIN SELECT SQL_NO_CACHE c.`name`,ab.name ceoname FROM emp c LEFT JOIN 
+(SELECT a.`name`,b.`id` FROM emp a 
+INNER JOIN dept b ON b.ceo= a.id)ab
+ON c.`deptId`= ab.id;
+#第2个SQL
+EXPLAIN SELECT SQL_NO_CACHE ab.name,c.`name` ceoname FROM
+(SELECT a.`name`,b.`CEO` FROM emp a 
+LEFT JOIN dept b ON a.`deptId`= b.`id`)ab
+LEFT JOIN emp c ON ab.ceo=c.`id`;
+#第3个SQL 
+EXPLAIN SELECT SQL_NO_CACHE a.`name`,c.`name` ceoname FROM emp a
+LEFT JOIN dept b ON a.`deptId`= b.`id`
+LEFT JOIN emp c ON b.`CEO`= c.`id`;
+#第4个SQL
+EXPLAIN SELECT SQL_NO_CACHE a.`name`,(SELECT c.name FROM emp c WHERE c.id=b.`CEO`)ceoname
+FROM emp a 
+LEFT JOIN dept b ON a.`deptId`= b.`id`;
+</code></pre></div>
+<h4 id="632">6.3.2 执行效果<a class="headerlink" href="#632" title="Permanent link">&para;</a></h4>
+<p>第1个SQL --NO.4(5.7已经做了优化在MySQL5.5才能看到效果)</p>
+<p>衍生表作为被驱动表浪费了一次被索引的机会</p>
+<p><img alt="1608012841070" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608020710990.png" /></p>
+<p>第2个SQL --NO.3(5.7已经做了优化在MySQL5.5才能看到效果)</p>
+<p><img alt="1608012841070" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608020721014.png" /></p>
+<p>第3个SQL --NO.1</p>
+<p>比NO.2少了一趟查询</p>
+<p><img alt="1608012841070" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608020734682.png" /></p>
+<p>第4个SQL --NO.2</p>
+<p><img alt="1608012841070" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608020766539.png" /></p>
+<h4 id="633">6.3.3 总结<a class="headerlink" href="#633" title="Permanent link">&para;</a></h4>
+<p>1、保证被驱动表的join字段已经被索引</p>
+<p>2、left join 时，选择小表作为驱动表，大表作为被驱动表(可以创建索引)。</p>
+<p>3、inner join 时，mysql会自己帮你把小结果集的表选为驱动表。</p>
+<p>4、子查询(临时表)尽量不要放在被驱动表，有可能使用不到索引。</p>
+<p>5、能够直接多表关联的尽量直接关联，不用子查询,没有办法使用索引。</p>
+<h2 id="7">第7章  子查询优化<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
+<p>尽量不要使用not in  或者 not exists</p>
+<p>选取一个查询：查询所有的非掌门人</p>
+<div class="highlight"><pre><span></span><code>SELECT * FROM t_emp a WHERE a.id NOT IN(
+
+SELECT b.`ceo` FROM t_dept b WHERE b.`ceo`IS NOT NULL)  
+</code></pre></div>
+<h2 id="8">第8章 排序分组优化<a class="headerlink" href="#8" title="Permanent link">&para;</a></h2>
+<h3 id="81">8.1 排序优化<a class="headerlink" href="#81" title="Permanent link">&para;</a></h3>
+<p>尽量使用Index方式排序,避免使用FileSort方式排序</p>
+<h4 id="811">8.1.1 无过滤不索引<a class="headerlink" href="#811" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>explain select SQL_NO_CACHE * from emp order by age,deptid; 
+
+explain select SQL_NO_CACHE * from emp order by age,deptid limit 10;
+
+create index idx_age_deptid on emp (age,deptid)
+</code></pre></div>
+<h4 id="812">8.1.2 顺序错，必排序<a class="headerlink" href="#812" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>create index idx_age_deptid_name on emp (age,deptid,name)
+
+explain select * from emp where age=45 order by deptid,name;
+
+explain select * from emp where age=45 order by name,deptid;
+</code></pre></div>
+<h4 id="813">8.1.3 方向反必排序<a class="headerlink" href="#813" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>explain select * from emp where age=45 order by deptid desc,name desc;
+
+explain select * from emp where age=45 order by deptid asc,name desc;
+</code></pre></div>
+<h3 id="82">8.2 索引的选择<a class="headerlink" href="#82" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>CALL proc_drop_index(&quot;mydb&quot;,&quot;emp&quot;);
+
+explain SELECT SQL_NO_CACHE * FROM emp WHERE age=30 AND empno&lt;101000 ORDER BY NAME; 
+</code></pre></div>
+<p><img alt="1608012841070" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608020793453.png" /></p>
+<h3 id="83">8.3 排序和单路排序<a class="headerlink" href="#83" title="Permanent link">&para;</a></h3>
+<p>如果不在索引列上，filesort有两种算法，mysql就要启动双路排序和单路排序</p>
+<p>怎么提升内存</p>
+<p>\1. 尝试提高 sort_buffer_size</p>
+<p>不管用哪种算法，提高这个参数都会提高效率，当然，要根据系统的能力去提高，因为这个参数是针对每个进程的1M-8M之间调整</p>
+<p>\2. 尝试提高 max_length_for_sort_data</p>
+<p>提高这个参数，会增加用改进算法的概率。但是如果设的太高，数据总容量超出sort_buffer_size的概率就增大，明显症状是高的磁盘I/O活动和低的处理器使用率.1024-8192之间调整</p>
+<h3 id="84-group-by">8.4 GROUP BY关键字优化<a class="headerlink" href="#84-group-by" title="Permanent link">&para;</a></h3>
+<p>group by 使用索引的原则几乎跟order by一致 ，唯一区别是groupby 即使没有过滤条件用到索引，也可以直接使用索引。</p>
+<h3 id="85">8.5 覆盖索引<a class="headerlink" href="#85" title="Permanent link">&para;</a></h3>
+<p>什么是覆盖索引？</p>
+<p>简单说就是select 到 from 之间查询的列 &lt;=使用的索引列+主键</p>
+<p>也就是尽量少写select * </p>
+<p><img alt="1608012841070" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608020806894.png" /></p>
+<p><img alt="1608012841070" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608020819118.png" /></p>
+<h2 id="9-8sql">第9章  8个SQL<a class="headerlink" href="#9-8sql" title="Permanent link">&para;</a></h2>
+<p>1、列出自己的掌门比自己年龄小的人员</p>
+<p>2、列出所有年龄低于自己门派平均年龄的人员</p>
+<p>3、列出至少有2个年龄大于40岁的成员的门派</p>
+<p>4、至少有2位非掌门人成员的门派</p>
+<p>5、列出全部人员，并增加一列备注“是否为掌门” 如果是掌门人显示是,</p>
+<p>不是掌门人显示否</p>
+<p>6、列出全部门派，并增加一列备注“老鸟or菜鸟”，若门派的平均值年龄&gt;50显示“老鸟”，否则显示“菜鸟”</p>
+<p>7、显示每个门派年龄最大的人</p>
+<p>8、显示每个门派年龄第二大的人</p>
+<h2 id="10">第10章  慢查询日志<a class="headerlink" href="#10" title="Permanent link">&para;</a></h2>
+<h3 id="101">10.1 概念<a class="headerlink" href="#101" title="Permanent link">&para;</a></h3>
+<p>MySQL的慢查询日志是MySQL提供的一种日志记录，它用来<srtong>记录在MySQL中响应时间超过阀值的语句</srtong>，具体指运行时间超过<srtong>long_query_time</srtong>值的SQL，则会被记录到慢查询日志中。具体指运行时间超过long_query_time值的SQL，则会被记录到慢查询日志中。long_query_time的默认值为10，意思是运行10秒以上的语句。由他来查看哪些SQL超出了我们的最大忍耐时间值，比如一条sql执行超过5秒钟，我们就算慢SQL，希望能收集超过5秒的sql，结合之前explain进行全面分析。</p>
+<h3 id="102">10.2 使用<a class="headerlink" href="#102" title="Permanent link">&para;</a></h3>
+<p>默认情况下，<srtong>MySQL数据库没有开启慢查询日志</srtong>，需要我们手动来设置这个参数。当然，如果不是调优需要的话，一般不建议启动该参数，因为开启慢查询日志会或多或少带来一定的性能影响。慢查询日志支持将日志记录写入文件</p>
+<div class="highlight"><pre><span></span><code>SHOW VARIABLES LIKE &#39;%slow_query_log%&#39;;
+</code></pre></div>
+<p>使用<srtong>set global slow_query_log=1;</srtong>开启了慢查询日志只对当前数据库生效，如果MySQL重启后则会失效。全局变量设置，对当前连接不影响对当前连接立刻生效如果要永久生效，就必须修改配置文件my.cnf（其它系统变量也是如此）</p>
+<p>修改my.cnf文件，[mysqld]下增加或修改参数 然后重启MySQL服务器</p>
+<div class="highlight"><pre><span></span><code>slow_query_log =1
+
+slow_query_log_file=/var/lib/mysql/atguigu-slow.log
+</code></pre></div>
+<h3 id="103">10.3 慢查询时间<a class="headerlink" href="#103" title="Permanent link">&para;</a></h3>
+<p>查看当前多少秒算慢<strong>SHOW VARIABLES LIKE 'long_query_time%';</strong></p>
+<p>设置慢的阙值时间<strong>set long_query_time=1</strong>(当前有效)</p>
+<p>那么开启了慢查询日志后，什么样的SQL才会记录到慢查询日志里面呢？假如运行时间正好等于long_query_time的情况，并不会被记录下来。也就是说，在mysql源码里是判断<strong>大于long_query_time</strong>，而非大于等于。</p>
+<h3 id="104">10.4 慢查询实战<a class="headerlink" href="#104" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>set global slow_query_log=1;
+set long_query_time=0.5
+CALL proc_drop_index(&quot;mydb&quot;,&quot;emp&quot;);
+CALL proc_drop_index(&quot;mydb&quot;,&quot;dept&quot;);
+#快
+SELECT SQL_NO_CACHE * FROM emp WHERE emp.age=30 and deptid=4 
+SELECT SQL_NO_CACHE * FROM emp WHERE emp.name LIKE &#39;abc%&#39;
+#慢
+SELECT SQL_NO_CACHE c.`name`,c.`age`,aa.age FROM emp c INNER JOIN(
+    SELECT a.`deptId`,AVG(a.`age`)age FROM emp a
+    WHERE a.`deptId` IS NOT NULL
+    GROUP BY a.`deptId`)aa ON c.`deptId`=aa.deptid 
+WHERE c.`age`&lt; aa.age
+
+SELECT c.`name`,c.`age`,aa.age FROM emp c INNER JOIN(
+        SELECT a.`deptId`,AVG(a.`age`)age FROM emp a
+        WHERE a.`deptId` IS NOT NULL
+        GROUP BY a.`deptId`)aa ON c.`deptId`=aa.deptid 
+WHERE c.`age`&lt; aa.age
+
+SELECT SQL_NO_CACHE c.`name`,ab.name ceoname FROM emp c LEFT JOIN 
+(SELECT a.`name`,b.`id` FROM emp a 
+INNER JOIN dept b ON b.ceo= a.id)ab
+ON c.`deptId`= ab.id;
+</code></pre></div>
+<h3 id="105">10.5  慢查询日志分析工具<a class="headerlink" href="#105" title="Permanent link">&para;</a></h3>
+<p>mysqldumpslow --help</p>
+<p>工作常用参考</p>
+<p>得到返回记录集最多的10个SQL</p>
+<div class="highlight"><pre><span></span><code>mysqldumpslow -s r -t 10 /var/lib/mysql/atguigu-slow.log
+</code></pre></div>
+<p>得到访问次数最多的10个SQL</p>
+<div class="highlight"><pre><span></span><code>mysqldumpslow -s c -t 10 /var/lib/mysql/atguigu-slow.log
+</code></pre></div>
+<p>得到按照时间排序的前10条里面含有左连接的查询语句</p>
+<div class="highlight"><pre><span></span><code>mysqldumpslow -s t -t 10 -g &quot;left join&quot; /var/lib/mysql/atguigu-slow.log
+</code></pre></div>
+<p>另外建议在使用这些命令时结合|和more使用，否则有可能出现爆屏情况</p>
+<div class="highlight"><pre><span></span><code>mysqldumpslow -s r -t 10 /var/lib/mysql/atguigu-slow.log | more
+</code></pre></div>
+<h3 id="106-show-processlist">10.6 SHOW PROCESSLIST<a class="headerlink" href="#106-show-processlist" title="Permanent link">&para;</a></h3>
+<p>可以看到系统的一些连接情况</p>
+<div class="highlight"><pre><span></span><code>mysql -uroot -p123 -P3306 -h127.0.0.1
+</code></pre></div>
+<p><img alt="1608012841070" src="../MySQL%E9%AB%98%E7%BA%A7.assets/1608020843727.png" /></p>
+<h2 id="11">第11章  视图<a class="headerlink" href="#11" title="Permanent link">&para;</a></h2>
+<p>将一段查询sql封装为一个虚拟的表, 这个虚拟表只保存了sql逻辑，不会保存任何查询结果。</p>
+<h3 id="111_1">11.1 语法<a class="headerlink" href="#111_1" title="Permanent link">&para;</a></h3>
+<p>创建</p>
+<div class="highlight"><pre><span></span><code>CREATE VIEW view_deptName as SELECT b.`deptName`,
+
+IF (AVG(a.age)&gt;50,&#39;老鸟&#39;,&#39;菜鸟&#39;)&#39;老鸟or菜鸟&#39;
+
+FROM t_emp a
+
+INNER JOIN t_dept b ON a.`deptId`= b.`id`
+
+GROUP BY b.`id` ,b.`deptName`
+</code></pre></div>
+<p>查询 </p>
+<div class="highlight"><pre><span></span><code>select * from view_deptName; 
+</code></pre></div>
+<p>更新</p>
+<div class="highlight"><pre><span></span><code>CREATE OR REPLACE VIEW view_deptName as SELECT b.`deptName`,
+
+IF (AVG(a.age)&gt;50,&#39;老鸟&#39;,&#39;菜鸟&#39;)&#39;老鸟or菜鸟&#39;
+
+FROM t_emp a
+
+INNER JOIN t_dept b ON a.`deptId`= b.`id`
+
+GROUP BY b.`id` ,b.`deptName`
+</code></pre></div>
+<h3 id="112-55">11.2 注意事项(适用5.5)<a class="headerlink" href="#112-55" title="Permanent link">&para;</a></h3>
+<p>mysql的视图中不允许有from后面的子查询，但oracle可以</p>
+
+              
+			  <hr><span id="busuanzi_container_page_pv"><font size="3" color="grey">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</font></span><br/>
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../../jvm/jvm/" class="md-footer__link md-footer__link--prev" aria-label="Previous: jvm" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              jvm
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../MySQL%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/" class="md-footer__link md-footer__link--next" aria-label="Next: MySQL主从复制" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              MySQL主从复制
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 尚硅谷
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tabs", "navigation.tabs.sticky"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.1514a9a0.min.js"></script>
+      
+        <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+      
+    
+  </body>
+</html>
